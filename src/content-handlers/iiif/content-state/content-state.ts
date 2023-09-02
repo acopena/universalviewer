@@ -116,7 +116,9 @@ export function parseContentState(
 }
 
 export function encodeContentState(state: string): string {
+  console.log('encodeContentState');
   const uriEncoded = encodeURIComponent(state); // using built in function
+  console.log(uriEncoded);
   const base64 =
     typeof btoa === "undefined"
       ? Buffer.from(uriEncoded, "utf-8").toString("base64")
@@ -126,6 +128,7 @@ export function encodeContentState(state: string): string {
 }
 
 export function decodeContentState(encodedContentState: string): string {
+  console.log('decodeContentState');
   const base64url = restorePadding(encodedContentState);
   const base64 = base64url.replace(/-/g, "+").replace(/_/g, "/");
   const base64Decoded =

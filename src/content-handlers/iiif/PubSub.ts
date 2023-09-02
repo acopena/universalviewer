@@ -8,9 +8,11 @@ export class PubSub {
   constructor() {}
 
   public publish(name: string, args?: any, extra?: any) {
+    
     const handlers: EventHandler[] = this.events[name];
     if (handlers) {
       handlers.forEach((handler) => {
+        console.log(handler);
         handler.call(this, args, extra);
       });
     }

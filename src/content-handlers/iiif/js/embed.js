@@ -84,6 +84,7 @@ docReady(function() {
     }
     //get the part preceding 'lib/embed.js'
     var baseUri = (/(.*)lib\/embed.js/).exec(scriptUri)[1];
+    console.log(baseUri);
     appUri = baseUri + 'uv.html';
     var a = document.createElement('a');
     a.href = absScriptUri;
@@ -104,7 +105,6 @@ docReady(function() {
         var manifestUrl = z;
 
         var fullUrl = appUri + '#?manifest=' + manifestUrl + '&c=' + ci + '&m=' + mi + '&s=' + si + '&cv=' + cvi + '&config=' + cfg + '&locales=' + dl;
-
         var iframe = document.createElement('iframe');
         iframe.src = fullUrl;
         iframe.width = ud.style.width;

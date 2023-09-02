@@ -271,6 +271,7 @@ export class ThumbsView extends BaseView {
               that.config.options.thumbsCacheInvalidation.paramType
             }t=${Dates.getTimeStamp()}`;
           }
+          console.log(src);
           const $img: JQuery = $('<img src="' + src + '" alt=""/>');
           // fade in on load.
           $img.hide();

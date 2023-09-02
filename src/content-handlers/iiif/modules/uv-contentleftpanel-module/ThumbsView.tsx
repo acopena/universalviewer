@@ -26,6 +26,7 @@ const ThumbImage = ({
   });
 
   return (
+    
     <div
       onClick={() => onClick(thumb)}
       className={cx("thumb", {
@@ -76,7 +77,11 @@ const Thumbnails = ({
   viewingDirection: ViewingDirection;
 }) => {
   const ref = useRef<HTMLDivElement | null>(null);
+  
+  console.log('base URI:' + ref.current?.baseURI);
+ 
 
+  
   useEffect(() => {
     const thumb = ref.current?.querySelector(`#thumb-${selected[0]}`);
     thumb?.scrollIntoView({

@@ -1,11 +1,13 @@
 const $ = require("jquery");
+import { sanitize } from "../../../../Utils";
+import { UriLabeller } from "@iiif/manifold";
 import { createElement } from "react";
 import { createRoot, Root } from "react-dom/client";
 import ThumbsView from "./ThumbsView";
 const ViewingDirectionEnum = require("@iiif/vocabulary/dist-commonjs/")
   .ViewingDirection;
 const ViewingHintEnum = require("@iiif/vocabulary/dist-commonjs/").ViewingHint;
-import { Bools } from "@edsilv/utils";
+import { Bools, Urls } from "@edsilv/utils";
 import { ViewingHint, ViewingDirection } from "@iiif/vocabulary/dist-commonjs/";
 import { IIIFEvents } from "../../IIIFEvents";
 import { GalleryView } from "./GalleryView";
@@ -14,16 +16,18 @@ import { LeftPanel } from "../uv-shared-module/LeftPanel";
 import { Mode } from "../../extensions/uv-openseadragon-extension/Mode";
 import { TreeView } from "./TreeView";
 import {
-  LanguageMap,
   Thumb,
   TreeNode,
-  TreeNodeType,
   Range,
 } from "manifesto.js";
 import { AnnotationGroup, TreeSortType } from "@iiif/manifold";
+import { MetadataComponent, LimitType } from "@iiif/iiif-metadata-component";
 import { isVisible } from "../../../../Utils";
 
 export class ContentLeftPanel extends LeftPanel {
+  metadataComponent: any;
+  $metadata: JQuery;
+
   $bottomOptions: JQuery;
   $galleryView: JQuery;
   $leftOptions: JQuery;
@@ -36,6 +40,11 @@ export class ContentLeftPanel extends LeftPanel {
   $tabs: JQuery;
   $tabsContent: JQuery;
   $thumbsButton: JQuery;
+
+  $detailsTabButton: JQuery;
+  $downloadButton: JQuery;
+  $detailsView: JQuery;
+
   $thumbsView: JQuery;
   $topOptions: JQuery;
   $treeButton: JQuery;
@@ -47,6 +56,7 @@ export class ContentLeftPanel extends LeftPanel {
   galleryView: GalleryView;
   isThumbsViewOpen: boolean = false;
   isTreeViewOpen: boolean = false;
+  isDetailsViewOpen: boolean = false;
   treeData: TreeNode;
   treeSortType: TreeSortType = TreeSortType.NONE;
   treeView: TreeView;
@@ -60,7 +70,15 @@ export class ContentLeftPanel extends LeftPanel {
     this.setConfig("contentLeftPanel");
 
     super.create();
+    //For moreinfo
+    this.extensionHost.subscribe(IIIFEvents.CANVAS_INDEX_CHANGE, () => {
+      this.databind();
+    });
 
+    this.extensionHost.subscribe(IIIFEvents.RANGE_CHANGE, () => {
+      this.databind();
+    });
+    //*** */
     this.extensionHost.subscribe(IIIFEvents.SETTINGS_CHANGE, () => {
       this.render();
     });
@@ -79,6 +97,10 @@ export class ContentLeftPanel extends LeftPanel {
           this.collapseFull();
         }
       }
+    });
+
+    this.extensionHost.subscribe(IIIFEvents.SETTINGS_CHANGE, () => {
+      this.updateDownloadButton();
     });
 
     this.extensionHost.subscribe(IIIFEvents.ANNOTATIONS, () => {
@@ -101,8 +123,8 @@ export class ContentLeftPanel extends LeftPanel {
         this.collapseFull();
       }
 
-      this.selectCurrentTreeNode();
-      this.updateTreeTabBySelection();
+      // this.selectCurrentTreeNode();
+      // this.updateTreeTabBySelection();
     });
 
     this.extensionHost.subscribe(IIIFEvents.RANGE_CHANGE, () => {
@@ -110,8 +132,8 @@ export class ContentLeftPanel extends LeftPanel {
         this.collapseFull();
       }
 
-      this.selectCurrentTreeNode();
-      this.updateTreeTabBySelection();
+      // this.selectCurrentTreeNode();
+      // this.updateTreeTabBySelection();
     });
 
     // this.extensionHost.subscribe(
@@ -121,18 +143,30 @@ export class ContentLeftPanel extends LeftPanel {
     //   }
     // );
 
+    this.$downloadButton = $(`
+        <button class="download btn imageBtn" title="${this.content.download}" id="download-btn">
+          <i class="uv-icon uv-icon-download" aria-hidden="true"></i>
+          <span class="sr-only">${this.content.download}</span>
+        </button>
+      `);
+    this.$main.append(this.$downloadButton);
     this.$tabs = $('<div class="tabs"></div>');
     this.$main.append(this.$tabs);
 
-    this.$treeButton = $(
-      '<a class="index tab" tabindex="0">' + this.content.index + "</a>"
-    );
+    // this.$treeButton = $(
+    //   '<a class="index tab" tabindex="0">' + this.content.index + "</a>"
+    // );
     this.$tabs.append(this.$treeButton);
 
     this.$thumbsButton = $(
-      '<a class="thumbs tab" tabindex="0">' + this.content.thumbnails + "</a>"
+      '<a class="thumbs tab on" tabindex="0">' + this.content.thumbnails + "</a>"
     );
     this.$tabs.append(this.$thumbsButton);
+
+    this.$detailsTabButton = $(
+      '<a class="details tab" tabindex="0">' + this.content.details + "</a>"
+    );
+    this.$tabs.append(this.$detailsTabButton);
 
     this.$tabsContent = $('<div class="tabsContent"></div>');
     this.$main.append(this.$tabsContent);
@@ -143,10 +177,10 @@ export class ContentLeftPanel extends LeftPanel {
     this.$topOptions = $('<div class="top"></div>');
     this.$options.append(this.$topOptions);
 
-    this.$treeSelect = $(
-      '<select aria-label="' + this.content.manifestRanges + '"></select>'
-    );
-    this.$topOptions.append(this.$treeSelect);
+    // this.$treeSelect = $(
+    //   '<select aria-label="' + this.content.manifestRanges + '"></select>'
+    // );
+    // this.$topOptions.append(this.$treeSelect);
 
     this.$bottomOptions = $('<div class="bottom"></div>');
     this.$options.append(this.$bottomOptions);
@@ -157,32 +191,32 @@ export class ContentLeftPanel extends LeftPanel {
     this.$rightOptions = $('<div class="right"></div>');
     this.$bottomOptions.append(this.$rightOptions);
 
-    this.$treeViewOptions = $('<div class="treeView"></div>');
-    this.$leftOptions.append(this.$treeViewOptions);
+    // this.$treeViewOptions = $('<div class="treeView"></div>');
+    // this.$leftOptions.append(this.$treeViewOptions);
 
-    this.$sortByLabel = $(
-      '<span class="sort">' + this.content.sortBy + "</span>"
-    );
-    this.$treeViewOptions.append(this.$sortByLabel);
+    // this.$sortByLabel = $(
+    //   '<span class="sort">' + this.content.sortBy + "</span>"
+    // );
+    // this.$treeViewOptions.append(this.$sortByLabel);
 
-    this.$sortButtonGroup = $('<div class="btn-group"></div>');
-    this.$treeViewOptions.append(this.$sortButtonGroup);
+    // this.$sortButtonGroup = $('<div class="btn-group"></div>');
+    // this.$treeViewOptions.append(this.$sortButtonGroup);
 
-    this.$sortByDateButton = $(
-      '<button class="btn" tabindex="0">' + this.content.date + "</button>"
-    );
-    this.$sortButtonGroup.append(this.$sortByDateButton);
+    // this.$sortByDateButton = $(
+    //   '<button class="btn" tabindex="0">' + this.content.date + "</button>"
+    // );
+    // this.$sortButtonGroup.append(this.$sortByDateButton);
 
-    this.$sortByVolumeButton = $(
-      '<button class="btn" tabindex="0">' + this.content.volume + "</button>"
-    );
-    this.$sortButtonGroup.append(this.$sortByVolumeButton);
+    // this.$sortByVolumeButton = $(
+    //   '<button class="btn" tabindex="0">' + this.content.volume + "</button>"
+    // );
+    // this.$sortButtonGroup.append(this.$sortByVolumeButton);
 
     this.$views = $('<div class="views"></div>');
     this.$tabsContent.append(this.$views);
 
-    this.$treeView = $('<div class="treeView"></div>');
-    this.$views.append(this.$treeView);
+    // this.$treeView = $('<div class="treeView"></div>');
+    // this.$views.append(this.$treeView);
 
     this.$thumbsView = $('<div class="thumbsView" tabindex="-1"></div>');
     this.$views.append(this.$thumbsView);
@@ -190,35 +224,59 @@ export class ContentLeftPanel extends LeftPanel {
     this.$galleryView = $('<div class="galleryView"></div>');
     this.$views.append(this.$galleryView);
 
-    this.$treeSelect.hide();
+    this.$detailsView = $(
+      '<div class="detailsView"></div>'
+    );
+    this.$views.append(this.$detailsView);
 
-    this.$treeSelect.change(() => {
-      this.renderTree();
-      this.selectCurrentTreeNode();
-      this.updateTreeTabBySelection();
+    this.$metadata = $('<div class="iiif-metadata-component"></div>');
+    this.$detailsView.append(this.$metadata);
+
+    this.metadataComponent = new MetadataComponent({
+      target: <HTMLElement>this.$metadata[0],
+      data: this._getData(),
     });
 
-    this.$sortByDateButton.on("click", () => {
-      this.sortByDate();
+    this.$downloadButton.onPressed(() => {
+      this.extensionHost.publish(
+        IIIFEvents.SHOW_DOWNLOAD_DIALOGUE,
+        this.$downloadButton
+      );
     });
+    this.openThumbsView();
 
-    this.$sortByVolumeButton.on("click", () => {
-      this.sortByVolume();
-    });
+    // this.$treeSelect.hide();
 
-    this.$treeViewOptions.hide();
+    // this.$treeSelect.change(() => {
+    //   this.renderTree();
+    //   this.selectCurrentTreeNode();
+    //   this.updateTreeTabBySelection();
+    // });
 
-    this.onAccessibleClick(this.$treeButton, () => {
-      this.openTreeView();
-    });
+    // this.$sortByDateButton.on("click", () => {
+    //   this.sortByDate();
+    // });
+
+    // this.$sortByVolumeButton.on("click", () => {
+    //   this.sortByVolume();
+    // });
+
+    // this.$treeViewOptions.hide();
+
+    // this.onAccessibleClick(this.$treeButton, () => {
+    //   this.openTreeView();
+    // });
 
     this.onAccessibleClick(this.$thumbsButton, () => {
       this.openThumbsView();
     });
+    this.onAccessibleClick(this.$detailsTabButton, () => {
+      this.openDetailsView();
+    });
 
     this.setTitle(this.content.title);
 
-    this.$sortByVolumeButton.addClass("on");
+    //this.$sortByVolumeButton.addClass("on");
 
     var tabOrderConfig: string = this.options.tabOrder;
 
@@ -232,8 +290,109 @@ export class ContentLeftPanel extends LeftPanel {
         this.$treeButton.before(this.$thumbsButton);
         this.$thumbsButton.addClass("first");
       } else {
-        this.$treeButton.addClass("first");
+        //this.$treeButton.addClass("first");
+        this.$detailsTabButton.addClass("first");
       }
+    }
+
+    this.metadataComponent.on(
+      "iiifViewerLinkClicked",
+      (href: string) => {
+        // Range change.
+        const rangeId: string | null = Urls.getHashParameterFromString(
+          "rid",
+          href
+        );
+        // Time change.
+        const time: string | null = Urls.getHashParameterFromString(
+          "t",
+          href
+        );
+
+        if (rangeId && time === null) {
+          const range: Range | null = this.extension.helper.getRangeById(
+            rangeId
+          );
+
+          if (range) {
+            this.extensionHost.publish(IIIFEvents.RANGE_CHANGE, range);
+          }
+        }
+
+        if (time !== null) {
+          const timeAsNumber = Number(time);
+          if (!Number.isNaN(timeAsNumber)) {
+
+            if (rangeId) {
+              // We want to make the time change RELATIVE to the start of the range.
+              const range: Range | null = this.extension.helper.getRangeById(
+                rangeId
+              );
+              if (range) {
+                this.extensionHost.publish(IIIFEvents.RANGE_TIME_CHANGE, { rangeId: range.id, time: timeAsNumber });
+              }
+            } else {
+              this.extensionHost.publish(IIIFEvents.CURRENT_TIME_CHANGE, timeAsNumber);
+            }
+          }
+        }
+      },
+      false
+    );
+
+  }
+  //Data bind for Metadata
+  databind(): void {
+    this.metadataComponent.set(this._getData());
+  }
+  private _getData() {
+    const canvases = this.extension.getCurrentCanvases();
+
+
+    return {
+      canvasDisplayOrder: this.config.options.canvasDisplayOrder,
+      canvases: canvases,
+      canvasExclude: this.config.options.canvasExclude,
+      canvasLabels: this.extension.getCanvasLabels(this.content.page),
+      content: this.config.content,
+      copiedMessageDuration: 2000,
+      copyToClipboardEnabled: Bools.getBool(
+        this.config.options.copyToClipboardEnabled,
+        false
+      ),
+      helper: this.extension.helper,
+      licenseFormatter: new UriLabeller(
+        this.config.license ? this.config.license : {}
+      ),
+      limit: this.config.options.textLimit || 4,
+      limitType: LimitType.LINES,
+      limitToRange: Bools.getBool(this.config.options.limitToRange, false),
+      manifestDisplayOrder: this.config.options.manifestDisplayOrder,
+      manifestExclude: this.config.options.manifestExclude,
+      range: this._getCurrentRange(),
+      rtlLanguageCodes: this.config.options.rtlLanguageCodes,
+      sanitizer: (html: string) => {
+        return sanitize(html);
+      },
+      showAllLanguages: this.config.options.showAllLanguages,
+    };
+  }
+
+  private _getCurrentRange(): Range | null {
+    const range: Range | null = this.extension.helper.getCurrentRange();
+    return range;
+  }
+
+  updateDownloadButton(): void {
+    const configEnabled: boolean = Bools.getBool(
+      this.options.downloadEnabled,
+      true
+    );
+
+    if (configEnabled) {
+      this.$downloadButton.show();
+    } else {
+      this.$downloadButton.hide();
     }
   }
 
@@ -245,177 +404,177 @@ export class ContentLeftPanel extends LeftPanel {
   //   );
   // }
 
-  createTreeView(): void {
-    this.treeView = new TreeView(this.$treeView);
-    this.treeView.treeData = this.getTreeData();
-    this.treeView.setup();
-    this.renderTree();
+  // createTreeView(): void {
+  //   this.treeView = new TreeView(this.$treeView);
+  //   this.treeView.treeData = this.getTreeData();
+  //   this.treeView.setup();
+  //   this.renderTree();
 
-    // populate the tree select drop down when there are multiple top-level ranges
-    const topRanges: Range[] = this.extension.helper.getTopRanges();
+  //   // populate the tree select drop down when there are multiple top-level ranges
+  //   const topRanges: Range[] = this.extension.helper.getTopRanges();
 
-    if (topRanges.length > 1) {
-      for (let i = 0; i < topRanges.length; i++) {
-        const range: Range = topRanges[i];
-        this.$treeSelect.append(
-          '<option value="' +
-            range.id +
-            '">' +
-            LanguageMap.getValue(range.getLabel()) +
-            "</option>"
-        );
-      }
-    }
+  //   if (topRanges.length > 1) {
+  //     for (let i = 0; i < topRanges.length; i++) {
+  //       const range: Range = topRanges[i];
+  //       this.$treeSelect.append(
+  //         '<option value="' +
+  //           range.id +
+  //           '">' +
+  //           LanguageMap.getValue(range.getLabel()) +
+  //           "</option>"
+  //       );
+  //     }
+  //   }
 
-    this.updateTreeViewOptions();
-  }
+  //   this.updateTreeViewOptions();
+  // }
 
   render(): void {
     this.renderThumbs();
-    this.renderTree();
+    //this.renderTree();
     this.renderGallery();
   }
 
-  updateTreeViewOptions(): void {
-    const treeData: TreeNode | null = this.getTree();
+  // updateTreeViewOptions(): void {
+  //   const treeData: TreeNode | null = this.getTree();
 
-    if (!treeData) {
-      return;
-    }
+  //   if (!treeData) {
+  //     return;
+  //   }
 
-    if (
-      this.isCollection() &&
-      this.extension.helper.treeHasNavDates(treeData)
-    ) {
-      this.$treeViewOptions.show();
-    } else {
-      this.$treeViewOptions.hide();
-    }
+  //   if (
+  //     this.isCollection() &&
+  //     this.extension.helper.treeHasNavDates(treeData)
+  //   ) {
+  //     this.$treeViewOptions.show();
+  //   } else {
+  //     this.$treeViewOptions.hide();
+  //   }
 
-    if (this.$treeSelect.find("option").length) {
-      this.$treeSelect.show();
-    } else {
-      this.$treeSelect.hide();
-    }
-  }
+  //   if (this.$treeSelect.find("option").length) {
+  //     this.$treeSelect.show();
+  //   } else {
+  //     this.$treeSelect.hide();
+  //   }
+  // }
 
-  sortByDate(): void {
-    this.treeSortType = TreeSortType.DATE;
-    this.treeView.treeData = this.getTreeData();
-    this.treeView.databind();
-    this.selectCurrentTreeNode();
-    this.$sortByDateButton.addClass("on");
-    this.$sortByVolumeButton.removeClass("on");
-    this.resize();
-  }
+  // sortByDate(): void {
+  //   this.treeSortType = TreeSortType.DATE;
+  //   this.treeView.treeData = this.getTreeData();
+  //   this.treeView.databind();
+  //   this.selectCurrentTreeNode();
+  //   this.$sortByDateButton.addClass("on");
+  //   this.$sortByVolumeButton.removeClass("on");
+  //   this.resize();
+  // }
 
-  sortByVolume(): void {
-    this.treeSortType = TreeSortType.NONE;
-    this.treeView.treeData = this.getTreeData();
-    this.treeView.databind();
-    this.selectCurrentTreeNode();
-    this.$sortByDateButton.removeClass("on");
-    this.$sortByVolumeButton.addClass("on");
-    this.resize();
-  }
+  // sortByVolume(): void {
+  //   this.treeSortType = TreeSortType.NONE;
+  //   this.treeView.treeData = this.getTreeData();
+  //   this.treeView.databind();
+  //   this.selectCurrentTreeNode();
+  //   this.$sortByDateButton.removeClass("on");
+  //   this.$sortByVolumeButton.addClass("on");
+  //   this.resize();
+  // }
 
-  isCollection(): boolean {
-    var treeData: TreeNode | null = this.getTree();
+  // isCollection(): boolean {
+  //   var treeData: TreeNode | null = this.getTree();
 
-    if (treeData) {
-      return treeData.data.type === TreeNodeType.COLLECTION;
-    }
+  //   if (treeData) {
+  //     return treeData.data.type === TreeNodeType.COLLECTION;
+  //   }
 
-    throw new Error("Tree not available");
-  }
+  //   throw new Error("Tree not available");
+  // }
 
-  renderTree(): void {
-    if (!this.treeView) return;
-    this.treeView.treeData = this.getTreeData();
-    this.treeView.databind();
-    this.selectCurrentTreeNode();
-  }
+  // renderTree(): void {
+  //   if (!this.treeView) return;
+  //   this.treeView.treeData = this.getTreeData();
+  //   this.treeView.databind();
+  //   this.selectCurrentTreeNode();
+  // }
 
-  getTreeData() {
-    return {
-      autoExpand: this._isTreeAutoExpanded(),
-      branchNodesExpandOnClick: Bools.getBool(
-        this.config.options.branchNodesExpandOnClick,
-        true
-      ),
-      branchNodesSelectable: Bools.getBool(
-        this.config.options.branchNodesSelectable,
-        false
-      ),
-      helper: this.extension.helper,
-      topRangeIndex: this.getSelectedTopRangeIndex(),
-      treeSortType: this.treeSortType,
-    };
-  }
+  // getTreeData() {
+  //   return {
+  //     autoExpand: this._isTreeAutoExpanded(),
+  //     branchNodesExpandOnClick: Bools.getBool(
+  //       this.config.options.branchNodesExpandOnClick,
+  //       true
+  //     ),
+  //     branchNodesSelectable: Bools.getBool(
+  //       this.config.options.branchNodesSelectable,
+  //       false
+  //     ),
+  //     helper: this.extension.helper,
+  //     topRangeIndex: this.getSelectedTopRangeIndex(),
+  //     treeSortType: this.treeSortType,
+  //   };
+  // }
 
-  private _isTreeAutoExpanded(): boolean {
-    const autoExpandTreeEnabled: boolean = Bools.getBool(
-      this.config.options.autoExpandTreeEnabled,
-      false
-    );
-    const autoExpandTreeIfFewerThan: number =
-      this.config.options.autoExpandTreeIfFewerThan || 0;
+  // private _isTreeAutoExpanded(): boolean {
+  //   const autoExpandTreeEnabled: boolean = Bools.getBool(
+  //     this.config.options.autoExpandTreeEnabled,
+  //     false
+  //   );
+  //   const autoExpandTreeIfFewerThan: number =
+  //     this.config.options.autoExpandTreeIfFewerThan || 0;
 
-    if (autoExpandTreeEnabled) {
-      // get total number of tree nodes
-      const flatTree:
-        | TreeNode[]
-        | null = this.extension.helper.getFlattenedTree();
+  //   if (autoExpandTreeEnabled) {
+  //     // get total number of tree nodes
+  //     const flatTree:
+  //       | TreeNode[]
+  //       | null = this.extension.helper.getFlattenedTree();
 
-      if (flatTree && flatTree.length < autoExpandTreeIfFewerThan) {
-        return true;
-      }
-    }
+  //     if (flatTree && flatTree.length < autoExpandTreeIfFewerThan) {
+  //       return true;
+  //     }
+  //   }
 
-    return false;
-  }
+  //   return false;
+  // }
 
-  updateTreeTabByCanvasIndex(): void {
-    // update tab to current top range label (if there is one)
-    const topRanges: Range[] = this.extension.helper.getTopRanges();
-    if (topRanges.length > 1) {
-      const index: number = this.getCurrentCanvasTopRangeIndex();
+  // updateTreeTabByCanvasIndex(): void {
+  //   // update tab to current top range label (if there is one)
+  //   const topRanges: Range[] = this.extension.helper.getTopRanges();
+  //   if (topRanges.length > 1) {
+  //     const index: number = this.getCurrentCanvasTopRangeIndex();
 
-      if (index === -1) {
-        return;
-      }
+  //     if (index === -1) {
+  //       return;
+  //     }
 
-      const currentRange: Range = topRanges[index];
-      this.setTreeTabTitle(
-        <string>LanguageMap.getValue(currentRange.getLabel())
-      );
-    } else {
-      this.setTreeTabTitle(this.content.index);
-    }
-  }
+  //     const currentRange: Range = topRanges[index];
+  //     this.setTreeTabTitle(
+  //       <string>LanguageMap.getValue(currentRange.getLabel())
+  //     );
+  //   } else {
+  //     this.setTreeTabTitle(this.content.index);
+  //   }
+  // }
 
-  setTreeTabTitle(title: string): void {
-    this.$treeButton.text(title);
-  }
+  // setTreeTabTitle(title: string): void {
+  //   this.$treeButton.text(title);
+  // }
 
-  updateTreeTabBySelection(): void {
-    let title: string | null = null;
-    const topRanges: Range[] = this.extension.helper.getTopRanges();
+  // updateTreeTabBySelection(): void {
+  //   let title: string | null = null;
+  //   const topRanges: Range[] = this.extension.helper.getTopRanges();
 
-    if (topRanges.length > 1) {
-      if (this.treeView) {
-        title = this.getSelectedTree().text();
-      } else {
-        title = LanguageMap.getValue(topRanges[0].getLabel());
-      }
-    }
+  //   if (topRanges.length > 1) {
+  //     if (this.treeView) {
+  //       title = this.getSelectedTree().text();
+  //     } else {
+  //       title = LanguageMap.getValue(topRanges[0].getLabel());
+  //     }
+  //   }
 
-    if (title) {
-      this.setTreeTabTitle(title);
-    } else {
-      this.setTreeTabTitle(this.content.index);
-    }
-  }
+  //   if (title) {
+  //     this.setTreeTabTitle(title);
+  //   } else {
+  //     this.setTreeTabTitle(this.content.index);
+  //   }
+  // }
 
   getViewingHint(): ViewingHint | null {
     return this.extension.helper.getViewingHint();
@@ -427,7 +586,7 @@ export class ContentLeftPanel extends LeftPanel {
 
   createThumbsRoot(): void {
     if (!this.thumbsRoot) {
-      this.thumbsRoot = createRoot(this.$thumbsView[0]);
+      this.thumbsRoot = createRoot(this.$thumbsView[0]);    
     }
     this.renderThumbs();
   }
@@ -459,7 +618,7 @@ export class ContentLeftPanel extends LeftPanel {
     const thumbs: Thumb[] = <Thumb[]>(
       this.extension.helper.getThumbs(width, height)
     );
-
+   
     if (
       viewingDirection &&
       viewingDirection === ViewingDirectionEnum.BOTTOM_TO_TOP
@@ -486,6 +645,7 @@ export class ContentLeftPanel extends LeftPanel {
           let data = Object.assign({}, thumb.data);
           data.searchResults = searchResult.rects.length;
           thumb.data = data;
+          console.log(thumb.data);
         }
       }
     }
@@ -504,7 +664,7 @@ export class ContentLeftPanel extends LeftPanel {
         paged,
         viewingDirection: viewingDirection || ViewingDirection.LEFT_TO_RIGHT,
         selected: selectedIndices,
-        onClick: (thumb: Thumb) => {
+        onClick: (thumb: Thumb) => {       
           this.extensionHost.publish(IIIFEvents.THUMB_SELECTED, thumb);
         },
       })
@@ -554,77 +714,77 @@ export class ContentLeftPanel extends LeftPanel {
       return (
         Bools.getBool(this.config.options.pageModeEnabled, true) &&
         (<OpenSeadragonExtension>this.extension).getMode().toString() ===
-          Mode.page.toString()
+        Mode.page.toString()
       );
     }
     return Bools.getBool(this.config.options.pageModeEnabled, true);
   }
 
-  getSelectedTree(): JQuery {
-    return this.$treeSelect.find(":selected");
-  }
+  // getSelectedTree(): JQuery {
+  //   return this.$treeSelect.find(":selected");
+  // }
 
-  getSelectedTopRangeIndex(): number {
-    let topRangeIndex: number = this.getSelectedTree().index();
-    if (topRangeIndex === -1) {
-      topRangeIndex = 0;
-    }
-    return topRangeIndex;
-  }
+  // getSelectedTopRangeIndex(): number {
+  //   let topRangeIndex: number = this.getSelectedTree().index();
+  //   if (topRangeIndex === -1) {
+  //     topRangeIndex = 0;
+  //   }
+  //   return topRangeIndex;
+  // }
 
-  getTree(): TreeNode | null {
-    const topRangeIndex: number = this.getSelectedTopRangeIndex();
-    return this.extension.helper.getTree(topRangeIndex, TreeSortType.NONE);
-  }
+  // getTree(): TreeNode | null {
+  //   const topRangeIndex: number = this.getSelectedTopRangeIndex();
+  //   return this.extension.helper.getTree(topRangeIndex, TreeSortType.NONE);
+  // }
 
-  toggleFinish(): void {
-    super.toggleFinish();
+  // toggleFinish(): void {
+  //   super.toggleFinish();
 
-    if (this.isUnopened) {
-      let treeEnabled: boolean = Bools.getBool(
-        this.config.options.treeEnabled,
-        true
-      );
-      const thumbsEnabled: boolean = Bools.getBool(
-        this.config.options.thumbsEnabled,
-        true
-      );
+  //   if (this.isUnopened) {
+  //     let treeEnabled: boolean = Bools.getBool(
+  //       this.config.options.treeEnabled,
+  //       true
+  //     );
+  //     const thumbsEnabled: boolean = Bools.getBool(
+  //       this.config.options.thumbsEnabled,
+  //       true
+  //     );
 
-      const treeData: TreeNode | null = this.getTree();
+  //     const treeData: TreeNode | null = this.getTree();
 
-      if (!treeData || !treeData.nodes.length) {
-        treeEnabled = false;
-      }
+  //     if (!treeData || !treeData.nodes.length) {
+  //       treeEnabled = false;
+  //     }
 
-      // hide the tabs if either tree or thumbs are disabled
-      if (!treeEnabled || !thumbsEnabled) this.$tabs.hide();
+  //     // hide the tabs if either tree or thumbs are disabled
+  //     if (!treeEnabled || !thumbsEnabled) this.$tabs.hide();
 
-      if (thumbsEnabled && this.defaultToThumbsView()) {
-        this.openThumbsView();
-      } else if (treeEnabled) {
-        this.openTreeView();
-      }
-    }
-  }
+  //     if (thumbsEnabled && this.defaultToThumbsView()) {
+  //       this.openThumbsView();
+  //     } else if (treeEnabled) {
+  //       this.openTreeView();
+  //     }
+  //   }
+  // }
 
-  defaultToThumbsView(): boolean {
-    const defaultToTreeEnabled: boolean = Bools.getBool(
-      this.config.options.defaultToTreeEnabled,
-      false
-    );
-    const defaultToTreeIfGreaterThan: number =
-      this.config.options.defaultToTreeIfGreaterThan || 0;
+  // defaultToThumbsView(): boolean {
+  //   const defaultToTreeEnabled: boolean = Bools.getBool(
+  //     this.config.options.defaultToTreeEnabled,
+  //     false
+  //   );
+  //   const defaultToTreeIfGreaterThan: number =
+  //     this.config.options.defaultToTreeIfGreaterThan || 0;
 
-    const treeData: TreeNode | null = this.getTree();
+  //   const treeData: TreeNode | null = this.getTree();
 
-    if (defaultToTreeEnabled) {
-      if (treeData && treeData.nodes.length > defaultToTreeIfGreaterThan) {
-        return false;
-      }
-    }
+  //   if (defaultToTreeEnabled) {
+  //     if (treeData && treeData.nodes.length > defaultToTreeIfGreaterThan) {
+  //       return false;
+  //     }
+  //   }
 
-    return true;
-  }
+  //   return true;
+  // }
 
   expandFullStart(): void {
     super.expandFullStart();
@@ -634,9 +794,7 @@ export class ContentLeftPanel extends LeftPanel {
   expandFullFinish(): void {
     super.expandFullFinish();
 
-    if (this.$treeButton.hasClass("on")) {
-      this.openTreeView();
-    } else if (this.$thumbsButton.hasClass("on")) {
+    if (this.$thumbsButton.hasClass("on")) {
       this.openThumbsView();
     }
 
@@ -662,36 +820,36 @@ export class ContentLeftPanel extends LeftPanel {
     this.extensionHost.publish(IIIFEvents.LEFTPANEL_COLLAPSE_FULL_FINISH);
   }
 
-  openTreeView(): void {
-    this.isTreeViewOpen = true;
-    this.isThumbsViewOpen = false;
+  // openTreeView(): void {
+  //   this.isTreeViewOpen = true;
+  //   this.isThumbsViewOpen = false;
 
-    if (!this.treeView) {
-      this.createTreeView();
-    }
+  //   if (!this.treeView) {
+  //     this.createTreeView();
+  //   }
 
-    this.$treeButton.addClass("on");
-    this.$thumbsButton.removeClass("on");
+  //   this.$treeButton.addClass("on");
+  //   this.$thumbsButton.removeClass("on");
 
-    this.treeView.show();
+  //   this.treeView.show();
 
-    if (this.$thumbsView) this.$thumbsView.hide();
-    if (this.galleryView) this.galleryView.hide();
+  //   if (this.$thumbsView) this.$thumbsView.hide();
+  //   if (this.galleryView) this.galleryView.hide();
 
-    this.updateTreeViewOptions();
+  //   this.updateTreeViewOptions();
 
-    this.selectCurrentTreeNode();
+  //   this.selectCurrentTreeNode();
 
-    this.resize();
-    this.treeView.resize();
+  //   this.resize();
+  //   this.treeView.resize();
 
-    this.extensionHost.publish(IIIFEvents.OPEN_TREE_VIEW);
-  }
+  //   this.extensionHost.publish(IIIFEvents.OPEN_TREE_VIEW);
+  // }
 
   openThumbsView(): void {
-    this.isTreeViewOpen = false;
+    // this.isTreeViewOpen = false;
     this.isThumbsViewOpen = true;
-
+    this.isDetailsViewOpen = false;
     // if (!this.$thumbsView) {
     this.createThumbsRoot();
     // }
@@ -700,14 +858,15 @@ export class ContentLeftPanel extends LeftPanel {
       this.createGalleryView();
     }
 
-    this.$treeButton.removeClass("on");
+    //this.$treeButton.removeClass("on");
     this.$thumbsButton.addClass("on");
+    this.$detailsTabButton.removeClass("on");
 
-    if (this.treeView) this.treeView.hide();
+    // if (this.treeView) this.treeView.hide();
+    // this.$treeSelect.hide();
+    // this.$treeViewOptions.hide();
 
-    this.$treeSelect.hide();
-    this.$treeViewOptions.hide();
-
+    this.$detailsView.hide();
     this.resize();
 
     if (this.isFullyExpanded) {
@@ -723,9 +882,25 @@ export class ContentLeftPanel extends LeftPanel {
     this.extensionHost.publish(IIIFEvents.OPEN_THUMBS_VIEW);
   }
 
-  selectTopRangeIndex(index: number): void {
-    this.$treeSelect.prop("selectedIndex", index);
+  openDetailsView(): void {
+    //this.isTreeViewOpen = false;
+    this.isThumbsViewOpen = false;
+    this.isDetailsViewOpen = true;
+
+    //this.$treeButton.removeClass("on");
+    this.$thumbsButton.removeClass("on");
+    this.$detailsTabButton.addClass("on");
+    this.$detailsView.show();
+    //this.$treeSelect.hide();
+    //this.$treeViewOptions.hide();
+
+    if (this.$thumbsView) this.$thumbsView.hide();
+    if (this.galleryView) this.galleryView.hide();
   }
+
+  // selectTopRangeIndex(index: number): void {
+  //   this.$treeSelect.prop("selectedIndex", index);
+  // }
 
   getCurrentCanvasTopRangeIndex(): number {
     let topRangeIndex: number = -1;
@@ -739,74 +914,74 @@ export class ContentLeftPanel extends LeftPanel {
     return topRangeIndex;
   }
 
-  selectCurrentTreeNode(): void {
-    // todo: merge selectCurrentTreeNodeByCanvas and selectCurrentTreeNodeByRange
-    // the openseadragon extension should keep track of the current range instead of using canvas index
-    if (this.extension.type?.name === "uv-openseadragon-extension") {
-      this.selectCurrentTreeNodeByCanvas();
-    } else {
-      this.selectCurrentTreeNodeByRange();
-    }
-  }
+  // selectCurrentTreeNode(): void {
+  //   // todo: merge selectCurrentTreeNodeByCanvas and selectCurrentTreeNodeByRange
+  //   // the openseadragon extension should keep track of the current range instead of using canvas index
+  //   if (this.extension.type?.name === "uv-openseadragon-extension") {
+  //     this.selectCurrentTreeNodeByCanvas();
+  //   } else {
+  //     this.selectCurrentTreeNodeByRange();
+  //   }
+  // }
 
-  selectCurrentTreeNodeByRange(): void {
-    if (this.treeView) {
-      const range: Range | null = this.extension.helper.getCurrentRange();
-      let node: TreeNode | null = null;
+  // selectCurrentTreeNodeByRange(): void {
+  //   if (this.treeView) {
+  //     const range: Range | null = this.extension.helper.getCurrentRange();
+  //     let node: TreeNode | null = null;
 
-      if (range && range.treeNode) {
-        node = this.treeView.getNodeById(range.treeNode.id);
-      }
+  //     if (range && range.treeNode) {
+  //       node = this.treeView.getNodeById(range.treeNode.id);
+  //     }
 
-      if (node) {
-        this.treeView.selectNode(<TreeNode>node);
-      } else {
-        this.selectTreeNodeByManifest();
-      }
-    }
-  }
+  //     if (node) {
+  //       this.treeView.selectNode(<TreeNode>node);
+  //     } else {
+  //       this.selectTreeNodeByManifest();
+  //     }
+  //   }
+  // }
 
-  selectCurrentTreeNodeByCanvas(): void {
-    if (this.treeView) {
-      let node: TreeNode | null = null;
-      const currentCanvasTopRangeIndex: number = this.getCurrentCanvasTopRangeIndex();
-      const selectedTopRangeIndex: number = this.getSelectedTopRangeIndex();
-      const usingCorrectTree: boolean =
-        currentCanvasTopRangeIndex === selectedTopRangeIndex;
-      let range: Range | null = null;
+  // selectCurrentTreeNodeByCanvas(): void {
+  //   if (this.treeView) {
+  //     let node: TreeNode | null = null;
+  //     const currentCanvasTopRangeIndex: number = this.getCurrentCanvasTopRangeIndex();
+  //     const selectedTopRangeIndex: number = this.getSelectedTopRangeIndex();
+  //     const usingCorrectTree: boolean =
+  //       currentCanvasTopRangeIndex === selectedTopRangeIndex;
+  //     let range: Range | null = null;
 
-      if (currentCanvasTopRangeIndex !== -1) {
-        range = this.extension.getCurrentCanvasRange();
-        //range = this.extension.helper.getCurrentRange();
+  //     if (currentCanvasTopRangeIndex !== -1) {
+  //       range = this.extension.getCurrentCanvasRange();
+  //       //range = this.extension.helper.getCurrentRange();
 
-        if (range && range.treeNode) {
-          node = this.treeView.getNodeById(range.treeNode.id);
-        }
-      }
+  //       if (range && range.treeNode) {
+  //         node = this.treeView.getNodeById(range.treeNode.id);
+  //       }
+  //     }
 
-      // use manifest root node
-      // if (!node){
-      //     id = this.extension.helper.manifest.defaultTree.id;
-      //     node = this.treeView.getNodeById(id);
-      // }
+  //     // use manifest root node
+  //     // if (!node){
+  //     //     id = this.extension.helper.manifest.defaultTree.id;
+  //     //     node = this.treeView.getNodeById(id);
+  //     // }
 
-      if (node && usingCorrectTree) {
-        this.treeView.selectNode(<TreeNode>node);
-      } else {
-        range = this.extension.helper.getCurrentRange();
+  //     if (node && usingCorrectTree) {
+  //       this.treeView.selectNode(<TreeNode>node);
+  //     } else {
+  //       range = this.extension.helper.getCurrentRange();
 
-        if (range && range.treeNode) {
-          node = this.treeView.getNodeById(range.treeNode.id);
-        }
+  //       if (range && range.treeNode) {
+  //         node = this.treeView.getNodeById(range.treeNode.id);
+  //       }
 
-        if (node) {
-          this.treeView.selectNode(<TreeNode>node);
-        } else {
-          this.selectTreeNodeByManifest();
-        }
-      }
-    }
-  }
+  //       if (node) {
+  //         this.treeView.selectNode(<TreeNode>node);
+  //       } else {
+  //         this.selectTreeNodeByManifest();
+  //       }
+  //     }
+  //   }
+  // }
 
   // fall through to this is there's no current range or canvas
   selectTreeNodeByManifest(): void {
@@ -840,11 +1015,10 @@ export class ContentLeftPanel extends LeftPanel {
 
     this.$tabsContent.height(
       this.$main.height() -
-        (isVisible(this.$tabs) ? this.$tabs.height() : 0) -
-        this.$tabsContent.verticalPadding()
+      (isVisible(this.$tabs) ? this.$tabs.height() : 0) -
+      this.$tabsContent.verticalPadding()
     );
-    this.$views.height(
-      this.$tabsContent.height() - this.$options.outerHeight()
-    );
+    let newHeight = (this.$tabsContent.height() - this.$options.outerHeight() - 40);
+    this.$views.height(newHeight);
   }
 }

@@ -39,7 +39,7 @@ export class Panel {
     withClick = true
   ) {
     if (withClick) {
-      el.on("click", (e) => {
+      el.on("click", (e) => {     
         callback(e);
       });
     }

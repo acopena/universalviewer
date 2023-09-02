@@ -23,7 +23,7 @@ export class URLAdapter extends UVAdapter {
 
   public getFragment(key: string, url: string): string | null {
     const regex = new RegExp("#.*" + key + "=([^&]+)(&|$)");
-    const match = regex.exec(url);
+    const match = regex.exec(url);  
     return match ? decodeURIComponent(match[1].replace(/\+/g, " ")) : null;
   }
 
@@ -41,6 +41,7 @@ export class URLAdapter extends UVAdapter {
   }
 
   public getInitialData(overrides?: IUVData): IUVData {
+
     const formattedLocales: Array<{ label?: string; name: string }> = [];
     const locales = this.get<string>("locales", "");
     if (locales) {
@@ -62,14 +63,14 @@ export class URLAdapter extends UVAdapter {
     }
 
     // if there's a iiif_content param in the qs, parse out the components of it and use those
-    const iiifContent = this.get<string>("iiif-content", "");
-
+    const iiifContent = this.get<string>("iiif-content", "");   
     if (iiifContent) {
       let iiifManifestId: string = "";
       let canvasId: string = "";
       let xywh: string = "";
 
       const contentState = parseContentStateParameter(iiifContent) as any;
+      console.log(contentState.type);
       if (contentState.type === "remote-content-state") {
         iiifManifestId = contentState.id;
       } else if (contentState && contentState.target.length) {
@@ -98,7 +99,7 @@ export class URLAdapter extends UVAdapter {
               "," +
               firstTarget.selector.height;
           }
-
+          console.log(xywh);
           if (manifestSource) {
             iiifManifestId = manifestSource.id;
           }

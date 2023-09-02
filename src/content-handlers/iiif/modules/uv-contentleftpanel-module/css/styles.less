@@ -1,6 +1,7 @@
 @import "@iiif/iiif-gallery-component/dist-css/styles.less";
 @import "@iiif/iiif-tree-component/dist-css/styles.less";
 @import "../../uv-shared-module/css/thumbs-view.less";
+@import "@iiif/iiif-metadata-component/dist-css/styles.less";
 
 .uv {
   .leftPanel {
@@ -111,10 +112,10 @@
     }
 
     .views {
-      .treeView {
-        font-weight: normal;
-        overflow: auto;
+      font-weight: normal;
+      overflow: auto;
 
+      .treeView {
         .iiif-tree-component ul li a.selected {
           color: @brand-primary !important;
         }
@@ -123,6 +124,48 @@
       //.galleryView{
       // iiif-gallery-component (shared-module)
       //}
+      .detailsView {
+        overflow: auto;
+        color: @text-color;
+
+        .groups {
+          padding: @padding-medium-vertical @padding-medium-horizontal (@padding-medium-vertical * 2) @padding-medium-horizontal;
+
+          .group {
+            .header {
+              text-transform: uppercase;
+            }
+          }
+
+          .items {
+            .header {
+              font-size: @font-size-small;
+              text-transform: uppercase;
+            }
+
+            .item {
+              .header {
+                font-size: @font-size-small;
+                text-transform: uppercase;
+              }
+
+              .value {
+                color: @text-color;
+              }
+            }
+          }
+
+          [data-uv-navigate] {
+            color: @link-secondary-color;
+            cursor: pointer;
+
+            &:hover {
+              text-decoration: underline;
+              color: @link-secondary-hover-color;
+            }
+          }
+        }
+      }
     }
   }
 }

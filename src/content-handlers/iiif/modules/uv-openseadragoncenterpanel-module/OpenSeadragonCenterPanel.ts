@@ -872,7 +872,6 @@ export class OpenSeadragonCenterPanel extends CenterPanel {
 
       const xywh: string | undefined = (this.extension
         .data as IOpenSeadragonExtensionData).xywh;
-
       if (xywh) {
         this.initialBounds = XYWHFragment.fromString(xywh);
         this.currentBounds = this.initialBounds;

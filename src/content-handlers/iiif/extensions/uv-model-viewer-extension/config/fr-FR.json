@@ -127,9 +127,9 @@
     "contentLeftPanel": {
       "options": {
         "elideCount": 40,
-        "galleryThumbHeight": 320,
+        "galleryThumbHeight": 310,
         "galleryThumbWidth": 200,
-        "oneColThumbHeight": 320,
+        "oneColThumbHeight": 310,
         "oneColThumbWidth": 200,
         "pageModeEnabled": true,
         "panelAnimationDuration": 250,

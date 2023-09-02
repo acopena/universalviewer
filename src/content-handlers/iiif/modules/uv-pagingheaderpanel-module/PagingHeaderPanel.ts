@@ -7,8 +7,9 @@ import OpenSeadragonExtension from "../../extensions/uv-openseadragon-extension/
 import { Mode } from "../../extensions/uv-openseadragon-extension/Mode";
 import { sanitize } from "../../../../Utils";
 import { ViewingDirection } from "@iiif/vocabulary/dist-commonjs/";
-import { Bools, Strings } from "@edsilv/utils";
+import { Bools, Strings, Documents } from "@edsilv/utils";
 import { Canvas, LanguageMap, ManifestType } from "manifesto.js";
+import { Events } from "../../../../Events";
 
 export class PagingHeaderPanel extends HeaderPanel {
   $autoCompleteBox: JQuery;
@@ -33,6 +34,7 @@ export class PagingHeaderPanel extends HeaderPanel {
   $selectionBoxOptions: JQuery;
   $total: JQuery;
   $twoUpButton: JQuery;
+  $fullScreenBtn: JQuery
 
   firstButtonEnabled: boolean = false;
   lastButtonEnabled: boolean = false;
@@ -48,10 +50,21 @@ export class PagingHeaderPanel extends HeaderPanel {
 
     super.create();
 
+    this.extensionHost.subscribe(Events.TOGGLE_FULLSCREEN, () => {
+      this.updateFullScreenButton();
+
+      // hack for firefox when exiting full screen
+      if (!this.extensionHost.isFullScreen) {
+        setTimeout(() => {
+          this.resize();
+        }, 1001); // wait one ms longer than the resize timeout in uv-helpers.js
+      }
+    });
+
     this.extensionHost.subscribe(
       IIIFEvents.CANVAS_INDEX_CHANGE,
       (canvasIndex: number) => {
-        this.canvasIndexChanged(canvasIndex);
+        this.canvasIndexChanged(canvasIndex);       
       }
     );
 
@@ -118,8 +131,8 @@ export class PagingHeaderPanel extends HeaderPanel {
 
     this.$searchText = $(
       '<input class="searchText" maxlength="50" type="text" tabindex="0" aria-label="' +
-        this.content.pageSearchLabel +
-        '"/>'
+      this.content.pageSearchLabel +
+      '"/>'
     );
     this.$search.append(this.$searchText);
 
@@ -127,8 +140,8 @@ export class PagingHeaderPanel extends HeaderPanel {
       this.$searchText.hide();
       this.$autoCompleteBox = $(
         '<input class="autocompleteText" type="text" maxlength="100" aria-label="' +
-          this.content.pageSearchLabel +
-          '"/>'
+        this.content.pageSearchLabel +
+        '"/>'
       );
       this.$search.append(this.$autoCompleteBox);
 
@@ -265,6 +278,15 @@ export class PagingHeaderPanel extends HeaderPanel {
     this.$pagingToggleButtons = $('<div class="pagingToggleButtons"></div>');
     this.$rightOptions.prepend(this.$pagingToggleButtons);
 
+    this.$fullScreenBtn = $(`
+        <button class="fullScreen btn imageBtn" title="${this.content.fullScreen}">
+          <i class="uv-icon uv-icon-fullscreen" aria-hidden="true"></i>
+          <span class="sr-only">${this.content.fullScreen}</span>
+        </button>
+      `);
+
+    this.$rightOptions.prepend(this.$fullScreenBtn);
+
     this.$oneUpButton = $(`
           <button class="btn imageBtn one-up" title="${this.content.oneUp}">
             <i class="uv-icon-one-up" aria-hidden="true"></i>
@@ -282,6 +304,7 @@ export class PagingHeaderPanel extends HeaderPanel {
 
     this.updatePagingToggle();
     this.updateGalleryButton();
+    this.updateFullScreenButton();
 
     this.$oneUpButton.onPressed(() => {
       const enabled: boolean = false;
@@ -349,9 +372,13 @@ export class PagingHeaderPanel extends HeaderPanel {
         case ViewingDirection.LEFT_TO_RIGHT:
         case ViewingDirection.BOTTOM_TO_TOP:
         case ViewingDirection.TOP_TO_BOTTOM:
-          this.extensionHost.publish(IIIFEvents.NEXT);
+          console.log(IIIFEvents);
+          console.log(IIIFEvents.NEXT)
+         this.extensionHost.publish(IIIFEvents.NEXT);
           break;
         case ViewingDirection.RIGHT_TO_LEFT:
+          console.log(IIIFEvents);
+          console.log(IIIFEvents.NEXT)
           this.extensionHost.publish(IIIFEvents.PREV);
           break;
       }
@@ -400,7 +427,7 @@ export class PagingHeaderPanel extends HeaderPanel {
       this.search(this.$searchText.val());
     });
 
-    this.$searchText.click(function() {
+    this.$searchText.click(function () {
       $(this).select();
     });
 
@@ -411,6 +438,15 @@ export class PagingHeaderPanel extends HeaderPanel {
         this.search(this.$searchText.val());
       }
     });
+
+    this.onAccessibleClick(
+      this.$fullScreenBtn,
+      (e) => {
+        e.preventDefault();
+        this.extensionHost.publish(Events.TOGGLE_FULLSCREEN);
+      },
+      true
+    );
 
     if (this.options.modeOptionsEnabled === false) {
       this.$modeOptions.hide();
@@ -456,8 +492,8 @@ export class PagingHeaderPanel extends HeaderPanel {
   }
 
   openGallery(): void {
-    this.$oneUpButton.removeClass("on");
-    this.$twoUpButton.removeClass("on");
+    // this.$oneUpButton.removeClass("on");
+    // this.$twoUpButton.removeClass("on");
     this.$galleryButton.addClass("on");
   }
 
@@ -470,7 +506,7 @@ export class PagingHeaderPanel extends HeaderPanel {
     return (
       this.config.options.pageModeEnabled &&
       (<OpenSeadragonExtension>this.extension).getMode().toString() ===
-        Mode.page.toString()
+      Mode.page.toString()
     );
   }
 
@@ -519,6 +555,9 @@ export class PagingHeaderPanel extends HeaderPanel {
   }
 
   updatePagingToggle(): void {
+
+    return;
+
     if (!this.pagingToggleIsVisible()) {
       this.$pagingToggleButtons.hide();
       return;
@@ -693,6 +732,35 @@ export class PagingHeaderPanel extends HeaderPanel {
     }
   }
 
+  updateFullScreenButton(): void {
+    if (
+      !Bools.getBool(this.options.fullscreenEnabled, true) ||
+      !Documents.supportsFullscreen()
+    ) {
+      this.$fullScreenBtn.hide();
+      return;
+    }
+
+    if (this.extension.isFullScreen()) {
+      this.$fullScreenBtn.switchClass("fullScreen", "exitFullscreen");
+      this.$fullScreenBtn
+        .find("i")
+        .switchClass("uv-icon-fullscreen", "uv-icon-exit-fullscreen");
+      this.$fullScreenBtn.attr("title", this.content.exitFullScreen);
+      $(
+        (<any>this.$fullScreenBtn[0].firstChild).nextSibling.nextSibling
+      ).replaceWith(this.content.exitFullScreen);
+    } else {
+      this.$fullScreenBtn.switchClass("exitFullscreen", "fullScreen");
+      this.$fullScreenBtn
+        .find("i")
+        .switchClass("uv-icon-exit-fullscreen", "uv-icon-fullscreen");
+      this.$fullScreenBtn.attr("title", this.content.fullScreen);
+      $(
+        (<any>this.$fullScreenBtn[0].firstChild).nextSibling.nextSibling
+      ).replaceWith(this.content.fullScreen);
+    }
+  }
   disableFirstButton(): void {
     this.firstButtonEnabled = false;
     this.$firstButton.disable();

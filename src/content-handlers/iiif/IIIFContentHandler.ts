@@ -284,7 +284,7 @@ export default class IIIFContentHandler extends BaseContentHandler<IIIFData>
     $elem.empty();
 
     const that = this;
-
+  
     const helper: Helper = await loadManifest({
       manifestUri: data.iiifManifestId,
       collectionIndex: data.collectionIndex, // this has to be undefined by default otherwise it's assumed that the first manifest is within a collection
@@ -304,7 +304,6 @@ export default class IIIFContentHandler extends BaseContentHandler<IIIFData>
           : document.location;
       window.trackingLabel = trackingLabel;
     }
-
     let canvas: Canvas | undefined;
 
     canvas = helper.getCurrentCanvas();

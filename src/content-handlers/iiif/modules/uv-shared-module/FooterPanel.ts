@@ -2,7 +2,6 @@ const $ = require("jquery");
 import { IIIFEvents } from "../../IIIFEvents";
 import { BaseView } from "./BaseView";
 import { Bools, Documents } from "@edsilv/utils";
-import { Events } from "../../../../Events";
 
 export class FooterPanel extends BaseView {
   $feedbackButton: JQuery;
@@ -12,8 +11,9 @@ export class FooterPanel extends BaseView {
   $shareButton: JQuery;
   $embedButton: JQuery;
   $openButton: JQuery;
-  $fullScreenBtn: JQuery;
+  // $fullScreenBtn: JQuery;
   $options: JQuery;
+  $rightOptions: JQuery;
 
   constructor($element: JQuery) {
     super($element);
@@ -24,16 +24,16 @@ export class FooterPanel extends BaseView {
 
     super.create();
 
-    this.extensionHost.subscribe(Events.TOGGLE_FULLSCREEN, () => {
-      this.updateFullScreenButton();
+    // this.extensionHost.subscribe(Events.TOGGLE_FULLSCREEN, () => {
+    //   this.updateFullScreenButton();
 
-      // hack for firefox when exiting full screen
-      if (!this.extensionHost.isFullScreen) {
-        setTimeout(() => {
-          this.resize();
-        }, 1001); // wait one ms longer than the resize timeout in uv-helpers.js
-      }
-    });
+    //   // hack for firefox when exiting full screen
+    //   if (!this.extensionHost.isFullScreen) {
+    //     setTimeout(() => {
+    //       this.resize();
+    //     }, 1001); // wait one ms longer than the resize timeout in uv-helpers.js
+    //   }
+    // });
 
     this.extensionHost.subscribe(IIIFEvents.METRIC_CHANGE, () => {
       this.updateMinimisedButtons();
@@ -45,7 +45,7 @@ export class FooterPanel extends BaseView {
     });
 
     this.$options = $('<div class="options"></div>');
-    this.$element.append(this.$options);
+    // this.$element.append(this.$options);
 
     this.$feedbackButton = $(`
           <button class="feedback btn imageBtn" title="${this.content.feedback}">
@@ -103,13 +103,13 @@ export class FooterPanel extends BaseView {
         `);
     this.$options.prepend(this.$moreInfoButton);
 
-    this.$fullScreenBtn = $(`
-          <button class="fullScreen btn imageBtn" title="${this.content.fullScreen}">
-            <i class="uv-icon uv-icon-fullscreen" aria-hidden="true"></i>
-            <span class="sr-only">${this.content.fullScreen}</span>
-          </button>
-        `);
-    this.$options.append(this.$fullScreenBtn);
+    // this.$fullScreenBtn = $(`
+    //       <button class="fullScreen btn imageBtn" title="${this.content.fullScreen}">
+    //         <i class="uv-icon uv-icon-fullscreen" aria-hidden="true"></i>
+    //         <span class="sr-only">${this.content.fullScreen}</span>
+    //       </button>
+    //     `);
+    // this.$options.append(this.$fullScreenBtn);
 
     this.$openButton.onPressed(() => {
       this.extensionHost.publish(IIIFEvents.OPEN);
@@ -151,14 +151,14 @@ export class FooterPanel extends BaseView {
       );
     });
 
-    this.onAccessibleClick(
-      this.$fullScreenBtn,
-      (e) => {
-        e.preventDefault();
-        this.extensionHost.publish(Events.TOGGLE_FULLSCREEN);
-      },
-      true
-    );
+    // this.onAccessibleClick(
+    //   this.$fullScreenBtn,
+    //   (e) => {
+    //     e.preventDefault();
+    //     this.extensionHost.publish(Events.TOGGLE_FULLSCREEN);
+    //   },
+    //   true
+    // );
 
     if (!Bools.getBool(this.options.embedEnabled, true)) {
       this.$embedButton.hide();
@@ -170,7 +170,7 @@ export class FooterPanel extends BaseView {
     this.updateBookmarkButton();
     this.updateEmbedButton();
     this.updateDownloadButton();
-    this.updateFullScreenButton();
+    // this.updateFullScreenButton();
     this.updateShareButton();
     this.updateMinimisedButtons();
   }
@@ -215,35 +215,35 @@ export class FooterPanel extends BaseView {
     }
   }
 
-  updateFullScreenButton(): void {
-    if (
-      !Bools.getBool(this.options.fullscreenEnabled, true) ||
-      !Documents.supportsFullscreen()
-    ) {
-      this.$fullScreenBtn.hide();
-      return;
-    }
+  // updateFullScreenButton(): void {
+  //   if (
+  //     !Bools.getBool(this.options.fullscreenEnabled, true) ||
+  //     !Documents.supportsFullscreen()
+  //   ) {
+  //     this.$fullScreenBtn.hide();
+  //     return;
+  //   }
 
-    if (this.extension.isFullScreen()) {
-      this.$fullScreenBtn.switchClass("fullScreen", "exitFullscreen");
-      this.$fullScreenBtn
-        .find("i")
-        .switchClass("uv-icon-fullscreen", "uv-icon-exit-fullscreen");
-      this.$fullScreenBtn.attr("title", this.content.exitFullScreen);
-      $(
-        (<any>this.$fullScreenBtn[0].firstChild).nextSibling.nextSibling
-      ).replaceWith(this.content.exitFullScreen);
-    } else {
-      this.$fullScreenBtn.switchClass("exitFullscreen", "fullScreen");
-      this.$fullScreenBtn
-        .find("i")
-        .switchClass("uv-icon-exit-fullscreen", "uv-icon-fullscreen");
-      this.$fullScreenBtn.attr("title", this.content.fullScreen);
-      $(
-        (<any>this.$fullScreenBtn[0].firstChild).nextSibling.nextSibling
-      ).replaceWith(this.content.fullScreen);
-    }
-  }
+  //   if (this.extension.isFullScreen()) {
+  //     this.$fullScreenBtn.switchClass("fullScreen", "exitFullscreen");
+  //     this.$fullScreenBtn
+  //       .find("i")
+  //       .switchClass("uv-icon-fullscreen", "uv-icon-exit-fullscreen");
+  //     this.$fullScreenBtn.attr("title", this.content.exitFullScreen);
+  //     $(
+  //       (<any>this.$fullScreenBtn[0].firstChild).nextSibling.nextSibling
+  //     ).replaceWith(this.content.exitFullScreen);
+  //   } else {
+  //     this.$fullScreenBtn.switchClass("exitFullscreen", "fullScreen");
+  //     this.$fullScreenBtn
+  //       .find("i")
+  //       .switchClass("uv-icon-exit-fullscreen", "uv-icon-fullscreen");
+  //     this.$fullScreenBtn.attr("title", this.content.fullScreen);
+  //     $(
+  //       (<any>this.$fullScreenBtn[0].firstChild).nextSibling.nextSibling
+  //     ).replaceWith(this.content.fullScreen);
+  //   }
+  // }
 
   updateEmbedButton(): void {
     if (
@@ -260,27 +260,29 @@ export class FooterPanel extends BaseView {
   }
 
   updateShareButton(): void {
-    if (
-      this.extension.helper.isUIEnabled("share") &&
-      Bools.getBool(this.options.shareEnabled, true)
-    ) {
-      this.$shareButton.show();
-    } else {
-      this.$shareButton.hide();
-    }
+    // if (
+    //   this.extension.helper.isUIEnabled("share") &&
+    //   Bools.getBool(this.options.shareEnabled, true)
+    // ) {
+    //   this.$shareButton.show();
+    // } else {
+    //   this.$shareButton.hide();
+    // }
+    this.$shareButton.hide();
   }
 
   updateDownloadButton(): void {
-    const configEnabled: boolean = Bools.getBool(
-      this.options.downloadEnabled,
-      true
-    );
+    // const configEnabled: boolean = Bools.getBool(
+    //   this.options.downloadEnabled,
+    //   true
+    // );
 
-    if (configEnabled) {
-      this.$downloadButton.show();
-    } else {
-      this.$downloadButton.hide();
-    }
+    // if (configEnabled) {
+    //   this.$downloadButton.show();
+    // } else {
+    //   this.$downloadButton.hide();
+    // }
+    this.$downloadButton.hide();
   }
 
   updateFeedbackButton(): void {

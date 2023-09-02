@@ -62,13 +62,23 @@ export default class OpenSeadragonExtension extends BaseExtension {
   $multiSelectDialogue: JQuery;
   $settingsDialogue: JQuery;
   $shareDialogue: JQuery;
+
+  $pagingFooter: JQuery;
+  $rightOptions: JQuery;
+  $centerOptions: JQuery;
+  $downloadButton: JQuery;
+  $shareButton: JQuery;
+
   centerPanel: OpenSeadragonCenterPanel;
   currentAnnotationRect: AnnotationRect | null;
   currentRotation: number = 0;
   downloadDialogueRoot: Root;
   externalContentDialogue: ExternalContentDialogue;
+
   footerPanel: FooterPanel;
   headerPanel: PagingHeaderPanel;
+  pagingPanel: PagingHeaderPanel;
+
   helpDialogue: HelpDialogue;
   isAnnotating: boolean = false;
   leftPanel: ContentLeftPanel;
@@ -376,7 +386,7 @@ export default class OpenSeadragonExtension extends BaseExtension {
             OpenSeadragonExtensionEvents.XYWH_CHANGE,
             xywh.toString()
           );
-          this.data.target = canvas.id + "#xywh=" + xywh.toString();
+          this.data.target = canvas.id + "#xywh=" + xywh.toString();       
           this.fire(IIIFEvents.TARGET_CHANGE, this.data.target);
         }
 
@@ -591,6 +601,8 @@ export default class OpenSeadragonExtension extends BaseExtension {
       this.$externalContentDialogue
     );
 
+    this.pagingPanel = new PagingHeaderPanel(this.shell.$footerPanel);
+
     if (this.isHeaderPanelEnabled()) {
       this.headerPanel.init();
     }
@@ -721,7 +733,7 @@ export default class OpenSeadragonExtension extends BaseExtension {
       }
 
       // trigger SET_TARGET which calls fitToBounds(xywh) in OpenSeadragonCenterPanel
-      const selector: string = components[1];
+      const selector: string = components[1];    
       this.extensionHost.publish(
         IIIFEvents.SET_TARGET,
         XYWHFragment.fromString(selector)
@@ -808,8 +820,7 @@ export default class OpenSeadragonExtension extends BaseExtension {
 
     for (let i = 0; i < annotations.resources.length; i++) {
       const resource: any = annotations.resources[i];
-      const canvasId: string = resource.on.match(/(.*)#/)[1];
-      // console.log(canvasId)
+      const canvasId: string = resource.on.match(/(.*)#/)[1];     
       const canvasIndex: number | null = this.helper.getCanvasIndexById(
         canvasId
       );
@@ -1217,6 +1228,7 @@ export default class OpenSeadragonExtension extends BaseExtension {
     // {baseuri}/{id}/{region}/{size}/{rotation}/{quality}.jpg
 
     const baseUri: string = this.getImageBaseUri(canvas);
+    console.log(baseUri);
     const id: string | null = this.getImageId(canvas);
 
     if (!id) {
@@ -1259,7 +1271,6 @@ export default class OpenSeadragonExtension extends BaseExtension {
 
   getConfinedImageUri(canvas: Canvas, width: number): string | null {
     const baseUri = this.getImageBaseUri(canvas);
-
     // {baseuri}/{id}/{region}/{size}/{rotation}/{quality}.jpg
     const id: string | null = this.getImageId(canvas);
 
@@ -1290,7 +1301,7 @@ export default class OpenSeadragonExtension extends BaseExtension {
   getImageBaseUri(canvas: Canvas): string {
     let uri = this.getInfoUri(canvas);
     // First trim off info.json, then trim off ID....
-    uri = uri.substr(0, uri.lastIndexOf("/"));
+    uri = uri.substr(0, uri.lastIndexOf("/"));  
     return uri.substr(0, uri.lastIndexOf("/"));
   }
 
@@ -1360,6 +1371,7 @@ export default class OpenSeadragonExtension extends BaseExtension {
     const config: string = this.data.config.uri || "";
     const locales: string | null = this.getSerializedLocales();
     const appUri: string = this.getAppUri();
+    console.log(appUri);
     const iframeSrc: string = `${appUri}#?manifest=${this.helper.manifestUri}&c=${this.helper.collectionIndex}&m=${this.helper.manifestIndex}&cv=${this.helper.canvasIndex}&config=${config}&locales=${locales}&xywh=${zoom}&r=${rotation}`;
     const script: string = Strings.format(
       template,
@@ -1371,6 +1383,8 @@ export default class OpenSeadragonExtension extends BaseExtension {
   }
 
   isSearchEnabled(): boolean {
+    return false;
+
     if (!Bools.getBool(this.data.config.options.searchWithinEnabled, false)) {
       return false;
     }

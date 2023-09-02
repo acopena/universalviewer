@@ -222,6 +222,7 @@ export class DownloadDialogue extends BaseDownloadDialogue {
             )).getConfinedImageUri(canvas, that.options.confinedImageSize);
 
             if (imageUri) {
+              console.log(imageUri);
               window.open(imageUri);
             }
             break;

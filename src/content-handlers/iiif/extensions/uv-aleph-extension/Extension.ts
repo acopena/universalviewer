@@ -122,6 +122,7 @@ export default class Extension extends BaseExtension
 
   getEmbedScript(template: string, width: number, height: number): string {
     const appUri: string = this.getAppUri();
+    console.log(appUri);
     const iframeSrc: string = `${appUri}#?manifest=${this.helper.manifestUri}`;
     const script: string = Strings.format(
       template,
