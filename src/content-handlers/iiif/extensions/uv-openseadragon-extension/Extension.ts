@@ -46,7 +46,7 @@ import {
   Manifest,
 } from "manifesto.js";
 import "./theme/theme.less";
-import defaultConfig from "./config/en-GB.json";
+import defaultConfig from "./config/en-CA.json";
 import { AnnotationResults } from "../../modules/uv-shared-module/AnnotationResults";
 import { Events } from "../../../../Events";
 import { createRoot, Root } from "react-dom/client";
@@ -92,11 +92,8 @@ export default class OpenSeadragonExtension extends BaseExtension {
   shareDialogue: ShareDialogue;
   defaultConfig: any = defaultConfig;
   locales = {
-    "en-GB": defaultConfig,
-    "cy-GB": () => import("./config/cy-GB.json"),
-    "fr-FR": () => import("./config/fr-FR.json"),
-    "pl-PL": () => import("./config/pl-PL.json"),
-    "sv-SE": () => import("./config/sv-SE.json"),
+    "en-CA": defaultConfig,
+    "fr-CA": () => import("./config/fr-CA.json")    
   };
 
   create(): void {
@@ -1227,8 +1224,7 @@ export default class OpenSeadragonExtension extends BaseExtension {
     // construct uri
     // {baseuri}/{id}/{region}/{size}/{rotation}/{quality}.jpg
 
-    const baseUri: string = this.getImageBaseUri(canvas);
-    console.log(baseUri);
+    const baseUri: string = this.getImageBaseUri(canvas);    
     const id: string | null = this.getImageId(canvas);
 
     if (!id) {
@@ -1371,7 +1367,6 @@ export default class OpenSeadragonExtension extends BaseExtension {
     const config: string = this.data.config.uri || "";
     const locales: string | null = this.getSerializedLocales();
     const appUri: string = this.getAppUri();
-    console.log(appUri);
     const iframeSrc: string = `${appUri}#?manifest=${this.helper.manifestUri}&c=${this.helper.collectionIndex}&m=${this.helper.manifestIndex}&cv=${this.helper.canvasIndex}&config=${config}&locales=${locales}&xywh=${zoom}&r=${rotation}`;
     const script: string = Strings.format(
       template,

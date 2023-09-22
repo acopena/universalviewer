@@ -371,14 +371,10 @@ export class PagingHeaderPanel extends HeaderPanel {
       switch (viewingDirection.toString()) {
         case ViewingDirection.LEFT_TO_RIGHT:
         case ViewingDirection.BOTTOM_TO_TOP:
-        case ViewingDirection.TOP_TO_BOTTOM:
-          console.log(IIIFEvents);
-          console.log(IIIFEvents.NEXT)
+        case ViewingDirection.TOP_TO_BOTTOM:          
          this.extensionHost.publish(IIIFEvents.NEXT);
           break;
-        case ViewingDirection.RIGHT_TO_LEFT:
-          console.log(IIIFEvents);
-          console.log(IIIFEvents.NEXT)
+        case ViewingDirection.RIGHT_TO_LEFT:          
           this.extensionHost.publish(IIIFEvents.PREV);
           break;
       }

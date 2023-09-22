@@ -84,6 +84,7 @@ export class SettingsDialogue extends Dialogue {
 
   updateSettings(settings: ISettings): void {
     this.extension.updateSettings(settings);
+    console.log(settings);
 
     this.extensionHost.publish(IIIFEvents.UPDATE_SETTINGS, settings);
   }
@@ -110,6 +111,8 @@ export class SettingsDialogue extends Dialogue {
     }
 
     this.$localeDropDown.change(() => {
+      console.log('locale change');
+      console.log(this.$localeDropDown.val());
       this.extension.changeLocale(this.$localeDropDown.val());
     });
   }

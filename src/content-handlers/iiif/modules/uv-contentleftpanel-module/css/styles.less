@@ -12,7 +12,7 @@
     }
 
     .tabs {
-      height: 25px;
+      height: 35px;
       border-bottom: 1px solid @panel-border-color;
 
       .tab {
@@ -20,14 +20,17 @@
         background-color: @panel-dark-bg;
         display: inline-block;
         text-align: center;
-        line-height: 22px;
-        height: 22px;
+        //line-height: 22px;
+        //height: 22px;
         overflow: hidden;
-        width: 75px;
+        width: auto;
         margin: 0;
+        padding: 10px;
+
         cursor: pointer;
         white-space: nowrap;
         text-overflow: ellipsis;
+        font-size: 12px;
 
         &.first {
           margin: 0 0 0 @margin-medium-horizontal;
@@ -38,8 +41,10 @@
           border-bottom: 1px solid @panel-dark-bg;
           color: @brand-secondary;
           margin-bottom: -1px;
-          height: 25px;
-          line-height: 25px;
+          //height: 25px;
+          padding: 10px;
+          //line-height: 25px;
+
         }
       }
     }
@@ -120,6 +125,8 @@
           color: @brand-primary !important;
         }
       }
+
+     
 
       //.galleryView{
       // iiif-gallery-component (shared-module)

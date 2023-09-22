@@ -24,6 +24,7 @@ import "@openseadragon-imaging/openseadragon-viewerinputhook";
 import { MediaType } from "@iiif/vocabulary/dist-commonjs";
 import { Events } from "../../../../Events";
 
+
 export class OpenSeadragonCenterPanel extends CenterPanel {
   controlsVisible: boolean = false;
   currentAnnotationRect: AnnotationRect;
@@ -57,9 +58,12 @@ export class OpenSeadragonCenterPanel extends CenterPanel {
   $zoomInButton: JQuery;
   $zoomOutButton: JQuery;
 
+  
+
   constructor($element: JQuery) {
     super($element);
   }
+
 
   create(): void {
     this.setConfig("openSeadragonCenterPanel");
@@ -368,7 +372,7 @@ export class OpenSeadragonCenterPanel extends CenterPanel {
       ".viewportNavButton"
     );
 
-    this.$canvas = $(this.viewer.canvas);
+    this.$canvas = $(this.viewer.canvas);    
 
     // disable right click on canvas
     this.$canvas.on("contextmenu", () => {
@@ -463,6 +467,7 @@ export class OpenSeadragonCenterPanel extends CenterPanel {
 
     this.title = this.extension.helper.getLabel();
 
+
     this.createNavigationButtons();
     this.hidePrevButton();
     this.hideNextButton();
@@ -529,8 +534,7 @@ export class OpenSeadragonCenterPanel extends CenterPanel {
 
     this.onAccessibleClick(this.$nextButton, (e: any) => {
       e.preventDefault();
-      OpenSeadragon.cancelEvent(e);
-
+      OpenSeadragon.cancelEvent(e);     
       if (!that.nextButtonEnabled) return;
 
       switch (viewingDirection) {
@@ -554,8 +558,16 @@ export class OpenSeadragonCenterPanel extends CenterPanel {
 
     this.$nextButton.on("focus", () => {
       if (this.controlsVisible) return;
+      console.log('next button press');
       this.controlsVisible = true;
       this.viewer.setControlsEnabled(true);
+
+
+      // const fireEvent = () => {
+      //   EventRegister.emit('itemChanged');
+
+      // };
+
     });
   }
 
@@ -594,7 +606,7 @@ export class OpenSeadragonCenterPanel extends CenterPanel {
                   maxLevel: info.levels - 1,
                   units: "mm",
                   spacing: [info.mm_x, info.mm_y],
-                  getTileUrl: function(level, x, y, query) {
+                  getTileUrl: function (level, x, y, query) {
                     var url =
                       tileDescriptor + "/zxy/" + level + "/" + x + "/" + y;
                     if (query) {
@@ -946,9 +958,9 @@ export class OpenSeadragonCenterPanel extends CenterPanel {
     const canvas: Canvas = this.extension.helper.getCurrentCanvas();
     const dimensions: CroppedImageDimensions | null = (this
       .extension as OpenSeadragonExtension).getCroppedImageDimensions(
-      canvas,
-      this.viewer
-    );
+        canvas,
+        this.viewer
+      );
 
     if (dimensions) {
       const bounds: XYWHFragment = new XYWHFragment(
@@ -984,7 +996,7 @@ export class OpenSeadragonCenterPanel extends CenterPanel {
     if (!center) return;
 
     // postpone pan for a millisecond - fixes iPad image stretching/squashing issue.
-    setTimeout(function() {
+    setTimeout(function () {
       viewer.viewport.panTo(center, true);
     }, 1);
   }
@@ -1012,7 +1024,7 @@ export class OpenSeadragonCenterPanel extends CenterPanel {
         }
       }
     }
-
+    console.log(annotationsForCurrentImages);
     return annotationsForCurrentImages;
   }
 
@@ -1400,4 +1412,6 @@ export class OpenSeadragonCenterPanel extends CenterPanel {
       }
     }
   }
+
+  
 }

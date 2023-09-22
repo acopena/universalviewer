@@ -4,6 +4,7 @@ import { ViewingDirection, ViewingHint } from "@iiif/vocabulary";
 import { useInView } from "react-intersection-observer";
 import cx from "classnames";
 
+
 const ThumbImage = ({
   first,
   onClick,
@@ -25,6 +26,16 @@ const ThumbImage = ({
     triggerOnce: true,
   });
 
+  let eCopy= thumb.label;  
+  if (thumb.uri.indexOf('id') > -1){    
+    let eCopyList = thumb.uri.split('&');    
+    let  x = eCopyList.filter(s=>s.indexOf('id') > -1);
+    if (x){    
+      let eCopyX = x[0].split('=');      
+      eCopy = eCopyX[1];
+    }
+  }  
+
   return (
     
     <div
@@ -41,9 +52,11 @@ const ThumbImage = ({
       })}
       tabIndex={0}
     >
+      
       <div
         ref={ref}
         className="wrap"
+        id = {eCopy}
         style={{
           height: thumb.height + 8 + "px",
         }}
@@ -77,11 +90,9 @@ const Thumbnails = ({
   viewingDirection: ViewingDirection;
 }) => {
   const ref = useRef<HTMLDivElement | null>(null);
-  
-  console.log('base URI:' + ref.current?.baseURI);
- 
 
   
+
   useEffect(() => {
     const thumb = ref.current?.querySelector(`#thumb-${selected[0]}`);
     thumb?.scrollIntoView({

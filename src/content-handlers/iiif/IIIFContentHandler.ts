@@ -294,7 +294,8 @@ export default class IIIFContentHandler extends BaseContentHandler<IIIFData>
       rangeId: data.rangeId,
       locale: data.locales ? data.locales[0].name : undefined,
     } as IManifoldOptions);
-
+    console.log('Data here');
+    console.log(data);
     let trackingLabel: string | null = helper.getTrackingLabel();
 
     if (trackingLabel) {
@@ -380,6 +381,7 @@ export default class IIIFContentHandler extends BaseContentHandler<IIIFData>
     }
 
     // import the config file
+    
     let config = await (extension as any).loadConfig(data.locales[0].name);
 
     data.config = await that.configure(config);

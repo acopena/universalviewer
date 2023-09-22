@@ -167,8 +167,7 @@ export class BaseExtension implements IExtension {
           e.preventDefault();
           const dropUrl: any = (<any>e.originalEvent).dataTransfer.getData(
             "URL"
-          );
-          console.log(dropUrl);
+          );          
           const a: HTMLAnchorElement = Urls.getUrlParts(dropUrl);
           let manifestUri:
             | string
@@ -545,8 +544,6 @@ export class BaseExtension implements IExtension {
   }
 
   redirect(uri: string): void {
-    alert(uri);
-    console.log(uri);
     this.fire(IIIFEvents.REDIRECT, uri);
   }
 
@@ -602,8 +599,7 @@ export class BaseExtension implements IExtension {
           console.warn("range id not found:", this.data.rangeId);
         }
       }
-    }
-   console.log(this.helper);
+    }   
   }
 
   private _initLocales(): void {
@@ -697,9 +693,7 @@ export class BaseExtension implements IExtension {
   }
 
   // re-bootstraps the application with new querystring params
-  reload(data?: IUVData): void {
-    console.log(data);
-    console.log(Events.RELOAD);
+  reload(data?: IUVData): void {  
     this.extensionHost.publish(Events.RELOAD, data);
   }
 
@@ -761,9 +755,7 @@ export class BaseExtension implements IExtension {
       window.location.hostname +
       (window.location.port ? ":" + window.location.port : "");
     
-    const url = appUri + "/uv.html"
-    console.log(url);
-    return url;
+    return appUri + "/uv.html" ;
   }
 
   getSettings(): ISettings {

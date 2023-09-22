@@ -46,7 +46,7 @@ declare var WEBVR: any;
 
 // https://github.com/DefinitelyTyped/DefinitelyTyped/pull/35946
 declare var define: any;
-declare var requirejs: any;
+declare var require: any;
 
 // app
 interface Window {

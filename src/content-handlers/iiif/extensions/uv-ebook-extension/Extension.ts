@@ -15,7 +15,7 @@ import { ShareDialogue } from "./ShareDialogue";
 import { IEbookExtensionData } from "./IEbookExtensionData";
 import { Strings } from "@edsilv/utils";
 import "./theme/theme.less";
-import defaultConfig from "./config/en-GB.json";
+import defaultConfig from "./config/en-CA.json";
 
 export default class Extension extends BaseExtension
   implements IEbookExtension {
@@ -37,11 +37,8 @@ export default class Extension extends BaseExtension
   cfiFragement: string;
   defaultConfig: any = defaultConfig;
   locales = {
-    "en-GB": defaultConfig,
-    "cy-GB": () => import("./config/cy-GB.json"),
-    "fr-FR": () => import("./config/fr-FR.json"),
-    "pl-PL": () => import("./config/pl-PL.json"),
-    "sv-SE": () => import("./config/sv-SE.json"),
+    "en-CA": defaultConfig,
+    "fr-CA": () => import("./config/fr-CA.json")
   };
 
   create(): void {
@@ -146,8 +143,7 @@ export default class Extension extends BaseExtension
   }
 
   getEmbedScript(template: string, width: number, height: number): string {
-    const appUri: string = this.getAppUri();   
-    console.log(appUri);
+    const appUri: string = this.getAppUri();       
     const iframeSrc: string = `${appUri}#?manifest=${this.helper.manifestUri}&cfi=${this.cfiFragement}`;
     const script: string = Strings.format(
       template,

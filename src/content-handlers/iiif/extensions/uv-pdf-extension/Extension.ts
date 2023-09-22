@@ -14,7 +14,7 @@ import { ExternalResourceType } from "@iiif/vocabulary/dist-commonjs/";
 import { Bools, Strings } from "@edsilv/utils";
 import { Canvas, LanguageMap, Thumb } from "manifesto.js";
 import "./theme/theme.less";
-import defaultConfig from "./config/en-GB.json";
+import defaultConfig from "./config/en-CA.json";
 import { Events } from "../../../../Events";
 
 export default class Extension extends BaseExtension implements IPDFExtension {
@@ -32,11 +32,8 @@ export default class Extension extends BaseExtension implements IPDFExtension {
   settingsDialogue: SettingsDialogue;
   defaultConfig: any = defaultConfig;
   locales = {
-    "en-GB": defaultConfig,
-    "cy-GB": () => import("./config/cy-GB.json"),
-    "fr-FR": () => import("./config/fr-FR.json"),
-    "pl-PL": () => import("./config/pl-PL.json"),
-    "sv-SE": () => import("./config/sv-SE.json"),
+    "en-CA": defaultConfig,
+    "fr-CA": () => import("./config/fr-CA.json")
   };
 
   create(): void {
@@ -160,8 +157,7 @@ export default class Extension extends BaseExtension implements IPDFExtension {
   }
 
   getEmbedScript(template: string, width: number, height: number): string {
-    const appUri: string = this.getAppUri();
-    console.log(appUri);
+    const appUri: string = this.getAppUri();    
     const iframeSrc: string = `${appUri}#?manifest=${this.helper.manifestUri}&c=${this.helper.collectionIndex}&m=${this.helper.manifestIndex}&cv=${this.helper.canvasIndex}`;
     const script: string = Strings.format(
       template,

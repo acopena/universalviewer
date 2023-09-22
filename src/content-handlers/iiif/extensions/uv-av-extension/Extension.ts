@@ -14,7 +14,7 @@ import { IIIFResourceType } from "@iiif/vocabulary/dist-commonjs/";
 import {Bools, Strings} from "@edsilv/utils";
 import { Thumb, TreeNode, Range } from "manifesto.js";
 import "./theme/theme.less";
-import defaultConfig from "./config/en-GB.json";
+import defaultConfig from "./config/en-CA.json";
 
 export default class Extension extends BaseExtension implements IAVExtension {
   $downloadDialogue: JQuery;
@@ -32,11 +32,8 @@ export default class Extension extends BaseExtension implements IAVExtension {
   shareDialogue: ShareDialogue;
   defaultConfig: any = defaultConfig;
   locales = {
-    "en-GB": defaultConfig,
-    "cy-GB": () => import("./config/cy-GB.json"),
-    "fr-FR": () => import("./config/fr-FR.json"),
-    "pl-PL": () => import("./config/pl-PL.json"),
-    "sv-SE": () => import("./config/sv-SE.json"),
+    "en-CA": defaultConfig,
+    "fr-CA": () => import("./config/fr-CA.json")   
   };
   lastAvCanvasIndex?: number;
 
@@ -152,8 +149,7 @@ export default class Extension extends BaseExtension implements IAVExtension {
   }
 
   getEmbedScript(template: string, width: number, height: number): string {
-    const appUri: string = this.getAppUri();  
-    console.log(appUri);
+    const appUri: string = this.getAppUri();      
     const iframeSrc: string = `${appUri}#?manifest=${this.helper.manifestUri}&c=${this.helper.collectionIndex}&m=${this.helper.manifestIndex}&cv=${this.helper.canvasIndex}&rid=${this.helper.rangeId}`;
     const script: string = Strings.format(
       template,

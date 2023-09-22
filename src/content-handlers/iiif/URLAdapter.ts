@@ -68,9 +68,8 @@ export class URLAdapter extends UVAdapter {
       let iiifManifestId: string = "";
       let canvasId: string = "";
       let xywh: string = "";
-
       const contentState = parseContentStateParameter(iiifContent) as any;
-      console.log(contentState.type);
+      
       if (contentState.type === "remote-content-state") {
         iiifManifestId = contentState.id;
       } else if (contentState && contentState.target.length) {
@@ -99,7 +98,6 @@ export class URLAdapter extends UVAdapter {
               "," +
               firstTarget.selector.height;
           }
-          console.log(xywh);
           if (manifestSource) {
             iiifManifestId = manifestSource.id;
           }

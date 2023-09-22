@@ -12,7 +12,7 @@ import { ShareDialogue } from "./ShareDialogue";
 import { AlephLeftPanel } from "../../modules/uv-alephleftpanel-module/AlephLeftPanel";
 import { Strings, Bools } from "@edsilv/utils";
 import "./theme/theme.less";
-import defaultConfig from "./config/en-GB.json";
+import defaultConfig from "./config/en-CA.json";
 
 export default class Extension extends BaseExtension
   implements IAlephExtension {
@@ -31,7 +31,7 @@ export default class Extension extends BaseExtension
   shareDialogue: ShareDialogue;
   defaultConfig: any = defaultConfig;
   locales = {
-    "en-GB": defaultConfig,
+    "en-CA": defaultConfig,
   };
 
   create(): void {
@@ -121,8 +121,7 @@ export default class Extension extends BaseExtension
   }
 
   getEmbedScript(template: string, width: number, height: number): string {
-    const appUri: string = this.getAppUri();
-    console.log(appUri);
+    const appUri: string = this.getAppUri();    
     const iframeSrc: string = `${appUri}#?manifest=${this.helper.manifestUri}`;
     const script: string = Strings.format(
       template,

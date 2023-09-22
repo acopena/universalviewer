@@ -101,7 +101,7 @@ export const isVisible = (el: JQuery) => {
 };
 
 export const defaultLocale = {
-  name: "en-GB",
+  name: "en-CA",
 };
 
 export const getUUID = () => {

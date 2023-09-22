@@ -116,6 +116,7 @@
     "react": "^18.0.0",
     "react-dom": "^18.0.0",
     "react-intersection-observer": "^8.34.0",
+    "react-native-event-listeners": "^1.0.7",
     "xss": "1.0.3",
     "zustand": "^4.0.0-rc.0"
   },

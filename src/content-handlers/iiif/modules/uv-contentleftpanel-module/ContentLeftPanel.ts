@@ -123,8 +123,6 @@ export class ContentLeftPanel extends LeftPanel {
         this.collapseFull();
       }
 
-      // this.selectCurrentTreeNode();
-      // this.updateTreeTabBySelection();
     });
 
     this.extensionHost.subscribe(IIIFEvents.RANGE_CHANGE, () => {
@@ -132,8 +130,7 @@ export class ContentLeftPanel extends LeftPanel {
         this.collapseFull();
       }
 
-      // this.selectCurrentTreeNode();
-      // this.updateTreeTabBySelection();
+     
     });
 
     // this.extensionHost.subscribe(
@@ -153,9 +150,7 @@ export class ContentLeftPanel extends LeftPanel {
     this.$tabs = $('<div class="tabs"></div>');
     this.$main.append(this.$tabs);
 
-    // this.$treeButton = $(
-    //   '<a class="index tab" tabindex="0">' + this.content.index + "</a>"
-    // );
+   
     this.$tabs.append(this.$treeButton);
 
     this.$thumbsButton = $(
@@ -177,11 +172,6 @@ export class ContentLeftPanel extends LeftPanel {
     this.$topOptions = $('<div class="top"></div>');
     this.$options.append(this.$topOptions);
 
-    // this.$treeSelect = $(
-    //   '<select aria-label="' + this.content.manifestRanges + '"></select>'
-    // );
-    // this.$topOptions.append(this.$treeSelect);
-
     this.$bottomOptions = $('<div class="bottom"></div>');
     this.$options.append(this.$bottomOptions);
 
@@ -191,32 +181,8 @@ export class ContentLeftPanel extends LeftPanel {
     this.$rightOptions = $('<div class="right"></div>');
     this.$bottomOptions.append(this.$rightOptions);
 
-    // this.$treeViewOptions = $('<div class="treeView"></div>');
-    // this.$leftOptions.append(this.$treeViewOptions);
-
-    // this.$sortByLabel = $(
-    //   '<span class="sort">' + this.content.sortBy + "</span>"
-    // );
-    // this.$treeViewOptions.append(this.$sortByLabel);
-
-    // this.$sortButtonGroup = $('<div class="btn-group"></div>');
-    // this.$treeViewOptions.append(this.$sortButtonGroup);
-
-    // this.$sortByDateButton = $(
-    //   '<button class="btn" tabindex="0">' + this.content.date + "</button>"
-    // );
-    // this.$sortButtonGroup.append(this.$sortByDateButton);
-
-    // this.$sortByVolumeButton = $(
-    //   '<button class="btn" tabindex="0">' + this.content.volume + "</button>"
-    // );
-    // this.$sortButtonGroup.append(this.$sortByVolumeButton);
-
     this.$views = $('<div class="views"></div>');
     this.$tabsContent.append(this.$views);
-
-    // this.$treeView = $('<div class="treeView"></div>');
-    // this.$views.append(this.$treeView);
 
     this.$thumbsView = $('<div class="thumbsView" tabindex="-1"></div>');
     this.$views.append(this.$thumbsView);
@@ -245,27 +211,6 @@ export class ContentLeftPanel extends LeftPanel {
     });
     this.openThumbsView();
 
-    // this.$treeSelect.hide();
-
-    // this.$treeSelect.change(() => {
-    //   this.renderTree();
-    //   this.selectCurrentTreeNode();
-    //   this.updateTreeTabBySelection();
-    // });
-
-    // this.$sortByDateButton.on("click", () => {
-    //   this.sortByDate();
-    // });
-
-    // this.$sortByVolumeButton.on("click", () => {
-    //   this.sortByVolume();
-    // });
-
-    // this.$treeViewOptions.hide();
-
-    // this.onAccessibleClick(this.$treeButton, () => {
-    //   this.openTreeView();
-    // });
 
     this.onAccessibleClick(this.$thumbsButton, () => {
       this.openThumbsView();
@@ -404,177 +349,12 @@ export class ContentLeftPanel extends LeftPanel {
   //   );
   // }
 
-  // createTreeView(): void {
-  //   this.treeView = new TreeView(this.$treeView);
-  //   this.treeView.treeData = this.getTreeData();
-  //   this.treeView.setup();
-  //   this.renderTree();
-
-  //   // populate the tree select drop down when there are multiple top-level ranges
-  //   const topRanges: Range[] = this.extension.helper.getTopRanges();
-
-  //   if (topRanges.length > 1) {
-  //     for (let i = 0; i < topRanges.length; i++) {
-  //       const range: Range = topRanges[i];
-  //       this.$treeSelect.append(
-  //         '<option value="' +
-  //           range.id +
-  //           '">' +
-  //           LanguageMap.getValue(range.getLabel()) +
-  //           "</option>"
-  //       );
-  //     }
-  //   }
-
-  //   this.updateTreeViewOptions();
-  // }
 
   render(): void {
     this.renderThumbs();
     //this.renderTree();
     this.renderGallery();
   }
-
-  // updateTreeViewOptions(): void {
-  //   const treeData: TreeNode | null = this.getTree();
-
-  //   if (!treeData) {
-  //     return;
-  //   }
-
-  //   if (
-  //     this.isCollection() &&
-  //     this.extension.helper.treeHasNavDates(treeData)
-  //   ) {
-  //     this.$treeViewOptions.show();
-  //   } else {
-  //     this.$treeViewOptions.hide();
-  //   }
-
-  //   if (this.$treeSelect.find("option").length) {
-  //     this.$treeSelect.show();
-  //   } else {
-  //     this.$treeSelect.hide();
-  //   }
-  // }
-
-  // sortByDate(): void {
-  //   this.treeSortType = TreeSortType.DATE;
-  //   this.treeView.treeData = this.getTreeData();
-  //   this.treeView.databind();
-  //   this.selectCurrentTreeNode();
-  //   this.$sortByDateButton.addClass("on");
-  //   this.$sortByVolumeButton.removeClass("on");
-  //   this.resize();
-  // }
-
-  // sortByVolume(): void {
-  //   this.treeSortType = TreeSortType.NONE;
-  //   this.treeView.treeData = this.getTreeData();
-  //   this.treeView.databind();
-  //   this.selectCurrentTreeNode();
-  //   this.$sortByDateButton.removeClass("on");
-  //   this.$sortByVolumeButton.addClass("on");
-  //   this.resize();
-  // }
-
-  // isCollection(): boolean {
-  //   var treeData: TreeNode | null = this.getTree();
-
-  //   if (treeData) {
-  //     return treeData.data.type === TreeNodeType.COLLECTION;
-  //   }
-
-  //   throw new Error("Tree not available");
-  // }
-
-  // renderTree(): void {
-  //   if (!this.treeView) return;
-  //   this.treeView.treeData = this.getTreeData();
-  //   this.treeView.databind();
-  //   this.selectCurrentTreeNode();
-  // }
-
-  // getTreeData() {
-  //   return {
-  //     autoExpand: this._isTreeAutoExpanded(),
-  //     branchNodesExpandOnClick: Bools.getBool(
-  //       this.config.options.branchNodesExpandOnClick,
-  //       true
-  //     ),
-  //     branchNodesSelectable: Bools.getBool(
-  //       this.config.options.branchNodesSelectable,
-  //       false
-  //     ),
-  //     helper: this.extension.helper,
-  //     topRangeIndex: this.getSelectedTopRangeIndex(),
-  //     treeSortType: this.treeSortType,
-  //   };
-  // }
-
-  // private _isTreeAutoExpanded(): boolean {
-  //   const autoExpandTreeEnabled: boolean = Bools.getBool(
-  //     this.config.options.autoExpandTreeEnabled,
-  //     false
-  //   );
-  //   const autoExpandTreeIfFewerThan: number =
-  //     this.config.options.autoExpandTreeIfFewerThan || 0;
-
-  //   if (autoExpandTreeEnabled) {
-  //     // get total number of tree nodes
-  //     const flatTree:
-  //       | TreeNode[]
-  //       | null = this.extension.helper.getFlattenedTree();
-
-  //     if (flatTree && flatTree.length < autoExpandTreeIfFewerThan) {
-  //       return true;
-  //     }
-  //   }
-
-  //   return false;
-  // }
-
-  // updateTreeTabByCanvasIndex(): void {
-  //   // update tab to current top range label (if there is one)
-  //   const topRanges: Range[] = this.extension.helper.getTopRanges();
-  //   if (topRanges.length > 1) {
-  //     const index: number = this.getCurrentCanvasTopRangeIndex();
-
-  //     if (index === -1) {
-  //       return;
-  //     }
-
-  //     const currentRange: Range = topRanges[index];
-  //     this.setTreeTabTitle(
-  //       <string>LanguageMap.getValue(currentRange.getLabel())
-  //     );
-  //   } else {
-  //     this.setTreeTabTitle(this.content.index);
-  //   }
-  // }
-
-  // setTreeTabTitle(title: string): void {
-  //   this.$treeButton.text(title);
-  // }
-
-  // updateTreeTabBySelection(): void {
-  //   let title: string | null = null;
-  //   const topRanges: Range[] = this.extension.helper.getTopRanges();
-
-  //   if (topRanges.length > 1) {
-  //     if (this.treeView) {
-  //       title = this.getSelectedTree().text();
-  //     } else {
-  //       title = LanguageMap.getValue(topRanges[0].getLabel());
-  //     }
-  //   }
-
-  //   if (title) {
-  //     this.setTreeTabTitle(title);
-  //   } else {
-  //     this.setTreeTabTitle(this.content.index);
-  //   }
-  // }
 
   getViewingHint(): ViewingHint | null {
     return this.extension.helper.getViewingHint();
@@ -644,8 +424,7 @@ export class ContentLeftPanel extends LeftPanel {
           // clone the data so searchResults isn't persisted on the canvas.
           let data = Object.assign({}, thumb.data);
           data.searchResults = searchResult.rects.length;
-          thumb.data = data;
-          console.log(thumb.data);
+          thumb.data = data;          
         }
       }
     }
@@ -720,72 +499,7 @@ export class ContentLeftPanel extends LeftPanel {
     return Bools.getBool(this.config.options.pageModeEnabled, true);
   }
 
-  // getSelectedTree(): JQuery {
-  //   return this.$treeSelect.find(":selected");
-  // }
-
-  // getSelectedTopRangeIndex(): number {
-  //   let topRangeIndex: number = this.getSelectedTree().index();
-  //   if (topRangeIndex === -1) {
-  //     topRangeIndex = 0;
-  //   }
-  //   return topRangeIndex;
-  // }
-
-  // getTree(): TreeNode | null {
-  //   const topRangeIndex: number = this.getSelectedTopRangeIndex();
-  //   return this.extension.helper.getTree(topRangeIndex, TreeSortType.NONE);
-  // }
-
-  // toggleFinish(): void {
-  //   super.toggleFinish();
-
-  //   if (this.isUnopened) {
-  //     let treeEnabled: boolean = Bools.getBool(
-  //       this.config.options.treeEnabled,
-  //       true
-  //     );
-  //     const thumbsEnabled: boolean = Bools.getBool(
-  //       this.config.options.thumbsEnabled,
-  //       true
-  //     );
-
-  //     const treeData: TreeNode | null = this.getTree();
-
-  //     if (!treeData || !treeData.nodes.length) {
-  //       treeEnabled = false;
-  //     }
-
-  //     // hide the tabs if either tree or thumbs are disabled
-  //     if (!treeEnabled || !thumbsEnabled) this.$tabs.hide();
-
-  //     if (thumbsEnabled && this.defaultToThumbsView()) {
-  //       this.openThumbsView();
-  //     } else if (treeEnabled) {
-  //       this.openTreeView();
-  //     }
-  //   }
-  // }
-
-  // defaultToThumbsView(): boolean {
-  //   const defaultToTreeEnabled: boolean = Bools.getBool(
-  //     this.config.options.defaultToTreeEnabled,
-  //     false
-  //   );
-  //   const defaultToTreeIfGreaterThan: number =
-  //     this.config.options.defaultToTreeIfGreaterThan || 0;
-
-  //   const treeData: TreeNode | null = this.getTree();
-
-  //   if (defaultToTreeEnabled) {
-  //     if (treeData && treeData.nodes.length > defaultToTreeIfGreaterThan) {
-  //       return false;
-  //     }
-  //   }
-
-  //   return true;
-  // }
-
+  
   expandFullStart(): void {
     super.expandFullStart();
     this.extensionHost.publish(IIIFEvents.LEFTPANEL_EXPAND_FULL_START);
@@ -820,32 +534,7 @@ export class ContentLeftPanel extends LeftPanel {
     this.extensionHost.publish(IIIFEvents.LEFTPANEL_COLLAPSE_FULL_FINISH);
   }
 
-  // openTreeView(): void {
-  //   this.isTreeViewOpen = true;
-  //   this.isThumbsViewOpen = false;
-
-  //   if (!this.treeView) {
-  //     this.createTreeView();
-  //   }
-
-  //   this.$treeButton.addClass("on");
-  //   this.$thumbsButton.removeClass("on");
-
-  //   this.treeView.show();
-
-  //   if (this.$thumbsView) this.$thumbsView.hide();
-  //   if (this.galleryView) this.galleryView.hide();
-
-  //   this.updateTreeViewOptions();
-
-  //   this.selectCurrentTreeNode();
-
-  //   this.resize();
-  //   this.treeView.resize();
-
-  //   this.extensionHost.publish(IIIFEvents.OPEN_TREE_VIEW);
-  // }
-
+ 
   openThumbsView(): void {
     // this.isTreeViewOpen = false;
     this.isThumbsViewOpen = true;
@@ -914,74 +603,7 @@ export class ContentLeftPanel extends LeftPanel {
     return topRangeIndex;
   }
 
-  // selectCurrentTreeNode(): void {
-  //   // todo: merge selectCurrentTreeNodeByCanvas and selectCurrentTreeNodeByRange
-  //   // the openseadragon extension should keep track of the current range instead of using canvas index
-  //   if (this.extension.type?.name === "uv-openseadragon-extension") {
-  //     this.selectCurrentTreeNodeByCanvas();
-  //   } else {
-  //     this.selectCurrentTreeNodeByRange();
-  //   }
-  // }
-
-  // selectCurrentTreeNodeByRange(): void {
-  //   if (this.treeView) {
-  //     const range: Range | null = this.extension.helper.getCurrentRange();
-  //     let node: TreeNode | null = null;
-
-  //     if (range && range.treeNode) {
-  //       node = this.treeView.getNodeById(range.treeNode.id);
-  //     }
-
-  //     if (node) {
-  //       this.treeView.selectNode(<TreeNode>node);
-  //     } else {
-  //       this.selectTreeNodeByManifest();
-  //     }
-  //   }
-  // }
-
-  // selectCurrentTreeNodeByCanvas(): void {
-  //   if (this.treeView) {
-  //     let node: TreeNode | null = null;
-  //     const currentCanvasTopRangeIndex: number = this.getCurrentCanvasTopRangeIndex();
-  //     const selectedTopRangeIndex: number = this.getSelectedTopRangeIndex();
-  //     const usingCorrectTree: boolean =
-  //       currentCanvasTopRangeIndex === selectedTopRangeIndex;
-  //     let range: Range | null = null;
-
-  //     if (currentCanvasTopRangeIndex !== -1) {
-  //       range = this.extension.getCurrentCanvasRange();
-  //       //range = this.extension.helper.getCurrentRange();
-
-  //       if (range && range.treeNode) {
-  //         node = this.treeView.getNodeById(range.treeNode.id);
-  //       }
-  //     }
-
-  //     // use manifest root node
-  //     // if (!node){
-  //     //     id = this.extension.helper.manifest.defaultTree.id;
-  //     //     node = this.treeView.getNodeById(id);
-  //     // }
-
-  //     if (node && usingCorrectTree) {
-  //       this.treeView.selectNode(<TreeNode>node);
-  //     } else {
-  //       range = this.extension.helper.getCurrentRange();
-
-  //       if (range && range.treeNode) {
-  //         node = this.treeView.getNodeById(range.treeNode.id);
-  //       }
-
-  //       if (node) {
-  //         this.treeView.selectNode(<TreeNode>node);
-  //       } else {
-  //         this.selectTreeNodeByManifest();
-  //       }
-  //     }
-  //   }
-  // }
+  
 
   // fall through to this is there's no current range or canvas
   selectTreeNodeByManifest(): void {

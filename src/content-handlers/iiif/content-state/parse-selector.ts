@@ -19,7 +19,6 @@ export function parseSelector(source: Selector | Selector[]): ParsedSelector {
         if (selector) {
           if (!data.selector) {
             data.selector = selector;
-            console.log(data.selector);
           }
           data.selectors.push(...selectors);
         }

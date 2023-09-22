@@ -41,7 +41,7 @@
     "clickToZoomEnabled": true,
     "searchWithinEnabled": true,
     "termsOfUseEnabled": true,
-    "theme": "uv-en-GB-theme",
+    "theme": "uv-en-CA-theme",
     "tokenStorage": "session",
     "useArrowKeysToNavigate": false,
     "zoomToSearchResultEnabled": true,
@@ -87,6 +87,7 @@
         "collapseFull": "Collapse Gallery",
         "date": "date",
         "details": "Details",
+        "download": "Download",
         "expand": "Expand Contents",
         "expandFull": "Expand Gallery",
         "index": "Index",
@@ -398,27 +399,15 @@
     }
   },
   "localisation": {
-    "label": "English (GB)",
+    "label": "English (CA)",
     "locales": [
       {
-        "name": "cy-GB",
-        "label": "Cymraeg"
+        "name": "en-CA",
+        "label": "English (CA)"
       },
       {
-        "name": "en-GB",
-        "label": "English (GB)"
-      },
-      {
-        "name": "fr-FR",
-        "label": "Français (FR)"
-      },
-      {
-        "name": "pl-PL",
-        "label": "Polski"
-      },
-      {
-        "name": "sv-SE",
-        "label": "Svenska"
+        "name": "fr-CA",
+        "label": "Français (CA)"
       }
     ]
   },

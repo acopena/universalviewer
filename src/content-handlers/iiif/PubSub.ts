@@ -3,16 +3,18 @@ export type EventHandlerWithName = (event: string, args: any) => void;
 
 export class PubSub {
   events: { [key: string]: EventHandler[] } = {};
-  onPublishHandler: EventHandlerWithName = () => {};
+  onPublishHandler: EventHandlerWithName = () => { };
 
-  constructor() {}
+  constructor() { }
 
   public publish(name: string, args?: any, extra?: any) {
-    
+
+    if (name == 'canvasIndexChange') {
+      sessionStorage.setItem('UVCurrentIndex', args);     
+    }
     const handlers: EventHandler[] = this.events[name];
     if (handlers) {
       handlers.forEach((handler) => {
-        console.log(handler);
         handler.call(this, args, extra);
       });
     }
@@ -40,7 +42,7 @@ export class PubSub {
   }
 
   public unsubscribeAll() {
-    this.onPublishHandler = () => {};
+    this.onPublishHandler = () => { };
   }
 
   public dispose() {

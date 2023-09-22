@@ -10,7 +10,7 @@
       "label": "Wellcome Library",
       "manifests": [
         {
-          "@id": "https://wellcomelibrary.org/iiif/b18035723/manifest",
+          "@id": "https://stdigitalmanifestspr.blob.core.windows.net/manifest/5/84037/manifest.json",
           "@type": "sc:Manifest",
           "label": "Wunder der Vererbung"
         },
