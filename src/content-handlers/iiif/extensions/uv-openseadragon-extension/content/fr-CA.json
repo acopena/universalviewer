@@ -1,123 +1,17 @@
 {
-  "options": {
-    "authAPIVersion": 1,
-    "bookmarkThumbHeight": 150,
-    "bookmarkThumbWidth": 90,
-    "dropEnabled": true,
-    "footerPanelEnabled": true,
-    "headerPanelEnabled": true,
-    "leftPanelEnabled": true,
-    "limitLocales": false,
-    "openTemplate": "http://universalviewer.io?manifest={0}",
-    "pessimisticAccessControl": false,
-    "rightPanelEnabled": true,
-    "theme": "uv-en-CA-theme"
+  "localisation": {
+    "label": "Français (CA)"
+  },
+  "content": {
+    "authCORSError": "Votre navigateur ne supporte pas CORS, veuillez mettre à jour votre navigateur pour afficher ce contenu.",
+    "authorisationFailedMessage": "Votre tentative de connexion semble avoir échoué. Veuillez réessayer.",
+    "canvasIndexOutOfRange": "Valeur d'index invalide pour la balise Canvas.",
+    "fallbackDegradedLabel": "Connexion",
+    "fallbackDegradedMessage": "Connectez-vous pour visualisez ce contenu en résolution maximale.",
+    "forbiddenResourceMessage": "Vos droits d'accès ne vous permettent pas de visualiser cette image",
+    "termsOfUse": "Conditions d'utilisation"
   },
   "modules": {
-    "shareDialogue": {
-      "options": {
-        "embedTemplate": "<iframe src=\"{0}\" width=\"{1}\" height=\"{2}\" allowfullscreen frameborder=\"0\"></iframe>"
-      },
-      "content": {
-        "customSize": "personnalisée",
-        "embed": "Intégrer",
-        "embedInstructions": "Pour afficher ce contenu sur votre site internet, copier-collez le code ci-dessous.",
-        "height": "Hauteur",
-        "iiif": "Manifeste IIIF",
-        "share": "Partager",
-        "shareInstructions": "Pour partager ce contenu, copier l'URL ci-dessous.",
-        "size": "Taille :",
-        "width": "Largeur"
-      }
-    },
-    "footerPanel": {
-      "options": {
-        "bookmarkEnabled": false,
-        "embedEnabled": false,
-        "feedbackEnabled": false,
-        "minimiseButtons": true,
-        "openEnabled": false,
-        "shareEnabled": true
-      },
-      "content": {
-        "bookmark": "Ajouter aux favoris",
-        "download": "Télécharger",
-        "embed": "Intégrer",
-        "exitFullScreen": "Quitter le mode plein écran",
-        "feedback": "Commentaire",
-        "fullScreen": "Affichage en plein écran",
-        "moreInfo": "Informations",
-        "open": "Ouvrir",
-        "share": "Partager"
-      }
-    },
-    "genericDialogue": {
-      "content": {
-        "emptyValue": "veuillez saisir une valeur.",
-        "invalidNumber": "Veuillez saisir un nombre valide.",
-        "noMatches": "Aucune correspondance n'a été trouvée.",
-        "ok": "OK",
-        "pageNotFound": "Ce contenu ne contient pas de page avec le numéro indiqué. Veuillez essayer de basculer le mode de numérotation sur 'image'.",
-        "refresh": "Rafraîchir"
-      }
-    },
-    "headerPanel": {},
-    "helpDialogue": {
-      "content": {
-        "text": "texte d'exemple",
-        "title": "Aide"
-      }
-    },
-    "mediaelementCenterPanel": {
-      "defaultHeight": 420,
-      "defaultWidth": 560
-    },
-    "moreInfoRightPanel": {
-      "options": {
-        "canvasDisplayOrder": "",
-        "canvasExclude": "",
-        "copyToClipboardEnabled": false,
-        "manifestDisplayOrder": "",
-        "manifestExclude": "",
-        "panelAnimationDuration": 250,
-        "panelCollapsedWidth": 30,
-        "panelExpandedWidth": 255,
-        "panelOpen": false,
-        "rtlLanguageCodes": "ar, ara, dv, div, he, heb, ur, urd",
-        "showAllLanguages": false,
-        "textLimit": 4,
-        "textLimitType": "lines"
-      },
-      "content": {
-        "attribution": "Attribution",
-        "collapse": "Masquer les informations",
-        "collapseFull": "Masquer la galerie",
-        "description": "Description",
-        "expand": "Afficher les informations",
-        "expandFull": "Afficher la galerie",
-        "holdingText": "Votre module vient ici !",
-        "less": "moins",
-        "license": "Licence",
-        "logo": "Logo",
-        "more": "suite",
-        "noData": "Aucune donnée à afficher",
-        "page": "Page",
-        "title": "Informations",
-        "manifestHeader": "A propos du contenu",
-        "canvasHeader": "A propos de l'image",
-        "copyToClipboard": "Copier dans le presse-papiers",
-        "copiedToClipboard": "Copié dans le presse-papiers"
-      }
-    },
-    "resourcesLeftPanel": {
-      "options": {
-        "expandFullEnabled": false,
-        "panelAnimationDuration": 250,
-        "panelCollapsedWidth": 30,
-        "panelExpandedWidth": 255,
-        "panelOpen": true
-      }
-    },
     "authDialogue": {
       "content": {
         "cancel": "Annuler",
@@ -166,6 +60,7 @@
         "noneAvailable": "Aucune option de téléchargement n'est disponible.",
         "pagingNote": "Veuillez fermer l'affichage en double page pour accéder aux options supplémentaires.",
         "preview": "Aperçu",
+        "termsOfUse": "Conditions d'utilisation",
         "title": "Télécharger",
         "wholeImageHighRes": "Image {0} x {1}px ({2})",
         "wholeImageHighResExplanation": "Ouvre une nouvelle fenêtre.",
@@ -173,6 +68,35 @@
         "wholeImagesHighResExplanation": "S'ouvre dans deux nouvelles fenêtres.",
         "wholeImageLowResAsJpg": "Image {0} x {1}px (jpg)",
         "wholeImageLowResAsJpgExplanation": "Ouvre une nouvelle fenêtre."
+      }
+    },
+    "footerPanel": {
+      "content": {
+        "bookmark": "Ajouter aux favoris",
+        "download": "Télécharger",
+        "embed": "Intégrer",
+        "exitFullScreen": "Quitter le mode plein écran",
+        "feedback": "Commentaire",
+        "fullScreen": "Affichage en plein écran",
+        "moreInfo": "Informations",
+        "open": "Ouvrir",
+        "share": "Partager"
+      }
+    },
+    "genericDialogue": {
+      "content": {
+        "emptyValue": "veuillez saisir une valeur.",
+        "invalidNumber": "Veuillez saisir un nombre valide.",
+        "noMatches": "Aucune correspondance n'a été trouvée.",
+        "ok": "OK",
+        "pageNotFound": "Ce contenu ne contient pas de page avec le numéro indiqué. Veuillez essayer de basculer le mode de numérotation sur 'image'.",
+        "refresh": "Rafraîchir"
+      }
+    },
+    "helpDialogue": {
+      "content": {
+        "text": "texte d'exemple",
+        "title": "Aide"
       }
     },
     "loginDialogue": {
@@ -188,6 +112,28 @@
         "moreInfo": "Informations",
         "zoomIn": "Zoom avant",
         "zoomOut": "Zoom arrière"
+      }
+    },
+    "moreInfoRightPanel": {
+      "content": {
+        "attribution": "Attribution",
+        "collapse": "Masquer les informations",
+        "collapseFull": "Masquer la galerie",
+        "description": "Description",
+        "expand": "Afficher les informations",
+        "expandFull": "Afficher la galerie",
+        "holdingText": "Votre module vient ici !",
+        "less": "moins",
+        "license": "Licence",
+        "logo": "Logo",
+        "more": "suite",
+        "noData": "Aucune donnée à afficher",
+        "page": "Page",
+        "title": "Informations",
+        "manifestHeader": "A propos du contenu",
+        "canvasHeader": "A propos de l'image",
+        "copyToClipboard": "Copier dans le presse-papiers",
+        "copiedToClipboard": "Copié dans le presse-papiers"
       }
     },
     "multiSelectDialogue": {
@@ -269,33 +215,23 @@
         "navigatorEnabled": "Navigateur activé",
         "clickToZoomEnabled": "Cliquer pour zoomer",
         "pagingEnabled": "Affichage double page",
-        "reducedMotion": "Réduire le mouvement (désactive les animations)",
         "preserveViewport": "Conserver le zoom",
         "title": "Paramètres",
         "website": "<a href='https://github.com/universalviewer/universalviewer#contributors'>informations</a>"
       }
+    },
+    "shareDialogue": {
+      "content": {
+        "customSize": "personnalisée",
+        "embed": "Intégrer",
+        "embedInstructions": "Pour afficher ce contenu sur votre site internet, copier-collez le code ci-dessous.",
+        "height": "Hauteur",
+        "iiif": "Manifeste IIIF",
+        "share": "Partager",
+        "shareInstructions": "Pour partager ce contenu, copier l'URL ci-dessous.",
+        "size": "Taille :",
+        "width": "Largeur"
+      }
     }
-  },
-  "localisation": {
-    "label": "Français (CA)",
-    "locales": [
-      {
-        "name": "en-CA",
-        "label": "English (CA)"
-      },
-      {
-        "name": "fr-CA",
-        "label": "Français (CA)"
-      }      
-    ]
-  },
-  "content": {
-    "authCORSError": "Votre navigateur ne supporte pas CORS, veuillez mettre à jour votre navigateur pour afficher ce contenu.",
-    "authorisationFailedMessage": "Votre tentative de connexion semble avoir échoué. Veuillez réessayer.",
-    "canvasIndexOutOfRange": "Valeur d'index invalide pour la balise Canvas.",
-    "fallbackDegradedLabel": "Connexion",
-    "fallbackDegradedMessage": "Connectez-vous pour visualisez ce contenu en résolution maximale.",
-    "forbiddenResourceMessage": "Vos droits d'accès ne vous permettent pas de visualiser cette image",
-    "termsOfUse": "Conditions d'utilisation"
   }
 }
