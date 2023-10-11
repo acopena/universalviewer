@@ -12,7 +12,7 @@ export class URLAdapter extends UVAdapter {
   }
 
   public get<T>(key: string, defaultValue?: T | undefined): T | undefined {
-    const hashParameter: string | null = Urls.getHashParameter(key, document);
+    const hashParameter: string | null = Urls.getHashParameter(key, document);   
 
     if (hashParameter === null) {
       return defaultValue;
@@ -42,8 +42,10 @@ export class URLAdapter extends UVAdapter {
 
   public getInitialData(overrides?: IUVData): IUVData {
 
+    
     const formattedLocales: Array<{ label?: string; name: string }> = [];
     const locales = this.get<string>("locales", "");
+
     if (locales) {
       const names = locales.split(",");
       for (let i in names) {
@@ -52,7 +54,7 @@ export class URLAdapter extends UVAdapter {
       }
     } else {
       formattedLocales.push(defaultLocale);
-    }
+    }   
 
     function numberOrUndefined(num) {
       if (num === undefined) {
@@ -69,6 +71,7 @@ export class URLAdapter extends UVAdapter {
       let canvasId: string = "";
       let xywh: string = "";
       const contentState = parseContentStateParameter(iiifContent) as any;
+     
       
       if (contentState.type === "remote-content-state") {
         iiifManifestId = contentState.id;

@@ -9,10 +9,11 @@ import { HelpDialogue } from "../../modules/uv-dialogues-module/HelpDialogue";
 import { IMediaElementExtension } from "./IMediaElementExtension";
 import { MediaElementCenterPanel } from "../../modules/uv-mediaelementcenterpanel-module/MediaElementCenterPanel";
 import { MoreInfoRightPanel } from "../../modules/uv-moreinforightpanel-module/MoreInfoRightPanel";
-import { ResourcesLeftPanel } from "../../modules/uv-resourcesleftpanel-module/ResourcesLeftPanel";
+//import { ResourcesLeftPanel } from "../../modules/uv-resourcesleftpanel-module/ResourcesLeftPanel";
 import { SettingsDialogue } from "./SettingsDialogue";
 import { ShareDialogue } from "./ShareDialogue";
 import { Bools, Strings } from "@edsilv/utils";
+import { ContentLeftPanel } from "../../modules/uv-contentleftpanel-module/ContentLeftPanel";
 import {
   ExternalResourceType,
   MediaType,
@@ -41,7 +42,8 @@ export default class Extension extends BaseExtension
   footerPanel: FooterPanel;
   headerPanel: HeaderPanel;
   helpDialogue: HelpDialogue;
-  leftPanel: ResourcesLeftPanel;
+  //leftPanel: ResourcesLeftPanel;
+  leftPanel: ContentLeftPanel;
   rightPanel: MoreInfoRightPanel;
   settingsDialogue: SettingsDialogue;
   defaultConfig: any = defaultConfig;
@@ -131,7 +133,9 @@ export default class Extension extends BaseExtension
     }
 
     if (this.isLeftPanelEnabled()) {
-      this.leftPanel = new ResourcesLeftPanel(this.shell.$leftPanel);
+      this.leftPanel = new ContentLeftPanel(this.shell.$leftPanel);
+    }else {
+      this.shell.$leftPanel.hide();
     }
 
     this.centerPanel = new MediaElementCenterPanel(this.shell.$centerPanel);
@@ -140,6 +144,7 @@ export default class Extension extends BaseExtension
       this.rightPanel = new MoreInfoRightPanel(this.shell.$rightPanel);
     }
 
+    console.log('**** uv Mediaelement extensiton ****');   
     if (this.isFooterPanelEnabled()) {
       this.footerPanel = new FooterPanel(this.shell.$footerPanel);
     } else {
@@ -208,12 +213,19 @@ export default class Extension extends BaseExtension
   }
 
   isLeftPanelEnabled(): boolean {
+  
+    (this.helper.isMultiCanvas() ||
+      this.helper.isMultiSequence() ||
+      this.helper.hasResources());
+     
+
     return (
       Bools.getBool(this.data.config.options.leftPanelEnabled, true) &&
       (this.helper.isMultiCanvas() ||
         this.helper.isMultiSequence() ||
         this.helper.hasResources())
     );
+    //return true;
   }
 
   bookmark(): void {

@@ -9,7 +9,8 @@
     "degradedResourceLogin": "log in",
     "forbiddenResourceMessage": "Your current access rights are insufficient to view this image",
     "mediaViewer": "Media Viewer",
-    "skipToDownload": "Skip to downloads and alternative formats"
+    "skipToDownload": "Skip to downloads and alternative formats",
+    "thumbnails" :"thumbnails"
   },
   "modules": {
     "dialogue": {
@@ -110,7 +111,11 @@
         "website": "<a href='https://github.com/universalviewer/universalviewer'>more info</a>"
       }
     },
-    "contentLeftPanel": {},
+    "contentLeftPanel": {
+      "title": "Contents",
+      "thumbnails" :"thumbnails"
+    },
+ 
     "shareDialogue": {
       "content": {
         "customSize": "custom",
@@ -123,6 +128,11 @@
         "size": "Size:",
         "width": "Width"
       }
+    },
+    "resourcesLeftPanel": {
+      "title": "Contents",
+      "thumbnails" :"thumbnails",
+      "details":"Details"
     }
   }
 }

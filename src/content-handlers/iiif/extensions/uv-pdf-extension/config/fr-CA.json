@@ -9,7 +9,7 @@
     "limitLocales": false,
     "openTemplate": "http://universalviewer.io?manifest={0}",
     "pessimisticAccessControl": false,
-    "rightPanelEnabled": true,
+    "rightPanelEnabled": false,
     "theme": "uv-en-CA-theme",
     "usePdfJs": true
   },
@@ -117,6 +117,7 @@
     },
     "resourcesLeftPanel": {
       "options": {
+        "elideCount1": 133,
         "elideCount": 40,
         "galleryThumbHeight": 320,
         "galleryThumbWidth": 200,
@@ -134,6 +135,11 @@
         "treeEnabled": true,
         "twoColThumbHeight": 150,
         "twoColThumbWidth": 90
+      },
+      "content": {
+        "title": "Contents",
+        "thumbnails" :"Vignettes",
+        "details":"Détails"
       }
     },
     "authDialogue": {

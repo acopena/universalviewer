@@ -178,28 +178,33 @@ const DownloadDialogue = ({
 
   function isDownloadOptionAvailable(option: DownloadOption) {
     const selectedResource: IExternalResourceData | null = getSelectedResource();
-
+    console.log(selectedResource);
     if (!selectedResource) {
       return false;
     }
-
+    
     const canvas: Canvas = getSelectedCanvas();
 
     // if the external resource doesn't have a service descriptor or is level 0
     // only allow wholeImageHighRes
-    if (
-      !canvas.externalResource.hasServiceDescriptor() ||
-      isLevel0(canvas.externalResource.data.profile)
-    ) {
+    // console.log(canvas);
+    // console.log('!canvas.externalResource.hasServiceDescriptor() :' + !canvas.externalResource.hasServiceDescriptor());
+    // console.log('isLevel0(canvas.externalResource.data.profile :' + isLevel0(canvas.externalResource.data.profile));
+
+    //console.log(canvas.externalResource);
+    if (!canvas.externalResource.hasServiceDescriptor() || isLevel0(canvas.externalResource.data.profile)) {
       if (option === DownloadOption.WHOLE_IMAGE_HIGH_RES) {
         // if in one-up mode, or in two-up mode with a single page being shown
         if (!(paged || (paged && selectedResource))) {
+          console.log('returning true');
           return true;
         }
       }
+      console.log('returning false');
       return false;
     }
 
+    console.log(option);
     switch (option) {
       case DownloadOption.CURRENT_VIEW:
         return !paged;
@@ -314,17 +319,17 @@ const DownloadDialogue = ({
     } else {
       label = hasNormalDimensions
         ? Strings.format(
-            content.wholeImageHighRes,
-            size.width.toString(),
-            size.height.toString(),
-            mime
-          )
+          content.wholeImageHighRes,
+          size.width.toString(),
+          size.height.toString(),
+          mime
+        )
         : Strings.format(
-            content.wholeImageHighRes,
-            size.height.toString(),
-            size.width.toString(),
-            mime
-          );
+          content.wholeImageHighRes,
+          size.height.toString(),
+          size.width.toString(),
+          mime
+        );
     }
 
     return label;
@@ -339,15 +344,15 @@ const DownloadDialogue = ({
     if (size) {
       label = hasNormalDimensions
         ? Strings.format(
-            content.wholeImageLowResAsJpg,
-            size.width.toString(),
-            size.height.toString()
-          )
+          content.wholeImageLowResAsJpg,
+          size.width.toString(),
+          size.height.toString()
+        )
         : Strings.format(
-            content.wholeImageLowResAsJpg,
-            size.height.toString(),
-            size.width.toString()
-          );
+          content.wholeImageLowResAsJpg,
+          size.height.toString(),
+          size.width.toString()
+        );
     }
 
     return label;
@@ -363,15 +368,15 @@ const DownloadDialogue = ({
     if (dimensions) {
       label = hasNormalDimensions
         ? Strings.format(
-            label,
-            dimensions.size.width.toString(),
-            dimensions.size.height.toString()
-          )
+          label,
+          dimensions.size.width.toString(),
+          dimensions.size.height.toString()
+        )
         : Strings.format(
-            label,
-            dimensions.size.height.toString(),
-            dimensions.size.width.toString()
-          );
+          label,
+          dimensions.size.height.toString(),
+          dimensions.size.width.toString()
+        );
     }
 
     return label;
@@ -592,8 +597,8 @@ const DownloadDialogue = ({
           </ol>
           {(hasManifestRenderings() ||
             isDownloadOptionAvailable(DownloadOption.SELECTION)) && (
-            <h2>{content.allPages}</h2>
-          )}
+              <h2>{content.allPages}</h2>
+            )}
           <ol className="options">
             {isDownloadOptionAvailable(DownloadOption.MANIFEST_RENDERINGS) && (
               <ManifestRenderings />

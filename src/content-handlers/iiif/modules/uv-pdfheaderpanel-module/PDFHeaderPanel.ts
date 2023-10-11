@@ -1,7 +1,9 @@
 const $ = require("jquery");
 import { IIIFEvents } from "../../IIIFEvents";
 import { PDFExtensionEvents } from "../../extensions/uv-pdf-extension/Events";
+//import { FooterPanel } from "../uv-shared-module/FooterPanel";
 import { HeaderPanel } from "../uv-shared-module/HeaderPanel";
+
 import { Strings } from "@edsilv/utils";
 
 export class PDFHeaderPanel extends HeaderPanel {

@@ -1,0 +1,535 @@
+{
+    "@context": "http://iiif.io/api/presentation/2/context.json",
+    "@id": "https://iiif.wellcomecollection.org/presentation/v2/b1948799x",
+    "@type": "sc:Manifest",
+    "label": "Copied letter from Francis Crick to Michael Crick",
+    "metadata": [
+        {
+            "label": "Description",
+            "value": "A copy of the famous letter from Crick to his son Michael explaining his and Watson's discovery of the structure of DNA, 19 March 1953.\n\n<p>The letter is the earliest written description of the genetic mechanism, written before Crick and Watson's second <i>Nature</i> paper was drafted.</p>"
+        },
+        {
+            "label": "Reference",
+            "value": "PP/CRI/D/4/3"
+        },
+        {
+            "label": "Publication/creation",
+            "value": "1953"
+        },
+        {
+            "label": "Physical description",
+            "value": "1 file"
+        },
+        {
+            "label": "Acquisition note",
+            "value": "This copy was given to the library in January 2005 by Dr Matt Ridley, and is included here in the Crick archive courtesy of Michael Crick."
+        },
+        {
+            "label": "Attribution",
+            "value": "Wellcome Collection"
+        },
+        {
+            "label": "Full conditions of use",
+            "value": "Works in this archive created by Francis Crick are available under a <a href=\"https://creativecommons.org/licenses/by/4.0/\">CC-BY</a> licence. Please be aware that works in this archive created by other organisations and individuals are not covered under this licence, and you should obtain any necessary permissions before copying or adapting any such works."
+        }
+    ],
+    "description": "A copy of the famous letter from Crick to his son Michael explaining his and Watson's discovery of the structure of DNA, 19 March 1953.\n\n<p>The letter is the earliest written description of the genetic mechanism, written before Crick and Watson's second <i>Nature</i> paper was drafted.</p>",
+    "thumbnail": {
+        "@id": "https://iiif.wellcomecollection.org/thumbs/b1948799x_pp_cri_d_4_3_0001.jp2/full/67,100/0/default.jpg",
+        "@type": "dctypes:Image",
+        "service": {
+            "@context": "http://iiif.io/api/image/2/context.json",
+            "@id": "https://iiif.wellcomecollection.org/thumbs/b1948799x_pp_cri_d_4_3_0001.jp2",
+            "profile": "http://iiif.io/api/image/2/level0.json",
+            "protocol": "http://iiif.io/api/image",
+            "width": 683,
+            "height": 1024,
+            "sizes": [
+                {
+                    "width": 67,
+                    "height": 100
+                },
+                {
+                    "width": 133,
+                    "height": 200
+                },
+                {
+                    "width": 267,
+                    "height": 400
+                },
+                {
+                    "width": 683,
+                    "height": 1024
+                }
+            ]
+        }
+    },
+    "logo": "https://iiif.wellcomecollection.org/logos/wellcome-collection-black.png",
+    "related": {
+        "@id": "https://wellcomecollection.org/works/v3ndr2ux",
+        "format": "text/html",
+        "label": "Copied letter from Francis Crick to Michael Crick"
+    },
+    "seeAlso": {
+        "@id": "https://api.wellcomecollection.org/catalogue/v2/works/v3ndr2ux",
+        "profile": "https://api.wellcomecollection.org/catalogue/v2/context.json",
+        "format": "application/json",
+        "label": "Wellcome Collection Catalogue API"
+    },
+    "service": [
+        {
+            "@context": "http://universalviewer.io/context.json",
+            "@id": "http://wellcomelibrary.org/service/trackingLabels/b1948799x",
+            "profile": "http://universalviewer.io/tracking-extensions-profile",
+            "trackingLabel": "Format: Archive, Institution: n/a, Identifier: b1948799x, Digicode: diggenetics, Collection code: PP/CRI/D/4/3"
+        },
+        {
+            "@context": "http://wellcomelibrary.org/ld/iiif-ext/0/context.json",
+            "@id": "https://wellcomelibrary.org/iiif/b1948799x/access-control-hints-service",
+            "profile": "http://wellcomelibrary.org/ld/iiif-ext/access-control-hints",
+            "accessHint": "open"
+        }
+    ],
+    "sequences": [
+        {
+            "@id": "https://iiif.wellcomecollection.org/presentation/v2/b1948799x/sequences/s0",
+            "@type": "sc:Sequence",
+            "label": "Sequence s0",
+            "rendering": {
+                "@id": "https://iiif.wellcomecollection.org/pdf/b1948799x",
+                "label": "View as PDF",
+                "format": "application/pdf"
+            },
+            "canvases": [
+                {
+                    "@id": "https://iiif.wellcomecollection.org/presentation/b1948799x/canvases/b1948799x_pp_cri_d_4_3_0001.jp2",
+                    "@type": "sc:Canvas",
+                    "label": "-",
+                    "thumbnail": {
+                        "@id": "https://iiif.wellcomecollection.org/thumbs/b1948799x_pp_cri_d_4_3_0001.jp2/full/67,100/0/default.jpg",
+                        "@type": "dctypes:Image",
+                        "service": {
+                            "@context": "http://iiif.io/api/image/2/context.json",
+                            "@id": "https://iiif.wellcomecollection.org/thumbs/b1948799x_pp_cri_d_4_3_0001.jp2",
+                            "profile": "http://iiif.io/api/image/2/level0.json",
+                            "protocol": "http://iiif.io/api/image",
+                            "width": 683,
+                            "height": 1024,
+                            "sizes": [
+                                {
+                                    "width": 67,
+                                    "height": 100
+                                },
+                                {
+                                    "width": 133,
+                                    "height": 200
+                                },
+                                {
+                                    "width": 267,
+                                    "height": 400
+                                },
+                                {
+                                    "width": 683,
+                                    "height": 1024
+                                }
+                            ]
+                        }
+                    },
+                    "height": 3965,
+                    "width": 2643,
+                    "images": [
+                        {
+                            "@id": "https://iiif.wellcomecollection.org/presentation/b1948799x/canvases/b1948799x_pp_cri_d_4_3_0001.jp2/painting/anno",
+                            "@type": "oa:Annotation",
+                            "motivation": "sc:painting",
+                            "resource": {
+                                "@id": "https://iiif.wellcomecollection.org/image/b1948799x_pp_cri_d_4_3_0001.jp2/full/683,1024/0/default.jpg",
+                                "@type": "dctypes:Image",
+                                "format": "image/jpeg",
+                                "height": 1024,
+                                "width": 683,
+                                "service": {
+                                    "@context": "http://iiif.io/api/image/2/context.json",
+                                    "@id": "https://iiif.wellcomecollection.org/image/b1948799x_pp_cri_d_4_3_0001.jp2",
+                                    "profile": "http://iiif.io/api/image/2/level1.json",
+                                    "protocol": "http://iiif.io/api/image",
+                                    "width": 2643,
+                                    "height": 3965
+                                }
+                            },
+                            "on": "https://iiif.wellcomecollection.org/presentation/b1948799x/canvases/b1948799x_pp_cri_d_4_3_0001.jp2"
+                        }
+                    ],
+                    "within": ""
+                },
+                {
+                    "@id": "https://iiif.wellcomecollection.org/presentation/b1948799x/canvases/b1948799x_pp_cri_d_4_3_0002.jp2",
+                    "@type": "sc:Canvas",
+                    "label": "-",
+                    "thumbnail": {
+                        "@id": "https://iiif.wellcomecollection.org/thumbs/b1948799x_pp_cri_d_4_3_0002.jp2/full/67,100/0/default.jpg",
+                        "@type": "dctypes:Image",
+                        "service": {
+                            "@context": "http://iiif.io/api/image/2/context.json",
+                            "@id": "https://iiif.wellcomecollection.org/thumbs/b1948799x_pp_cri_d_4_3_0002.jp2",
+                            "profile": "http://iiif.io/api/image/2/level0.json",
+                            "protocol": "http://iiif.io/api/image",
+                            "width": 683,
+                            "height": 1024,
+                            "sizes": [
+                                {
+                                    "width": 67,
+                                    "height": 100
+                                },
+                                {
+                                    "width": 133,
+                                    "height": 200
+                                },
+                                {
+                                    "width": 267,
+                                    "height": 400
+                                },
+                                {
+                                    "width": 683,
+                                    "height": 1024
+                                }
+                            ]
+                        }
+                    },
+                    "height": 3965,
+                    "width": 2643,
+                    "images": [
+                        {
+                            "@id": "https://iiif.wellcomecollection.org/presentation/b1948799x/canvases/b1948799x_pp_cri_d_4_3_0002.jp2/painting/anno",
+                            "@type": "oa:Annotation",
+                            "motivation": "sc:painting",
+                            "resource": {
+                                "@id": "https://iiif.wellcomecollection.org/image/b1948799x_pp_cri_d_4_3_0002.jp2/full/683,1024/0/default.jpg",
+                                "@type": "dctypes:Image",
+                                "format": "image/jpeg",
+                                "height": 1024,
+                                "width": 683,
+                                "service": {
+                                    "@context": "http://iiif.io/api/image/2/context.json",
+                                    "@id": "https://iiif.wellcomecollection.org/image/b1948799x_pp_cri_d_4_3_0002.jp2",
+                                    "profile": "http://iiif.io/api/image/2/level1.json",
+                                    "protocol": "http://iiif.io/api/image",
+                                    "width": 2643,
+                                    "height": 3965
+                                }
+                            },
+                            "on": "https://iiif.wellcomecollection.org/presentation/b1948799x/canvases/b1948799x_pp_cri_d_4_3_0002.jp2"
+                        }
+                    ],
+                    "within": ""
+                },
+                {
+                    "@id": "https://iiif.wellcomecollection.org/presentation/b1948799x/canvases/b1948799x_pp_cri_d_4_3_0003.jp2",
+                    "@type": "sc:Canvas",
+                    "label": "-",
+                    "thumbnail": {
+                        "@id": "https://iiif.wellcomecollection.org/thumbs/b1948799x_pp_cri_d_4_3_0003.jp2/full/67,100/0/default.jpg",
+                        "@type": "dctypes:Image",
+                        "service": {
+                            "@context": "http://iiif.io/api/image/2/context.json",
+                            "@id": "https://iiif.wellcomecollection.org/thumbs/b1948799x_pp_cri_d_4_3_0003.jp2",
+                            "profile": "http://iiif.io/api/image/2/level0.json",
+                            "protocol": "http://iiif.io/api/image",
+                            "width": 683,
+                            "height": 1024,
+                            "sizes": [
+                                {
+                                    "width": 67,
+                                    "height": 100
+                                },
+                                {
+                                    "width": 133,
+                                    "height": 200
+                                },
+                                {
+                                    "width": 267,
+                                    "height": 400
+                                },
+                                {
+                                    "width": 683,
+                                    "height": 1024
+                                }
+                            ]
+                        }
+                    },
+                    "height": 3965,
+                    "width": 2643,
+                    "images": [
+                        {
+                            "@id": "https://iiif.wellcomecollection.org/presentation/b1948799x/canvases/b1948799x_pp_cri_d_4_3_0003.jp2/painting/anno",
+                            "@type": "oa:Annotation",
+                            "motivation": "sc:painting",
+                            "resource": {
+                                "@id": "https://iiif.wellcomecollection.org/image/b1948799x_pp_cri_d_4_3_0003.jp2/full/683,1024/0/default.jpg",
+                                "@type": "dctypes:Image",
+                                "format": "image/jpeg",
+                                "height": 1024,
+                                "width": 683,
+                                "service": {
+                                    "@context": "http://iiif.io/api/image/2/context.json",
+                                    "@id": "https://iiif.wellcomecollection.org/image/b1948799x_pp_cri_d_4_3_0003.jp2",
+                                    "profile": "http://iiif.io/api/image/2/level1.json",
+                                    "protocol": "http://iiif.io/api/image",
+                                    "width": 2643,
+                                    "height": 3965
+                                }
+                            },
+                            "on": "https://iiif.wellcomecollection.org/presentation/b1948799x/canvases/b1948799x_pp_cri_d_4_3_0003.jp2"
+                        }
+                    ],
+                    "within": ""
+                },
+                {
+                    "@id": "https://iiif.wellcomecollection.org/presentation/b1948799x/canvases/b1948799x_pp_cri_d_4_3_0004.jp2",
+                    "@type": "sc:Canvas",
+                    "label": "-",
+                    "thumbnail": {
+                        "@id": "https://iiif.wellcomecollection.org/thumbs/b1948799x_pp_cri_d_4_3_0004.jp2/full/67,100/0/default.jpg",
+                        "@type": "dctypes:Image",
+                        "service": {
+                            "@context": "http://iiif.io/api/image/2/context.json",
+                            "@id": "https://iiif.wellcomecollection.org/thumbs/b1948799x_pp_cri_d_4_3_0004.jp2",
+                            "profile": "http://iiif.io/api/image/2/level0.json",
+                            "protocol": "http://iiif.io/api/image",
+                            "width": 683,
+                            "height": 1024,
+                            "sizes": [
+                                {
+                                    "width": 67,
+                                    "height": 100
+                                },
+                                {
+                                    "width": 133,
+                                    "height": 200
+                                },
+                                {
+                                    "width": 267,
+                                    "height": 400
+                                },
+                                {
+                                    "width": 683,
+                                    "height": 1024
+                                }
+                            ]
+                        }
+                    },
+                    "height": 3965,
+                    "width": 2643,
+                    "images": [
+                        {
+                            "@id": "https://iiif.wellcomecollection.org/presentation/b1948799x/canvases/b1948799x_pp_cri_d_4_3_0004.jp2/painting/anno",
+                            "@type": "oa:Annotation",
+                            "motivation": "sc:painting",
+                            "resource": {
+                                "@id": "https://iiif.wellcomecollection.org/image/b1948799x_pp_cri_d_4_3_0004.jp2/full/683,1024/0/default.jpg",
+                                "@type": "dctypes:Image",
+                                "format": "image/jpeg",
+                                "height": 1024,
+                                "width": 683,
+                                "service": {
+                                    "@context": "http://iiif.io/api/image/2/context.json",
+                                    "@id": "https://iiif.wellcomecollection.org/image/b1948799x_pp_cri_d_4_3_0004.jp2",
+                                    "profile": "http://iiif.io/api/image/2/level1.json",
+                                    "protocol": "http://iiif.io/api/image",
+                                    "width": 2643,
+                                    "height": 3965
+                                }
+                            },
+                            "on": "https://iiif.wellcomecollection.org/presentation/b1948799x/canvases/b1948799x_pp_cri_d_4_3_0004.jp2"
+                        }
+                    ],
+                    "within": ""
+                },
+                {
+                    "@id": "https://iiif.wellcomecollection.org/presentation/b1948799x/canvases/b1948799x_pp_cri_d_4_3_0005.jp2",
+                    "@type": "sc:Canvas",
+                    "label": "-",
+                    "thumbnail": {
+                        "@id": "https://iiif.wellcomecollection.org/thumbs/b1948799x_pp_cri_d_4_3_0005.jp2/full/67,100/0/default.jpg",
+                        "@type": "dctypes:Image",
+                        "service": {
+                            "@context": "http://iiif.io/api/image/2/context.json",
+                            "@id": "https://iiif.wellcomecollection.org/thumbs/b1948799x_pp_cri_d_4_3_0005.jp2",
+                            "profile": "http://iiif.io/api/image/2/level0.json",
+                            "protocol": "http://iiif.io/api/image",
+                            "width": 683,
+                            "height": 1024,
+                            "sizes": [
+                                {
+                                    "width": 67,
+                                    "height": 100
+                                },
+                                {
+                                    "width": 133,
+                                    "height": 200
+                                },
+                                {
+                                    "width": 267,
+                                    "height": 400
+                                },
+                                {
+                                    "width": 683,
+                                    "height": 1024
+                                }
+                            ]
+                        }
+                    },
+                    "height": 3965,
+                    "width": 2643,
+                    "images": [
+                        {
+                            "@id": "https://iiif.wellcomecollection.org/presentation/b1948799x/canvases/b1948799x_pp_cri_d_4_3_0005.jp2/painting/anno",
+                            "@type": "oa:Annotation",
+                            "motivation": "sc:painting",
+                            "resource": {
+                                "@id": "https://iiif.wellcomecollection.org/image/b1948799x_pp_cri_d_4_3_0005.jp2/full/683,1024/0/default.jpg",
+                                "@type": "dctypes:Image",
+                                "format": "image/jpeg",
+                                "height": 1024,
+                                "width": 683,
+                                "service": {
+                                    "@context": "http://iiif.io/api/image/2/context.json",
+                                    "@id": "https://iiif.wellcomecollection.org/image/b1948799x_pp_cri_d_4_3_0005.jp2",
+                                    "profile": "http://iiif.io/api/image/2/level1.json",
+                                    "protocol": "http://iiif.io/api/image",
+                                    "width": 2643,
+                                    "height": 3965
+                                }
+                            },
+                            "on": "https://iiif.wellcomecollection.org/presentation/b1948799x/canvases/b1948799x_pp_cri_d_4_3_0005.jp2"
+                        }
+                    ],
+                    "within": ""
+                },
+                {
+                    "@id": "https://iiif.wellcomecollection.org/presentation/b1948799x/canvases/b1948799x_pp_cri_d_4_3_0006.jp2",
+                    "@type": "sc:Canvas",
+                    "label": "-",
+                    "thumbnail": {
+                        "@id": "https://iiif.wellcomecollection.org/thumbs/b1948799x_pp_cri_d_4_3_0006.jp2/full/67,100/0/default.jpg",
+                        "@type": "dctypes:Image",
+                        "service": {
+                            "@context": "http://iiif.io/api/image/2/context.json",
+                            "@id": "https://iiif.wellcomecollection.org/thumbs/b1948799x_pp_cri_d_4_3_0006.jp2",
+                            "profile": "http://iiif.io/api/image/2/level0.json",
+                            "protocol": "http://iiif.io/api/image",
+                            "width": 683,
+                            "height": 1024,
+                            "sizes": [
+                                {
+                                    "width": 67,
+                                    "height": 100
+                                },
+                                {
+                                    "width": 133,
+                                    "height": 200
+                                },
+                                {
+                                    "width": 267,
+                                    "height": 400
+                                },
+                                {
+                                    "width": 683,
+                                    "height": 1024
+                                }
+                            ]
+                        }
+                    },
+                    "height": 3965,
+                    "width": 2643,
+                    "images": [
+                        {
+                            "@id": "https://iiif.wellcomecollection.org/presentation/b1948799x/canvases/b1948799x_pp_cri_d_4_3_0006.jp2/painting/anno",
+                            "@type": "oa:Annotation",
+                            "motivation": "sc:painting",
+                            "resource": {
+                                "@id": "https://iiif.wellcomecollection.org/image/b1948799x_pp_cri_d_4_3_0006.jp2/full/683,1024/0/default.jpg",
+                                "@type": "dctypes:Image",
+                                "format": "image/jpeg",
+                                "height": 1024,
+                                "width": 683,
+                                "service": {
+                                    "@context": "http://iiif.io/api/image/2/context.json",
+                                    "@id": "https://iiif.wellcomecollection.org/image/b1948799x_pp_cri_d_4_3_0006.jp2",
+                                    "profile": "http://iiif.io/api/image/2/level1.json",
+                                    "protocol": "http://iiif.io/api/image",
+                                    "width": 2643,
+                                    "height": 3965
+                                }
+                            },
+                            "on": "https://iiif.wellcomecollection.org/presentation/b1948799x/canvases/b1948799x_pp_cri_d_4_3_0006.jp2"
+                        }
+                    ],
+                    "within": ""
+                },
+                {
+                    "@id": "https://iiif.wellcomecollection.org/presentation/b1948799x/canvases/b1948799x_pp_cri_d_4_3_0007.jp2",
+                    "@type": "sc:Canvas",
+                    "label": "-",
+                    "thumbnail": {
+                        "@id": "https://iiif.wellcomecollection.org/thumbs/b1948799x_pp_cri_d_4_3_0007.jp2/full/67,100/0/default.jpg",
+                        "@type": "dctypes:Image",
+                        "service": {
+                            "@context": "http://iiif.io/api/image/2/context.json",
+                            "@id": "https://iiif.wellcomecollection.org/thumbs/b1948799x_pp_cri_d_4_3_0007.jp2",
+                            "profile": "http://iiif.io/api/image/2/level0.json",
+                            "protocol": "http://iiif.io/api/image",
+                            "width": 683,
+                            "height": 1024,
+                            "sizes": [
+                                {
+                                    "width": 67,
+                                    "height": 100
+                                },
+                                {
+                                    "width": 133,
+                                    "height": 200
+                                },
+                                {
+                                    "width": 267,
+                                    "height": 400
+                                },
+                                {
+                                    "width": 683,
+                                    "height": 1024
+                                }
+                            ]
+                        }
+                    },
+                    "height": 3965,
+                    "width": 2643,
+                    "images": [
+                        {
+                            "@id": "https://iiif.wellcomecollection.org/presentation/b1948799x/canvases/b1948799x_pp_cri_d_4_3_0007.jp2/painting/anno",
+                            "@type": "oa:Annotation",
+                            "motivation": "sc:painting",
+                            "resource": {
+                                "@id": "https://iiif.wellcomecollection.org/image/b1948799x_pp_cri_d_4_3_0007.jp2/full/683,1024/0/default.jpg",
+                                "@type": "dctypes:Image",
+                                "format": "image/jpeg",
+                                "height": 1024,
+                                "width": 683,
+                                "service": {
+                                    "@context": "http://iiif.io/api/image/2/context.json",
+                                    "@id": "https://iiif.wellcomecollection.org/image/b1948799x_pp_cri_d_4_3_0007.jp2",
+                                    "profile": "http://iiif.io/api/image/2/level1.json",
+                                    "protocol": "http://iiif.io/api/image",
+                                    "width": 2643,
+                                    "height": 3965
+                                }
+                            },
+                            "on": "https://iiif.wellcomecollection.org/presentation/b1948799x/canvases/b1948799x_pp_cri_d_4_3_0007.jp2"
+                        }
+                    ],
+                    "within": ""
+                }
+            ]
+        }
+    ],
+    "within": "https://iiif.wellcomecollection.org/presentation/v2/collections/archives/PP/CRI/D/4"
+}

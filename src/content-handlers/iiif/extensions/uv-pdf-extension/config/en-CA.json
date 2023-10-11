@@ -9,7 +9,7 @@
     "limitLocales": false,
     "openTemplate": "http://universalviewer.io?manifest={0}",
     "pessimisticAccessControl": false,
-    "rightPanelEnabled": true,
+    "rightPanelEnabled": false,
     "theme": "uv-en-CA-theme",
     "usePdfJs": true
   },
@@ -27,7 +27,8 @@
         "share": "Share",
         "shareInstructions": "To share this item, copy the URL below.",
         "size": "Size:",
-        "width": "Width"
+        "width": "Width",
+        "thumbnails" :"thumbnails"
       }
     },
     "footerPanel": {
@@ -102,7 +103,8 @@
         "manifestHeader": "About the item",
         "canvasHeader": "About the image",
         "copyToClipboard": "Copy to clipboard",
-        "copiedToClipboard": "Copied to clipboard"
+        "copiedToClipboard": "Copied to clipboard",
+        "thumbnails" :"thumbnails"
       }
     },
     "pdfCenterPanel": {
@@ -115,6 +117,7 @@
     },
     "resourcesLeftPanel": {
       "options": {
+        "elideCount1": 140,
         "elideCount": 40,
         "galleryThumbHeight": 320,
         "galleryThumbWidth": 200,
@@ -132,6 +135,11 @@
         "treeEnabled": true,
         "twoColThumbHeight": 150,
         "twoColThumbWidth": 90
+      },
+      "content": {
+        "title": "Contents",
+        "thumbnails" :"thumbnails",
+        "details":"Details"
       }
     },
     "dialogue": {
@@ -175,7 +183,35 @@
         "website": "<a href='https://github.com/universalviewer/universalviewer'>more info</a>"
       }
     },
-    "contentLeftPanel": {}
+    "contentLeftPanel": {
+      "options": {
+        "elideCount1": 140,
+        "elideCount": 40,
+        "galleryThumbHeight": 320,
+        "galleryThumbWidth": 200,
+        "oneColThumbHeight": 320,
+        "oneColThumbWidth": 200,
+        "pageModeEnabled": true,
+        "panelAnimationDuration": 250,
+        "panelCollapsedWidth": 30,
+        "panelExpandedWidth": 255,
+        "panelOpen": true,
+        "thumbsEnabled": true,
+        "thumbsExtraHeight": 8,
+        "thumbsImageFadeInDuration": 300,
+        "thumbsLoadRange": 15,
+        "treeEnabled": true,
+        "twoColThumbHeight": 150,
+        "twoColThumbWidth": 90
+      },
+      "content": {
+        "title": "Contents",
+        "thumbnails" :"Thumbnails",
+        "details":"Details"
+      }
+    }
+  
+  
   },
   "localisation": {
     "label": "English (CA)",
@@ -198,6 +234,7 @@
     "degradedResourceLogin": "log in",
     "forbiddenResourceMessage": "Your current access rights are insufficient to view this image",
     "mediaViewer": "Media Viewer",
-    "skipToDownload": "Skip to downloads and alternative formats"
+    "skipToDownload": "Skip to downloads and alternative formats",
+    "thumbnails" :"thumbnails"
   }
 }

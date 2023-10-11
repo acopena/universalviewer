@@ -2,12 +2,18 @@ import { IIIFEvents } from "../../IIIFEvents";
 import { BaseExtension } from "../../modules/uv-shared-module/BaseExtension";
 import { Bookmark } from "../../modules/uv-shared-module/Bookmark";
 import { DownloadDialogue } from "./DownloadDialogue";
+
 import { FooterPanel } from "../../modules/uv-shared-module/FooterPanel";
+
 import { IPDFExtension } from "./IPDFExtension";
 import { MoreInfoRightPanel } from "../../modules/uv-moreinforightpanel-module/MoreInfoRightPanel";
 import { PDFCenterPanel } from "../../modules/uv-pdfcenterpanel-module/PDFCenterPanel";
+
 import { PDFHeaderPanel } from "../../modules/uv-pdfheaderpanel-module/PDFHeaderPanel";
-import { ResourcesLeftPanel } from "../../modules/uv-resourcesleftpanel-module/ResourcesLeftPanel";
+
+import { ContentLeftPanel } from "../../modules/uv-contentleftpanel-module/ContentLeftPanel";
+//import { PagingHeaderPanel } from "../../modules/uv-pagingheaderpanel-module/PagingHeaderPanel";
+// import { ResourcesLeftPanel } from "../../modules/uv-resourcesleftpanel-module/ResourcesLeftPanel";
 import { SettingsDialogue } from "./SettingsDialogue";
 import { ShareDialogue } from "./ShareDialogue";
 import { ExternalResourceType } from "@iiif/vocabulary/dist-commonjs/";
@@ -17,17 +23,24 @@ import "./theme/theme.less";
 import defaultConfig from "./config/en-CA.json";
 import { Events } from "../../../../Events";
 
+
 export default class Extension extends BaseExtension implements IPDFExtension {
   $downloadDialogue: JQuery;
   $shareDialogue: JQuery;
   $helpDialogue: JQuery;
   $settingsDialogue: JQuery;
+  $pagingFooter: JQuery;
+
   centerPanel: PDFCenterPanel;
   downloadDialogue: DownloadDialogue;
   shareDialogue: ShareDialogue;
+
   footerPanel: FooterPanel;
+ // headerPanel: PagingHeaderPanel;
+ // pagingPanel: PagingHeaderPanel;
+  
   headerPanel: PDFHeaderPanel;
-  leftPanel: ResourcesLeftPanel;
+  leftPanel: ContentLeftPanel;
   rightPanel: MoreInfoRightPanel;
   settingsDialogue: SettingsDialogue;
   defaultConfig: any = defaultConfig;
@@ -38,7 +51,8 @@ export default class Extension extends BaseExtension implements IPDFExtension {
 
   create(): void {
     super.create();
-
+    console.log('**** uv pdf extention ****');   
+    
     this.extensionHost.subscribe(
       IIIFEvents.CANVAS_INDEX_CHANGE,
       (canvasIndex: number) => {
@@ -83,26 +97,34 @@ export default class Extension extends BaseExtension implements IPDFExtension {
   }
 
   createModules(): void {
-    super.createModules();
-
+    super.createModules();    
     if (this.isHeaderPanelEnabled()) {
       this.headerPanel = new PDFHeaderPanel(this.shell.$headerPanel);
     } else {
       this.shell.$headerPanel.hide();
     }
 
+    
     if (this.isLeftPanelEnabled()) {
-      this.leftPanel = new ResourcesLeftPanel(this.shell.$leftPanel);
+      this.leftPanel = new ContentLeftPanel(this.shell.$leftPanel);
+    } else {
+      this.shell.$leftPanel.hide();
     }
+
+    // if (this.isLeftPanelEnabled()) {
+    //   this.leftPanel = new ResourcesLeftPanel(this.shell.$leftPanel);
+    // }
 
     this.centerPanel = new PDFCenterPanel(this.shell.$centerPanel);
 
     if (this.isRightPanelEnabled()) {
       this.rightPanel = new MoreInfoRightPanel(this.shell.$rightPanel);
-    }
-
+    }   
+  
     if (this.isFooterPanelEnabled()) {
       this.footerPanel = new FooterPanel(this.shell.$footerPanel);
+      console.log(this.footerPanel);
+      
     } else {
       this.shell.$footerPanel.hide();
     }
@@ -125,6 +147,7 @@ export default class Extension extends BaseExtension implements IPDFExtension {
     this.shell.$overlays.append(this.$settingsDialogue);
     this.settingsDialogue = new SettingsDialogue(this.$settingsDialogue);
 
+   // this.pagingPanel = new PagingHeaderPanel(this.shell.$footerPanel);
     if (this.isLeftPanelEnabled()) {
       this.leftPanel.init();
     }
@@ -132,6 +155,9 @@ export default class Extension extends BaseExtension implements IPDFExtension {
     if (this.isRightPanelEnabled()) {
       this.rightPanel.init();
     }
+    // if (this.isFooterPanelEnabled()) {
+    //   this.footerPanel.init();
+    // }
   }
 
   bookmark(): void {

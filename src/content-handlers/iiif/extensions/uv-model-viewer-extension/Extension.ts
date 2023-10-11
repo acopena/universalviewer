@@ -13,7 +13,7 @@ import { SettingsDialogue } from "./SettingsDialogue";
 import { ShareDialogue } from "./ShareDialogue";
 import { ModelViewerCenterPanel } from "../../modules/uv-modelviewercenterpanel-module/ModelViewerCenterPanel";
 import { ExternalResourceType } from "@iiif/vocabulary/dist-commonjs/";
-import { Strings } from "@edsilv/utils";
+import { Bools, Strings } from "@edsilv/utils";
 import { Canvas, LanguageMap } from "manifesto.js";
 import { ModelViewerExtensionEvents } from "./Events";
 import { Orbit } from "./Orbit";
@@ -80,6 +80,8 @@ export default class ModelViewerExtension extends BaseExtension {
 
   createModules(): void {
     super.createModules();
+
+    console.log('ModelViewerExtension')
 
     if (this.isHeaderPanelEnabled()) {
       this.headerPanel = new HeaderPanel(this.shell.$headerPanel);
@@ -239,11 +241,12 @@ export default class ModelViewerExtension extends BaseExtension {
   }
 
   isLeftPanelEnabled(): boolean {
-    return false;
-    // return (
-    //   Bools.getBool(this.data.config.options.leftPanelEnabled, true) &&
-    //   (this.helper.isMultiCanvas() || this.helper.isMultiSequence())
-    // );
+    
+   // return true;
+    return (
+      Bools.getBool(this.data.config.options.leftPanelEnabled, true) &&
+      (this.helper.isMultiCanvas() || this.helper.isMultiSequence())
+    );
   }
 
   bookmark(): void {

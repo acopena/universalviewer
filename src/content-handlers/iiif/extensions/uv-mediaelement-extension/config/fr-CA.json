@@ -5,7 +5,7 @@
     "bookmarkThumbWidth": 90,
     "dropEnabled": true,
     "footerPanelEnabled": true,
-    "headerPanelEnabled": true,
+    "headerPanelEnabled": false,
     "leftPanelEnabled": true,
     "limitLocales": false,
     "openTemplate": "http://universalviewer.io?manifest={0}",

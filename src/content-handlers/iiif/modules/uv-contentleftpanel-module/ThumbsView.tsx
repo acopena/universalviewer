@@ -10,14 +10,14 @@ const ThumbImage = ({
   onClick,
   paged,
   selected,
-  thumb,
+  thumb, 
   viewingDirection,
 }: {
   first: boolean;
   onClick: (thumb: Thumb) => void;
   paged: boolean;
   selected: boolean;
-  thumb: Thumb;
+  thumb: Thumb; 
   viewingDirection: ViewingDirection;
 }) => {
   const [ref, inView] = useInView({
@@ -80,13 +80,13 @@ const Thumbnails = ({
   onClick,
   paged,
   selected,
-  thumbs,
+  thumbs, 
   viewingDirection,
 }: {
   onClick: (thumb: Thumb) => void;
   paged: boolean;
   selected: number[];
-  thumbs: Thumb[];
+  thumbs: Thumb[]; 
   viewingDirection: ViewingDirection;
 }) => {
   const ref = useRef<HTMLDivElement | null>(null);
@@ -139,7 +139,7 @@ const Thumbnails = ({
             onClick={onClick}
             paged={paged}
             selected={selected.includes(index)}
-            thumb={thumb}
+            thumb={thumb}         
             viewingDirection={viewingDirection}
           />
           {showSeparator(paged, thumb.viewingHint, index) && (

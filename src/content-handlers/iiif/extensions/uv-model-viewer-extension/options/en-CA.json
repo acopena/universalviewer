@@ -6,7 +6,7 @@
     "dropEnabled": true,
     "footerPanelEnabled": true,
     "headerPanelEnabled": true,
-    "leftPanelEnabled": false,
+    "leftPanelEnabled": true,
     "limitLocales": false,
     "metrics": [
       {
@@ -70,6 +70,7 @@
     },
     "contentLeftPanel": {
       "options": {
+        "elideCount1": 140,
         "elideCount": 40,
         "galleryThumbHeight": 320,
         "galleryThumbWidth": 200,

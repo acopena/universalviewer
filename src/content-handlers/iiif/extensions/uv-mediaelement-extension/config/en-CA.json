@@ -5,7 +5,7 @@
     "bookmarkThumbWidth": 90,
     "dropEnabled": true,
     "footerPanelEnabled": true,
-    "headerPanelEnabled": true,
+    "headerPanelEnabled": false,
     "leftPanelEnabled": true,
     "limitLocales": false,
     "openTemplate": "http://universalviewer.io?manifest={0}",
@@ -151,6 +151,32 @@
         "preserveViewport": "Preserve Zoom",
         "title": "Settings",
         "website": "<a href='https://github.com/universalviewer/universalviewer'>more info</a>"
+      }
+    },
+    "contentLeftPanel": {
+      "options": {       
+        "elideCount": 40,
+        "galleryThumbHeight": 320,
+        "galleryThumbWidth": 200,
+        "oneColThumbHeight": 320,
+        "oneColThumbWidth": 200,
+        "pageModeEnabled": true,
+        "panelAnimationDuration": 250,
+        "panelCollapsedWidth": 30,
+        "panelExpandedWidth": 255,
+        "panelOpen": true,
+        "thumbsEnabled": true,
+        "thumbsExtraHeight": 8,
+        "thumbsImageFadeInDuration": 300,
+        "thumbsLoadRange": 15,
+        "treeEnabled": false,
+        "twoColThumbHeight": 150,
+        "twoColThumbWidth": 90
+      },
+      "content": {
+        "title": "Contents",
+        "thumbnails" :"Thumbnails",
+        "details":"Details"
       }
     }
   },

@@ -54,7 +54,7 @@ export class ThumbsView extends BaseView {
 
     $.templates({
       thumbsTemplate:
-        '<a id="thumb{{>index}}" class="{{:~className()}}" data-src="{{>uri}}" data-visible="{{>visible}}" data-index="{{>index}}" tabindex="0">\
+        '<a id="thumb{{>index}}" class="{{:~className()}}" data-src="{{>uri}}" data-visible="{{>visible}}" data-index="{{>index}}" tabindex="0" >\
                                 <div class="wrap" style="height:{{>height + ~extraHeight()}}px"></div>\
                                 <div class="info">\
                                     <span class="index">{{:#index + 1}}</span>\
@@ -245,7 +245,7 @@ export class ThumbsView extends BaseView {
 
     const fadeDuration: number = this.options.thumbsImageFadeInDuration;
     const that = this;
-
+   
     for (let i = thumbRange.start; i <= thumbRange.end; i++) {
       const $thumb: JQuery = this.getThumbByIndex(i);
       const $wrap: JQuery = $thumb.find(".wrap");
@@ -271,8 +271,9 @@ export class ThumbsView extends BaseView {
               that.config.options.thumbsCacheInvalidation.paramType
             }t=${Dates.getTimeStamp()}`;
           }
-          
-          const $img: JQuery = $('<img src="' + src + '" alt=""/>');
+          console.log(src);
+
+          const $img: JQuery = $('<img src="' + src + '" alt="" />');
           // fade in on load.
           $img.hide();
 

@@ -8,11 +8,39 @@
       "@id": "http://universalviewer.io/manifests.json",
       "@type": "sc:Collection",
       "label": "Wellcome Library",
+      
+
       "manifests": [
+        {
+          "@id": "src/LAC84037.json",
+          "@type": "sc:Manifest",
+          "label": "LAC Image with rendinring to download"
+        },        
         {
           "@id": "https://stdigitalmanifestspr.blob.core.windows.net/manifest/5/84037/manifest.json",
           "@type": "sc:Manifest",
           "label": "Wunder der Vererbung"
+        },        
+        {
+          "@id": "src/manifest.json",
+          "@type": "sc:Manifest",
+          "label": "LAC local Manifest PDF"
+        },
+        {
+          "@id": "src/MultiPDFFonAndCol.json",
+          "@type": "sc:Manifest",
+          "label": "LAC local The Algonquin Regiment (7 PDF)"        
+        },
+        {
+          "@id": "src/lacVideo.json",
+          "@type": "sc:Manifest",
+          "label": "LAC local Manifest video"
+        },
+
+        {
+          "@id": "https://stdigitalmanifestspr.blob.core.windows.net/manifest/5/3352/manifest.json",
+          "@type": "sc:Manifest",
+          "label": "Minister of Inland Revenue"
         },
         {
           "@id": "https://wellcomelibrary.org/iiif/b23984958/manifest",

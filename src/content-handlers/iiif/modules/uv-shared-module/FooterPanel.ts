@@ -4,6 +4,7 @@ import { BaseView } from "./BaseView";
 import { Bools, Documents } from "@edsilv/utils";
 
 export class FooterPanel extends BaseView {
+  $centerOptions: JQuery;
   $feedbackButton: JQuery;
   $bookmarkButton: JQuery;
   $downloadButton: JQuery;

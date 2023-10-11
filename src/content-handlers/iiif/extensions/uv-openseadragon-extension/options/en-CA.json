@@ -6,7 +6,7 @@
     "bookmarkThumbWidth": 90,
     "dropEnabled": true,
     "footerPanelEnabled": true,
-    "headerPanelEnabled": true,
+    "headerPanelEnabled": false,
     "leftPanelEnabled": true,
     "limitLocales": false,
     "metrics": [
@@ -35,7 +35,7 @@
     "pagingOptionEnabled": true,
     "pessimisticAccessControl": false,
     "preserveViewport": false,
-    "rightPanelEnabled": true,
+    "rightPanelEnabled": false,
     "saveUserSettings": false,
     "clickToZoomEnabled": true,
     "searchWithinEnabled": true,

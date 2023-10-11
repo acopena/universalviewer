@@ -1,0 +1,755 @@
+{
+    "@id": "https://digitalmanifest.bac-lac.gc.ca/DigitalManifest/1/927682",
+    "@context": "http://iiif.io/api/presentation/2/context.json",
+    "@type": "sc:Manifest",
+    "label": [
+        {
+            "@language": "en",
+            "@value": "The Algonquin Regiment"
+        },
+        {
+            "@language": "fr",
+            "@value": "The Algonquin Regiment"
+        }
+    ],
+    "metadata": [
+        {
+            "label": [
+                {
+                    "@language": "en",
+                    "@value": "Found in"
+                },
+                {
+                    "@language": "fr",
+                    "@value": "Trouvé dans"
+                }
+            ],
+            "value": [
+                {
+                    "@language": "en",
+                    "@value": "Archives / Collections and Fonds"
+                },
+                {
+                    "@language": "fr",
+                    "@value": "Archives / Collections et Fonds"
+                }
+            ]
+        },
+        {
+            "label": [
+                {
+                    "@language": "en",
+                    "@value": "Reference"
+                },
+                {
+                    "@language": "fr",
+                    "@value": "Référence"
+                }
+            ],
+            "value": [
+                {
+                    "@language": "en",
+                    "@value": "RG24-C-3, Volume number: 15000, File number: 1052"
+                },
+                {
+                    "@language": "fr",
+                    "@value": "RG24-C-3, Numéro de volume : 15000, Numéro de dossier : 1052"
+                }
+            ]
+        },
+        {
+            "label": [
+                {
+                    "@language": "en",
+                    "@value": "Item  number"
+                },
+                {
+                    "@language": "fr",
+                    "@value": "No d'identification"
+                }
+            ],
+            "value": [
+                {
+                    "@language": "en",
+                    "@value": "927682"
+                },
+                {
+                    "@language": "fr",
+                    "@value": "927682"
+                }
+            ]
+        }
+    ],
+    "mediaSequences": [
+        {
+            "@id": "https://digitalmanifest.bac-lac.gc.ca/DigitalManifest/1/927682/sequence",           
+            "@type": "ixif:MediaSequence",    
+            "rendering": [
+                {
+                    "@id": "https://iiif.wellcomecollection.org/pdf/927682",
+                    "label": "View as PDF",
+                    "format": "application/pdf"
+                },
+                {
+                    "@id": "https://api.wellcomecollection.org/text/v1/927682",
+                    "label": "View raw text",
+                    "format": "text/plain"
+                }
+            ],     
+           
+            "elements": [
+                {
+                    "@id": "https://central.bac-lac.gc.ca/.item/?id=e011202828&app=fonandcol&op=pdf",
+                    "@context": "http://iiif.io/api/presentation/2/context.json",
+                    "@type": "foaf:Document",
+                    "format": "application/pdf",
+                    "label": [
+                        {
+                            "@language": "en",
+                            "@value": "Use this link to open this PDF file."
+                        },
+                        {
+                            "@language": "fr",
+                            "@value": "Démarrer le fichier PDF en utilisant ce lien."
+                        }
+                    ],
+                    "width": 1000,
+                    "height": 1000,
+                 
+                    "thumbnail": {
+                        "@id": "https://central.bac-lac.gc.ca/.item/?id=e011202828&app=fonandcol&op=thumb&height=150",
+                        "@type": "dctypes:Image",
+                        "width": 150,
+                        "height": 150
+                    },
+                    "metadata": [
+                        {
+                            "label": [
+                                {
+                                    "@language": "en",
+                                    "@value": "Date"
+                                },
+                                {
+                                    "@language": "fr",
+                                    "@value": "Date"
+                                }
+                            ],
+                            "value": [
+                                {
+                                    "@language": "en",
+                                    "@value": "1943 - 1944"
+                                },
+                                {
+                                    "@language": "fr",
+                                    "@value": "1943 - 1944"
+                                }
+                            ]
+                        },
+                        {
+                            "label": [
+                                {
+                                    "@language": "en",
+                                    "@value": "Hierarchical level"
+                                },
+                                {
+                                    "@language": "fr",
+                                    "@value": "Niveau hiérarchique"
+                                }
+                            ],
+                            "value": [
+                                {
+                                    "@language": "en",
+                                    "@value": "File"
+                                },
+                                {
+                                    "@language": "fr",
+                                    "@value": "Dossier"
+                                }
+                            ]
+                        },
+                        {
+                            "label": [
+                                {
+                                    "@language": "en",
+                                    "@value": "Ecopy number"
+                                },
+                                {
+                                    "@language": "fr",
+                                    "@value": "Numéro ecopy"
+                                }
+                            ],
+                            "value": [
+                                {
+                                    "@language": "en",
+                                    "@value": "e011202828"
+                                },
+                                {
+                                    "@language": "fr",
+                                    "@value": "e011202828"
+                                }
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "@id": "https://central.bac-lac.gc.ca/.item/?id=e011202829&app=fonandcol&op=pdf",
+                    "@context": "http://iiif.io/api/presentation/2/context.json",
+                    "@type": "Document",        
+                    "format": "application/pdf",           
+                    "hasUserContent": false,
+                    "isDigiLab": false,
+                    "parent": "e011202829",
+                    "label": [
+                        {
+                            "@language": "en",
+                            "@value": "Use this link to open this PDF file."
+                        },
+                        {
+                            "@language": "fr",
+                            "@value": "Démarrer le fichier PDF en utilisant ce lien."
+                        }
+                    ],
+                    "width": 1000,
+                    "height": 1000,                   
+                    "thumbnail": {
+                        "@id": "https://central.bac-lac.gc.ca/.item/?id=e011202829&app=fonandcol&op=thumb&height=150",
+                        "@type": "dctypes:Image",
+                        "width": 150,
+                        "height": 150
+                    },
+                    "metadata": [
+                        {
+                            "label": [
+                                {
+                                    "@language": "en",
+                                    "@value": "Date"
+                                },
+                                {
+                                    "@language": "fr",
+                                    "@value": "Date"
+                                }
+                            ],
+                            "value": [
+                                {
+                                    "@language": "en",
+                                    "@value": "1943 - 1944"
+                                },
+                                {
+                                    "@language": "fr",
+                                    "@value": "1943 - 1944"
+                                }
+                            ]
+                        },
+                        {
+                            "label": [
+                                {
+                                    "@language": "en",
+                                    "@value": "Hierarchical level"
+                                },
+                                {
+                                    "@language": "fr",
+                                    "@value": "Niveau hiérarchique"
+                                }
+                            ],
+                            "value": [
+                                {
+                                    "@language": "en",
+                                    "@value": "File"
+                                },
+                                {
+                                    "@language": "fr",
+                                    "@value": "Dossier"
+                                }
+                            ]
+                        },
+                        {
+                            "label": [
+                                {
+                                    "@language": "en",
+                                    "@value": "Ecopy number"
+                                },
+                                {
+                                    "@language": "fr",
+                                    "@value": "Numéro ecopy"
+                                }
+                            ],
+                            "value": [
+                                {
+                                    "@language": "en",
+                                    "@value": "e011202829"
+                                },
+                                {
+                                    "@language": "fr",
+                                    "@value": "e011202829"
+                                }
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "@id": "https://central.bac-lac.gc.ca/.item/?id=e011202830&app=fonandcol&op=pdf",
+                    "@context": "http://iiif.io/api/presentation/2/context.json",
+                    "hasUserContent": false,
+                    "@type": "Document",
+                    "format": "application/pdf",
+                    "isDigiLab": false,
+                    "parent": "e011202830",
+                    "label": [
+                        {
+                            "@language": "en",
+                            "@value": "Use this link to open this PDF file."
+                        },
+                        {
+                            "@language": "fr",
+                            "@value": "Démarrer le fichier PDF en utilisant ce lien."
+                        }
+                    ],
+                    "width": 1000,
+                    "height": 1000,
+                    "images": [
+                        {
+                            "@id": "https://digitalmanifest.bac-lac.gc.ca/DigitalManifest/1/927682/annotation",
+                            "@context": "http://iiif.io/api/presentation/2/context.json",
+                            "@type": "oa:Annotation",
+                            "motivation": "sc:painting",
+                            "resource": {
+                                "@id": "https://central.bac-lac.gc.ca/.item/?id=e011202830&app=fonandcol&op=pdf",
+                                "@type": "dctypes:Image",
+                                "format": "application/pdf",
+                                "service": {
+                                    "@id": "https://central.bac-lac.gc.ca/.item/?id=e011202830&app=fonandcol&op=pdf",
+                                    "@context": "http://iiif.io/api/image/2/context.json",
+                                    "profile": "http://bac-lac.gc.ca/iiif/1/central.json"
+                                }
+                            },
+                            "on": "https://digitalmanifest.bac-lac.gc.ca/DigitalManifest/1/927682/canvas"
+                        }
+                    ],
+                    "thumbnail": {
+                        "@id": "https://central.bac-lac.gc.ca/.item/?id=e011202830&app=fonandcol&op=thumb&height=150",
+                        "@type": "dctypes:Image",
+                        "width": 150,
+                        "height": 150
+                    },
+                    "metadata": [
+                        {
+                            "label": [
+                                {
+                                    "@language": "en",
+                                    "@value": "Date"
+                                },
+                                {
+                                    "@language": "fr",
+                                    "@value": "Date"
+                                }
+                            ],
+                            "value": [
+                                {
+                                    "@language": "en",
+                                    "@value": "1943 - 1944"
+                                },
+                                {
+                                    "@language": "fr",
+                                    "@value": "1943 - 1944"
+                                }
+                            ]
+                        },
+                        {
+                            "label": [
+                                {
+                                    "@language": "en",
+                                    "@value": "Hierarchical level"
+                                },
+                                {
+                                    "@language": "fr",
+                                    "@value": "Niveau hiérarchique"
+                                }
+                            ],
+                            "value": [
+                                {
+                                    "@language": "en",
+                                    "@value": "File"
+                                },
+                                {
+                                    "@language": "fr",
+                                    "@value": "Dossier"
+                                }
+                            ]
+                        },
+                        {
+                            "label": [
+                                {
+                                    "@language": "en",
+                                    "@value": "Ecopy number"
+                                },
+                                {
+                                    "@language": "fr",
+                                    "@value": "Numéro ecopy"
+                                }
+                            ],
+                            "value": [
+                                {
+                                    "@language": "en",
+                                    "@value": "e011202830"
+                                },
+                                {
+                                    "@language": "fr",
+                                    "@value": "e011202830"
+                                }
+                            ]
+                        }
+                    ]
+                }
+            ]
+        }
+    ],
+    "sequences": [
+        {
+            "@id": "https://digitalmanifest.bac-lac.gc.ca/DigitalManifest/1/927682/sequence",
+            "@context": "http://iiif.io/api/presentation/2/context.json",
+            "@type": "sc:Sequence",
+            "viewingDirection": "left-to-right",
+            "canvases": [
+                {
+                    "@id": "https://digitalmanifest.bac-lac.gc.ca/DigitalManifest/1/927682/canvas",
+                    "@context": "http://iiif.io/api/presentation/2/context.json",
+                    "@type": "sc:Canvas",
+                    "hasUserContent": false,
+                    "isDigiLab": false,
+                    "parent": "e011202828",
+                    "label": [
+                        {
+                            "@language": "en",
+                            "@value": "Use this link to open this PDF file."
+                        },
+                        {
+                            "@language": "fr",
+                            "@value": "Démarrer le fichier PDF en utilisant ce lien."
+                        }
+                    ],
+                    "width": 1000,
+                    "height": 1000,
+                    "images": [
+                        {
+                            "@id": "https://digitalmanifest.bac-lac.gc.ca/DigitalManifest/1/927682/annotation",
+                            "@context": "http://iiif.io/api/presentation/2/context.json",
+                            "@type": "oa:Annotation",
+                            "motivation": "sc:painting",
+                            "resource": {
+                                "@id": "https://central.bac-lac.gc.ca/.item/?id=e011202828&app=fonandcol&op=pdf",
+                                "@type": "dctypes:Image",
+                                "format": "application/pdf",
+                                "service": {
+                                    "@id": "https://central.bac-lac.gc.ca/.item/?id=e011202828&app=fonandcol&op=pdf",
+                                    "@context": "http://iiif.io/api/image/2/context.json",
+                                    "profile": "http://bac-lac.gc.ca/iiif/1/central.json"
+                                }
+                            },
+                            "on": "https://digitalmanifest.bac-lac.gc.ca/DigitalManifest/1/927682/canvas"
+                        }
+                    ],
+                    "thumbnail": {
+                        "@id": "https://central.bac-lac.gc.ca/.item/?id=e011202828&app=fonandcol&op=thumb&height=150",
+                        "@type": "dctypes:Image",
+                        "width": 150,
+                        "height": 150
+                    },
+                    "metadata": [
+                        {
+                            "label": [
+                                {
+                                    "@language": "en",
+                                    "@value": "Date"
+                                },
+                                {
+                                    "@language": "fr",
+                                    "@value": "Date"
+                                }
+                            ],
+                            "value": [
+                                {
+                                    "@language": "en",
+                                    "@value": "1943 - 1944"
+                                },
+                                {
+                                    "@language": "fr",
+                                    "@value": "1943 - 1944"
+                                }
+                            ]
+                        },
+                        {
+                            "label": [
+                                {
+                                    "@language": "en",
+                                    "@value": "Hierarchical level"
+                                },
+                                {
+                                    "@language": "fr",
+                                    "@value": "Niveau hiérarchique"
+                                }
+                            ],
+                            "value": [
+                                {
+                                    "@language": "en",
+                                    "@value": "File"
+                                },
+                                {
+                                    "@language": "fr",
+                                    "@value": "Dossier"
+                                }
+                            ]
+                        },
+                        {
+                            "label": [
+                                {
+                                    "@language": "en",
+                                    "@value": "Ecopy number"
+                                },
+                                {
+                                    "@language": "fr",
+                                    "@value": "Numéro ecopy"
+                                }
+                            ],
+                            "value": [
+                                {
+                                    "@language": "en",
+                                    "@value": "e011202828"
+                                },
+                                {
+                                    "@language": "fr",
+                                    "@value": "e011202828"
+                                }
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "@id": "https://digitalmanifest.bac-lac.gc.ca/DigitalManifest/1/927682/canvas",
+                    "@context": "http://iiif.io/api/presentation/2/context.json",
+                    "@type": "sc:Canvas",
+                    "hasUserContent": false,
+                    "isDigiLab": false,
+                    "parent": "e011202829",
+                    "label": [
+                        {
+                            "@language": "en",
+                            "@value": "Use this link to open this PDF file."
+                        },
+                        {
+                            "@language": "fr",
+                            "@value": "Démarrer le fichier PDF en utilisant ce lien."
+                        }
+                    ],
+                    "width": 1000,
+                    "height": 1000,
+                    "images": [
+                        {
+                            "@id": "https://digitalmanifest.bac-lac.gc.ca/DigitalManifest/1/927682/annotation",
+                            "@context": "http://iiif.io/api/presentation/2/context.json",
+                            "@type": "oa:Annotation",
+                            "motivation": "sc:painting",
+                            "resource": {
+                                "@id": "https://central.bac-lac.gc.ca/.item/?id=e011202829&app=fonandcol&op=pdf",
+                                "@type": "dctypes:Image",
+                                "format": "application/pdf",
+                                "service": {
+                                    "@id": "https://central.bac-lac.gc.ca/.item/?id=e011202829&app=fonandcol&op=pdf",
+                                    "@context": "http://iiif.io/api/image/2/context.json",
+                                    "profile": "http://bac-lac.gc.ca/iiif/1/central.json"
+                                }
+                            },
+                            "on": "https://digitalmanifest.bac-lac.gc.ca/DigitalManifest/1/927682/canvas"
+                        }
+                    ],
+                    "thumbnail": {
+                        "@id": "https://central.bac-lac.gc.ca/.item/?id=e011202829&app=fonandcol&op=thumb&height=150",
+                        "@type": "dctypes:Image",
+                        "width": 150,
+                        "height": 150
+                    },
+                    "metadata": [
+                        {
+                            "label": [
+                                {
+                                    "@language": "en",
+                                    "@value": "Date"
+                                },
+                                {
+                                    "@language": "fr",
+                                    "@value": "Date"
+                                }
+                            ],
+                            "value": [
+                                {
+                                    "@language": "en",
+                                    "@value": "1943 - 1944"
+                                },
+                                {
+                                    "@language": "fr",
+                                    "@value": "1943 - 1944"
+                                }
+                            ]
+                        },
+                        {
+                            "label": [
+                                {
+                                    "@language": "en",
+                                    "@value": "Hierarchical level"
+                                },
+                                {
+                                    "@language": "fr",
+                                    "@value": "Niveau hiérarchique"
+                                }
+                            ],
+                            "value": [
+                                {
+                                    "@language": "en",
+                                    "@value": "File"
+                                },
+                                {
+                                    "@language": "fr",
+                                    "@value": "Dossier"
+                                }
+                            ]
+                        },
+                        {
+                            "label": [
+                                {
+                                    "@language": "en",
+                                    "@value": "Ecopy number"
+                                },
+                                {
+                                    "@language": "fr",
+                                    "@value": "Numéro ecopy"
+                                }
+                            ],
+                            "value": [
+                                {
+                                    "@language": "en",
+                                    "@value": "e011202829"
+                                },
+                                {
+                                    "@language": "fr",
+                                    "@value": "e011202829"
+                                }
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "@id": "https://digitalmanifest.bac-lac.gc.ca/DigitalManifest/1/927682/canvas",
+                    "@context": "http://iiif.io/api/presentation/2/context.json",
+                    "@type": "sc:Canvas",
+                    "hasUserContent": false,
+                    "isDigiLab": false,
+                    "parent": "e011202830",
+                    "label": [
+                        {
+                            "@language": "en",
+                            "@value": "Use this link to open this PDF file."
+                        },
+                        {
+                            "@language": "fr",
+                            "@value": "Démarrer le fichier PDF en utilisant ce lien."
+                        }
+                    ],
+                    "width": 1000,
+                    "height": 1000,
+                    "images": [
+                        {
+                            "@id": "https://digitalmanifest.bac-lac.gc.ca/DigitalManifest/1/927682/annotation",
+                            "@context": "http://iiif.io/api/presentation/2/context.json",
+                            "@type": "oa:Annotation",
+                            "motivation": "sc:painting",
+                            "resource": {
+                                "@id": "https://central.bac-lac.gc.ca/.item/?id=e011202830&app=fonandcol&op=pdf",
+                                "@type": "dctypes:Image",
+                                "format": "application/pdf",
+                                "service": {
+                                    "@id": "https://central.bac-lac.gc.ca/.item/?id=e011202830&app=fonandcol&op=pdf",
+                                    "@context": "http://iiif.io/api/image/2/context.json",
+                                    "profile": "http://bac-lac.gc.ca/iiif/1/central.json"
+                                }
+                            },
+                            "on": "https://digitalmanifest.bac-lac.gc.ca/DigitalManifest/1/927682/canvas"
+                        }
+                    ],
+                    "thumbnail": {
+                        "@id": "https://central.bac-lac.gc.ca/.item/?id=e011202830&app=fonandcol&op=thumb&height=150",
+                        "@type": "dctypes:Image",
+                        "width": 150,
+                        "height": 150
+                    },
+                    "metadata": [
+                        {
+                            "label": [
+                                {
+                                    "@language": "en",
+                                    "@value": "Date"
+                                },
+                                {
+                                    "@language": "fr",
+                                    "@value": "Date"
+                                }
+                            ],
+                            "value": [
+                                {
+                                    "@language": "en",
+                                    "@value": "1943 - 1944"
+                                },
+                                {
+                                    "@language": "fr",
+                                    "@value": "1943 - 1944"
+                                }
+                            ]
+                        },
+                        {
+                            "label": [
+                                {
+                                    "@language": "en",
+                                    "@value": "Hierarchical level"
+                                },
+                                {
+                                    "@language": "fr",
+                                    "@value": "Niveau hiérarchique"
+                                }
+                            ],
+                            "value": [
+                                {
+                                    "@language": "en",
+                                    "@value": "File"
+                                },
+                                {
+                                    "@language": "fr",
+                                    "@value": "Dossier"
+                                }
+                            ]
+                        },
+                        {
+                            "label": [
+                                {
+                                    "@language": "en",
+                                    "@value": "Ecopy number"
+                                },
+                                {
+                                    "@language": "fr",
+                                    "@value": "Numéro ecopy"
+                                }
+                            ],
+                            "value": [
+                                {
+                                    "@language": "en",
+                                    "@value": "e011202830"
+                                },
+                                {
+                                    "@language": "fr",
+                                    "@value": "e011202830"
+                                }
+                            ]
+                        }
+                    ]
+                }
+            ]
+        }
+    ]
+}

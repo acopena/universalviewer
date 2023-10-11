@@ -58,7 +58,7 @@ export class OpenSeadragonCenterPanel extends CenterPanel {
   $zoomInButton: JQuery;
   $zoomOutButton: JQuery;
 
-  
+
 
   constructor($element: JQuery) {
     super($element);
@@ -372,7 +372,7 @@ export class OpenSeadragonCenterPanel extends CenterPanel {
       ".viewportNavButton"
     );
 
-    this.$canvas = $(this.viewer.canvas);    
+    this.$canvas = $(this.viewer.canvas);
 
     // disable right click on canvas
     this.$canvas.on("contextmenu", () => {
@@ -534,7 +534,7 @@ export class OpenSeadragonCenterPanel extends CenterPanel {
 
     this.onAccessibleClick(this.$nextButton, (e: any) => {
       e.preventDefault();
-      OpenSeadragon.cancelEvent(e);     
+      OpenSeadragon.cancelEvent(e);
       if (!that.nextButtonEnabled) return;
 
       switch (viewingDirection) {
@@ -569,19 +569,21 @@ export class OpenSeadragonCenterPanel extends CenterPanel {
       // };
 
     });
-  }
+  } 
 
   async getGirderTileSource(): Promise<any> {
     return new Promise<any>((resolve) => {
       let canvas: Canvas = this.extension.helper.getCurrentCanvas();
       const annotations: Annotation[] = canvas.getContent();
-
+      console.log('annotations');
+      console.log(annotations);
       if (annotations.length) {
         const annotation: Annotation = annotations[0];
         const body: AnnotationBody[] = annotation.getBody();
 
         if (body.length) {
           const services: Service[] = body[0].getServices();
+          
 
           if (services.length) {
             let id: string = services[0].id;
@@ -637,38 +639,45 @@ export class OpenSeadragonCenterPanel extends CenterPanel {
 
     this.$spinner.show();
     this.items = [];
-
+    console.log('openMedia');
+    
     let images: IExternalResourceData[] = await this.extension.getExternalResources(
       resources
     );
-
+    console.log(images);
     const isGirder: boolean = this.extension.format === MediaType.GIRDER;
 
     try {
       this.viewer.close();
 
       images = this.getPagePositions(images);
+      console.log('getPagePositions');
 
       for (let i = 0; i < images.length; i++) {
         const data: any = images[i];
+        console.log(data);
 
         let tileSource: any;
+       
 
         if (data.hasServiceDescriptor) {
           // use the info.json descriptor
           tileSource = data;
+         
         } else if (isGirder) {
           // load girder image
+       
           tileSource = await this.getGirderTileSource();
         } else {
           // load image
+          console.log('else tileSource');
           tileSource = {
             type: "image",
             url: data.id,
             buildPyramid: false,
           };
         }
-
+ 
         this.viewer.addTiledImage({
           tileSource: tileSource,
           x: data.x,
@@ -1413,5 +1422,5 @@ export class OpenSeadragonCenterPanel extends CenterPanel {
     }
   }
 
-  
+
 }

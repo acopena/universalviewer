@@ -4,6 +4,7 @@ import { LeftPanel } from "../uv-shared-module/LeftPanel";
 import { ThumbsView } from "./ThumbsView";
 import { ViewingDirection, MediaType } from "@iiif/vocabulary/dist-commonjs/";
 import { Files } from "@edsilv/utils";
+
 import { Annotation, LanguageMap, Resource } from "manifesto.js";
 
 export class ResourcesLeftPanel extends LeftPanel {
@@ -16,7 +17,7 @@ export class ResourcesLeftPanel extends LeftPanel {
   $thumbsView: JQuery;
   $views: JQuery;
   thumbsView: ThumbsView;
-
+  content: any;
   constructor($element: JQuery) {
     super($element);
   }
@@ -26,21 +27,31 @@ export class ResourcesLeftPanel extends LeftPanel {
 
     super.create();
 
+  
+   console.log(this.config);
+
     this.setTitle(this.content.title);
 
-    /*
-         TODO: make tabs work
-        this.$tabs = $('<div class="tabs"></div>');
-        this.$main.append(this.$tabs);
+    console.log(this.content);
+    console.log(this.content.title);
 
-        this.$thumbsButton = $('<a class="thumbs tab">' + this.content.thumbnails + '</a>');
-        this.$thumbsButton.prop('title', this.content.thumbnails);
-        this.$tabs.append(this.$thumbsButton);
 
-        this.$resourcesButton = $('<a class="resources tab">' + this.content.resources+ '</a>');
-        this.$resourcesButton.prop('title', this.content.resources);
-        this.$tabs.append(this.$resourcesButton);
-         */
+
+
+
+    //  TODO: make tabs work
+
+    this.$tabs = $('<div class="tabs"></div>');
+    this.$main.append(this.$tabs);
+
+    this.$thumbsButton = $('<a class="thumbs tab">' + this.content.thumbnails + '</a>');
+    this.$thumbsButton.prop('title', this.content.thumbnails);
+    this.$tabs.append(this.$thumbsButton);
+
+    this.$resourcesButton = $('<a class="resources tab">' + this.content.details + '</a>');
+    this.$resourcesButton.prop('title', this.content.resources);
+    this.$tabs.append(this.$resourcesButton);
+
 
     this.$tabsContent = $('<div class="tabsContent"></div>');
     this.$main.append(this.$tabsContent);
@@ -84,13 +95,13 @@ export class ResourcesLeftPanel extends LeftPanel {
           );
           const $listItem: JQuery = $(
             '<li><a href="' +
-              resource.id +
-              '" target="_blank">' +
-              label +
-              " (" +
-              mime +
-              ")" +
-              "</li>"
+            resource.id +
+            '" target="_blank">' +
+            label +
+            " (" +
+            mime +
+            ")" +
+            "</li>"
           );
           this.$resources.append($listItem);
         }

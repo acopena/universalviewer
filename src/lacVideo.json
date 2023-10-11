@@ -1,0 +1,276 @@
+{
+    "@id": "https://stdigitalmanifests.blob.core.windows.net/manifest/4/4862/manifest.json",
+    "@context": "http://iiif.io/api/presentation/2/context.json",
+    "@type": "sc:Manifest",
+    "label": [
+        {
+            "@language": "en",
+            "@value": "Life in Southeastern Asia"
+        },
+        {
+            "@language": "fr",
+            "@value": "Life in Southeastern Asia"
+        }
+    ],
+
+    "metadata": [
+        {
+            "label": [
+                {
+                    "@language": "en",
+                    "@value": "Found in"
+                },
+                {
+                    "@language": "fr",
+                    "@value": "Trouvé dans"
+                }
+            ],
+            "value": [
+                {
+                    "@language": "en",
+                    "@value": "Film, video and sound"
+                },
+                {
+                    "@language": "fr",
+                    "@value": "Films, vidéos et enregistrement sonores"
+                }
+            ]
+        }
+    ],
+    "mediaSequences": [
+        {
+          "@id": "https://iiif.wellcomecollection.org/iiif/b16659090/xsequence/s0",
+          "@type": "ixif:MediaSequence",
+          "label": "XSequence 0",
+          "elements": [
+            {
+              "@id": "https://iiif.wellcomecollection.org/av/b16659090_0055-0000-3664-0000-0-0000-0000-0.mpg/full/full/max/max/0/default.mp4#identity",
+              "@type": "dctypes:MovingImage",
+              "format": "video/mp4",
+              "label": "The story of the Wellcome Foundation Ltd.",
+              "metadata": [
+                {
+                    "label": [
+                        {
+                            "@language": "en",
+                            "@value": "Consultation"
+                        },
+                        {
+                            "@language": "fr",
+                            "@value": "Consultation"
+                        }
+                    ],
+                    "value": [
+                        {
+                            "@language": "en",
+                            "@value": "~No Restrictions / Pas de restrictions"
+                        },
+                        {
+                            "@language": "fr",
+                            "@value": "~No Restrictions / Pas de restrictions"
+                        }
+                    ]
+                },
+                {
+                    "label": [
+                        {
+                            "@language": "en",
+                            "@value": "Item number (ISN)"
+                        },
+                        {
+                            "@language": "fr",
+                            "@value": "Numéro d'article (ISN)"
+                        }
+                    ],
+                    "value": [
+                        {
+                            "@language": "en",
+                            "@value": "4862"
+                        },
+                        {
+                            "@language": "fr",
+                            "@value": "4862"
+                        }
+                    ]
+                },
+                {
+                    "label": [
+                        {
+                            "@language": "en",
+                            "@value": "Ecopy number"
+                        },
+                        {
+                            "@language": "fr",
+                            "@value": "Numéro ecopy"
+                        }
+                    ],
+                    "value": [
+                        {
+                            "@language": "en",
+                            "@value": "4862"
+                        },
+                        {
+                            "@language": "fr",
+                            "@value": "4862"
+                        }
+                    ]
+                }
+            ],
+              "thumbnail": "https://iiif.wellcomecollection.org/thumb/b16659090",
+              "rendering": [
+                {
+                  "@id": "https://iiif.wellcomecollection.org/av/b16659090_0055-0000-3664-0000-0-0000-0000-0.mpg/full/full/max/max/0/default.mp4",
+                  "format": "video/mp4"
+                },
+                {
+                  "@id": "https://iiif.wellcomecollection.org/av/b16659090_0055-0000-3664-0000-0-0000-0000-0.mpg/full/full/max/max/0/default.webm",
+                  "format": "video/webm"
+                }
+              ],
+              "resources": [
+                {
+                  "@id": "https://iiif.wellcomecollection.org/presentation/b16659090/canvases/b16659090_0055-0000-3664-0000-0-0000-0000-0.pdf/supplementing",
+                  "@type": "oa:Annotation",
+                  "motivation": "oad:transcribing",
+                  "resource": {
+                    "@id": "https://iiif.wellcomecollection.org/file/b16659090_0055-0000-3664-0000-0-0000-0000-0.pdf",
+                    "@type": "foaf:Document",
+                    "format": "application/pdf",
+                    "label": "The story of the Wellcome Foundation Ltd.",
+                    "thumbnail": "https://iiif.wellcomecollection.org/thumb/b16659090"
+                  },
+                  "on": "https://iiif.wellcomecollection.org/av/b16659090_0055-0000-3664-0000-0-0000-0000-0.mpg/full/full/max/max/0/default.mp4#identity"
+                }
+              ],
+              "width": 720,
+              "height": 720
+            }
+          ]
+        }
+      ],
+    "sequences": [
+        {
+            "@id": "https://stdigitalmanifests.blob.core.windows.net/manifest/4/4862/sequence",
+            "@context": "http://iiif.io/api/presentation/2/context.json",
+            "@type": "sc:Sequence",
+            "viewingDirection": "left-to-right",
+            "canvases": [
+                {
+                    "@id": "https://stdigitalmanifests.blob.core.windows.net/manifest/4/4862/canvas",
+                    "@context": "http://iiif.io/api/presentation/2/context.json",
+                    "@type": "sc:Canvas",
+                    "hasUserContent": false,
+                    "isDigiLab": false,
+                    "parent": "4862",
+                    "label": [
+                        {
+                            "@language": "en",
+                            "@value": "4862"
+                        },
+                        {
+                            "@language": "fr",
+                            "@value": "4862"
+                        }
+                    ],
+                    "width": 0,
+                    "height": 0,
+                    "images": [
+                        {
+                            "@id": "https://stdigitalmanifests.blob.core.windows.net/manifest/4/4862/annotation",
+                            "@context": "http://iiif.io/api/presentation/2/context.json",
+                            "@type": "oa:Annotation",
+                            "motivation": "sc:painting",
+                            "resource": {
+                                "@id": "https://central.bac-lac.gc.ca/.item?id=4862&app=fse&op=video",
+                                "@type": "dctypes:MovingImage",
+                                "format": "video/mp4",
+                                "service": {
+                                    "@id": "https://central.bac-lac.gc.ca/.item?id=4862&app=fse&op=video",
+                                    "@context": "http://iiif.io/api/image/2/context.json",
+                                    "profile": "http://bac-lac.gc.ca/iiif/1/central.json"
+                                },
+                                "width": 0,
+                                "height": 0
+                            },
+                            "on": "https://stdigitalmanifests.blob.core.windows.net/manifest/4/4862/canvas"
+                        }
+                    ],
+                    "thumbnail": {
+                        "@id": "https://central.bac-lac.gc.ca//.item/?id=4862&op=thumb&app=FilVidAndSou&width=150",
+                        "@type": "dctypes:Image",
+                        "width": 0,
+                        "height": 0
+                    },
+                    "metadata": [
+                        {
+                            "label": [
+                                {
+                                    "@language": "en",
+                                    "@value": "Consultation"
+                                },
+                                {
+                                    "@language": "fr",
+                                    "@value": "Consultation"
+                                }
+                            ],
+                            "value": [
+                                {
+                                    "@language": "en",
+                                    "@value": "~No Restrictions / Pas de restrictions"
+                                },
+                                {
+                                    "@language": "fr",
+                                    "@value": "~No Restrictions / Pas de restrictions"
+                                }
+                            ]
+                        },
+                        {
+                            "label": [
+                                {
+                                    "@language": "en",
+                                    "@value": "Item number (ISN)"
+                                },
+                                {
+                                    "@language": "fr",
+                                    "@value": "Numéro d'article (ISN)"
+                                }
+                            ],
+                            "value": [
+                                {
+                                    "@language": "en",
+                                    "@value": "4862"
+                                },
+                                {
+                                    "@language": "fr",
+                                    "@value": "4862"
+                                }
+                            ]
+                        },
+                        {
+                            "label": [
+                                {
+                                    "@language": "en",
+                                    "@value": "Ecopy number"
+                                },
+                                {
+                                    "@language": "fr",
+                                    "@value": "Numéro ecopy"
+                                }
+                            ],
+                            "value": [
+                                {
+                                    "@language": "en",
+                                    "@value": "4862"
+                                },
+                                {
+                                    "@language": "fr",
+                                    "@value": "4862"
+                                }
+                            ]
+                        }
+                    ]
+                }
+            ]
+        }
+    ]
+}

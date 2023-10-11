@@ -1,0 +1,943 @@
+{
+    "@id": "https://stdigitalmanifests.blob.core.windows.net/manifest/5/84037/manifest.json",
+    "@context": "http://iiif.io/api/presentation/2/context.json",
+    "@type": "sc:Manifest",
+    "label": [
+        {
+            "@language": "en",
+            "@value": "Capital Case, G.W. Cook before Mr. Justice Graham Halifax - sentence commuted - Min [Minister of ] Justice 1903/01/02"
+        },
+        {
+            "@language": "fr",
+            "@value": "Capital Case, G.W. Cook before Mr. Justice Graham Halifax - sentence commuted - Min [Minister of ] Justice 1903/01/02"
+        }
+    ],
+    "metadata": [
+        {
+            "label": [
+                {
+                    "@language": "en",
+                    "@value": "Found in"
+                },
+                {
+                    "@language": "fr",
+                    "@value": "Trouvé dans"
+                }
+            ],
+            "value": [
+                {
+                    "@language": "en",
+                    "@value": "Archives / Orders-in-Council"
+                },
+                {
+                    "@language": "fr",
+                    "@value": "Archives / Décrets du Conseil"
+                }
+            ]
+        },
+        {
+            "label": [
+                {
+                    "@language": "en",
+                    "@value": "Reference"
+                },
+                {
+                    "@language": "fr",
+                    "@value": "Référence"
+                }
+            ],
+            "value": [
+                {
+                    "@language": "en",
+                    "@value": "RG2, Privy Council Office, Series A-1-a. For Order in Council see volume  848,  Access Code 90"
+                },
+                {
+                    "@language": "fr",
+                    "@value": "RG2, Bureau du Conseil privé, Séries A-1-a. Pour consulter le décret du conseil, voir le volume  848,  Code d'accès 90"
+                }
+            ]
+        },
+        {
+            "label": [
+                {
+                    "@language": "en",
+                    "@value": "Item number"
+                },
+                {
+                    "@language": "fr",
+                    "@value": "No d’identification"
+                }
+            ],
+            "value": [
+                {
+                    "@language": "en",
+                    "@value": "84037"
+                },
+                {
+                    "@language": "fr",
+                    "@value": "84037"
+                }
+            ]
+        }
+    ],
+    "service": [
+        {
+            "@context": "http://universalviewer.io/context.json",
+            "@id": "http://wellcomelibrary.org/service/trackingLabels/84037",
+            "profile": "http://universalviewer.io/tracking-extensions-profile",
+            "trackingLabel": "Format: Archive, Institution: n/a, Identifier: 84037, Digicode: diggenetics, Collection code: PP/CRI/D/4/3"
+        },
+        {
+            "@context": "http://wellcomelibrary.org/ld/iiif-ext/0/context.json",
+            "@id": "https://wellcomelibrary.org/iiif/84037/access-control-hints-service",
+            "profile": "http://wellcomelibrary.org/ld/iiif-ext/access-control-hints",
+            "accessHint": "open"
+        }
+    ],
+    "sequences": [
+        {
+            "@id": "https://stdigitalmanifests.blob.core.windows.net/manifest/5/84037/sequence",
+            "@context": "http://iiif.io/api/presentation/2/context.json",
+            "@type": "sc:Sequence",
+            "viewingDirection": "left-to-right",
+            "viewingHint": "paged",
+            "rendering": [
+                {
+                    "@id": "https://iiif.wellcomecollection.org/pdf/84037",
+                    "label": "View as PDF",
+                    "format": "application/pdf"
+                },
+                {
+                    "@id": "https://api.wellcomecollection.org/text/v1/84037",
+                    "label": "View raw text",
+                    "format": "text/plain"
+                }
+            ],     
+            "canvases": [
+                {
+                    "@id": "https://stdigitalmanifests.blob.core.windows.net/manifest/5/84037/canvas",
+                    "@context": "http://iiif.io/api/presentation/2/context.json",
+                    "@type": "sc:Canvas",
+                    "hasUserContent": false,
+                    "isDigiLab": false,
+                    "parent": "e008343163-v8",
+                    "label": [
+                        {
+                            "@language": "en",
+                            "@value": "p. 1"
+                        },
+                        {
+                            "@language": "fr",
+                            "@value": "p. 1"
+                        }
+                    ],
+                    "width": 1000,
+                    "height": 1536,
+                    "images": [
+                        {
+                            "@id": "https://stdigitalmanifests.blob.core.windows.net/manifest/5/84037/annotation",
+                            "@context": "http://iiif.io/api/presentation/2/context.json",
+                            "@type": "oa:Annotation",
+                            "motivation": "sc:painting",
+                            
+                            "resource": {
+                                "@id": "https://central.bac-lac.gc.ca/.item/?id=e008343163-v8&app=OrdInCou&op=img",
+                                "@type": "dctypes:Image",
+                                "format": "image/jpeg",
+                                "service": {
+                                    "@id": "https://central.bac-lac.gc.ca/.item/?id=e008343163-v8&app=OrdInCou&op=img",
+                                    "@context": "http://iiif.io/api/image/2/context.json",
+                                    "profile": "http://bac-lac.gc.ca/iiif/1/central.json"
+                                },
+                                "width": 1000,
+                                "height": 1536
+                            },
+                            "on": "https://stdigitalmanifests.blob.core.windows.net/manifest/5/84037/canvas"
+                        }
+                    ],
+                    "thumbnail": {
+                        "@id": "https://central.bac-lac.gc.ca/.item?id=e008343163-v8&app=ordincou&op=thumb&height=150",
+                        "@type": "dctypes:Image",
+                        "width": 98,
+                        "height": 150
+                    },
+                    "metadata": [
+                        {
+                            "label": [
+                                {
+                                    "@language": "en",
+                                    "@value": "Name"
+                                },
+                                {
+                                    "@language": "fr",
+                                    "@value": "Nom"
+                                }
+                            ],
+                            "value": [
+                                {
+                                    "@language": "en",
+                                    "@value": "Capital Case, G.W. Cook before Mr. Justice Graham Halifax - sentence commuted - Min [Minister of ] Justice 1903/01/02"
+                                },
+                                {
+                                    "@language": "fr",
+                                    "@value": "Capital Case, G.W. Cook before Mr. Justice Graham Halifax - sentence commuted - Min [Minister of ] Justice 1903/01/02"
+                                }
+                            ]
+                        },
+                        {
+                            "label": [
+                                {
+                                    "@language": "en",
+                                    "@value": "Date introduced"
+                                },
+                                {
+                                    "@language": "fr",
+                                    "@value": "Date de réception"
+                                }
+                            ],
+                            "value": [
+                                {
+                                    "@language": "en",
+                                    "@value": "1903-01-02"
+                                },
+                                {
+                                    "@language": "fr",
+                                    "@value": "1903-01-02"
+                                }
+                            ]
+                        },
+                        {
+                            "label": [
+                                {
+                                    "@language": "en",
+                                    "@value": "Order in Council number"
+                                },
+                                {
+                                    "@language": "fr",
+                                    "@value": "Numéro de décret"
+                                }
+                            ],
+                            "value": [
+                                {
+                                    "@language": "en",
+                                    "@value": "1903-0004"
+                                },
+                                {
+                                    "@language": "fr",
+                                    "@value": "1903-0004"
+                                }
+                            ]
+                        },
+                        {
+                            "label": [
+                                {
+                                    "@language": "en",
+                                    "@value": "Ecopy number"
+                                },
+                                {
+                                    "@language": "fr",
+                                    "@value": "Numéro ecopy"
+                                }
+                            ],
+                            "value": [
+                                {
+                                    "@language": "en",
+                                    "@value": "e008343163-v8"
+                                },
+                                {
+                                    "@language": "fr",
+                                    "@value": "e008343163-v8"
+                                }
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "@id": "https://stdigitalmanifests.blob.core.windows.net/manifest/5/84037/canvas",
+                    "@context": "http://iiif.io/api/presentation/2/context.json",
+                    "@type": "sc:Canvas",
+                    "hasUserContent": false,
+                    "isDigiLab": false,
+                    "parent": "e008343164-v8",
+                    "label": [
+                        {
+                            "@language": "en",
+                            "@value": "p. 2"
+                        },
+                        {
+                            "@language": "fr",
+                            "@value": "p. 2"
+                        }
+                    ],
+                    "width": 1000,
+                    "height": 1615,
+                    "images": [
+                        {
+                            "@id": "https://stdigitalmanifests.blob.core.windows.net/manifest/5/84037/annotation",
+                            "@context": "http://iiif.io/api/presentation/2/context.json",
+                            "@type": "oa:Annotation",
+                            "motivation": "sc:painting",
+                            "resource": {
+                                "@id": "https://central.bac-lac.gc.ca/.item/?id=e008343164-v8&app=OrdInCou&op=img",
+                                "@type": "dctypes:Image",
+                                "format": "image/jpeg",
+                                "service": {
+                                    "@id": "https://central.bac-lac.gc.ca/.item/?id=e008343164-v8&app=OrdInCou&op=img",
+                                    "@context": "http://iiif.io/api/image/2/context.json",
+                                    "profile": "http://bac-lac.gc.ca/iiif/1/central.json"
+                                },
+                                "width": 1000,
+                                "height": 1615
+                            },
+                            "on": "https://stdigitalmanifests.blob.core.windows.net/manifest/5/84037/canvas"
+                        }
+                    ],
+                    "thumbnail": {
+                        "@id": "https://central.bac-lac.gc.ca/.item?id=e008343164-v8&app=ordincou&op=thumb&height=150",
+                        "@type": "dctypes:Image",
+                        "width": 93,
+                        "height": 150
+                    },
+                    "metadata": [
+                        {
+                            "label": [
+                                {
+                                    "@language": "en",
+                                    "@value": "Name"
+                                },
+                                {
+                                    "@language": "fr",
+                                    "@value": "Nom"
+                                }
+                            ],
+                            "value": [
+                                {
+                                    "@language": "en",
+                                    "@value": "Capital Case, G.W. Cook before Mr. Justice Graham Halifax - sentence commuted - Min [Minister of ] Justice 1903/01/02"
+                                },
+                                {
+                                    "@language": "fr",
+                                    "@value": "Capital Case, G.W. Cook before Mr. Justice Graham Halifax - sentence commuted - Min [Minister of ] Justice 1903/01/02"
+                                }
+                            ]
+                        },
+                        {
+                            "label": [
+                                {
+                                    "@language": "en",
+                                    "@value": "Date introduced"
+                                },
+                                {
+                                    "@language": "fr",
+                                    "@value": "Date de réception"
+                                }
+                            ],
+                            "value": [
+                                {
+                                    "@language": "en",
+                                    "@value": "1903-01-02"
+                                },
+                                {
+                                    "@language": "fr",
+                                    "@value": "1903-01-02"
+                                }
+                            ]
+                        },
+                        {
+                            "label": [
+                                {
+                                    "@language": "en",
+                                    "@value": "Order in Council number"
+                                },
+                                {
+                                    "@language": "fr",
+                                    "@value": "Numéro de décret"
+                                }
+                            ],
+                            "value": [
+                                {
+                                    "@language": "en",
+                                    "@value": "1903-0004"
+                                },
+                                {
+                                    "@language": "fr",
+                                    "@value": "1903-0004"
+                                }
+                            ]
+                        },
+                        {
+                            "label": [
+                                {
+                                    "@language": "en",
+                                    "@value": "Ecopy number"
+                                },
+                                {
+                                    "@language": "fr",
+                                    "@value": "Numéro ecopy"
+                                }
+                            ],
+                            "value": [
+                                {
+                                    "@language": "en",
+                                    "@value": "e008343164-v8"
+                                },
+                                {
+                                    "@language": "fr",
+                                    "@value": "e008343164-v8"
+                                }
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "@id": "https://stdigitalmanifests.blob.core.windows.net/manifest/5/84037/canvas",
+                    "@context": "http://iiif.io/api/presentation/2/context.json",
+                    "@type": "sc:Canvas",
+                    "hasUserContent": false,
+                    "isDigiLab": false,
+                    "parent": "e008343165-v8",
+                    "label": [
+                        {
+                            "@language": "en",
+                            "@value": "p. 3"
+                        },
+                        {
+                            "@language": "fr",
+                            "@value": "p. 3"
+                        }
+                    ],
+                    "width": 1000,
+                    "height": 1605,
+                    "images": [
+                        {
+                            "@id": "https://stdigitalmanifests.blob.core.windows.net/manifest/5/84037/annotation",
+                            "@context": "http://iiif.io/api/presentation/2/context.json",
+                            "@type": "oa:Annotation",
+                            "motivation": "sc:painting",
+                            "resource": {
+                                "@id": "https://central.bac-lac.gc.ca/.item/?id=e008343165-v8&app=OrdInCou&op=img",
+                                "@type": "dctypes:Image",
+                                "format": "image/jpeg",
+                                "service": {
+                                    "@id": "https://central.bac-lac.gc.ca/.item/?id=e008343165-v8&app=OrdInCou&op=img",
+                                    "@context": "http://iiif.io/api/image/2/context.json",
+                                    "profile": "http://bac-lac.gc.ca/iiif/1/central.json"
+                                },
+                                "width": 1000,
+                                "height": 1605
+                            },
+                            "on": "https://stdigitalmanifests.blob.core.windows.net/manifest/5/84037/canvas"
+                        }
+                    ],
+                    "thumbnail": {
+                        "@id": "https://central.bac-lac.gc.ca/.item?id=e008343165-v8&app=ordincou&op=thumb&height=150",
+                        "@type": "dctypes:Image",
+                        "width": 93,
+                        "height": 150
+                    },
+                    "metadata": [
+                        {
+                            "label": [
+                                {
+                                    "@language": "en",
+                                    "@value": "Name"
+                                },
+                                {
+                                    "@language": "fr",
+                                    "@value": "Nom"
+                                }
+                            ],
+                            "value": [
+                                {
+                                    "@language": "en",
+                                    "@value": "Capital Case, G.W. Cook before Mr. Justice Graham Halifax - sentence commuted - Min [Minister of ] Justice 1903/01/02"
+                                },
+                                {
+                                    "@language": "fr",
+                                    "@value": "Capital Case, G.W. Cook before Mr. Justice Graham Halifax - sentence commuted - Min [Minister of ] Justice 1903/01/02"
+                                }
+                            ]
+                        },
+                        {
+                            "label": [
+                                {
+                                    "@language": "en",
+                                    "@value": "Date introduced"
+                                },
+                                {
+                                    "@language": "fr",
+                                    "@value": "Date de réception"
+                                }
+                            ],
+                            "value": [
+                                {
+                                    "@language": "en",
+                                    "@value": "1903-01-02"
+                                },
+                                {
+                                    "@language": "fr",
+                                    "@value": "1903-01-02"
+                                }
+                            ]
+                        },
+                        {
+                            "label": [
+                                {
+                                    "@language": "en",
+                                    "@value": "Order in Council number"
+                                },
+                                {
+                                    "@language": "fr",
+                                    "@value": "Numéro de décret"
+                                }
+                            ],
+                            "value": [
+                                {
+                                    "@language": "en",
+                                    "@value": "1903-0004"
+                                },
+                                {
+                                    "@language": "fr",
+                                    "@value": "1903-0004"
+                                }
+                            ]
+                        },
+                        {
+                            "label": [
+                                {
+                                    "@language": "en",
+                                    "@value": "Ecopy number"
+                                },
+                                {
+                                    "@language": "fr",
+                                    "@value": "Numéro ecopy"
+                                }
+                            ],
+                            "value": [
+                                {
+                                    "@language": "en",
+                                    "@value": "e008343165-v8"
+                                },
+                                {
+                                    "@language": "fr",
+                                    "@value": "e008343165-v8"
+                                }
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "@id": "https://stdigitalmanifests.blob.core.windows.net/manifest/5/84037/canvas",
+                    "@context": "http://iiif.io/api/presentation/2/context.json",
+                    "@type": "sc:Canvas",
+                    "hasUserContent": false,
+                    "isDigiLab": false,
+                    "parent": "e008343166-v8",
+                    "label": [
+                        {
+                            "@language": "en",
+                            "@value": "p. 4"
+                        },
+                        {
+                            "@language": "fr",
+                            "@value": "p. 4"
+                        }
+                    ],
+                    "width": 1000,
+                    "height": 1640,
+                    "images": [
+                        {
+                            "@id": "https://stdigitalmanifests.blob.core.windows.net/manifest/5/84037/annotation",
+                            "@context": "http://iiif.io/api/presentation/2/context.json",
+                            "@type": "oa:Annotation",
+                            "motivation": "sc:painting",
+                            "resource": {
+                                "@id": "https://central.bac-lac.gc.ca/.item/?id=e008343166-v8&app=OrdInCou&op=img",
+                                "@type": "dctypes:Image",
+                                "format": "image/jpeg",
+                                "service": {
+                                    "@id": "https://central.bac-lac.gc.ca/.item/?id=e008343166-v8&app=OrdInCou&op=img",
+                                    "@context": "http://iiif.io/api/image/2/context.json",
+                                    "profile": "http://bac-lac.gc.ca/iiif/1/central.json"
+                                },
+                                "width": 1000,
+                                "height": 1640
+                            },
+                            "on": "https://stdigitalmanifests.blob.core.windows.net/manifest/5/84037/canvas"
+                        }
+                    ],
+                    "thumbnail": {
+                        "@id": "https://central.bac-lac.gc.ca/.item?id=e008343166-v8&app=ordincou&op=thumb&height=150",
+                        "@type": "dctypes:Image",
+                        "width": 91,
+                        "height": 150
+                    },
+                    "metadata": [
+                        {
+                            "label": [
+                                {
+                                    "@language": "en",
+                                    "@value": "Name"
+                                },
+                                {
+                                    "@language": "fr",
+                                    "@value": "Nom"
+                                }
+                            ],
+                            "value": [
+                                {
+                                    "@language": "en",
+                                    "@value": "Capital Case, G.W. Cook before Mr. Justice Graham Halifax - sentence commuted - Min [Minister of ] Justice 1903/01/02"
+                                },
+                                {
+                                    "@language": "fr",
+                                    "@value": "Capital Case, G.W. Cook before Mr. Justice Graham Halifax - sentence commuted - Min [Minister of ] Justice 1903/01/02"
+                                }
+                            ]
+                        },
+                        {
+                            "label": [
+                                {
+                                    "@language": "en",
+                                    "@value": "Date introduced"
+                                },
+                                {
+                                    "@language": "fr",
+                                    "@value": "Date de réception"
+                                }
+                            ],
+                            "value": [
+                                {
+                                    "@language": "en",
+                                    "@value": "1903-01-02"
+                                },
+                                {
+                                    "@language": "fr",
+                                    "@value": "1903-01-02"
+                                }
+                            ]
+                        },
+                        {
+                            "label": [
+                                {
+                                    "@language": "en",
+                                    "@value": "Order in Council number"
+                                },
+                                {
+                                    "@language": "fr",
+                                    "@value": "Numéro de décret"
+                                }
+                            ],
+                            "value": [
+                                {
+                                    "@language": "en",
+                                    "@value": "1903-0004"
+                                },
+                                {
+                                    "@language": "fr",
+                                    "@value": "1903-0004"
+                                }
+                            ]
+                        },
+                        {
+                            "label": [
+                                {
+                                    "@language": "en",
+                                    "@value": "Ecopy number"
+                                },
+                                {
+                                    "@language": "fr",
+                                    "@value": "Numéro ecopy"
+                                }
+                            ],
+                            "value": [
+                                {
+                                    "@language": "en",
+                                    "@value": "e008343166-v8"
+                                },
+                                {
+                                    "@language": "fr",
+                                    "@value": "e008343166-v8"
+                                }
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "@id": "https://stdigitalmanifests.blob.core.windows.net/manifest/5/84037/canvas",
+                    "@context": "http://iiif.io/api/presentation/2/context.json",
+                    "@type": "sc:Canvas",
+                    "hasUserContent": false,
+                    "isDigiLab": false,
+                    "parent": "e008343167-v8",
+                    "label": [
+                        {
+                            "@language": "en",
+                            "@value": "p. 5"
+                        },
+                        {
+                            "@language": "fr",
+                            "@value": "p. 5"
+                        }
+                    ],
+                    "width": 1000,
+                    "height": 1652,
+                    "images": [
+                        {
+                            "@id": "https://stdigitalmanifests.blob.core.windows.net/manifest/5/84037/annotation",
+                            "@context": "http://iiif.io/api/presentation/2/context.json",
+                            "@type": "oa:Annotation",
+                            "motivation": "sc:painting",
+                            "resource": {
+                                "@id": "https://central.bac-lac.gc.ca/.item/?id=e008343167-v8&app=OrdInCou&op=img",
+                                "@type": "dctypes:Image",
+                                "format": "image/jpeg",
+                                "service": {
+                                    "@id": "https://central.bac-lac.gc.ca/.item/?id=e008343167-v8&app=OrdInCou&op=img",
+                                    "@context": "http://iiif.io/api/image/2/context.json",
+                                    "profile": "http://bac-lac.gc.ca/iiif/1/central.json"
+                                },
+                                "width": 1000,
+                                "height": 1652
+                            },
+                            "on": "https://stdigitalmanifests.blob.core.windows.net/manifest/5/84037/canvas"
+                        }
+                    ],
+                    "thumbnail": {
+                        "@id": "https://central.bac-lac.gc.ca/.item?id=e008343167-v8&app=ordincou&op=thumb&height=150",
+                        "@type": "dctypes:Image",
+                        "width": 91,
+                        "height": 150
+                    },
+                    "metadata": [
+                        {
+                            "label": [
+                                {
+                                    "@language": "en",
+                                    "@value": "Name"
+                                },
+                                {
+                                    "@language": "fr",
+                                    "@value": "Nom"
+                                }
+                            ],
+                            "value": [
+                                {
+                                    "@language": "en",
+                                    "@value": "Capital Case, G.W. Cook before Mr. Justice Graham Halifax - sentence commuted - Min [Minister of ] Justice 1903/01/02"
+                                },
+                                {
+                                    "@language": "fr",
+                                    "@value": "Capital Case, G.W. Cook before Mr. Justice Graham Halifax - sentence commuted - Min [Minister of ] Justice 1903/01/02"
+                                }
+                            ]
+                        },
+                        {
+                            "label": [
+                                {
+                                    "@language": "en",
+                                    "@value": "Date introduced"
+                                },
+                                {
+                                    "@language": "fr",
+                                    "@value": "Date de réception"
+                                }
+                            ],
+                            "value": [
+                                {
+                                    "@language": "en",
+                                    "@value": "1903-01-02"
+                                },
+                                {
+                                    "@language": "fr",
+                                    "@value": "1903-01-02"
+                                }
+                            ]
+                        },
+                        {
+                            "label": [
+                                {
+                                    "@language": "en",
+                                    "@value": "Order in Council number"
+                                },
+                                {
+                                    "@language": "fr",
+                                    "@value": "Numéro de décret"
+                                }
+                            ],
+                            "value": [
+                                {
+                                    "@language": "en",
+                                    "@value": "1903-0004"
+                                },
+                                {
+                                    "@language": "fr",
+                                    "@value": "1903-0004"
+                                }
+                            ]
+                        },
+                        {
+                            "label": [
+                                {
+                                    "@language": "en",
+                                    "@value": "Ecopy number"
+                                },
+                                {
+                                    "@language": "fr",
+                                    "@value": "Numéro ecopy"
+                                }
+                            ],
+                            "value": [
+                                {
+                                    "@language": "en",
+                                    "@value": "e008343167-v8"
+                                },
+                                {
+                                    "@language": "fr",
+                                    "@value": "e008343167-v8"
+                                }
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "@id": "https://stdigitalmanifests.blob.core.windows.net/manifest/5/84037/canvas",
+                    "@context": "http://iiif.io/api/presentation/2/context.json",
+                    "@type": "sc:Canvas",
+                    "hasUserContent": false,
+                    "isDigiLab": false,
+                    "parent": "e008343168-v8",
+                    "label": [
+                        {
+                            "@language": "en",
+                            "@value": "p. 6"
+                        },
+                        {
+                            "@language": "fr",
+                            "@value": "p. 6"
+                        }
+                    ],
+                    "width": 1000,
+                    "height": 1645,
+                    "images": [
+                        {
+                            "@id": "https://stdigitalmanifests.blob.core.windows.net/manifest/5/84037/annotation",
+                            "@context": "http://iiif.io/api/presentation/2/context.json",
+                            "@type": "oa:Annotation",
+                            "motivation": "sc:painting",
+                            "resource": {
+                                "@id": "https://central.bac-lac.gc.ca/.item/?id=e008343168-v8&app=OrdInCou&op=img",
+                                "@type": "dctypes:Image",
+                                "format": "image/jpeg",
+                                "service": {
+                                    "@id": "https://central.bac-lac.gc.ca/.item/?id=e008343168-v8&app=OrdInCou&op=img",
+                                    "@context": "http://iiif.io/api/image/2/context.json",
+                                    "profile": "http://bac-lac.gc.ca/iiif/1/central.json"
+                                },
+                                "width": 1000,
+                                "height": 1645
+                            },
+                            "on": "https://stdigitalmanifests.blob.core.windows.net/manifest/5/84037/canvas"
+                        }
+                    ],
+                    "thumbnail": {
+                        "@id": "https://central.bac-lac.gc.ca/.item?id=e008343168-v8&app=ordincou&op=thumb&height=150",
+                        "@type": "dctypes:Image",
+                        "width": 91,
+                        "height": 150
+                    },
+                    "metadata": [
+                        {
+                            "label": [
+                                {
+                                    "@language": "en",
+                                    "@value": "Name"
+                                },
+                                {
+                                    "@language": "fr",
+                                    "@value": "Nom"
+                                }
+                            ],
+                            "value": [
+                                {
+                                    "@language": "en",
+                                    "@value": "Capital Case, G.W. Cook before Mr. Justice Graham Halifax - sentence commuted - Min [Minister of ] Justice 1903/01/02"
+                                },
+                                {
+                                    "@language": "fr",
+                                    "@value": "Capital Case, G.W. Cook before Mr. Justice Graham Halifax - sentence commuted - Min [Minister of ] Justice 1903/01/02"
+                                }
+                            ]
+                        },
+                        {
+                            "label": [
+                                {
+                                    "@language": "en",
+                                    "@value": "Date introduced"
+                                },
+                                {
+                                    "@language": "fr",
+                                    "@value": "Date de réception"
+                                }
+                            ],
+                            "value": [
+                                {
+                                    "@language": "en",
+                                    "@value": "1903-01-02"
+                                },
+                                {
+                                    "@language": "fr",
+                                    "@value": "1903-01-02"
+                                }
+                            ]
+                        },
+                        {
+                            "label": [
+                                {
+                                    "@language": "en",
+                                    "@value": "Order in Council number"
+                                },
+                                {
+                                    "@language": "fr",
+                                    "@value": "Numéro de décret"
+                                }
+                            ],
+                            "value": [
+                                {
+                                    "@language": "en",
+                                    "@value": "1903-0004"
+                                },
+                                {
+                                    "@language": "fr",
+                                    "@value": "1903-0004"
+                                }
+                            ]
+                        },
+                        {
+                            "label": [
+                                {
+                                    "@language": "en",
+                                    "@value": "Ecopy number"
+                                },
+                                {
+                                    "@language": "fr",
+                                    "@value": "Numéro ecopy"
+                                }
+                            ],
+                            "value": [
+                                {
+                                    "@language": "en",
+                                    "@value": "e008343168-v8"
+                                },
+                                {
+                                    "@language": "fr",
+                                    "@value": "e008343168-v8"
+                                }
+                            ]
+                        }
+                    ]
+                }
+            ]
+        }
+    ]
+}

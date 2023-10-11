@@ -3,6 +3,7 @@
 
 <head>
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+  <meta name="dcterms.language" title="ISO639-2" content="fra">
   <title>Universal Viewer Examples</title>
   <!-- https://tailwindcss.com/docs/installation/play-cdn -->
   <script src="https://cdn.tailwindcss.com"></script>
@@ -492,6 +493,8 @@
         const data = urlAdapter.getInitialData({
           iiifManifestId: iiifManifestId,
           debug: false,
+          footerPanelEnabled: true,
+          locales:[{  name: "en-CA"}]
         });
 
         if (uv) {
@@ -500,8 +503,7 @@
 
         uv = UV.init("uv", data);
         urlAdapter.bindTo(uv);
-        console.log('config');
-        console.log(config);
+     
         uv.on("configure", function ({ config, cb }) {
           const manifest = urlAdapter.get("iiifManifestId");
           if (
@@ -513,8 +515,8 @@
               options: {
                 dropEnabled: true,
                 footerPanelEnabled: true,
-                headerPanelEnabled: false,
-                // leftPanelEnabled: false,
+                headerPanelEnabled: true,
+                leftPanelEnabled: true,
                 // rightPanelEnabled: false,
                 limitLocales: false,
                 overrideFullScreen: false,
@@ -741,6 +743,9 @@
         uv.on("configure", function ({ config, cb }) {
           cb(
             new Promise(function (resolve) {
+              const cff =  `uv-${type}-config.json`;
+              console.log('****** cffffff ****')
+              console.log(cff);
               fetch(`uv-${type}-config.json`).then(function (response) {
                 resolve(response.json());
               });

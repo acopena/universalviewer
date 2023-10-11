@@ -7,8 +7,10 @@
     "limitLocales": false,
     "overrideFullScreen": false,
     "pagingEnabled": true,
-    "rightPanelEnabled": true,
-    "clickToZoomEnabled": false
+    "rightPanelEnabled": false,
+    "clickToZoomEnabled": false,
+    "usePdfJs":true,
+    "locales" : [{ "name" : "en-CA"}]
   },
   "modules": {
     "avCenterPanel": {

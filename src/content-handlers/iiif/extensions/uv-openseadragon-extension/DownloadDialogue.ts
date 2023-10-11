@@ -149,7 +149,8 @@ export class DownloadDialogue extends BaseDownloadDialogue {
       const mime: any = $selectedOption.data("mime");
       let type: string = DownloadOption.UNKNOWN;
       const canvas: Canvas = this.extension.helper.getCurrentCanvas();
-
+console.log('download dialogue');
+console.log(canvas);
       if (this.renderingUrls[<any>id]) {
         if (mime) {
           if (mime.toLowerCase().indexOf("pdf") !== -1) {

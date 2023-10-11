@@ -9,7 +9,8 @@
     "fallbackDegradedLabel": "Connexion",
     "fallbackDegradedMessage": "Connectez-vous pour visualisez ce contenu en résolution maximale.",
     "forbiddenResourceMessage": "Vos droits d'accès ne vous permettent pas de visualiser cette image",
-    "termsOfUse": "Conditions d'utilisation"
+    "termsOfUse": "Conditions d'utilisation",
+    "thumbnails" :"thumbnails"
   },
   "modules": {
     "authDialogue": {

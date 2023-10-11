@@ -5,11 +5,11 @@
     "bookmarkThumbWidth": 90,
     "dropEnabled": true,
     "footerPanelEnabled": true,
-    "headerPanelEnabled": true,
+    "headerPanelEnabled": false,
     "limitLocales": false,
     "openTemplate": "http://universalviewer.io?manifest={0}",
     "pessimisticAccessControl": false,
-    "rightPanelEnabled": true,
+    "rightPanelEnabled": false,
     "theme": "uv-en-CA-theme",
     "usePdfJs": true
   },
@@ -51,7 +51,7 @@
     },
     "pdfCenterPanel": {
       "options": {
-        "titleEnabled": false
+        "titleEnabled": true
       }
     },
     "resourcesLeftPanel": {

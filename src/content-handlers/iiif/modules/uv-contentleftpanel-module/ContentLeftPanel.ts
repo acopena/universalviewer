@@ -148,10 +148,9 @@ export class ContentLeftPanel extends LeftPanel {
       `);
     this.$main.append(this.$downloadButton);
     this.$tabs = $('<div class="tabs"></div>');
-    this.$main.append(this.$tabs);
+    this.$main.append(this.$tabs);   
+    // this.$tabs.append(this.$treeButton);
 
-   
-    this.$tabs.append(this.$treeButton);
 
     this.$thumbsButton = $(
       '<a class="thumbs tab on" tabindex="0">' + this.content.thumbnails + "</a>"
@@ -442,7 +441,7 @@ export class ContentLeftPanel extends LeftPanel {
         thumbs,
         paged,
         viewingDirection: viewingDirection || ViewingDirection.LEFT_TO_RIGHT,
-        selected: selectedIndices,
+        selected: selectedIndices,      
         onClick: (thumb: Thumb) => {       
           this.extensionHost.publish(IIIFEvents.THUMB_SELECTED, thumb);
         },
@@ -474,7 +473,7 @@ export class ContentLeftPanel extends LeftPanel {
       initialZoom: 6,
       minLabelWidth: 20,
       pageModeEnabled: this.isPageModeEnabled(),
-      scrollStopDuration: 100,
+      scrollStopDuration: 100,     
       searchResults: (<OpenSeadragonExtension>this.extension).annotations,
       sizingEnabled: true, // range API is IE11 up
       thumbHeight: this.config.options.galleryThumbHeight,

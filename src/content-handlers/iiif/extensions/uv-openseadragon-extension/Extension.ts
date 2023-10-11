@@ -100,7 +100,6 @@ export default class OpenSeadragonExtension extends BaseExtension {
     super.create();
 
     this.store = createStore();
-
     this.store.subscribe((_state) => {
       this.renderDownloadDialogue();
     });
@@ -531,6 +530,7 @@ export default class OpenSeadragonExtension extends BaseExtension {
       this.shell.$headerPanel.hide();
     }
 
+   
     if (this.isLeftPanelEnabled()) {
       this.leftPanel = new ContentLeftPanel(this.shell.$leftPanel);
     } else {
@@ -611,15 +611,14 @@ export default class OpenSeadragonExtension extends BaseExtension {
     if (this.isRightPanelEnabled()) {
       this.rightPanel.init();
     }
-
+ 
     if (this.isFooterPanelEnabled()) {
       this.footerPanel.init();
     }
   }
 
   render(): void {
-    super.render();
-
+    super.render();    
     this.checkForTarget();
     this.checkForAnnotations();
     this.checkForSearchParam();
@@ -1306,22 +1305,31 @@ export default class OpenSeadragonExtension extends BaseExtension {
 
     let images: Annotation[] = canvas.getImages();
 
+    console.log('**** GetInfoUri **');
+  
     // presentation 2
     if (images && images.length) {
+      console.log('*** images');
       const firstImage: Annotation = images[0];
       const resource: Resource = firstImage.getResource();
       const services: Service[] = resource.getServices();
+      console.log(services.length);
 
       for (let i = 0; i < services.length; i++) {
         const service: Service = services[i];
-        let id = service.id;
+        let id = service.id;        
+        console.log(id);
 
         if (!id.endsWith("/")) {
           id += "/";
         }
 
-        if (Utils.isImageProfile(service.getProfile())) {
+        console.log(service.getProfile());
+
+        if (Utils.isImageProfile(service.getProfile())) {         
+          id = "https://iiif.wellcomecollection.org/image/b1948799x_pp_cri_d_4_3_0001.jp2/" 
           infoUri = id + "info.json";
+          console.log(infoUri);
         }
       }
     } else {
@@ -1342,8 +1350,9 @@ export default class OpenSeadragonExtension extends BaseExtension {
             id += "/";
           }
 
-          if (Utils.isImageProfile(service.getProfile())) {
+          if (Utils.isImageProfile(service.getProfile())) {           
             infoUri = id + "info.json";
+            console.log(infoUri);
           }
         }
       }

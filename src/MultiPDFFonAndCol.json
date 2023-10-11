@@ -1,0 +1,760 @@
+{
+    "@id": "https://digitalmanifest.bac-lac.gc.ca/DigitalManifest/1/927683",
+    "@context": "http://iiif.io/api/presentation/2/context.json",
+    "@type": "sc:Manifest",
+    "label": [
+        {
+            "@language": "en",
+            "@value": "The Algonquin Regiment"
+        },
+        {
+            "@language": "fr",
+            "@value": "The Algonquin Regiment"
+        }
+    ],
+    "metadata": [
+        {
+            "label": [
+                {
+                    "@language": "en",
+                    "@value": "Found in"
+                },
+                {
+                    "@language": "fr",
+                    "@value": "Trouvé dans"
+                }
+            ],
+            "value": [
+                {
+                    "@language": "en",
+                    "@value": "Archives / Collections and Fonds"
+                },
+                {
+                    "@language": "fr",
+                    "@value": "Archives / Collections et Fonds"
+                }
+            ]
+        },
+        {
+            "label": [
+                {
+                    "@language": "en",
+                    "@value": "Reference"
+                },
+                {
+                    "@language": "fr",
+                    "@value": "Référence"
+                }
+            ],
+            "value": [
+                {
+                    "@language": "en",
+                    "@value": "RG24-C-3, Volume number: 15001, File number: 1052"
+                },
+                {
+                    "@language": "fr",
+                    "@value": "RG24-C-3, Numéro de volume : 15001, Numéro de dossier : 1052"
+                }
+            ]
+        },
+        {
+            "label": [
+                {
+                    "@language": "en",
+                    "@value": "Item  number"
+                },
+                {
+                    "@language": "fr",
+                    "@value": "No d'identification"
+                }
+            ],
+            "value": [
+                {
+                    "@language": "en",
+                    "@value": "927683"
+                },
+                {
+                    "@language": "fr",
+                    "@value": "927683"
+                }
+            ]
+        }
+    ],
+    "mediaSequences": [
+        {
+            "@id": "https://digitalmanifest.bac-lac.gc.ca/DigitalManifest/1/927683/sequence",
+            "@context": "http://iiif.io/api/presentation/2/context.json",
+            "@type": "ixif:MediaSequence",
+            "viewingDirection": "left-to-right",
+            "elements": [
+                {
+                    "@id": "https://central.bac-lac.gc.ca/.item/?id=e011202891&app=fonandcol&op=pdf",
+                    "@context": "http://iiif.io/api/presentation/2/context.json",
+                    "@type": "Document",
+                    "format": "application/pdf",
+                    "hasUserContent": false,
+                    "isDigiLab": false,
+                    "parent": "e011202891",
+                    "label": [
+                        {
+                            "@language": "en",
+                            "@value": "1945\/05 - May 1945"
+                        },
+                        {
+                            "@language": "fr",
+                            "@value": "1945\/05 - mai 1945"
+                        }
+                    ],
+                    "width": 1000,
+                    "height": 1000,
+                    "thumbnail": {
+                        "@id": "https://central.bac-lac.gc.ca/.item/?id=e011202891&app=fonandcol&op=thumb&height=150",
+                        "@type": "dctypes:Image",
+                        "width": 150,
+                        "height": 150
+                    },
+                    "metadata": [
+                        {
+                            "label": [
+                                {
+                                    "@language": "en",
+                                    "@value": "Date"
+                                },
+                                {
+                                    "@language": "fr",
+                                    "@value": "Date"
+                                }
+                            ],
+                            "value": [
+                                {
+                                    "@language": "en",
+                                    "@value": "1944 - 1945"
+                                },
+                                {
+                                    "@language": "fr",
+                                    "@value": "1944 - 1945"
+                                }
+                            ]
+                        },
+                        {
+                            "label": [
+                                {
+                                    "@language": "en",
+                                    "@value": "Hierarchical level"
+                                },
+                                {
+                                    "@language": "fr",
+                                    "@value": "Niveau hiérarchique"
+                                }
+                            ],
+                            "value": [
+                                {
+                                    "@language": "en",
+                                    "@value": "File"
+                                },
+                                {
+                                    "@language": "fr",
+                                    "@value": "Dossier"
+                                }
+                            ]
+                        },
+                        {
+                            "label": [
+                                {
+                                    "@language": "en",
+                                    "@value": "Ecopy number"
+                                },
+                                {
+                                    "@language": "fr",
+                                    "@value": "Numéro ecopy"
+                                }
+                            ],
+                            "value": [
+                                {
+                                    "@language": "en",
+                                    "@value": "e011202891"
+                                },
+                                {
+                                    "@language": "fr",
+                                    "@value": "e011202891"
+                                }
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "@id": "https://central.bac-lac.gc.ca/.item/?id=e011202892&app=fonandcol&op=pdf",
+                    "@context": "http://iiif.io/api/presentation/2/context.json",
+                    "@type": "Document",
+                    "format": "application/pdf",
+                    "hasUserContent": false,
+                    "isDigiLab": false,
+                    "parent": "e011202892",
+                    "label": [
+                        {
+                            "@language": "en",
+                            "@value": "1945\/04 - April 1945"
+                        },
+                        {
+                            "@language": "fr",
+                            "@value": "1945\/04 - avril 1945"
+                        }
+                    ],
+                    "width": 1000,
+                    "height": 1000,
+                    "thumbnail": {
+                        "@id": "https://central.bac-lac.gc.ca/.item/?id=e011202892&app=fonandcol&op=thumb&height=150",
+                        "@type": "dctypes:Image",
+                        "width": 150,
+                        "height": 150
+                    },
+                    "metadata": [
+                        {
+                            "label": [
+                                {
+                                    "@language": "en",
+                                    "@value": "Date"
+                                },
+                                {
+                                    "@language": "fr",
+                                    "@value": "Date"
+                                }
+                            ],
+                            "value": [
+                                {
+                                    "@language": "en",
+                                    "@value": "1944 - 1945"
+                                },
+                                {
+                                    "@language": "fr",
+                                    "@value": "1944 - 1945"
+                                }
+                            ]
+                        },
+                        {
+                            "label": [
+                                {
+                                    "@language": "en",
+                                    "@value": "Hierarchical level"
+                                },
+                                {
+                                    "@language": "fr",
+                                    "@value": "Niveau hiérarchique"
+                                }
+                            ],
+                            "value": [
+                                {
+                                    "@language": "en",
+                                    "@value": "File"
+                                },
+                                {
+                                    "@language": "fr",
+                                    "@value": "Dossier"
+                                }
+                            ]
+                        },
+                        {
+                            "label": [
+                                {
+                                    "@language": "en",
+                                    "@value": "Ecopy number"
+                                },
+                                {
+                                    "@language": "fr",
+                                    "@value": "Numéro ecopy"
+                                }
+                            ],
+                            "value": [
+                                {
+                                    "@language": "en",
+                                    "@value": "e011202892"
+                                },
+                                {
+                                    "@language": "fr",
+                                    "@value": "e011202892"
+                                }
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "@id": "https://central.bac-lac.gc.ca/.item/?id=e011380113&app=fonandcol&op=pdf",
+                    "@context": "http://iiif.io/api/presentation/2/context.json",
+                    "@type": "Document",
+                    "format": "application/pdf",
+                    "hasUserContent": false,
+                    "isDigiLab": false,
+                    "parent": "e011380113",
+                    "label": [
+                        {
+                            "@language": "en",
+                            "@value": "1945\/02 - February 1945"
+                        },
+                        {
+                            "@language": "fr",
+                            "@value": "1945\/02 - février 1945"
+                        }
+                    ],
+                    "width": 1000,
+                    "height": 1000,
+                    "thumbnail": {
+                        "@id": "https://central.bac-lac.gc.ca/.item/?id=e011380113&app=fonandcol&op=thumb&height=150",
+                        "@type": "dctypes:Image",
+                        "width": 150,
+                        "height": 150
+                    },
+                    "metadata": [
+                        {
+                            "label": [
+                                {
+                                    "@language": "en",
+                                    "@value": "Date"
+                                },
+                                {
+                                    "@language": "fr",
+                                    "@value": "Date"
+                                }
+                            ],
+                            "value": [
+                                {
+                                    "@language": "en",
+                                    "@value": "1944 - 1945"
+                                },
+                                {
+                                    "@language": "fr",
+                                    "@value": "1944 - 1945"
+                                }
+                            ]
+                        },
+                        {
+                            "label": [
+                                {
+                                    "@language": "en",
+                                    "@value": "Hierarchical level"
+                                },
+                                {
+                                    "@language": "fr",
+                                    "@value": "Niveau hiérarchique"
+                                }
+                            ],
+                            "value": [
+                                {
+                                    "@language": "en",
+                                    "@value": "File"
+                                },
+                                {
+                                    "@language": "fr",
+                                    "@value": "Dossier"
+                                }
+                            ]
+                        },
+                        {
+                            "label": [
+                                {
+                                    "@language": "en",
+                                    "@value": "Ecopy number"
+                                },
+                                {
+                                    "@language": "fr",
+                                    "@value": "Numéro ecopy"
+                                }
+                            ],
+                            "value": [
+                                {
+                                    "@language": "en",
+                                    "@value": "e011380113"
+                                },
+                                {
+                                    "@language": "fr",
+                                    "@value": "e011380113"
+                                }
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "@id": "https://central.bac-lac.gc.ca/.item/?id=e011380114&app=fonandcol&op=pdf",
+                    "@context": "http://iiif.io/api/presentation/2/context.json",
+                    "@type": "oa:Annotation",
+                    "motivation": "sc:painting",
+                    "hasUserContent": false,
+                    "isDigiLab": false,
+                    "parent": "e011380114",
+                    "label": [
+                        {
+                            "@language": "en",
+                            "@value": "1945\/03 - March 1945"
+                        },
+                        {
+                            "@language": "fr",
+                            "@value": "1945\/03 - mars 1945"
+                        }
+                    ],
+                    "width": 1000,
+                    "height": 1000,
+                    "thumbnail": {
+                        "@id": "https://central.bac-lac.gc.ca/.item/?id=e011380114&app=fonandcol&op=thumb&height=150",
+                        "@type": "dctypes:Image",
+                        "width": 150,
+                        "height": 150
+                    },
+                    "metadata": [
+                        {
+                            "label": [
+                                {
+                                    "@language": "en",
+                                    "@value": "Date"
+                                },
+                                {
+                                    "@language": "fr",
+                                    "@value": "Date"
+                                }
+                            ],
+                            "value": [
+                                {
+                                    "@language": "en",
+                                    "@value": "1944 - 1945"
+                                },
+                                {
+                                    "@language": "fr",
+                                    "@value": "1944 - 1945"
+                                }
+                            ]
+                        },
+                        {
+                            "label": [
+                                {
+                                    "@language": "en",
+                                    "@value": "Hierarchical level"
+                                },
+                                {
+                                    "@language": "fr",
+                                    "@value": "Niveau hiérarchique"
+                                }
+                            ],
+                            "value": [
+                                {
+                                    "@language": "en",
+                                    "@value": "File"
+                                },
+                                {
+                                    "@language": "fr",
+                                    "@value": "Dossier"
+                                }
+                            ]
+                        },
+                        {
+                            "label": [
+                                {
+                                    "@language": "en",
+                                    "@value": "Ecopy number"
+                                },
+                                {
+                                    "@language": "fr",
+                                    "@value": "Numéro ecopy"
+                                }
+                            ],
+                            "value": [
+                                {
+                                    "@language": "en",
+                                    "@value": "e011380114"
+                                },
+                                {
+                                    "@language": "fr",
+                                    "@value": "e011380114"
+                                }
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "@id": "https://central.bac-lac.gc.ca/.item/?id=e011384054&app=fonandcol&op=pdf",
+                    "@context": "http://iiif.io/api/presentation/2/context.json",
+                    "@type": "Document",
+                    "format": "application/pdf",
+                    "hasUserContent": false,
+                    "isDigiLab": false,
+                    "parent": "e011384054",
+                    "label": [
+                        {
+                            "@language": "en",
+                            "@value": "1944\/11 - November 1944"
+                        },
+                        {
+                            "@language": "fr",
+                            "@value": "1944\/11 - novembre 1944"
+                        }
+                    ],
+                    "width": 1000,
+                    "height": 1000,
+                    "thumbnail": {
+                        "@id": "https://central.bac-lac.gc.ca/.item/?id=e011384054&app=fonandcol&op=thumb&height=150",
+                        "@type": "dctypes:Image",
+                        "width": 150,
+                        "height": 150
+                    },
+                    "metadata": [
+                        {
+                            "label": [
+                                {
+                                    "@language": "en",
+                                    "@value": "Date"
+                                },
+                                {
+                                    "@language": "fr",
+                                    "@value": "Date"
+                                }
+                            ],
+                            "value": [
+                                {
+                                    "@language": "en",
+                                    "@value": "1944 - 1945"
+                                },
+                                {
+                                    "@language": "fr",
+                                    "@value": "1944 - 1945"
+                                }
+                            ]
+                        },
+                        {
+                            "label": [
+                                {
+                                    "@language": "en",
+                                    "@value": "Hierarchical level"
+                                },
+                                {
+                                    "@language": "fr",
+                                    "@value": "Niveau hiérarchique"
+                                }
+                            ],
+                            "value": [
+                                {
+                                    "@language": "en",
+                                    "@value": "File"
+                                },
+                                {
+                                    "@language": "fr",
+                                    "@value": "Dossier"
+                                }
+                            ]
+                        },
+                        {
+                            "label": [
+                                {
+                                    "@language": "en",
+                                    "@value": "Ecopy number"
+                                },
+                                {
+                                    "@language": "fr",
+                                    "@value": "Numéro ecopy"
+                                }
+                            ],
+                            "value": [
+                                {
+                                    "@language": "en",
+                                    "@value": "e011384054"
+                                },
+                                {
+                                    "@language": "fr",
+                                    "@value": "e011384054"
+                                }
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "@id": "https://central.bac-lac.gc.ca/.item/?id=e011384055&app=fonandcol&op=pdf",
+                    "@context": "http://iiif.io/api/presentation/2/context.json",
+                    "@type": "Document",
+                    "format": "application/pdf",
+                    "hasUserContent": false,
+                    "isDigiLab": false,
+                    "parent": "e011384055",
+                    "label": [
+                        {
+                            "@language": "en",
+                            "@value": "1944\/12 - December 1944"
+                        },
+                        {
+                            "@language": "fr",
+                            "@value": "1944\/12 - décembre 1944"
+                        }
+                    ],
+                    "width": 1000,
+                    "height": 1000,
+                   
+                    "thumbnail": {
+                        "@id": "https://central.bac-lac.gc.ca/.item/?id=e011384055&app=fonandcol&op=thumb&height=150",
+                        "@type": "dctypes:Image",
+                        "width": 150,
+                        "height": 150
+                    },
+                    "metadata": [
+                        {
+                            "label": [
+                                {
+                                    "@language": "en",
+                                    "@value": "Date"
+                                },
+                                {
+                                    "@language": "fr",
+                                    "@value": "Date"
+                                }
+                            ],
+                            "value": [
+                                {
+                                    "@language": "en",
+                                    "@value": "1944 - 1945"
+                                },
+                                {
+                                    "@language": "fr",
+                                    "@value": "1944 - 1945"
+                                }
+                            ]
+                        },
+                        {
+                            "label": [
+                                {
+                                    "@language": "en",
+                                    "@value": "Hierarchical level"
+                                },
+                                {
+                                    "@language": "fr",
+                                    "@value": "Niveau hiérarchique"
+                                }
+                            ],
+                            "value": [
+                                {
+                                    "@language": "en",
+                                    "@value": "File"
+                                },
+                                {
+                                    "@language": "fr",
+                                    "@value": "Dossier"
+                                }
+                            ]
+                        },
+                        {
+                            "label": [
+                                {
+                                    "@language": "en",
+                                    "@value": "Ecopy number"
+                                },
+                                {
+                                    "@language": "fr",
+                                    "@value": "Numéro ecopy"
+                                }
+                            ],
+                            "value": [
+                                {
+                                    "@language": "en",
+                                    "@value": "e011384055"
+                                },
+                                {
+                                    "@language": "fr",
+                                    "@value": "e011384055"
+                                }
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "@id": "https://central.bac-lac.gc.ca/.item/?id=e011384056&app=fonandcol&op=pdf",
+                    "@context": "http://iiif.io/api/presentation/2/context.json",
+                    "@type": "Document",
+                                "format": "application/pdf",
+                    "hasUserContent": false,
+                    "isDigiLab": false,
+                    "parent": "e011384056",
+                    "label": [
+                        {
+                            "@language": "en",
+                            "@value": "1945\/01 - January 1945"
+                        },
+                        {
+                            "@language": "fr",
+                            "@value": "1945\/01 - janvier 1945"
+                        }
+                    ],
+                    "width": 1000,
+                    "height": 1000,
+                  
+                    "thumbnail": {
+                        "@id": "https://central.bac-lac.gc.ca/.item/?id=e011384056&app=fonandcol&op=thumb&height=150",
+                        "@type": "dctypes:Image",
+                        "width": 150,
+                        "height": 150
+                    },
+                    "metadata": [
+                        {
+                            "label": [
+                                {
+                                    "@language": "en",
+                                    "@value": "Date"
+                                },
+                                {
+                                    "@language": "fr",
+                                    "@value": "Date"
+                                }
+                            ],
+                            "value": [
+                                {
+                                    "@language": "en",
+                                    "@value": "1944 - 1945"
+                                },
+                                {
+                                    "@language": "fr",
+                                    "@value": "1944 - 1945"
+                                }
+                            ]
+                        },
+                        {
+                            "label": [
+                                {
+                                    "@language": "en",
+                                    "@value": "Hierarchical level"
+                                },
+                                {
+                                    "@language": "fr",
+                                    "@value": "Niveau hiérarchique"
+                                }
+                            ],
+                            "value": [
+                                {
+                                    "@language": "en",
+                                    "@value": "File"
+                                },
+                                {
+                                    "@language": "fr",
+                                    "@value": "Dossier"
+                                }
+                            ]
+                        },
+                        {
+                            "label": [
+                                {
+                                    "@language": "en",
+                                    "@value": "Ecopy number"
+                                },
+                                {
+                                    "@language": "fr",
+                                    "@value": "Numéro ecopy"
+                                }
+                            ],
+                            "value": [
+                                {
+                                    "@language": "en",
+                                    "@value": "e011384056"
+                                },
+                                {
+                                    "@language": "fr",
+                                    "@value": "e011384056"
+                                }
+                            ]
+                        }
+                    ]
+                }
+            ]
+        }
+    ]
+}
