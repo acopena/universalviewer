@@ -633,12 +633,8 @@ export class ContentLeftPanel extends LeftPanel {
 
   resize(): void {
     super.resize();
-
-    this.$tabsContent.height(
-      this.$main.height() -
-      (isVisible(this.$tabs) ? this.$tabs.height() : 0) -
-      this.$tabsContent.verticalPadding()
-    );
+    let tabHeight = this.$main.height() - (isVisible(this.$tabs) ? this.$tabs.height() : 0) - this.$tabsContent.verticalPadding();
+    this.$tabsContent.height(tabHeight - 40);
     let newHeight = (this.$tabsContent.height() - this.$options.outerHeight() - 40);
     this.$views.height(newHeight);
   }

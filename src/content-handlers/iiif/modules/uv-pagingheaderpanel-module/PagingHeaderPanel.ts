@@ -64,7 +64,7 @@ export class PagingHeaderPanel extends HeaderPanel {
     this.extensionHost.subscribe(
       IIIFEvents.CANVAS_INDEX_CHANGE,
       (canvasIndex: number) => {
-        this.canvasIndexChanged(canvasIndex);       
+        this.canvasIndexChanged(canvasIndex);
       }
     );
 
@@ -371,10 +371,10 @@ export class PagingHeaderPanel extends HeaderPanel {
       switch (viewingDirection.toString()) {
         case ViewingDirection.LEFT_TO_RIGHT:
         case ViewingDirection.BOTTOM_TO_TOP:
-        case ViewingDirection.TOP_TO_BOTTOM:          
-         this.extensionHost.publish(IIIFEvents.NEXT);
+        case ViewingDirection.TOP_TO_BOTTOM:
+          this.extensionHost.publish(IIIFEvents.NEXT);
           break;
-        case ViewingDirection.RIGHT_TO_LEFT:          
+        case ViewingDirection.RIGHT_TO_LEFT:
           this.extensionHost.publish(IIIFEvents.PREV);
           break;
       }
@@ -551,20 +551,23 @@ export class PagingHeaderPanel extends HeaderPanel {
   }
 
   updatePagingToggle(): void {
+    let ispageEnable = (<OpenSeadragonExtension>this.extension).isPagingSettingEnabled(); 
+    if (this.extension.helper.isMultiCanvas() ) {
 
-    return;
+      if (ispageEnable) {
+        this.$oneUpButton.removeClass("on");
+        //this.$twoUpButton.addClass("on");
+      } else {
+        this.$twoUpButton.removeClass("on");
+        //this.$oneUpButton.addClass("on");
+      }
 
-    if (!this.pagingToggleIsVisible()) {
-      this.$pagingToggleButtons.hide();
-      return;
     }
-
-    if ((<OpenSeadragonExtension>this.extension).isPagingSettingEnabled()) {
-      this.$oneUpButton.removeClass("on");
-      this.$twoUpButton.addClass("on");
-    } else {
-      this.$twoUpButton.removeClass("on");
-      this.$oneUpButton.addClass("on");
+    else {
+      if (!this.pagingToggleIsVisible()) {
+        this.$pagingToggleButtons.hide();
+        return;
+      }
     }
   }
 
@@ -584,7 +587,7 @@ export class PagingHeaderPanel extends HeaderPanel {
   galleryIsVisible(): boolean {
     return (
       Bools.getBool(this.options.galleryButtonEnabled, true) &&
-      this.extension.isLeftPanelEnabled()
+      this.extension.isLeftPanelEnabled() && this.extension.helper.isMultiCanvas()
     );
   }
 

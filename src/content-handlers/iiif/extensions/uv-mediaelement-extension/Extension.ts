@@ -213,7 +213,7 @@ export default class Extension extends BaseExtension
   }
 
   isLeftPanelEnabled(): boolean {
-  
+ 
     (this.helper.isMultiCanvas() ||
       this.helper.isMultiSequence() ||
       this.helper.hasResources());

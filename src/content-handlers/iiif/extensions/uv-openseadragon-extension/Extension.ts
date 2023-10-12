@@ -64,7 +64,7 @@ export default class OpenSeadragonExtension extends BaseExtension {
   $shareDialogue: JQuery;
 
   $pagingFooter: JQuery;
-  $rightOptions: JQuery;
+ // $rightOptions: JQuery;
   $centerOptions: JQuery;
   $downloadButton: JQuery;
   $shareButton: JQuery;
@@ -109,11 +109,8 @@ export default class OpenSeadragonExtension extends BaseExtension {
         const settings: ISettings = {};
         settings.pagingEnabled = false;
         this.updateSettings(settings);
-        this.extensionHost.publish(IIIFEvents.UPDATE_SETTINGS);
-        //this.shell.$rightPanel.hide();
-      } else {
-        //this.shell.$rightPanel.show();
-      }
+        this.extensionHost.publish(IIIFEvents.UPDATE_SETTINGS);        
+      } 
     });
 
     this.extensionHost.subscribe(
@@ -473,13 +470,13 @@ export default class OpenSeadragonExtension extends BaseExtension {
       this.extensionHost.publish(IIIFEvents.CANVAS_INDEX_CHANGE, thumb.index);
     });
 
-    this.extensionHost.subscribe(
-      IIIFEvents.TREE_NODE_SELECTED,
-      (node: TreeNode) => {
-        this.fire(IIIFEvents.TREE_NODE_SELECTED, node.data.path);
-        this.treeNodeSelected(node);
-      }
-    );
+    // this.extensionHost.subscribe(
+    //   IIIFEvents.TREE_NODE_SELECTED,
+    //   (node: TreeNode) => {
+    //     this.fire(IIIFEvents.TREE_NODE_SELECTED, node.data.path);
+    //     this.treeNodeSelected(node);
+    //   }
+    // );
 
     this.extensionHost.subscribe(IIIFEvents.UP_ARROW, () => {
       if (!this.useArrowKeysToNavigate()) {
@@ -1309,27 +1306,20 @@ export default class OpenSeadragonExtension extends BaseExtension {
   
     // presentation 2
     if (images && images.length) {
-      console.log('*** images');
+      
       const firstImage: Annotation = images[0];
       const resource: Resource = firstImage.getResource();
-      const services: Service[] = resource.getServices();
-      console.log(services.length);
+      const services: Service[] = resource.getServices();      
 
       for (let i = 0; i < services.length; i++) {
         const service: Service = services[i];
-        let id = service.id;        
-        console.log(id);
-
+        let id = service.id;           
         if (!id.endsWith("/")) {
           id += "/";
         }
-
-        console.log(service.getProfile());
-
-        if (Utils.isImageProfile(service.getProfile())) {         
-          id = "https://iiif.wellcomecollection.org/image/b1948799x_pp_cri_d_4_3_0001.jp2/" 
-          infoUri = id + "info.json";
-          console.log(infoUri);
+      
+        if (Utils.isImageProfile(service.getProfile())) {       
+          infoUri = id + "info.json";        
         }
       }
     } else {
@@ -1351,8 +1341,7 @@ export default class OpenSeadragonExtension extends BaseExtension {
           }
 
           if (Utils.isImageProfile(service.getProfile())) {           
-            infoUri = id + "info.json";
-            console.log(infoUri);
+            infoUri = id + "info.json";         
           }
         }
       }
@@ -1580,7 +1569,7 @@ export default class OpenSeadragonExtension extends BaseExtension {
     const paged = !!this.getSettings().pagingEnabled;
     const viewingDirection = this.helper.getViewingDirection();
 
-    let indices: number[] = [];
+    let indices: number[] = [];   
 
     // if it's a continuous manifest, get all resources.
     if (sequence.getViewingHint() === ViewingHint.CONTINUOUS) {

@@ -6,7 +6,7 @@
     "leftPanelEnabled": true,
     "limitLocales": false,
     "overrideFullScreen": false,
-    "pagingEnabled": true,
+    "pagingEnabled": false,
     "rightPanelEnabled": false,
     "clickToZoomEnabled": false,
     "usePdfJs":true,

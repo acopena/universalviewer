@@ -644,19 +644,17 @@ export class OpenSeadragonCenterPanel extends CenterPanel {
     let images: IExternalResourceData[] = await this.extension.getExternalResources(
       resources
     );
-    console.log(images);
+   
     const isGirder: boolean = this.extension.format === MediaType.GIRDER;
 
     try {
       this.viewer.close();
 
       images = this.getPagePositions(images);
-      console.log('getPagePositions');
-
+   
       for (let i = 0; i < images.length; i++) {
         const data: any = images[i];
-        console.log(data);
-
+   
         let tileSource: any;
        
 
@@ -670,7 +668,7 @@ export class OpenSeadragonCenterPanel extends CenterPanel {
           tileSource = await this.getGirderTileSource();
         } else {
           // load image
-          console.log('else tileSource');
+      
           tileSource = {
             type: "image",
             url: data.id,
@@ -809,6 +807,9 @@ export class OpenSeadragonCenterPanel extends CenterPanel {
           this.enableNextButton();
         }
       }
+    }
+    else {
+      console.log('*** this is not multicanvas ***')
     }
 
     this.setNavigatorVisible();

@@ -1040,13 +1040,12 @@ export class BaseExtension implements IExtension {
     return Bools.getBool(this.data.config.options.headerPanelEnabled, true);
   }
 
-  isLeftPanelEnabled(): boolean {
+  isLeftPanelEnabled(): boolean {   
     if (Bools.getBool(this.data.config.options.leftPanelEnabled, true)) {
-      if (this.helper.hasParentCollection()) {
+      if (this.helper.hasParentCollection()) {       
         return true;
-      } else if (this.helper.isMultiCanvas()) {
+      } else if (this.helper.isMultiCanvas()) {       
         const viewingHint: ViewingHint | null = this.helper.getViewingHint();
-
         if (
           !viewingHint ||
           (viewingHint && viewingHint !== ViewingHint.CONTINUOUS)
@@ -1056,7 +1055,7 @@ export class BaseExtension implements IExtension {
       }
     }
 
-    return false;
+    return true;
   }
 
   isRightPanelEnabled(): boolean {

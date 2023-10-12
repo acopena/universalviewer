@@ -240,13 +240,11 @@ export default class ModelViewerExtension extends BaseExtension {
     return groupedAnnotations;
   }
 
-  isLeftPanelEnabled(): boolean {
-    
-   // return true;
-    return (
-      Bools.getBool(this.data.config.options.leftPanelEnabled, true) &&
-      (this.helper.isMultiCanvas() || this.helper.isMultiSequence())
-    );
+  isLeftPanelEnabled(): boolean {   
+     return (
+       Bools.getBool(this.data.config.options.leftPanelEnabled, true) &&
+       (this.helper.isMultiCanvas() || this.helper.isMultiSequence())
+     );
   }
 
   bookmark(): void {

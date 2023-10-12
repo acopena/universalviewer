@@ -111,7 +111,7 @@ export default class Extension extends BaseExtension
     super.render();
   }
 
-  isLeftPanelEnabled(): boolean {
+  isLeftPanelEnabled(): boolean { 
     return (
       Bools.getBool(this.data.config.options.leftPanelEnabled, true) &&
       (this.helper.isMultiCanvas() ||
