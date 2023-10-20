@@ -289,9 +289,9 @@ export class ContentLeftPanel extends LeftPanel {
   databind(): void {
     this.metadataComponent.set(this._getData());
   }
+
   private _getData() {
     const canvases = this.extension.getCurrentCanvases();
-
 
     return {
       canvasDisplayOrder: this.config.options.canvasDisplayOrder,

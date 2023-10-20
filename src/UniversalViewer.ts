@@ -36,6 +36,8 @@ export class UniversalViewer extends BaseContentHandler<IUVData> {
 
   constructor(public options: IUVOptions) {
     super(options);
+    console.log('->>>> universal viewer <----');
+    console.log(this.options.data);
     this._assignContentHandler(this.options.data);
   }
 

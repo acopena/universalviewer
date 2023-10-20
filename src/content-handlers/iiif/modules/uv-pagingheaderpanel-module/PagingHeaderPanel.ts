@@ -149,7 +149,8 @@ export class PagingHeaderPanel extends HeaderPanel {
         this.$autoCompleteBox,
         (term: string, cb: (results: string[]) => void) => {
           const results: string[] = [];
-          const canvases: Canvas[] = this.extension.helper.getCanvases();
+        
+          const canvases: Canvas[] =  this.extension.helper.getCanvases();
 
           // if in page mode, get canvases by label.
           if (this.isPageModeEnabled()) {

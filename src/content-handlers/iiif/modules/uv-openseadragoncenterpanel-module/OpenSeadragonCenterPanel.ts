@@ -24,6 +24,10 @@ import "@openseadragon-imaging/openseadragon-viewerinputhook";
 import { MediaType } from "@iiif/vocabulary/dist-commonjs";
 import { Events } from "../../../../Events";
 
+//import BaseContentHandler, { EventListener } from "../../../../BaseContentHandler";
+
+
+
 
 export class OpenSeadragonCenterPanel extends CenterPanel {
   controlsVisible: boolean = false;
@@ -67,7 +71,6 @@ export class OpenSeadragonCenterPanel extends CenterPanel {
 
   create(): void {
     this.setConfig("openSeadragonCenterPanel");
-
     super.create();
 
     this.viewerId = "osd" + new Date().getTime();
@@ -87,15 +90,16 @@ export class OpenSeadragonCenterPanel extends CenterPanel {
     );
 
     this.extensionHost.subscribe(
-      IIIFEvents.OPEN_EXTERNAL_RESOURCE,
+      IIIFEvents.OPEN_EXTERNAL_RESOURCE,      
       (resources: IExternalResource[]) => {
         this.whenResized(async () => {
           if (!this.isCreated) {
             // uv may have reloaded
             this.createUI();
           }
-          this.isLoaded = false;
-          await this.openMedia(resources);
+          this.isLoaded = false;         
+          
+          await this.openMedia(resources);         
           this.isLoaded = true;
           this.extensionHost.publish(Events.EXTERNAL_RESOURCE_OPENED);
           this.extensionHost.publish(Events.LOAD);
@@ -639,20 +643,30 @@ export class OpenSeadragonCenterPanel extends CenterPanel {
 
     this.$spinner.show();
     this.items = [];
-    console.log('openMedia');
+    //console.log('openMedia - OpenseadragonCenterPanels');
     
     let images: IExternalResourceData[] = await this.extension.getExternalResources(
       resources
-    );
-   
-    const isGirder: boolean = this.extension.format === MediaType.GIRDER;
+    );    
+    
+    let mediaItem  = this.extension.helper.manifest?.items[0].items;
+    //console.log(mediaItem);
+    
+
+    if (mediaItem != undefined) {
+      let mediaData  = mediaItem[this.extension.helper.canvasIndex]['__jsonld'];
+      //console.log('index :' +  this.extension.helper.canvasIndex);     
+      this.extension.format = mediaData.format;
+    }
+    let isGirder: boolean = this.extension.format === MediaType.GIRDER;    
+  
 
     try {
       this.viewer.close();
-
       images = this.getPagePositions(images);
-   
+
       for (let i = 0; i < images.length; i++) {
+      
         const data: any = images[i];
    
         let tileSource: any;
@@ -691,7 +705,9 @@ export class OpenSeadragonCenterPanel extends CenterPanel {
           },
         });
       }
-    } catch {
+    } catch( err: any) {
+      console.log('error encounter in openMedia');
+      console.log(err);
       // do nothing
     }
   }

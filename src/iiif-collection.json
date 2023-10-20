@@ -14,17 +14,27 @@
         {
           "@id": "src/LAC84037.json",
           "@type": "sc:Manifest",
-          "label": "LAC Image with rendinring to download"
+          "label": "LAC Image with rendering to download"
         },        
         {
           "@id": "https://stdigitalmanifestspr.blob.core.windows.net/manifest/5/84037/manifest.json",
           "@type": "sc:Manifest",
-          "label": "Wunder der Vererbung"
+          "label": "Capital case - LAC images"
         },        
         {
           "@id": "src/manifest.json",
           "@type": "sc:Manifest",
           "label": "LAC local Manifest PDF"
+        },
+        {
+          "@id": "src/jpfPDF_2997.json",
+          "@type": "sc:Manifest",
+          "label": "LAC local Manifest Mixed of image and PDF"
+        },
+        {
+          "@id": "src/29975.json",
+          "@type": "sc:Manifest",
+          "label": "LAC local Manifest Mixed of image and PDF v1"
         },
         {
           "@id": "src/MultiPDFFonAndCol.json",

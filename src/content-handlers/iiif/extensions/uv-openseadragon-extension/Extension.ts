@@ -1300,10 +1300,7 @@ export default class OpenSeadragonExtension extends BaseExtension {
   getInfoUri(canvas: Canvas): string {
     let infoUri: string | null = null;
 
-    let images: Annotation[] = canvas.getImages();
-
-    console.log('**** GetInfoUri **');
-  
+    let images: Annotation[] = canvas.getImages();   
     // presentation 2
     if (images && images.length) {
       
@@ -1565,7 +1562,33 @@ export default class OpenSeadragonExtension extends BaseExtension {
   getPagedIndices(canvasIndex: number = this.helper.canvasIndex): number[] {
     // todo: get these from the store (inc canvasIndex)
     const sequence = this.helper.manifest!.getSequences()[0];
-    const canvases = sequence.getCanvases();
+
+    // console.log('Extension openseadragonnnnnnnnnnnnnnn');
+    // console.log(this.data);
+    let isUCC = false;
+    let uccIndex = 0;
+    if (this.data.config?.options['is-ucc']){
+      isUCC = this.data.config?.options['is-ucc'];
+      uccIndex = this.data.config.options['canvasIndex'];
+    }
+    // console.log('isUCC:' + isUCC);
+    // console.log('canvasIndex :' + uccIndex);
+    // console.log(sequence.getCanvases());
+
+   
+
+    let canvases : Canvas[] = []; 
+    if (isUCC) {
+      var icanvas =  sequence.getCanvases()[uccIndex];
+      //console.log(icanvas);
+      canvases.push(icanvas);
+    }
+    else {
+      canvases = sequence.getCanvases();
+    }
+    
+    // console.log(canvases);
+
     const paged = !!this.getSettings().pagingEnabled;
     const viewingDirection = this.helper.getViewingDirection();
 

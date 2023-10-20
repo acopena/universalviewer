@@ -36,7 +36,7 @@ export default class BaseContentHandler<IUVData>
     }
   }
 
-  public set(data: IUVData, initial?: boolean): void {}
+  public set(data: IUVData, initial?: boolean): void { }
 
   public on(name: string, cb: Function, ctx?: any): void {
     var e = this._eventListeners || (this._eventListeners = {});
@@ -86,14 +86,14 @@ export default class BaseContentHandler<IUVData>
       });
 
       config = merge(config, mergedConfigs);
-    }
 
+    }
     return config;
   }
 
-  public exitFullScreen(): void {}
+  public exitFullScreen(): void { }
 
-  public resize(): void {}
+  public resize(): void { }
 
   public dispose(): void {
     this._el.innerHTML = "";

@@ -9,6 +9,7 @@ export class PubSub {
 
   public publish(name: string, args?: any, extra?: any) {
 
+   
     if (name == 'canvasIndexChange') {
       sessionStorage.setItem('UVCurrentIndex', args);     
     }

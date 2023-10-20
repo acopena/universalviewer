@@ -2,14 +2,17 @@
   "options": {
     "dropEnabled": true,
     "footerPanelEnabled": true,
-    "headerPanelEnabled": true,
+    "headerPanelEnabled": false,
     "leftPanelEnabled": true,
     "limitLocales": false,
     "overrideFullScreen": false,
     "pagingEnabled": false,
     "rightPanelEnabled": false,
     "clickToZoomEnabled": false,
-    "usePdfJs":true,
+    "usePdfJs":false,
+    "canvasIndex":2,
+    "isUcc": false,
+    "ecopy":"",
     "locales" : [{ "name" : "en-CA"}]
   },
   "modules": {

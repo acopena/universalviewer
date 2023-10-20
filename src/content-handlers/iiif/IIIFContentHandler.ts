@@ -36,64 +36,64 @@ const Extension: IExtensionRegistry = {
     name: "uv-av-extension",
     loader: () =>
       /* webpackMode: "lazy" */ import(
-        "./extensions/uv-av-extension/Extension"
-      ),
+      "./extensions/uv-av-extension/Extension"
+    ),
   },
   ALEPH: {
     name: "uv-aleph-extension",
     loader: () =>
       /* webpackMode: "lazy" */ import(
-        "./extensions/uv-aleph-extension/Extension"
-      ),
+      "./extensions/uv-aleph-extension/Extension"
+    ),
   },
   DEFAULT: {
     name: "uv-default-extension",
     loader: () =>
       /* webpackMode: "lazy" */ import(
-        "./extensions/uv-default-extension/Extension"
-      ),
+      "./extensions/uv-default-extension/Extension"
+    ),
   },
   EBOOK: {
     name: "uv-ebook-extension",
     loader: () =>
       /* webpackMode: "lazy" */ import(
-        "./extensions/uv-ebook-extension/Extension"
-      ),
+      "./extensions/uv-ebook-extension/Extension"
+    ),
   },
   MEDIAELEMENT: {
     name: "uv-mediaelement-extension",
     loader: () =>
       /* webpackMode: "lazy" */ import(
-        "./extensions/uv-mediaelement-extension/Extension"
-      ),
+      "./extensions/uv-mediaelement-extension/Extension"
+    ),
   },
   MODELVIEWER: {
     name: "uv-model-viewer-extension",
     loader: () =>
       /* webpackMode: "lazy" */ import(
-        "./extensions/uv-model-viewer-extension/Extension"
-      ),
+      "./extensions/uv-model-viewer-extension/Extension"
+    ),
   },
   OSD: {
     name: "uv-openseadragon-extension",
     loader: () =>
       /* webpackMode: "lazy" */ import(
-        "./extensions/uv-openseadragon-extension/Extension"
-      ),
+      "./extensions/uv-openseadragon-extension/Extension"
+    ),
   },
   PDF: {
     name: "uv-pdf-extension",
     loader: () =>
       /* webpackMode: "lazy" */ import(
-        "./extensions/uv-pdf-extension/Extension"
-      ),
+      "./extensions/uv-pdf-extension/Extension"
+    ),
   },
   SLIDEATLAS: {
     name: "uv-openseadragon-extension",
     loader: () =>
       /* webpackMode: "lazy" */ import(
-        "./extensions/uv-openseadragon-extension/Extension"
-      ),
+      "./extensions/uv-openseadragon-extension/Extension"
+    ),
   },
 };
 
@@ -185,6 +185,9 @@ export default class IIIFContentHandler extends BaseContentHandler<IIIFData>
     const extension: IExtension = new m.default();
     extension.format = format;
     extension.type = type;
+    // console.log('*****extension.type ****');
+    // console.log(extension.type);
+    // console.log(extension.format);
     return extension;
   }
 
@@ -200,6 +203,7 @@ export default class IIIFContentHandler extends BaseContentHandler<IIIFData>
     if (initial) {
       this.extra.initial = true;
     }
+    console.log('Set data');
     // if this is the first set
     if (!this.extension) {
       if (!data.iiifManifestId) {
@@ -226,6 +230,8 @@ export default class IIIFContentHandler extends BaseContentHandler<IIIFData>
         this.extension.render();
       }
     }
+
+
 
     this.extra.initial = false;
   }
@@ -292,9 +298,11 @@ export default class IIIFContentHandler extends BaseContentHandler<IIIFData>
       canvasId: data.canvasId,
       canvasIndex: data.canvasIndex || 0,
       rangeId: data.rangeId,
+      isUcc: true,
       locale: data.locales ? data.locales[0].name : undefined,
     } as IManifoldOptions);
-  
+
+
     let trackingLabel: string | null = helper.getTrackingLabel();
 
     if (trackingLabel) {
@@ -304,10 +312,10 @@ export default class IIIFContentHandler extends BaseContentHandler<IIIFData>
           : document.location;
       window.trackingLabel = trackingLabel;
     }
+
+
     let canvas: Canvas | undefined;
-
     canvas = helper.getCurrentCanvas();
-
     if (!canvas) {
       that._error(`Canvas ${data.canvasIndex} not found.`);
       return;
@@ -321,7 +329,6 @@ export default class IIIFContentHandler extends BaseContentHandler<IIIFData>
     if (content.length) {
       const annotation: Annotation = content[0];
       const body: AnnotationBody[] = annotation.getBody();
-
       if (body && body.length) {
         format = body[0].getFormat() as string;
 
@@ -338,7 +345,6 @@ export default class IIIFContentHandler extends BaseContentHandler<IIIFData>
           }
         } else {
           const type: ExternalResourceType | null = body[0].getType();
-
           if (type) {
             extension = await that._getExtensionByFormat(type);
           }
@@ -380,11 +386,26 @@ export default class IIIFContentHandler extends BaseContentHandler<IIIFData>
     }
 
     // import the config file
-    
-    let config = await (extension as any).loadConfig(data.locales[0].name);
 
+    let config = await (extension as any).loadConfig(data.locales[0].name);
     data.config = await that.configure(config);
 
+    let cIndex = data.config?.options.canvasIndex;
+    let isUCC = data.config?.options['isUcc'];
+
+    console.log(isUCC);
+    if (!isUCC) {
+      if (cIndex) {
+        data.canvasIndex = cIndex;
+      }
+    }
+    else {
+      let newCanvas = helper.getCanvasByIndex(cIndex);
+      if (newCanvas) {
+        helper.manifest?.items[0].items.splice(0, helper.getCanvases().length);
+        helper.manifest?.items[0].items.push(newCanvas);
+      }
+    }   
     that._createExtension(extension, data, helper);
   }
 
