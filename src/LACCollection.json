@@ -1,0 +1,118 @@
+{
+    "@context": "http://iiif.io/api/presentation/2/context.json",
+    "@id": "https://iiif.wellcomecollection.org/presentation/v2/b18031511",
+    "@type": "sc:Collection",
+    "label": "The biological basis of medicine / edited by E. Edward Bittar ; assisted by Neville Bittar.",
+    "metadata": [
+        {
+            "label": "Publication/creation",
+            "value": "London : Academic Press, 1968-"
+        },
+        {
+            "label": "Physical description",
+            "value": "volumes : illustrations ; 26 cm"
+        },
+        {
+            "label": "Contributors",
+            "value": "Bittar, E. Edward.; Bittar, Neville."
+        },
+        {
+            "label": "Notes",
+            "value": "Copy 1 Vol. 3 1969 Note: 1971 reprint.  22400036674; Copy 1 Vol. 4 1969 Note: 1971 reprint. 22400036656; Copy 1 Vol. 5 1969 Note: 1970 reprint. 22400036834"
+        },
+        {
+            "label": "Subjects",
+            "value": "Physiology, Pathological; Cell Biology; Physiology; Biochemistry; Medicine"
+        }
+    ],
+    "license": "http://creativecommons.org/licenses/by-nc/4.0/",
+    "logo": "https://iiif.wellcomecollection.org/logos/wellcome-collection-black.png",
+    "related": {
+        "@id": "https://wellcomecollection.org/works/ysmqsfhg",
+        "format": "text/html",
+        "label": "The biological basis of medicine / edited by E. Edward Bittar ; assisted by Neville Bittar."
+    },
+    "seeAlso": {
+        "@id": "https://api.wellcomecollection.org/catalogue/v2/works/ysmqsfhg",
+        "profile": "https://api.wellcomecollection.org/catalogue/v2/context.json",
+        "format": "application/json",
+        "label": "Wellcome Collection Catalogue API"
+    },
+    "viewingHint": "multi-part",
+    "within": "https://iiif.wellcomecollection.org/presentation/v2/collections/contributors/rz39rquh",
+    "manifests": [
+        {
+            "@id": "src/dataCollection1.json",
+            "@type": "sc:Manifest",
+            "label": "Volume 1",
+            "thumbnail": {
+                "@id": "https://iiif.wellcomecollection.org/thumbs/b18031511_vol_1_0008.JP2/full/61,100/0/default.jpg",
+                "@type": "dctypes:Image",
+                "service": {
+                    "@context": "http://iiif.io/api/image/2/context.json",
+                    "@id": "https://iiif.wellcomecollection.org/thumbs/b18031511_vol_1_0008.JP2",
+                    "profile": "http://iiif.io/api/image/2/level0.json",
+                    "protocol": "http://iiif.io/api/image",
+                    "width": 626,
+                    "height": 1024,
+                    "sizes": [
+                        {
+                            "width": 61,
+                            "height": 100
+                        },
+                        {
+                            "width": 122,
+                            "height": 200
+                        },
+                        {
+                            "width": 245,
+                            "height": 400
+                        },
+                        {
+                            "width": 626,
+                            "height": 1024
+                        }
+                    ]
+                }
+            },
+            "within": ""
+        },
+        {
+            "@id": "https://stdigitalmanifestspr.blob.core.windows.net/manifest/2/18215/manifest.json",
+            "@type": "sc:Manifest",
+            "label": "Volume 2",
+            "thumbnail": {
+                "@id": "https://iiif.wellcomecollection.org/thumbs/b18031511_vol_2_0001.JP2/full/67,100/0/default.jpg",
+                "@type": "dctypes:Image",
+                "service": {
+                    "@context": "http://iiif.io/api/image/2/context.json",
+                    "@id": "https://iiif.wellcomecollection.org/thumbs/b18031511_vol_2_0001.JP2",
+                    "profile": "http://iiif.io/api/image/2/level0.json",
+                    "protocol": "http://iiif.io/api/image",
+                    "width": 691,
+                    "height": 1024,
+                    "sizes": [
+                        {
+                            "width": 67,
+                            "height": 100
+                        },
+                        {
+                            "width": 135,
+                            "height": 200
+                        },
+                        {
+                            "width": 270,
+                            "height": 400
+                        },
+                        {
+                            "width": 691,
+                            "height": 1024
+                        }
+                    ]
+                }
+            },
+            "within": ""
+        }
+     
+    ]
+}

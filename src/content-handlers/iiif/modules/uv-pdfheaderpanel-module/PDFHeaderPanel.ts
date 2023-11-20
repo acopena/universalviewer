@@ -32,6 +32,7 @@ export class PDFHeaderPanel extends HeaderPanel {
 
   create(): void {
     this.setConfig("pdfHeaderPanel");
+    console.log('pdfHeader panel');
 
     super.create();
 

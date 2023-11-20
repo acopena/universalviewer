@@ -12,7 +12,7 @@ export class PubSub {
    
     if (name == 'canvasIndexChange') {
       sessionStorage.setItem('UVCurrentIndex', args);     
-    }
+    }  
     const handlers: EventHandler[] = this.events[name];
     if (handlers) {
       handlers.forEach((handler) => {

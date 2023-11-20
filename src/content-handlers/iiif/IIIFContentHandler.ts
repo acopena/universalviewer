@@ -185,9 +185,6 @@ export default class IIIFContentHandler extends BaseContentHandler<IIIFData>
     const extension: IExtension = new m.default();
     extension.format = format;
     extension.type = type;
-    // console.log('*****extension.type ****');
-    // console.log(extension.type);
-    // console.log(extension.format);
     return extension;
   }
 
@@ -203,14 +200,14 @@ export default class IIIFContentHandler extends BaseContentHandler<IIIFData>
     if (initial) {
       this.extra.initial = true;
     }
-    console.log('Set data');
+      
     // if this is the first set
     if (!this.extension) {
       if (!data.iiifManifestId) {
         console.warn(`iiifManifestId is required.`);
         return;
       }
-
+  
       this._reload(data);
     } else {
       // changing any of these data properties forces the UV to reload.
@@ -386,26 +383,34 @@ export default class IIIFContentHandler extends BaseContentHandler<IIIFData>
     }
 
     // import the config file
-
     let config = await (extension as any).loadConfig(data.locales[0].name);
     data.config = await that.configure(config);
 
+    // UCC functionality
     let cIndex = data.config?.options.canvasIndex;
     let isUCC = data.config?.options['isUcc'];
-
-    console.log(isUCC);
+    
     if (!isUCC) {
       if (cIndex) {
         data.canvasIndex = cIndex;
       }
     }
     else {
+      data.canvasIndex = 0;
       let newCanvas = helper.getCanvasByIndex(cIndex);
+      newCanvas.index=0;      
       if (newCanvas) {
         helper.manifest?.items[0].items.splice(0, helper.getCanvases().length);
         helper.manifest?.items[0].items.push(newCanvas);
+        helper.canvasIndex = 0;
+        helper.collectionIndex =0;
+        
+        sessionStorage.setItem('UVCurrentIndex', data.canvasIndex.toString());  
       }
     }   
+
+    //***** UCC end functionality
+
     that._createExtension(extension, data, helper);
   }
 

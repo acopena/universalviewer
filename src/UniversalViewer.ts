@@ -35,9 +35,7 @@ export class UniversalViewer extends BaseContentHandler<IUVData> {
   private _externalEventListeners: EventListener[] = [];
 
   constructor(public options: IUVOptions) {
-    super(options);
-    console.log('->>>> universal viewer <----');
-    console.log(this.options.data);
+    super(options);  
     this._assignContentHandler(this.options.data);
   }
 
@@ -50,8 +48,7 @@ export class UniversalViewer extends BaseContentHandler<IUVData> {
   }
 
   private async _assignContentHandler(data: IUVData): Promise<boolean> {
-    let contentType: ContentType;
-
+    let contentType: ContentType;  
     if (data[ContentType.IIIFLEGACY]) {
       // if using "manifest" not "iiifManifestId"
       data.iiifManifestId = data[ContentType.IIIFLEGACY];

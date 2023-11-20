@@ -113,8 +113,8 @@ export class FooterPanel extends BaseFooterPanel {
 
     this.$searchLabel = $(
       '<label class="label" for="searchWithinInput">' +
-        this.content.searchWithin +
-        "</label>"
+      this.content.searchWithin +
+      "</label>"
     );
     this.$searchOptions.append(this.$searchLabel);
 
@@ -123,10 +123,10 @@ export class FooterPanel extends BaseFooterPanel {
 
     this.$searchText = $(
       '<input class="searchText" id="searchWithinInput" autocomplete="off" type="text" maxlength="100" value="' +
-        this.content.enterKeyword +
-        '" aria-label="' +
-        this.content.searchWithin +
-        '"/>'
+      this.content.enterKeyword +
+      '" aria-label="' +
+      this.content.searchWithin +
+      '"/>'
     );
     this.$searchTextContainer.append(this.$searchText);
 
@@ -144,8 +144,8 @@ export class FooterPanel extends BaseFooterPanel {
 
     this.$previousResultButton = $(
       '<button class="previousResult">' +
-        this.content.previousResult +
-        "</button>"
+      this.content.previousResult +
+      "</button>"
     );
     this.$searchPagerControls.append(this.$previousResultButton);
 
@@ -213,7 +213,7 @@ export class FooterPanel extends BaseFooterPanel {
       );
     });
 
-    this.$placemarkerDetails.on("mouseleave", function() {
+    this.$placemarkerDetails.on("mouseleave", function () {
       $(this).hide();
 
       that.extensionHost.publish(
@@ -456,7 +456,7 @@ export class FooterPanel extends BaseFooterPanel {
     if (this.terms === "" || this.terms === this.content.enterKeyword) {
       this.extension.showMessage(
         this.extension.data.config.modules.genericDialogue.content.emptyValue,
-        function() {
+        function () {
           this.$searchText.focus();
         }
       );
@@ -484,8 +484,8 @@ export class FooterPanel extends BaseFooterPanel {
       .removeClass("current");
     const $current: JQuery = $(
       '.searchResultPlacemarker[data-index="' +
-        this.extension.helper.canvasIndex +
-        '"]'
+      this.extension.helper.canvasIndex +
+      '"]'
     );
     $current.addClass("current");
   }
@@ -512,17 +512,17 @@ export class FooterPanel extends BaseFooterPanel {
       const distance: number = result.canvasIndex * pageWidth;
       const $placemarker: JQuery = $(
         '<div class="searchResultPlacemarker" tabindex="0" data-index="' +
-          result.canvasIndex +
-          '"></div>'
+        result.canvasIndex +
+        '"></div>'
       );
 
-      ($placemarker[0] as any).ontouchstart = function(e: any) {
+      ($placemarker[0] as any).ontouchstart = function (e: any) {
         that.onPlacemarkerTouchStart.call(this, that);
       };
-      $placemarker.click(function(e: any) {
+      $placemarker.click(function (e: any) {
         that.onPlacemarkerClick.call(this, that);
       });
-      $placemarker.mouseenter(function(e: any) {
+      $placemarker.mouseenter(function (e: any) {
         that.onPlacemarkerMouseEnter.call(this, that);
       });
       // todo: this causes the placemarker to appear after a search
@@ -540,10 +540,10 @@ export class FooterPanel extends BaseFooterPanel {
         },
         false
       );
-      $placemarker.mouseleave(function(e: any) {
+      $placemarker.mouseleave(function (e: any) {
         that.onPlacemarkerMouseLeave.call(this, e, that);
       });
-      $placemarker.blur(function(e: any) {
+      $placemarker.blur(function (e: any) {
         that.onPlacemarkerMouseLeave.call(this, e, that);
       });
 
@@ -777,39 +777,44 @@ export class FooterPanel extends BaseFooterPanel {
 
   setPlacemarkerLabel(): void {
     const displaying: string = this.content.displaying;
-    const index: number = this.extension.helper.canvasIndex;
+    const isUcc: boolean = this.extension.data.config?.options.isUcc;
 
-    if (this.isPageModeEnabled()) {
-      const canvas: Canvas = this.extension.helper.getCanvasByIndex(index);
-      let label: string | null = LanguageMap.getValue(canvas.getLabel());
+    const index: number = isUcc ? 0 : this.extension.helper.canvasIndex;
 
-      if (!label) {
-        label = this.content.defaultLabel;
-      }
+    if (!isUcc) {
 
-      const lastCanvasOrderLabel:
-        | string
-        | null = this.extension.helper.getLastCanvasLabel(true);
+      if (this.isPageModeEnabled()) {
+        const canvas: Canvas = this.extension.helper.getCanvasByIndex(index);
+        let label: string | null = LanguageMap.getValue(canvas.getLabel());
 
-      if (lastCanvasOrderLabel) {
+        if (!label) {
+          label = this.content.defaultLabel;
+        }
+
+        const lastCanvasOrderLabel:
+          | string
+          | null = this.extension.helper.getLastCanvasLabel(true);
+
+        if (lastCanvasOrderLabel) {
+          this.$pagePositionLabel.html(
+            Strings.format(
+              displaying,
+              this.content.page,
+              sanitize(<string>label),
+              sanitize(<string>lastCanvasOrderLabel)
+            )
+          );
+        }
+      } else {
         this.$pagePositionLabel.html(
           Strings.format(
             displaying,
-            this.content.page,
-            sanitize(<string>label),
-            sanitize(<string>lastCanvasOrderLabel)
+            this.content.image,
+            String(index + 1),
+            this.extension.helper.getTotalCanvases().toString()
           )
         );
       }
-    } else {
-      this.$pagePositionLabel.html(
-        Strings.format(
-          displaying,
-          this.content.image,
-          String(index + 1),
-          this.extension.helper.getTotalCanvases().toString()
-        )
-      );
     }
   }
 
@@ -817,7 +822,7 @@ export class FooterPanel extends BaseFooterPanel {
     return (
       this.config.options.pageModeEnabled &&
       (<OpenSeadragonExtension>this.extension).getMode().toString() ===
-        Mode.page.toString() &&
+      Mode.page.toString() &&
       !Bools.getBool(this.config.options.forceImageMode, false)
     );
   }

@@ -10,7 +10,7 @@
     "rightPanelEnabled": false,
     "clickToZoomEnabled": false,
     "usePdfJs":false,
-    "canvasIndex":2,
+    "canvasIndex":0,
     "isUcc": false,
     "ecopy":"",
     "locales" : [{ "name" : "en-CA"}]

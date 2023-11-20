@@ -12,6 +12,16 @@
 
       "manifests": [
         {
+          "@id": "src/LACCollection.json",
+          "@type": "sc:Manifest",
+          "label": "LAC Collection"
+        },        
+        {
+          "@id": "src/LACPdf.json",
+          "@type": "sc:Manifest",
+          "label": "LAC Pdf only"
+        },        
+        {
           "@id": "src/LAC84037.json",
           "@type": "sc:Manifest",
           "label": "LAC Image with rendering to download"

@@ -1,6 +1,6 @@
 const $ = require("jquery");
 import { sanitize } from "../../../../Utils";
-import { UriLabeller } from "@iiif/manifold";
+import { UriLabeller, AnnotationGroup, TreeSortType } from "@iiif/manifold";
 import { createElement } from "react";
 import { createRoot, Root } from "react-dom/client";
 import ThumbsView from "./ThumbsView";
@@ -20,11 +20,13 @@ import {
   TreeNode,
   Range,
 } from "manifesto.js";
-import { AnnotationGroup, TreeSortType } from "@iiif/manifold";
+
 import { MetadataComponent, LimitType } from "@iiif/iiif-metadata-component";
 import { isVisible } from "../../../../Utils";
+import { init } from "../../../../Init";
 
-export class ContentLeftPanel extends LeftPanel {
+
+export class ContentLeftPanel extends LeftPanel {  
   metadataComponent: any;
   $metadata: JQuery;
 
@@ -62,17 +64,19 @@ export class ContentLeftPanel extends LeftPanel {
   treeView: TreeView;
   thumbsRoot: Root;
 
-  constructor($element: JQuery) {
-    super($element);
+  
+  constructor($element: JQuery   ) {
+    super($element);  
+    
   }
 
   create(): void {
     this.setConfig("contentLeftPanel");
-
     super.create();
     //For moreinfo
-    this.extensionHost.subscribe(IIIFEvents.CANVAS_INDEX_CHANGE, () => {
-      this.databind();
+    this.extensionHost.subscribe(IIIFEvents.CANVAS_INDEX_CHANGE, () => {     
+      this.checkTypeData();
+      this.databind();     
     });
 
     this.extensionHost.subscribe(IIIFEvents.RANGE_CHANGE, () => {
@@ -84,7 +88,8 @@ export class ContentLeftPanel extends LeftPanel {
     });
 
     this.extensionHost.subscribe(IIIFEvents.CANVAS_INDEX_CHANGE, () => {
-      this.render();
+   
+      this.render();     
     });
 
     this.extensionHost.subscribe(IIIFEvents.GALLERY_THUMB_SELECTED, () => {
@@ -130,7 +135,7 @@ export class ContentLeftPanel extends LeftPanel {
         this.collapseFull();
       }
 
-     
+
     });
 
     // this.extensionHost.subscribe(
@@ -148,7 +153,7 @@ export class ContentLeftPanel extends LeftPanel {
       `);
     this.$main.append(this.$downloadButton);
     this.$tabs = $('<div class="tabs"></div>');
-    this.$main.append(this.$tabs);   
+    this.$main.append(this.$tabs);
     // this.$tabs.append(this.$treeButton);
 
 
@@ -290,10 +295,42 @@ export class ContentLeftPanel extends LeftPanel {
     this.metadataComponent.set(this._getData());
   }
 
-  private _getData() {
-    const canvases = this.extension.getCurrentCanvases();
+  checkTypeData():void {  
+    if (typeof (this.extension) !== 'undefined' && this.extension != null) {
+      const canvases = this.extension.getCurrentCanvases();
+      const typeName = this.extension.type.name;
+      const jsonId = canvases[0].__jsonld;
+      if (typeName == "uv-openseadragon-extension") {      
+        this._redirectUrl( "image/jpeg",  jsonId);
+      }
+      else if (typeName == "uv-pdf-extension") {
+        this._redirectUrl("application/pdf", jsonId);
+      }
+      else if (typeName == "uv-mediaelement-extension") {
+        this._redirectUrl("video/mp4", jsonId);        
+      }   
+    }
+    else {
+      let x = 2;
+      console.log(x);
+    }
+  }
 
-    return {
+  private _redirectUrl(fortmatName : string, jsonId?: any): void {  
+    if (jsonId) {      
+      if (jsonId.format) {
+        if (jsonId.format != fortmatName) {    
+          
+          init('uv', this.extension.data);      
+        }
+      }
+    }
+  }
+
+
+  private _getData() {
+    const canvases = this.extension.getCurrentCanvases();    
+    let data = {
       canvasDisplayOrder: this.config.options.canvasDisplayOrder,
       canvases: canvases,
       canvasExclude: this.config.options.canvasExclude,
@@ -320,6 +357,8 @@ export class ContentLeftPanel extends LeftPanel {
       },
       showAllLanguages: this.config.options.showAllLanguages,
     };
+    
+    return data;
   }
 
   private _getCurrentRange(): Range | null {
@@ -340,14 +379,6 @@ export class ContentLeftPanel extends LeftPanel {
     }
   }
 
-  // renderThumbs({ paged }: { paged: boolean }): void {
-  //   this.thumbsRoot.render(
-  //     createElement(ThumbsViewReact, {
-  //       paged,
-  //     })
-  //   );
-  // }
-
 
   render(): void {
     this.renderThumbs();
@@ -365,7 +396,7 @@ export class ContentLeftPanel extends LeftPanel {
 
   createThumbsRoot(): void {
     if (!this.thumbsRoot) {
-      this.thumbsRoot = createRoot(this.$thumbsView[0]);    
+      this.thumbsRoot = createRoot(this.$thumbsView[0]);
     }
     this.renderThumbs();
   }
@@ -397,7 +428,7 @@ export class ContentLeftPanel extends LeftPanel {
     const thumbs: Thumb[] = <Thumb[]>(
       this.extension.helper.getThumbs(width, height)
     );
-   
+
     if (
       viewingDirection &&
       viewingDirection === ViewingDirectionEnum.BOTTOM_TO_TOP
@@ -423,7 +454,7 @@ export class ContentLeftPanel extends LeftPanel {
           // clone the data so searchResults isn't persisted on the canvas.
           let data = Object.assign({}, thumb.data);
           data.searchResults = searchResult.rects.length;
-          thumb.data = data;          
+          thumb.data = data;
         }
       }
     }
@@ -441,8 +472,8 @@ export class ContentLeftPanel extends LeftPanel {
         thumbs,
         paged,
         viewingDirection: viewingDirection || ViewingDirection.LEFT_TO_RIGHT,
-        selected: selectedIndices,      
-        onClick: (thumb: Thumb) => {       
+        selected: selectedIndices,
+        onClick: (thumb: Thumb) => {
           this.extensionHost.publish(IIIFEvents.THUMB_SELECTED, thumb);
         },
       })
@@ -473,7 +504,7 @@ export class ContentLeftPanel extends LeftPanel {
       initialZoom: 6,
       minLabelWidth: 20,
       pageModeEnabled: this.isPageModeEnabled(),
-      scrollStopDuration: 100,     
+      scrollStopDuration: 100,
       searchResults: (<OpenSeadragonExtension>this.extension).annotations,
       sizingEnabled: true, // range API is IE11 up
       thumbHeight: this.config.options.galleryThumbHeight,
@@ -498,7 +529,7 @@ export class ContentLeftPanel extends LeftPanel {
     return Bools.getBool(this.config.options.pageModeEnabled, true);
   }
 
-  
+
   expandFullStart(): void {
     super.expandFullStart();
     this.extensionHost.publish(IIIFEvents.LEFTPANEL_EXPAND_FULL_START);
@@ -533,7 +564,7 @@ export class ContentLeftPanel extends LeftPanel {
     this.extensionHost.publish(IIIFEvents.LEFTPANEL_COLLAPSE_FULL_FINISH);
   }
 
- 
+
   openThumbsView(): void {
     // this.isTreeViewOpen = false;
     this.isThumbsViewOpen = true;
@@ -602,7 +633,7 @@ export class ContentLeftPanel extends LeftPanel {
     return topRangeIndex;
   }
 
-  
+
 
   // fall through to this is there's no current range or canvas
   selectTreeNodeByManifest(): void {

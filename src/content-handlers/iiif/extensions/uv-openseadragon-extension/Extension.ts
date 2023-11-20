@@ -64,7 +64,7 @@ export default class OpenSeadragonExtension extends BaseExtension {
   $shareDialogue: JQuery;
 
   $pagingFooter: JQuery;
- // $rightOptions: JQuery;
+  // $rightOptions: JQuery;
   $centerOptions: JQuery;
   $downloadButton: JQuery;
   $shareButton: JQuery;
@@ -93,7 +93,7 @@ export default class OpenSeadragonExtension extends BaseExtension {
   defaultConfig: any = defaultConfig;
   locales = {
     "en-CA": defaultConfig,
-    "fr-CA": () => import("./config/fr-CA.json")    
+    "fr-CA": () => import("./config/fr-CA.json")
   };
 
   create(): void {
@@ -109,8 +109,8 @@ export default class OpenSeadragonExtension extends BaseExtension {
         const settings: ISettings = {};
         settings.pagingEnabled = false;
         this.updateSettings(settings);
-        this.extensionHost.publish(IIIFEvents.UPDATE_SETTINGS);        
-      } 
+        this.extensionHost.publish(IIIFEvents.UPDATE_SETTINGS);
+      }
     });
 
     this.extensionHost.subscribe(
@@ -372,14 +372,14 @@ export default class OpenSeadragonExtension extends BaseExtension {
       OpenSeadragonExtensionEvents.OPENSEADRAGON_ANIMATION_FINISH,
       (viewer: any) => {
         const xywh: XYWHFragment | null = this.centerPanel.getViewportBounds();
-        const canvas: Canvas = this.helper.getCurrentCanvas();
+        const canvas: Canvas = this.isUcc ? this.helper.getCanvasByIndex(0) : this.helper.getCurrentCanvas();
 
         if (this.centerPanel && xywh && canvas) {
           this.extensionHost.publish(
             OpenSeadragonExtensionEvents.XYWH_CHANGE,
             xywh.toString()
           );
-          this.data.target = canvas.id + "#xywh=" + xywh.toString();       
+          this.data.target = canvas.id + "#xywh=" + xywh.toString();
           this.fire(IIIFEvents.TARGET_CHANGE, this.data.target);
         }
 
@@ -527,7 +527,7 @@ export default class OpenSeadragonExtension extends BaseExtension {
       this.shell.$headerPanel.hide();
     }
 
-   
+
     if (this.isLeftPanelEnabled()) {
       this.leftPanel = new ContentLeftPanel(this.shell.$leftPanel);
     } else {
@@ -608,14 +608,14 @@ export default class OpenSeadragonExtension extends BaseExtension {
     if (this.isRightPanelEnabled()) {
       this.rightPanel.init();
     }
- 
+
     if (this.isFooterPanelEnabled()) {
       this.footerPanel.init();
     }
   }
 
   render(): void {
-    super.render();    
+    super.render();
     this.checkForTarget();
     this.checkForAnnotations();
     this.checkForSearchParam();
@@ -726,7 +726,7 @@ export default class OpenSeadragonExtension extends BaseExtension {
       }
 
       // trigger SET_TARGET which calls fitToBounds(xywh) in OpenSeadragonCenterPanel
-      const selector: string = components[1];    
+      const selector: string = components[1];
       this.extensionHost.publish(
         IIIFEvents.SET_TARGET,
         XYWHFragment.fromString(selector)
@@ -813,7 +813,7 @@ export default class OpenSeadragonExtension extends BaseExtension {
 
     for (let i = 0; i < annotations.resources.length; i++) {
       const resource: any = annotations.resources[i];
-      const canvasId: string = resource.on.match(/(.*)#/)[1];     
+      const canvasId: string = resource.on.match(/(.*)#/)[1];
       const canvasIndex: number | null = this.helper.getCanvasIndexById(
         canvasId
       );
@@ -869,8 +869,14 @@ export default class OpenSeadragonExtension extends BaseExtension {
 
   changeCanvas(canvasIndex: number): void {
     // if it's an invalid canvas index.
+    const isUcc = this.data.config?.options.isUcc;
+    if (isUcc) {
+      canvasIndex = 0;
+      this.helper.canvasIndex = 0;
+      console.log(canvasIndex)
+      console.log(this.helper.canvasIndex)
+    }
     if (canvasIndex === -1) return;
-
     let isReload: boolean = false;
 
     if (canvasIndex === this.helper.canvasIndex) {
@@ -879,19 +885,21 @@ export default class OpenSeadragonExtension extends BaseExtension {
 
     if (this.helper.isCanvasIndexOutOfRange(canvasIndex)) {
       this.showMessage(this.data.config.content.canvasIndexOutOfRange);
+      this.showMessage(this.data.config.content.canvasIndexOutOfRange);
       canvasIndex = 0;
     }
 
     if (this.isPagingSettingEnabled() && !isReload) {
+      console.log('changeCanvas: isPagingSettingEnabled ' + canvasIndex);
       const indices: number[] = this.getPagedIndices(canvasIndex);
-
+      console.log('changeCanvas: getPagedIndices ' + indices);
       // if the page is already displayed, only advance canvasIndex.
       if (indices.includes(this.helper.canvasIndex)) {
         this.viewCanvas(canvasIndex);
         return;
       }
     }
-
+    
     this.viewCanvas(canvasIndex);
   }
 
@@ -1220,7 +1228,7 @@ export default class OpenSeadragonExtension extends BaseExtension {
     // construct uri
     // {baseuri}/{id}/{region}/{size}/{rotation}/{quality}.jpg
 
-    const baseUri: string = this.getImageBaseUri(canvas);    
+    const baseUri: string = this.getImageBaseUri(canvas);
     const id: string | null = this.getImageId(canvas);
 
     if (!id) {
@@ -1293,30 +1301,30 @@ export default class OpenSeadragonExtension extends BaseExtension {
   getImageBaseUri(canvas: Canvas): string {
     let uri = this.getInfoUri(canvas);
     // First trim off info.json, then trim off ID....
-    uri = uri.substr(0, uri.lastIndexOf("/"));  
+    uri = uri.substr(0, uri.lastIndexOf("/"));
     return uri.substr(0, uri.lastIndexOf("/"));
   }
 
   getInfoUri(canvas: Canvas): string {
     let infoUri: string | null = null;
 
-    let images: Annotation[] = canvas.getImages();   
+    let images: Annotation[] = canvas.getImages();
     // presentation 2
     if (images && images.length) {
-      
+
       const firstImage: Annotation = images[0];
       const resource: Resource = firstImage.getResource();
-      const services: Service[] = resource.getServices();      
+      const services: Service[] = resource.getServices();
 
       for (let i = 0; i < services.length; i++) {
         const service: Service = services[i];
-        let id = service.id;           
+        let id = service.id;
         if (!id.endsWith("/")) {
           id += "/";
         }
-      
-        if (Utils.isImageProfile(service.getProfile())) {       
-          infoUri = id + "info.json";        
+
+        if (Utils.isImageProfile(service.getProfile())) {
+          infoUri = id + "info.json";
         }
       }
     } else {
@@ -1337,8 +1345,8 @@ export default class OpenSeadragonExtension extends BaseExtension {
             id += "/";
           }
 
-          if (Utils.isImageProfile(service.getProfile())) {           
-            infoUri = id + "info.json";         
+          if (Utils.isImageProfile(service.getProfile())) {
+            infoUri = id + "info.json";
           }
         }
       }
@@ -1563,36 +1571,28 @@ export default class OpenSeadragonExtension extends BaseExtension {
     // todo: get these from the store (inc canvasIndex)
     const sequence = this.helper.manifest!.getSequences()[0];
 
-    // console.log('Extension openseadragonnnnnnnnnnnnnnn');
-    // console.log(this.data);
+
     let isUCC = false;
     let uccIndex = 0;
-    if (this.data.config?.options['is-ucc']){
+    if (this.data.config?.options['is-ucc']) {
       isUCC = this.data.config?.options['is-ucc'];
       uccIndex = this.data.config.options['canvasIndex'];
     }
-    // console.log('isUCC:' + isUCC);
-    // console.log('canvasIndex :' + uccIndex);
-    // console.log(sequence.getCanvases());
 
-   
-
-    let canvases : Canvas[] = []; 
+    let canvases: Canvas[] = [];
     if (isUCC) {
-      var icanvas =  sequence.getCanvases()[uccIndex];
-      //console.log(icanvas);
+      var icanvas = sequence.getCanvases()[uccIndex];
       canvases.push(icanvas);
     }
     else {
       canvases = sequence.getCanvases();
     }
-    
-    // console.log(canvases);
+
 
     const paged = !!this.getSettings().pagingEnabled;
     const viewingDirection = this.helper.getViewingDirection();
 
-    let indices: number[] = [];   
+    let indices: number[] = [];
 
     // if it's a continuous manifest, get all resources.
     if (sequence.getViewingHint() === ViewingHint.CONTINUOUS) {

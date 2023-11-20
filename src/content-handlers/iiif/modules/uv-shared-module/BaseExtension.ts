@@ -79,10 +79,11 @@ export class BaseExtension implements IExtension {
   browserDetect: BrowserDetect;
   locales = {};
   defaultConfig: any;
+  isUcc: boolean = false;
 
   public create(): void {
     const that = this;
-
+    this.isUcc = this.data.config?.options.isUcc;
     this.browserDetect = new BrowserDetect();
     this.browserDetect.init();
 
@@ -345,7 +346,8 @@ export class BaseExtension implements IExtension {
     this.extensionHost.subscribe(Events.LOAD, () => {
       setTimeout(() => {
         this.extensionHost.publish(Events.RESIZE);
-        this.fire(Events.LOAD, this.helper.getCurrentCanvas().id);
+        const canvas: Canvas = this.isUcc? this.helper.getCanvasByIndex(0) : this.helper.getCurrentCanvas();
+        this.fire(Events.LOAD, canvas.id);
         this.$element.removeClass("loading");
       }, 100); // firefox needs this :-(
     });
@@ -849,9 +851,9 @@ export class BaseExtension implements IExtension {
   public getCurrentCanvasRange(): Range | null {
     //var rangePath: string = this.currentRangePath ? this.currentRangePath : '';
     //var range: manifesto.Range = this.helper.getCanvasRange(this.helper.getCurrentCanvas(), rangePath);
-    const range: Range | null = this.helper.getCanvasRange(
-      this.helper.getCurrentCanvas()
-    );
+    
+    const canvas: Canvas = this.isUcc? this.helper.getCanvasByIndex(0) : this.helper.getCurrentCanvas();
+    const range: Range | null = this.helper.getCanvasRange(canvas);
     return range;
   }
 
@@ -863,7 +865,8 @@ export class BaseExtension implements IExtension {
     const resourcesToLoad: IExternalResource[] = [];
 
     indices.forEach((index: number) => {
-      const canvas: Canvas = this.helper.getCanvasByIndex(index);
+      //const canvas: Canvas = this.helper.getCanvasByIndex(index);
+      const canvas: Canvas = this.isUcc? this.helper.getCanvasByIndex(0) : this.helper.getCurrentCanvas();
       let r: IExternalResource;
 
       if (!canvas.externalResource) {

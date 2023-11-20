@@ -24,10 +24,6 @@ import "@openseadragon-imaging/openseadragon-viewerinputhook";
 import { MediaType } from "@iiif/vocabulary/dist-commonjs";
 import { Events } from "../../../../Events";
 
-//import BaseContentHandler, { EventListener } from "../../../../BaseContentHandler";
-
-
-
 
 export class OpenSeadragonCenterPanel extends CenterPanel {
   controlsVisible: boolean = false;
@@ -48,6 +44,7 @@ export class OpenSeadragonCenterPanel extends CenterPanel {
   userData: any;
   viewer: any;
   viewerId: string;
+  isUcc: boolean = false;
 
   $canvas: JQuery;
   $goHomeButton: JQuery;
@@ -76,7 +73,7 @@ export class OpenSeadragonCenterPanel extends CenterPanel {
     this.viewerId = "osd" + new Date().getTime();
     this.$viewer = $('<div id="' + this.viewerId + '" class="viewer"></div>');
     this.$content.prepend(this.$viewer);
-
+    this.isUcc =  this.extension.data.config?.options.isUcc;
     this.extensionHost.subscribe(IIIFEvents.ANNOTATIONS, (args: any) => {
       this.overlayAnnotations();
       // this.zoomToInitialAnnotation();
@@ -95,11 +92,12 @@ export class OpenSeadragonCenterPanel extends CenterPanel {
         this.whenResized(async () => {
           if (!this.isCreated) {
             // uv may have reloaded
-            this.createUI();
+            this.createUI();  
           }
-          this.isLoaded = false;         
           
-          await this.openMedia(resources);         
+          this.isLoaded = false; 
+          await this.openMedia(resources);       
+
           this.isLoaded = true;
           this.extensionHost.publish(Events.EXTERNAL_RESOURCE_OPENED);
           this.extensionHost.publish(Events.LOAD);
@@ -643,18 +641,17 @@ export class OpenSeadragonCenterPanel extends CenterPanel {
 
     this.$spinner.show();
     this.items = [];
-    //console.log('openMedia - OpenseadragonCenterPanels');
-    
+      
     let images: IExternalResourceData[] = await this.extension.getExternalResources(
       resources
     );    
     
-    let mediaItem  = this.extension.helper.manifest?.items[0].items;
-    //console.log(mediaItem);
     
+    let mediaItem  = this.extension.helper.manifest?.items[0].items[0] as Canvas;  
 
     if (mediaItem != undefined) {
-      let mediaData  = mediaItem[this.extension.helper.canvasIndex]['__jsonld'];
+      //let mediaData  = mediaItem[this.extension.helper.canvasIndex]['__jsonld'];
+      let mediaData  = mediaItem['__jsonld'];
       //console.log('index :' +  this.extension.helper.canvasIndex);     
       this.extension.format = mediaData.format;
     }
@@ -666,11 +663,8 @@ export class OpenSeadragonCenterPanel extends CenterPanel {
       images = this.getPagePositions(images);
 
       for (let i = 0; i < images.length; i++) {
-      
         const data: any = images[i];
-   
         let tileSource: any;
-       
 
         if (data.hasServiceDescriptor) {
           // use the info.json descriptor

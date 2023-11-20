@@ -88,7 +88,7 @@
             "viewingDirection": "left-to-right",
             "canvases": [
                 {
-                    "@id": "https://central.bac-lac.gc.ca/.item/?id=229609a&app=PfFww&op=img",
+                    "@id": "https://stdigitalmanifests.blob.core.windows.net/manifest/10/29975/canvas",
                     "@context": "http://iiif.io/api/presentation/2/context.json",                  
                     "@type": "dctypes:Image",
                     "format": "image/jpeg",
@@ -206,7 +206,8 @@
                 {
                     "@id": "https://stdigitalmanifests.blob.core.windows.net/manifest/10/29975/canvas",
                     "@context": "http://iiif.io/api/presentation/2/context.json",
-                    "@type": "sc:Canvas",
+                    "@type": "dctypes:Image",
+                    "format": "image/jpeg",
                     "hasUserContent": false,
                     "isDigiLab": false,
                     "parent": "229609b",

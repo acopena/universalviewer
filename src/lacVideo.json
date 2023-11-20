@@ -144,6 +144,218 @@
               ],
               "width": 720,
               "height": 720
+            },
+            {
+                "@id": "https://stdigitalmanifests.blob.core.windows.net/manifest/10/29975/canvas",
+                "@context": "http://iiif.io/api/presentation/2/context.json",
+                "@type": "dctypes:Image",
+                "format": "image/jpeg",
+                "hasUserContent": false,
+                "isDigiLab": false,
+                "parent": "229609b",
+                "label": [
+                    {
+                        "@language": "en",
+                        "@value": "229609b"
+                    },
+                    {
+                        "@language": "fr",
+                        "@value": "229609b"
+                    }
+                ],
+                "width": 1012,
+                "height": 1632,
+                "images": [
+                    {
+                        "@id": "https://stdigitalmanifests.blob.core.windows.net/manifest/10/29975/annotation",
+                        "@context": "http://iiif.io/api/presentation/2/context.json",
+                        "@type": "oa:Annotation",
+                        "motivation": "sc:painting",
+                        "resource": {
+                            "@id": "https://central.bac-lac.gc.ca/.item/?id=229609b&app=PfFww&op=img",
+                            "@type": "dctypes:Image",
+                            "format": "image/jpeg",
+                            "service": {
+                                "@id": "https://central.bac-lac.gc.ca/.item/?id=229609b&app=PfFww&op=img",
+                                "@context": "http://iiif.io/api/image/2/context.json",
+                                "profile": "http://bac-lac.gc.ca/iiif/1/central.json"
+                            },
+                            "width": 1012,
+                            "height": 1632
+                        },
+                        "on": "https://stdigitalmanifests.blob.core.windows.net/manifest/10/29975/canvas"
+                    }
+                ],
+                "thumbnail": {
+                    "@id": "https://central.bac-lac.gc.ca/.item?id=229609b&app=pffww&op=thumb&height=150",
+                    "@type": "dctypes:Image",
+                    "width": 93,
+                    "height": 150
+                },
+                "metadata": [
+                    {
+                        "label": [
+                            {
+                                "@language": "en",
+                                "@value": "Name"
+                            },
+                            {
+                                "@language": "fr",
+                                "@value": "Nom"
+                            }
+                        ],
+                        "value": [
+                            {
+                                "@language": "en",
+                                "@value": "BAYLES, SIDNEY MOORE"
+                            },
+                            {
+                                "@language": "fr",
+                                "@value": "BAYLES, SIDNEY MOORE"
+                            }
+                        ]
+                    },
+                    {
+                        "label": [
+                            {
+                                "@language": "en",
+                                "@value": "Regimental number"
+                            },
+                            {
+                                "@language": "fr",
+                                "@value": "Numéro de matricule"
+                            }
+                        ],
+                        "value": [
+                            {
+                                "@language": "en",
+                                "@value": "910864"
+                            },
+                            {
+                                "@language": "fr",
+                                "@value": "910864"
+                            }
+                        ]
+                    },
+                    {
+                        "label": [
+                            {
+                                "@language": "en",
+                                "@value": "Ecopy number"
+                            },
+                            {
+                                "@language": "fr",
+                                "@value": "Numéro ecopy"
+                            }
+                        ],
+                        "value": [
+                            {
+                                "@language": "en",
+                                "@value": "229609b"
+                            },
+                            {
+                                "@language": "fr",
+                                "@value": "229609b"
+                            }
+                        ]
+                    }
+                ]
+            },
+            {
+                "@id": "https://central.bac-lac.gc.ca/.item/?id=B0525-S032&app=PfFww&op=pdf",
+                "@context": "http://iiif.io/api/presentation/2/context.json",
+                "@type": "Document",
+                "format": "application/pdf",
+                "hasUserContent": false,
+                "isDigiLab": false,
+                "parent": "e011202891",
+                "label": [
+                    {
+                        "@language": "en",
+                        "@value": "B0525-S032"
+                    },
+                    {
+                        "@language": "fr",
+                        "@value": "B0525-S032"
+                    }
+                ],
+               
+                "width": 1000,
+                "height": 1000,
+                "thumbnail": {
+                    "@id": "https://central.bac-lac.gc.ca/.item?id=B0525-S032&app=pffww&op=thumb&height=150",
+                    "@type": "dctypes:Image",
+                    "width": 150,
+                    "height": 150
+                },
+                "metadata": [
+                    {
+                        "label": [
+                            {
+                                "@language": "en",
+                                "@value": "Name"
+                            },
+                            {
+                                "@language": "fr",
+                                "@value": "Nom"
+                            }
+                        ],
+                        "value": [
+                            {
+                                "@language": "en",
+                                "@value": "BAYLES, SIDNEY MOORE"
+                            },
+                            {
+                                "@language": "fr",
+                                "@value": "BAYLES, SIDNEY MOORE"
+                            }
+                        ]
+                    },
+                    {
+                        "label": [
+                            {
+                                "@language": "en",
+                                "@value": "Regimental number"
+                            },
+                            {
+                                "@language": "fr",
+                                "@value": "Numéro de matricule"
+                            }
+                        ],
+                        "value": [
+                            {
+                                "@language": "en",
+                                "@value": "910864"
+                            },
+                            {
+                                "@language": "fr",
+                                "@value": "910864"
+                            }
+                        ]
+                    },
+                    {
+                        "label": [
+                            {
+                                "@language": "en",
+                                "@value": "Ecopy number"
+                            },
+                            {
+                                "@language": "fr",
+                                "@value": "Numéro ecopy"
+                            }
+                        ],
+                        "value": [
+                            {
+                                "@language": "en",
+                                "@value": "B0525-S032"
+                            },
+                            {
+                                "@language": "fr",
+                                "@value": "B0525-S032"
+                            }
+                        ]
+                    }
+                ]
             }
           ]
         }
