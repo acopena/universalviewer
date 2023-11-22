@@ -32,7 +32,7 @@
     "navigatorEnabled": true,
     "openTemplate": "http://universalviewer.io?manifest={0}",
     "overrideFullScreen": false,
-    "pagingEnabled": true,
+    "pagingEnabled": false,
     "pagingOptionEnabled": true,
     "pessimisticAccessControl": false,
     "preserveViewport": false,
@@ -45,7 +45,7 @@
     "tokenStorage": "session",
     "useArrowKeysToNavigate": false,
     "zoomToSearchResultEnabled": true,
-    "zoomToBoundsEnabled": true
+    "zoomToBoundsEnabled": true    
   },
   "modules": {
     "contentLeftPanel": {

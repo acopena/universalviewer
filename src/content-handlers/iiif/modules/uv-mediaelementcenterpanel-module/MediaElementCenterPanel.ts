@@ -1,4 +1,4 @@
-import {Dimensions} from "@edsilv/utils";
+import { Dimensions } from "@edsilv/utils";
 
 const $ = require("jquery");
 import { IIIFEvents } from "../../IIIFEvents";
@@ -130,11 +130,9 @@ export class MediaElementCenterPanel extends CenterPanel {
       // Add VTT subtitles/captions.
       for (const subtitle of subtitles) {
         this.$media.append(
-          $(`<track label="${subtitle.label}" kind="subtitles" srclang="${
-            subtitle.language
-          }" src="${subtitle.id}" ${
-            subtitles.indexOf(subtitle) === 0 ? "default" : ""
-          }>
+          $(`<track label="${subtitle.label}" kind="subtitles" srclang="${subtitle.language
+            }" src="${subtitle.id}" ${subtitles.indexOf(subtitle) === 0 ? "default" : ""
+            }>
 `)
         );
       }
@@ -161,7 +159,7 @@ export class MediaElementCenterPanel extends CenterPanel {
           "sourcechooser",
           "fullscreen"
         ],
-        success: function(mediaElement: any, originalNode: any) {
+        success: function (mediaElement: any, originalNode: any) {
           mediaElement.addEventListener("loadstart", () => {
             // console.log("loadstart");
             that.resize();
@@ -234,7 +232,7 @@ export class MediaElementCenterPanel extends CenterPanel {
         defaultAudioHeight: "auto",
         showPosterWhenPaused: true,
         showPosterWhenEnded: true,
-        success: function(mediaElement: any, originalNode: any) {
+        success: function (mediaElement: any, originalNode: any) {
           mediaElement.addEventListener("play", () => {
             that.extensionHost.publish(
               MediaElementExtensionEvents.MEDIA_PLAYED,
@@ -302,8 +300,10 @@ export class MediaElementCenterPanel extends CenterPanel {
     }
 
     if (this.player) {
-      this.player.setPlayerSize();
-      this.player.setControlsSize();
+      if (size.width > 0 && size.height > 0) {
+        this.player.setPlayerSize(size.width, size.height);
+        this.player.setControlsSize();
+      }
     }
   }
 }
