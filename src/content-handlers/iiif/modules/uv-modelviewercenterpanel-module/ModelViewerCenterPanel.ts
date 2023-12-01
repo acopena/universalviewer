@@ -1,4 +1,4 @@
-const $ = require("jquery");
+const uvj$ = require("jquery");
 // import "@webcomponents/webcomponentsjs/webcomponents-bundle.js";
 // import "@google/model-viewer/dist/model-viewer-legacy";
 import "@google/model-viewer/dist/model-viewer";
@@ -50,10 +50,10 @@ export class ModelViewerCenterPanel extends CenterPanel {
 
     this.title = this.extension.helper.getLabel();
 
-    this.$spinner = $('<div class="spinner"></div>');
+    this.$spinner = uvj$('<div class="spinner"></div>');
     this.$content.prepend(this.$spinner);
 
-    this.$modelviewer = $(
+    this.$modelviewer = uvj$(
       `<model-viewer 
         ${this.config.options.autoRotateEnabled ? "auto-rotate" : ""} 
         ${

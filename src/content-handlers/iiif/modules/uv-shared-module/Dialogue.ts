@@ -1,4 +1,4 @@
-const $ = require("jquery");
+const uvj$ = require("jquery");
 import { BaseView } from "./BaseView";
 import { IIIFEvents } from "../../IIIFEvents";
 import { Maths } from "@edsilv/utils";
@@ -45,25 +45,25 @@ export class Dialogue extends BaseView {
       }
     });
 
-    this.$top = $('<div class="top"></div>');
+    this.$top = uvj$('<div class="top"></div>');
     this.$element.append(this.$top);
 
-    this.$closeButton = $(
+    this.$closeButton = uvj$(
       '<button type="button" class="btn btn-default close" tabindex="0">' +
         this.content.close +
         "</button>"
     );
 
-    this.$middle = $('<div class="middle"></div>');
+    this.$middle = uvj$('<div class="middle"></div>');
     this.$element.append(this.$middle);
 
-    this.$content = $('<div class="content"></div>');
+    this.$content = uvj$('<div class="content"></div>');
     this.$middle.append(this.$content);
 
-    this.$buttons = $('<div class="buttons"></div>');
+    this.$buttons = uvj$('<div class="buttons"></div>');
     this.$middle.append(this.$buttons);
 
-    this.$bottom = $('<div class="bottom"></div>');
+    this.$bottom = uvj$('<div class="bottom"></div>');
     this.$element.append(this.$bottom);
 
     if (this.config.topCloseButtonEnabled) {

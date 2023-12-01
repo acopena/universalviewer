@@ -1,4 +1,4 @@
-const $ = require("jquery");
+const uvj$ = require("jquery");
 import { IIIFEvents } from "../../IIIFEvents";
 import { Dialogue } from "../uv-shared-module/Dialogue";
 import { Bools, Numbers } from "@edsilv/utils";
@@ -81,46 +81,46 @@ export class ShareDialogue extends Dialogue {
       }
     );
 
-    this.$tabs = $('<div class="tabs"></div>');
+    this.$tabs = uvj$('<div class="tabs"></div>');
     this.$content.append(this.$tabs);
 
-    this.$shareButton = $(
+    this.$shareButton = uvj$(
       '<a class="share tab default" tabindex="0">' + this.content.share + "</a>"
     );
     this.$tabs.append(this.$shareButton);
 
-    this.$embedButton = $(
+    this.$embedButton = uvj$(
       '<a class="embed tab" tabindex="0">' + this.content.embed + "</a>"
     );
     this.$tabs.append(this.$embedButton);
 
-    this.$tabsContent = $('<div class="tabsContent"></div>');
+    this.$tabsContent = uvj$('<div class="tabsContent"></div>');
     this.$content.append(this.$tabsContent);
 
-    this.$footer = $('<div class="footer"></div>');
+    this.$footer = uvj$('<div class="footer"></div>');
     this.$content.append(this.$footer);
 
-    this.$shareView = $('<div class="shareView view"></div>');
+    this.$shareView = uvj$('<div class="shareView view"></div>');
     this.$tabsContent.append(this.$shareView);
 
-    this.$shareHeader = $('<div class="header"></div>');
+    this.$shareHeader = uvj$('<div class="header"></div>');
     this.$shareView.append(this.$shareHeader);
 
-    this.$shareLink = $('<a class="shareLink" onclick="return false;"></a>');
+    this.$shareLink = uvj$('<a class="shareLink" onclick="return false;"></a>');
     this.$shareView.append(this.$shareLink);
 
-    this.$shareInput = $(
+    this.$shareInput = uvj$(
       `<input class="shareInput" type="text" readonly="readonly" aria-label="${this.content.shareUrl}"/>`
     );
     this.$shareView.append(this.$shareInput);
 
-    this.$shareFrame = $('<iframe class="shareFrame"></iframe>');
+    this.$shareFrame = uvj$('<iframe class="shareFrame"></iframe>');
     this.$shareView.append(this.$shareFrame);
 
-    this.$embedView = $('<div class="embedView view"></div>');
+    this.$embedView = uvj$('<div class="embedView view"></div>');
     this.$tabsContent.append(this.$embedView);
 
-    this.$embedHeader = $('<div class="header"></div>');
+    this.$embedHeader = uvj$('<div class="header"></div>');
     this.$embedView.append(this.$embedHeader);
 
     // this.$link = $('<a target="_blank"></a>');
@@ -129,18 +129,18 @@ export class ShareDialogue extends Dialogue {
     // this.$image = $('<img class="share" />');
     // this.$embedView.append(this.$image);
 
-    this.$code = $(
+    this.$code = uvj$(
       `<input class="code" type="text" readonly="readonly" aria-label="${this.content.embed}"/>`
     );
     this.$embedView.append(this.$code);
 
-    this.$customSize = $('<div class="customSize"></div>');
+    this.$customSize = uvj$('<div class="customSize"></div>');
     this.$embedView.append(this.$customSize);
 
-    this.$size = $('<span class="size">' + this.content.size + "</span>");
+    this.$size = uvj$('<span class="size">' + this.content.size + "</span>");
     this.$customSize.append(this.$size);
 
-    this.$customSizeDropDown = $(
+    this.$customSizeDropDown = uvj$(
       '<select id="size" aria-label="' + this.content.size + '"></select>'
     );
     this.$customSize.append(this.$customSizeDropDown);
@@ -157,17 +157,17 @@ export class ShareDialogue extends Dialogue {
       '<option value="custom">' + this.content.customSize + "</option>"
     );
 
-    this.$widthInput = $(
+    this.$widthInput = uvj$(
       '<input class="width" type="text" maxlength="10" aria-label="' +
         this.content.width +
         '"/>'
     );
     this.$customSize.append(this.$widthInput);
 
-    this.$x = $('<span class="x">x</span>');
+    this.$x = uvj$('<span class="x">x</span>');
     this.$customSize.append(this.$x);
 
-    this.$heightInput = $(
+    this.$heightInput = uvj$(
       '<input class="height" type="text" maxlength="10" aria-label="' +
         this.content.height +
         '"/>'
@@ -179,7 +179,7 @@ export class ShareDialogue extends Dialogue {
     );
 
     if (this.shareManifestsEnabled) {
-      this.$iiifButton = $(
+      this.$iiifButton = uvj$(
         '<a class="imageBtn iiif" href="' +
           iiifUrl +
           '" title="' +
@@ -189,7 +189,7 @@ export class ShareDialogue extends Dialogue {
       this.$footer.append(this.$iiifButton);
     }
 
-    this.$termsOfUseButton = $(
+    this.$termsOfUseButton = uvj$(
       '<a href="#">' + this.extension.data.config.content.termsOfUse + "</a>"
     );
     this.$footer.append(this.$termsOfUseButton);

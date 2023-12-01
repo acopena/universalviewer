@@ -1,7 +1,7 @@
-const $ = require("jquery");
-require("jsviews")($);
+const uvj$ = require("jquery");
+require("jsviews")(uvj$);
 import jQueryPlugins from "./JQueryPlugins";
-jQueryPlugins($);
+jQueryPlugins(uvj$);
 import {
   ExtensionLoader,
   IExtension,
@@ -281,7 +281,7 @@ export default class IIIFContentHandler extends BaseContentHandler<IIIFData>
       this.fire(Events.RELOAD, data);
     });
 
-    const $elem: JQuery = $(this.options.target);
+    const $elem: JQuery = uvj$(this.options.target);
 
     // empty the containing element
     $elem.empty();

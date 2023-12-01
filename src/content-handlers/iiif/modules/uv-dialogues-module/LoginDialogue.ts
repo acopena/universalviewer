@@ -1,4 +1,4 @@
-const $ = require("jquery");
+const uvj$ = require("jquery");
 import { IIIFEvents } from "../../IIIFEvents";
 import { Dialogue } from "../uv-shared-module/Dialogue";
 import { ILoginDialogueOptions } from "../uv-shared-module/ILoginDialogueOptions";
@@ -39,7 +39,7 @@ export class LoginDialogue extends Dialogue {
       this.close();
     });
 
-    this.$title = $(`<div role="heading" class="heading"></div>`);
+    this.$title = uvj$(`<div role="heading" class="heading"></div>`);
     this.$content.append(this.$title);
 
     this.$content.append(

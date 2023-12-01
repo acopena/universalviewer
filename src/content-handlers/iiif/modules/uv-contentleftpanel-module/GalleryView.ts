@@ -1,4 +1,4 @@
-const $ = require("jquery");
+const uvj$ = require("jquery");
 import { IIIFEvents } from "../../IIIFEvents";
 import { BaseView } from "../uv-shared-module/BaseView";
 import { GalleryComponent } from "@iiif/iiif-gallery-component";
@@ -17,7 +17,7 @@ export class GalleryView extends BaseView {
     this.setConfig("contentLeftPanel");
     super.create();
 
-    this.$gallery = $('<div class="iiif-gallery-component"></div>');
+    this.$gallery = uvj$('<div class="iiif-gallery-component"></div>');
     this.$element.append(this.$gallery);
   }
 

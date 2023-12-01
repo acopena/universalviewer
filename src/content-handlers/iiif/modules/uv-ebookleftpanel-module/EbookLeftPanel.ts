@@ -1,4 +1,4 @@
-const $ = require("jquery");
+const uvj$ = require("jquery");
 import { IIIFEvents } from "../../IIIFEvents";
 import { LeftPanel } from "../uv-shared-module/LeftPanel";
 import { EbookExtensionEvents } from "../../extensions/uv-ebook-extension/Events";
@@ -21,13 +21,13 @@ export class EbookLeftPanel extends LeftPanel {
     this.setConfig("ebookLeftPanel");
     super.create();
 
-    this._$container = $('<div class="container"></div>');
+    this._$container = uvj$('<div class="container"></div>');
 
     await applyPolyfills();
     defineCustomElements(window);
 
     this._ebookTOC = document.createElement("uv-ebook-toc");
-    this._$ebookTOC = $(this._ebookTOC);
+    this._$ebookTOC = uvj$(this._ebookTOC);
     //this._ebookTOC.setAttribute("src-tab-enabled", this.config.options.srcTabEnabled);
     this.$main.addClass("disabled");
     this.$main.append(this._$container);

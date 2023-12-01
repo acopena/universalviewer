@@ -1,4 +1,4 @@
-const $ = require("jquery");
+const uvj$ = require("jquery");
 import { IIIFEvents } from "../../IIIFEvents";
 import { CroppedImageDimensions } from "./CroppedImageDimensions";
 import { DownloadDialogue as BaseDownloadDialogue } from "../../modules/uv-dialogues-module/DownloadDialogue";
@@ -44,21 +44,21 @@ export class DownloadDialogue extends BaseDownloadDialogue {
     super.create();
 
     // create ui.
-    this.$settingsButton = $(
+    this.$settingsButton = uvj$(
       '<a class="settings" href="#">' + this.content.editSettings + "</a>"
     );
-    this.$pagingNote = $(
+    this.$pagingNote = uvj$(
       '<div class="pagingNote">' + this.content.pagingNote + " </div>"
     );
     this.$pagingNote.append(this.$settingsButton);
     this.$content.append(this.$pagingNote);
 
-    this.$imageOptionsContainer = $('<li class="group image"></li>');
+    this.$imageOptionsContainer = uvj$('<li class="group image"></li>');
     this.$downloadOptions.append(this.$imageOptionsContainer);
-    this.$imageOptions = $("<ul></ul>");
+    this.$imageOptions = uvj$("<ul></ul>");
     this.$imageOptionsContainer.append(this.$imageOptions);
 
-    this.$currentViewAsJpgButton = $(
+    this.$currentViewAsJpgButton = uvj$(
       '<li class="option single"><input id="' +
         DownloadOption.CURRENT_VIEW +
         '" type="radio" name="downloadOptions" tabindex="0" /><label for="' +
@@ -68,7 +68,7 @@ export class DownloadDialogue extends BaseDownloadDialogue {
     this.$imageOptions.append(this.$currentViewAsJpgButton);
     this.$currentViewAsJpgButton.hide();
 
-    this.$wholeImageHighResButton = $(
+    this.$wholeImageHighResButton = uvj$(
       '<li class="option single"><input id="' +
         DownloadOption.WHOLE_IMAGE_HIGH_RES +
         '" type="radio" name="downloadOptions" tabindex="0" /><label id="' +
@@ -80,7 +80,7 @@ export class DownloadDialogue extends BaseDownloadDialogue {
     this.$imageOptions.append(this.$wholeImageHighResButton);
     this.$wholeImageHighResButton.hide();
 
-    this.$wholeImagesHighResButton = $(
+    this.$wholeImagesHighResButton = uvj$(
       '<li class="option multiple"><input id="' +
         DownloadOption.WHOLE_IMAGES_HIGH_RES +
         '" type="radio" name="downloadOptions" tabindex="0" /><label id="' +
@@ -92,7 +92,7 @@ export class DownloadDialogue extends BaseDownloadDialogue {
     this.$imageOptions.append(this.$wholeImagesHighResButton);
     this.$wholeImageHighResButton.hide();
 
-    this.$wholeImageLowResAsJpgButton = $(
+    this.$wholeImageLowResAsJpgButton = uvj$(
       '<li class="option single"><input id="' +
         DownloadOption.WHOLE_IMAGE_LOW_RES +
         '" type="radio" name="downloadOptions" tabindex="0" /><label for="' +
@@ -104,17 +104,17 @@ export class DownloadDialogue extends BaseDownloadDialogue {
     this.$imageOptions.append(this.$wholeImageLowResAsJpgButton);
     this.$wholeImageLowResAsJpgButton.hide();
 
-    this.$canvasOptionsContainer = $('<li class="group canvas"></li>');
+    this.$canvasOptionsContainer = uvj$('<li class="group canvas"></li>');
     this.$downloadOptions.append(this.$canvasOptionsContainer);
-    this.$canvasOptions = $("<ul></ul>");
+    this.$canvasOptions = uvj$("<ul></ul>");
     this.$canvasOptionsContainer.append(this.$canvasOptions);
 
-    this.$manifestOptionsContainer = $('<li class="group manifest"></li>');
+    this.$manifestOptionsContainer = uvj$('<li class="group manifest"></li>');
     this.$downloadOptions.append(this.$manifestOptionsContainer);
-    this.$manifestOptions = $("<ul></ul>");
+    this.$manifestOptions = uvj$("<ul></ul>");
     this.$manifestOptionsContainer.append(this.$manifestOptions);
 
-    this.$selectionButton = $(
+    this.$selectionButton = uvj$(
       '<li class="option"><input id="' +
         DownloadOption.SELECTION +
         '" type="radio" name="downloadOptions" tabindex="0" /><label id="' +
@@ -126,14 +126,14 @@ export class DownloadDialogue extends BaseDownloadDialogue {
     this.$manifestOptions.append(this.$selectionButton);
     this.$selectionButton.hide();
 
-    this.$downloadButton = $(
+    this.$downloadButton = uvj$(
       '<a class="btn btn-primary" href="#" tabindex="0">' +
         this.content.download +
         "</a>"
     );
     this.$buttons.prepend(this.$downloadButton);
 
-    this.$explanatoryTextTemplate = $('<span class="explanatory"></span>');
+    this.$explanatoryTextTemplate = uvj$('<span class="explanatory"></span>');
 
     const that = this;
 
@@ -149,8 +149,7 @@ export class DownloadDialogue extends BaseDownloadDialogue {
       const mime: any = $selectedOption.data("mime");
       let type: string = DownloadOption.UNKNOWN;
       const canvas: Canvas = this.extension.helper.getCurrentCanvas();
-console.log('download dialogue');
-console.log(canvas);
+
       if (this.renderingUrls[<any>id]) {
         if (mime) {
           if (mime.toLowerCase().indexOf("pdf") !== -1) {

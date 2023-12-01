@@ -1,4 +1,4 @@
-const $ = require("jquery");
+const uvj$ = require("jquery");
 import { IIIFEvents } from "../../IIIFEvents";
 import { RightPanel } from "../uv-shared-module/RightPanel";
 import { sanitize } from "../../../../Utils";
@@ -32,7 +32,7 @@ export class MoreInfoRightPanel extends RightPanel {
 
     this.setTitle(this.config.content.title);
 
-    this.$metadata = $('<div class="iiif-metadata-component"></div>');
+    this.$metadata = uvj$('<div class="iiif-metadata-component"></div>');
     this.$main.append(this.$metadata);
 
     this.metadataComponent = new MetadataComponent({

@@ -1,4 +1,4 @@
-const $ = require("jquery");
+const uvj$ = require("jquery");
 import { IIIFEvents } from "../../IIIFEvents";
 import { CenterPanel } from "../uv-shared-module/CenterPanel";
 import { PDFExtensionEvents } from "../../extensions/uv-pdf-extension/Events";
@@ -43,16 +43,16 @@ export class PDFCenterPanel extends CenterPanel {
 
     super.create();
 
-    this._$pdfContainer = $('<div class="pdfContainer"></div>');
-    this._$canvas = $("<canvas></canvas>");
+    this._$pdfContainer = uvj$('<div class="pdfContainer"></div>');
+    this._$canvas = uvj$("<canvas></canvas>");
     // this._$spinner = $('<div class="spinner"></div>');
-    this._$progress = $('<progress max="100" value="0"></progress>');
+    this._$progress = uvj$('<progress max="100" value="0"></progress>');
     this._canvas = <HTMLCanvasElement>this._$canvas[0];
     this._ctx = this._canvas.getContext("2d");
-    this._$prevButton = $('<div class="btn prev" tabindex="0"></div>');
-    this._$nextButton = $('<div class="btn next" tabindex="0"></div>');
-    this._$zoomInButton = $('<div class="btn zoomIn" tabindex="0"></div>');
-    this._$zoomOutButton = $('<div class="btn zoomOut" tabindex="0"></div>');
+    this._$prevButton = uvj$('<div class="btn prev" tabindex="0"></div>');
+    this._$nextButton = uvj$('<div class="btn next" tabindex="0"></div>');
+    this._$zoomInButton = uvj$('<div class="btn zoomIn" tabindex="0"></div>');
+    this._$zoomOutButton = uvj$('<div class="btn zoomOut" tabindex="0"></div>');
 
     // Only attach PDF controls if we're using PDF.js; they have no meaning in
     // PDFObject. However, we still create the objects above so that references

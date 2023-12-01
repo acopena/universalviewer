@@ -1,4 +1,4 @@
-const $ = require("jquery");
+const uvj$ = require("jquery");
 import { sanitize } from "../../../../Utils";
 import { UriLabeller, AnnotationGroup, TreeSortType } from "@iiif/manifold";
 import { createElement } from "react";
@@ -44,7 +44,7 @@ export class ContentLeftPanel extends LeftPanel {
   $thumbsButton: JQuery;
 
   $detailsTabButton: JQuery;
-  $downloadButton: JQuery;
+  //$downloadButton: JQuery;
   $detailsView: JQuery;
 
   $thumbsView: JQuery;
@@ -104,9 +104,9 @@ export class ContentLeftPanel extends LeftPanel {
       }
     });
 
-    this.extensionHost.subscribe(IIIFEvents.SETTINGS_CHANGE, () => {
-      this.updateDownloadButton();
-    });
+    // this.extensionHost.subscribe(IIIFEvents.SETTINGS_CHANGE, () => {
+    //   this.updateDownloadButton();
+    // });
 
     this.extensionHost.subscribe(IIIFEvents.ANNOTATIONS, () => {
       this.renderThumbs();
@@ -145,61 +145,62 @@ export class ContentLeftPanel extends LeftPanel {
     //   }
     // );
 
-    this.$downloadButton = $(`
-        <button class="download btn imageBtn" title="${this.content.download}" id="download-btn">
-          <i class="uv-icon uv-icon-download" aria-hidden="true"></i>
-          <span class="sr-only">${this.content.download}</span>
-        </button>
-      `);
-    this.$main.append(this.$downloadButton);
-    this.$tabs = $('<div class="tabs"></div>');
+    // this.$downloadButton = $(`
+    //     <button class="download btn imageBtn" title="${this.content.download}" id="download-btn">
+    //       <i class="uv-icon uv-icon-download" aria-hidden="true"></i>
+    //       <span class="sr-only">${this.content.download}</span>
+    //     </button>
+    //   `);
+
+    //this.$main.append(this.$downloadButton);
+    this.$tabs = uvj$('<div class="tabs"></div>');
     this.$main.append(this.$tabs);
     // this.$tabs.append(this.$treeButton);
 
 
-    this.$thumbsButton = $(
+    this.$thumbsButton = uvj$(
       '<a class="thumbs tab on" tabindex="0">' + this.content.thumbnails + "</a>"
     );
     this.$tabs.append(this.$thumbsButton);
 
-    this.$detailsTabButton = $(
+    this.$detailsTabButton = uvj$(
       '<a class="details tab" tabindex="0">' + this.content.details + "</a>"
     );
     this.$tabs.append(this.$detailsTabButton);
 
-    this.$tabsContent = $('<div class="tabsContent"></div>');
+    this.$tabsContent = uvj$('<div class="tabsContent"></div>');
     this.$main.append(this.$tabsContent);
 
-    this.$options = $('<div class="options"></div>');
+    this.$options = uvj$('<div class="options"></div>');
     this.$tabsContent.append(this.$options);
 
-    this.$topOptions = $('<div class="top"></div>');
+    this.$topOptions = uvj$('<div class="top"></div>');
     this.$options.append(this.$topOptions);
 
     this.$bottomOptions = $('<div class="bottom"></div>');
     this.$options.append(this.$bottomOptions);
 
-    this.$leftOptions = $('<div class="left"></div>');
+    this.$leftOptions = uvj$('<div class="left"></div>');
     this.$bottomOptions.append(this.$leftOptions);
 
-    this.$rightOptions = $('<div class="right"></div>');
+    this.$rightOptions = uvj$('<div class="right"></div>');
     this.$bottomOptions.append(this.$rightOptions);
 
-    this.$views = $('<div class="views"></div>');
+    this.$views = uvj$('<div class="views"></div>');
     this.$tabsContent.append(this.$views);
 
-    this.$thumbsView = $('<div class="thumbsView" tabindex="-1"></div>');
+    this.$thumbsView = uvj$('<div class="thumbsView" tabindex="-1"></div>');
     this.$views.append(this.$thumbsView);
 
-    this.$galleryView = $('<div class="galleryView"></div>');
+    this.$galleryView = uvj$('<div class="galleryView"></div>');
     this.$views.append(this.$galleryView);
 
-    this.$detailsView = $(
+    this.$detailsView = uvj$(
       '<div class="detailsView"></div>'
     );
     this.$views.append(this.$detailsView);
 
-    this.$metadata = $('<div class="iiif-metadata-component"></div>');
+    this.$metadata = uvj$('<div class="iiif-metadata-component"></div>');
     this.$detailsView.append(this.$metadata);
 
     this.metadataComponent = new MetadataComponent({
@@ -207,12 +208,12 @@ export class ContentLeftPanel extends LeftPanel {
       data: this._getData(),
     });
 
-    this.$downloadButton.onPressed(() => {
-      this.extensionHost.publish(
-        IIIFEvents.SHOW_DOWNLOAD_DIALOGUE,
-        this.$downloadButton
-      );
-    });
+    // this.$downloadButton.onPressed(() => {
+    //   this.extensionHost.publish(
+    //     IIIFEvents.SHOW_DOWNLOAD_DIALOGUE,
+    //     this.$downloadButton
+    //   );
+    // });
     this.openThumbsView();
 
 
@@ -366,18 +367,18 @@ export class ContentLeftPanel extends LeftPanel {
     return range;
   }
 
-  updateDownloadButton(): void {
-    const configEnabled: boolean = Bools.getBool(
-      this.options.downloadEnabled,
-      true
-    );
+  // updateDownloadButton(): void {
+  //   const configEnabled: boolean = Bools.getBool(
+  //     this.options.downloadEnabled,
+  //     true
+  //   );
 
-    if (configEnabled) {
-      this.$downloadButton.show();
-    } else {
-      this.$downloadButton.hide();
-    }
-  }
+  //   if (configEnabled) {
+  //     this.$downloadButton.show();
+  //   } else {
+  //     this.$downloadButton.hide();
+  //   }
+  // }
 
 
   render(): void {
@@ -665,8 +666,8 @@ export class ContentLeftPanel extends LeftPanel {
   resize(): void {
     super.resize();
     let tabHeight = this.$main.height() - (isVisible(this.$tabs) ? this.$tabs.height() : 0) - this.$tabsContent.verticalPadding();
-    this.$tabsContent.height(tabHeight - 40);
-    let newHeight = (this.$tabsContent.height() - this.$options.outerHeight() - 40);
+    this.$tabsContent.height(tabHeight);
+    let newHeight = (this.$tabsContent.height() - this.$options.outerHeight());
     this.$views.height(newHeight);
   }
 }

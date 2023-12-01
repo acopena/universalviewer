@@ -1,4 +1,4 @@
-const $ = require("jquery");
+const uvj$ = require("jquery");
 import { IIIFEvents } from "../../IIIFEvents";
 import { Dialogue } from "../uv-shared-module/Dialogue";
 
@@ -27,13 +27,13 @@ export class HelpDialogue extends Dialogue {
       this.close();
     });
 
-    this.$title = $(`<div role="heading" class="heading"></div>`);
+    this.$title = uvj$(`<div role="heading" class="heading"></div>`);
     this.$content.append(this.$title);
 
-    this.$scroll = $('<div class="scroll"></div>');
+    this.$scroll = uvj$('<div class="scroll"></div>');
     this.$content.append(this.$scroll);
 
-    this.$message = $("<p></p>");
+    this.$message = uvj$("<p></p>");
     this.$scroll.append(this.$message);
 
     // initialise ui.

@@ -1,4 +1,3 @@
-const $ = require("jquery");
 import { Panel } from "./Panel";
 import { IExtension } from "./IExtension";
 import { IIIFExtensionHost } from "../../IIIFExtensionHost";

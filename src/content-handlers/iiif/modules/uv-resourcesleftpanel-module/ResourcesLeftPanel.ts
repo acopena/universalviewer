@@ -1,4 +1,4 @@
-const $ = require("jquery");
+const uvj$ = require("jquery");
 import { IIIFEvents } from "../../IIIFEvents";
 import { LeftPanel } from "../uv-shared-module/LeftPanel";
 import { ThumbsView } from "./ThumbsView";
@@ -41,29 +41,29 @@ export class ResourcesLeftPanel extends LeftPanel {
 
     //  TODO: make tabs work
 
-    this.$tabs = $('<div class="tabs"></div>');
+    this.$tabs = uvj$('<div class="tabs"></div>');
     this.$main.append(this.$tabs);
 
-    this.$thumbsButton = $('<a class="thumbs tab">' + this.content.thumbnails + '</a>');
+    this.$thumbsButton = uvj$('<a class="thumbs tab">' + this.content.thumbnails + '</a>');
     this.$thumbsButton.prop('title', this.content.thumbnails);
     this.$tabs.append(this.$thumbsButton);
 
-    this.$resourcesButton = $('<a class="resources tab">' + this.content.details + '</a>');
+    this.$resourcesButton = uvj$('<a class="resources tab">' + this.content.details + '</a>');
     this.$resourcesButton.prop('title', this.content.resources);
     this.$tabs.append(this.$resourcesButton);
 
 
-    this.$tabsContent = $('<div class="tabsContent"></div>');
+    this.$tabsContent = uvj$('<div class="tabsContent"></div>');
     this.$main.append(this.$tabsContent);
 
-    this.$views = $('<div class="views"></div>');
+    this.$views = uvj$('<div class="views"></div>');
     this.$tabsContent.append(this.$views);
 
-    this.$thumbsView = $('<div class="thumbsView"></div>');
+    this.$thumbsView = uvj$('<div class="thumbsView"></div>');
     this.$views.append(this.$thumbsView);
 
-    this.$resourcesView = $('<div class="resourcesView"></div>');
-    this.$resources = $("<ul></ul>");
+    this.$resourcesView = uvj$('<div class="resourcesView"></div>');
+    this.$resources = uvj$("<ul></ul>");
     this.$resourcesView.append(this.$resources);
     this.$views.append(this.$resourcesView);
 
@@ -93,7 +93,7 @@ export class ResourcesLeftPanel extends LeftPanel {
           const mime: string = Files.simplifyMimeType(
             (<MediaType>resource.getFormat()).toString()
           );
-          const $listItem: JQuery = $(
+          const $listItem: JQuery = uvj$(
             '<li><a href="' +
             resource.id +
             '" target="_blank">' +

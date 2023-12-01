@@ -1,4 +1,4 @@
-const $ = require("jquery");
+const uvj$ = require("jquery");
 import { BaseView } from "./BaseView";
 import { Bools } from "@edsilv/utils";
 import { IIIFEvents } from "../../IIIFEvents";
@@ -27,39 +27,39 @@ export class BaseExpandPanel extends BaseView {
   create(): void {
     super.create();
 
-    this.$top = $('<div class="top"></div>');
+    this.$top = uvj$('<div class="top"></div>');
     this.$element.append(this.$top);
 
-    this.$title = $('<h2 class="title"></h2>');
+    this.$title = uvj$('<h2 class="title"></h2>');
     this.$top.append(this.$title);
 
-    this.$expandFullButton = $('<a class="expandFullButton" tabindex="0"></a>');
+    this.$expandFullButton = uvj$('<a class="expandFullButton" tabindex="0"></a>');
     this.$top.append(this.$expandFullButton);
 
     if (!Bools.getBool(this.config.options.expandFullEnabled, true)) {
       this.$expandFullButton.hide();
     }
 
-    this.$collapseButton = $(
+    this.$collapseButton = uvj$(
       '<div role="button" class="collapseButton" tabindex="0"></div>'
     );
     this.$collapseButton.prop("title", this.content.collapse);
     this.$top.append(this.$collapseButton);
 
-    this.$closed = $('<div class="closed"></div>');
+    this.$closed = uvj$('<div class="closed"></div>');
     this.$element.append(this.$closed);
 
-    this.$expandButton = $(
+    this.$expandButton = uvj$(
       '<a role="button" class="expandButton" tabindex="0"></a>'
     );
     this.$expandButton.prop("title", this.content.expand);
 
     this.$closed.append(this.$expandButton);
 
-    this.$closedTitle = $('<a class="title"></a>');
+    this.$closedTitle = uvj$('<a class="title"></a>');
     this.$closed.append(this.$closedTitle);
 
-    this.$main = $('<div class="main"></div>');
+    this.$main = uvj$('<div class="main"></div>');
     this.$element.append(this.$main);
 
     this.onAccessibleClick(this.$expandButton, () => {

@@ -1,4 +1,4 @@
-const $ = require("jquery");
+const uvj$ = require("jquery");
 import { IIIFEvents } from "../../IIIFEvents";
 import { Dialogue } from "./Dialogue";
 
@@ -28,10 +28,10 @@ export class GenericDialogue extends Dialogue {
       this.close();
     });
 
-    this.$message = $("<p></p>");
+    this.$message = uvj$("<p></p>");
     this.$content.append(this.$message);
 
-    this.$acceptButton = $(`
+    this.$acceptButton = uvj$(`
           <button class="btn btn-primary accept default">
             ${this.content.ok}
           </button>

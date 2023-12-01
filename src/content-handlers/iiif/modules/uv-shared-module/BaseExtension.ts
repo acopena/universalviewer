@@ -1,4 +1,4 @@
-const $ = require("jquery");
+const uvj$ = require("jquery");
 import { Auth09 } from "./Auth09";
 import { Auth1 } from "./Auth1";
 import { AuthDialogue } from "../uv-dialogues-module/AuthDialogue";
@@ -491,13 +491,13 @@ export class BaseExtension implements IExtension {
   }
 
   createModules(): void {
-    this.$authDialogue = $(
+    this.$authDialogue = uvj$(
       '<div class="overlay auth" aria-hidden="true"></div>'
     );
     this.shell.$overlays.append(this.$authDialogue);
     this.authDialogue = new AuthDialogue(this.$authDialogue);
 
-    this.$clickThroughDialogue = $(
+    this.$clickThroughDialogue = uvj$(
       '<div class="overlay clickthrough" aria-hidden="true"></div>'
     );
     this.shell.$overlays.append(this.$clickThroughDialogue);
@@ -505,13 +505,13 @@ export class BaseExtension implements IExtension {
       this.$clickThroughDialogue
     );
 
-    this.$restrictedDialogue = $(
+    this.$restrictedDialogue = uvj$(
       '<div class="overlay login" aria-hidden="true"></div>'
     );
     this.shell.$overlays.append(this.$restrictedDialogue);
     this.restrictedDialogue = new RestrictedDialogue(this.$restrictedDialogue);
 
-    this.$loginDialogue = $(
+    this.$loginDialogue = uvj$(
       '<div class="overlay login" aria-hidden="true"></div>'
     );
     this.shell.$overlays.append(this.$loginDialogue);

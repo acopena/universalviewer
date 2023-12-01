@@ -1,4 +1,4 @@
-const $ = require("jquery");
+const uvj$ = require("jquery");
 import { IIIFEvents } from "../../IIIFEvents";
 import { CenterPanel } from "../uv-shared-module/CenterPanel";
 import { Position } from "../uv-shared-module/Position";
@@ -142,7 +142,7 @@ export class AVCenterPanel extends CenterPanel {
   }
 
   private _createAVComponent(): void {
-    this.$avcomponent = $('<div class="iiif-av-component"></div>');
+    this.$avcomponent = uvj$('<div class="iiif-av-component"></div>');
     this.$content.prepend(this.$avcomponent);
 
     // @ts-ignore

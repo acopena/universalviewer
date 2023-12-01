@@ -1,4 +1,4 @@
-const $ = require("jquery");
+const uvj$ = require("jquery");
 import { IIIFEvents } from "../../IIIFEvents";
 import { BaseView } from "./BaseView";
 import {
@@ -41,7 +41,7 @@ export class ThumbsView extends BaseView {
       this.loadThumbs();
     });
 
-    this.$thumbs = $('<div class="thumbs"></div>');
+    this.$thumbs = uvj$('<div class="thumbs"></div>');
     this.$element.append(this.$thumbs);
 
     const viewingDirection: ViewingDirection =
@@ -273,7 +273,7 @@ export class ThumbsView extends BaseView {
           }
           console.log(src);
 
-          const $img: JQuery = $('<img src="' + src + '" alt="" />');
+          const $img: JQuery = uvj$('<img src="' + src + '" alt="" />');
           // fade in on load.
           $img.hide();
 

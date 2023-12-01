@@ -1,4 +1,4 @@
-const $ = require("jquery");
+const uvj$ = require("jquery");
 import { IIIFEvents } from "../../IIIFEvents";
 import { Dialogue } from "../uv-shared-module/Dialogue";
 import { DownloadOption } from "../uv-shared-module/DownloadOption";
@@ -58,23 +58,23 @@ export class DownloadDialogue extends Dialogue {
     });
 
     // create ui.
-    this.$title = $(
+    this.$title = uvj$(
       `<div role="heading" class="heading">${this.content.title}</div>`
     );
     this.$content.append(this.$title);
 
-    this.$noneAvailable = $(
+    this.$noneAvailable = uvj$(
       '<div class="noneAvailable">' + this.content.noneAvailable + "</div>"
     );
     this.$content.append(this.$noneAvailable);
 
-    this.$downloadOptions = $('<ol class="options"></ol>');
+    this.$downloadOptions = uvj$('<ol class="options"></ol>');
     this.$content.append(this.$downloadOptions);
 
-    this.$footer = $('<div class="footer"></div>');
+    this.$footer = uvj$('<div class="footer"></div>');
     this.$content.append(this.$footer);
 
-    this.$termsOfUseButton = $(
+    this.$termsOfUseButton = uvj$(
       '<a href="#">' + this.extension.data.config.content.termsOfUse + "</a>"
     );
     this.$footer.append(this.$termsOfUseButton);
@@ -211,7 +211,7 @@ export class DownloadDialogue extends Dialogue {
         );
         label = Strings.format(label, mime);
         this.renderingUrls[<any>currentId] = rendering.id;
-        const $button: JQuery = $(
+        const $button: JQuery = uvj$(
           '<li class="option dynamic"><input id="' +
             currentId +
             '" data-mime="' +

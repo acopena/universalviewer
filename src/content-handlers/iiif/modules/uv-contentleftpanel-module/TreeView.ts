@@ -1,4 +1,4 @@
-const $ = require("jquery");
+const uvj$ = require("jquery");
 import { IIIFEvents } from "../../IIIFEvents";
 import { BaseView } from "../uv-shared-module/BaseView";
 import { TreeNode } from "manifesto.js";
@@ -18,7 +18,7 @@ export class TreeView extends BaseView {
     this.setConfig("contentLeftPanel");
     super.create();
 
-    this.$tree = $('<div class="iiif-tree-component"></div>');
+    this.$tree = uvj$('<div class="iiif-tree-component"></div>');
     this.$element.append(this.$tree);
   }
 

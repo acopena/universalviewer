@@ -1,4 +1,4 @@
-const $ = require("jquery");
+const uvj$ = require("jquery");
 import { IIIFEvents } from "../../IIIFEvents";
 import { Dialogue } from "../uv-shared-module/Dialogue";
 import { IExternalResource } from "manifesto.js";
@@ -32,7 +32,7 @@ export class ClickThroughDialogue extends Dialogue {
       this.close();
     });
 
-    this.$title = $(`<div role="heading" class="heading"></div>`);
+    this.$title = uvj$(`<div role="heading" class="heading"></div>`);
     this.$content.append(this.$title);
 
     this.$content.append(
@@ -73,7 +73,7 @@ export class ClickThroughDialogue extends Dialogue {
     }
 
     this.$message.find("a").on("click", function() {
-      var url: string = $(this).attr("href");
+      var url: string = uvj$(this).attr("href");
       this.extensionHost.publish(IIIFEvents.EXTERNAL_LINK_CLICKED, url);
     });
 

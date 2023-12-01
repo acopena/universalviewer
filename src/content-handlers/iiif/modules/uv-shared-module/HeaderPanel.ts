@@ -1,4 +1,4 @@
-const $ = require("jquery");
+const uvj$ = require("jquery");
 import { IIIFEvents } from "../../IIIFEvents";
 import { BaseView } from "./BaseView";
 import { ILocale } from "./ILocale";
@@ -39,22 +39,22 @@ export class HeaderPanel extends BaseView {
       this.hideInformation();
     });
 
-    this.$options = $('<div class="options"></div>');
+    this.$options = uvj$('<div class="options"></div>');
     this.$element.append(this.$options);
 
-    this.$centerOptions = $('<div class="centerOptions"></div>');
+    this.$centerOptions = uvj$('<div class="centerOptions"></div>');
     this.$options.append(this.$centerOptions);
 
-    this.$rightOptions = $('<div class="rightOptions"></div>');
+    this.$rightOptions = uvj$('<div class="rightOptions"></div>');
     this.$options.append(this.$rightOptions);
 
     //this.$helpButton = $('<a href="#" class="action help">' + this.content.help + '</a>');
     //this.$rightOptions.append(this.$helpButton);
 
-    this.$localeToggleButton = $('<a class="localeToggle" tabindex="0"></a>');
+    this.$localeToggleButton = uvj$('<a class="localeToggle" tabindex="0"></a>');
     this.$rightOptions.append(this.$localeToggleButton);
 
-    this.$settingsButton = $(`
+    this.$settingsButton = uvj$(`
           <button class="btn imageBtn settings" tabindex="0" title="${this.content.settings}">
             <i class="uv-icon-settings" aria-hidden="true"></i>
           </button>
@@ -62,7 +62,7 @@ export class HeaderPanel extends BaseView {
     this.$settingsButton.attr("title", this.content.settings);
     this.$rightOptions.append(this.$settingsButton);
 
-    this.$informationBox = $(
+    this.$informationBox = uvj$(
       '<div class="informationBox" aria-hidden="true"> \
                                     <div class="message"></div> \
                                     <div class="actions"></div> \
@@ -158,7 +158,7 @@ export class HeaderPanel extends BaseView {
 
     for (let i = 0; i < this.information.actions.length; i++) {
       const action: InformationAction = this.information.actions[i];
-      const $action: JQuery = $(
+      const $action: JQuery = uvj$(
         '<a href="#" class="btn btn-default">' + action.label + "</a>"
       );
       $action.on("click", action.action);

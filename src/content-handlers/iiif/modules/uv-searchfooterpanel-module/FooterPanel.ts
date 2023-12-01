@@ -1,4 +1,4 @@
-const $ = require("jquery");
+const uvj$ = require("jquery");
 import { AutoComplete } from "../uv-shared-module/AutoComplete";
 import { IIIFEvents } from "../../IIIFEvents";
 import { OpenSeadragonExtensionEvents } from "../../extensions/uv-openseadragon-extension/Events";
@@ -97,7 +97,7 @@ export class FooterPanel extends BaseFooterPanel {
       this.updateNextButton();
     });
 
-    this.$printButton = $(`
+    this.$printButton = uvj$(`
           <button class="print btn imageBtn" title="${this.content.print}" tabindex="0">
             <i class="uv-icon uv-icon-print" aria-hidden="true"></i>${this.content.print}
           </button>
@@ -105,23 +105,23 @@ export class FooterPanel extends BaseFooterPanel {
     this.$options.prepend(this.$printButton);
 
     // search input.
-    this.$searchContainer = $('<div class="search"></div>');
+    this.$searchContainer = uvj$('<div class="search"></div>');
     this.$element.prepend(this.$searchContainer);
 
-    this.$searchOptions = $('<div class="searchOptions"></div>');
+    this.$searchOptions = uvj$('<div class="searchOptions"></div>');
     this.$searchContainer.append(this.$searchOptions);
 
-    this.$searchLabel = $(
+    this.$searchLabel = uvj$(
       '<label class="label" for="searchWithinInput">' +
       this.content.searchWithin +
       "</label>"
     );
     this.$searchOptions.append(this.$searchLabel);
 
-    this.$searchTextContainer = $('<div class="searchTextContainer"></div>');
+    this.$searchTextContainer = uvj$('<div class="searchTextContainer"></div>');
     this.$searchOptions.append(this.$searchTextContainer);
 
-    this.$searchText = $(
+    this.$searchText = uvj$(
       '<input class="searchText" id="searchWithinInput" autocomplete="off" type="text" maxlength="100" value="' +
       this.content.enterKeyword +
       '" aria-label="' +
@@ -130,62 +130,62 @@ export class FooterPanel extends BaseFooterPanel {
     );
     this.$searchTextContainer.append(this.$searchText);
 
-    this.$searchButton = $(
+    this.$searchButton = uvj$(
       '<button class="imageButton searchButton"></button>'
     );
     this.$searchTextContainer.append(this.$searchButton);
 
     // search results.
-    this.$searchPagerContainer = $('<div class="searchPager"></div>');
+    this.$searchPagerContainer = uvj$('<div class="searchPager"></div>');
     this.$element.prepend(this.$searchPagerContainer);
 
-    this.$searchPagerControls = $('<div class="controls"></div>');
+    this.$searchPagerControls = uvj$('<div class="controls"></div>');
     this.$searchPagerContainer.prepend(this.$searchPagerControls);
 
-    this.$previousResultButton = $(
+    this.$previousResultButton = uvj$(
       '<button class="previousResult">' +
       this.content.previousResult +
       "</button>"
     );
     this.$searchPagerControls.append(this.$previousResultButton);
 
-    this.$searchResultsInfo = $(
+    this.$searchResultsInfo = uvj$(
       '<div class="searchResultsInfo"><span class="info"><span class="number">x</span> <span class="foundFor"></span> \'<span class="terms">y</span>\'</span></div>'
     );
     this.$searchPagerControls.append(this.$searchResultsInfo);
 
-    this.$clearSearchResultsButton = $(
+    this.$clearSearchResultsButton = uvj$(
       '<button class="clearSearch">' + this.content.clearSearch + "</button>"
     );
     this.$searchResultsInfo.append(this.$clearSearchResultsButton);
 
-    this.$nextResultButton = $(
+    this.$nextResultButton = uvj$(
       '<button class="nextResult">' + this.content.nextResult + "</button>"
     );
     this.$searchPagerControls.append(this.$nextResultButton);
 
     // placemarker line.
-    this.$searchResultsContainer = $('<div class="searchResults"></div>');
+    this.$searchResultsContainer = uvj$('<div class="searchResults"></div>');
     this.$element.prepend(this.$searchResultsContainer);
 
-    this.$line = $('<div class="line"></div>');
+    this.$line = uvj$('<div class="line"></div>');
     this.$searchResultsContainer.append(this.$line);
 
-    this.$pagePositionMarker = $('<div class="positionPlacemarker"></div>');
+    this.$pagePositionMarker = uvj$('<div class="positionPlacemarker"></div>');
     this.$searchResultsContainer.append(this.$pagePositionMarker);
 
-    this.$pagePositionLabel = $('<div class="label"></div>');
+    this.$pagePositionLabel = uvj$('<div class="label"></div>');
     this.$searchResultsContainer.append(this.$pagePositionLabel);
 
-    this.$placemarkerDetails = $('<div class="placeMarkerDetails"></div>');
+    this.$placemarkerDetails = uvj$('<div class="placeMarkerDetails"></div>');
     this.$searchResultsContainer.append(this.$placemarkerDetails);
 
-    this.$placemarkerDetailsTop = $(
+    this.$placemarkerDetailsTop = uvj$(
       `<div role="heading" class="heading"></div>`
     );
     this.$placemarkerDetails.append(this.$placemarkerDetailsTop);
 
-    this.$placemarkerDetailsBottom = $("<p></p>");
+    this.$placemarkerDetailsBottom = uvj$("<p></p>");
     this.$placemarkerDetails.append(this.$placemarkerDetailsBottom);
 
     // initialise ui.
@@ -482,7 +482,7 @@ export class FooterPanel extends BaseFooterPanel {
       .parent()
       .find(".current")
       .removeClass("current");
-    const $current: JQuery = $(
+    const $current: JQuery = uvj$(
       '.searchResultPlacemarker[data-index="' +
       this.extension.helper.canvasIndex +
       '"]'
@@ -510,7 +510,7 @@ export class FooterPanel extends BaseFooterPanel {
     for (let i = 0; i < searchResults.length; i++) {
       const result: AnnotationGroup = searchResults[i];
       const distance: number = result.canvasIndex * pageWidth;
-      const $placemarker: JQuery = $(
+      const $placemarker: JQuery = uvj$(
         '<div class="searchResultPlacemarker" tabindex="0" data-index="' +
         result.canvasIndex +
         '"></div>'
@@ -586,7 +586,7 @@ export class FooterPanel extends BaseFooterPanel {
   onPlacemarkerMouseEnter(that: any): void {
     if (that.placemarkerTouched) return;
 
-    const $placemarker: JQuery = $(this);
+    const $placemarker: JQuery = uvj$(this);
 
     $placemarker.addClass("hover");
 
@@ -690,7 +690,7 @@ export class FooterPanel extends BaseFooterPanel {
       OpenSeadragonExtensionEvents.SEARCH_PREVIEW_FINISH
     );
 
-    const $placemarker: JQuery = $(this);
+    const $placemarker: JQuery = uvj$(this);
     const newElement: Element = e.toElement || e.relatedTarget;
     const isChild: number = $(newElement).closest(that.$placemarkerDetails)
       .length;

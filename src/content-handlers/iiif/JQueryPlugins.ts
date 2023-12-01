@@ -1,13 +1,13 @@
-export default function jqueryPlugins($) {
-  $.fn.checkboxButton = function(onClick: (checked: boolean) => void) {
+export default function jqueryPlugins(uvj$) {
+  uvj$.fn.checkboxButton = function(onClick: (checked: boolean) => void) {
     return this.each(function() {
-      const $this: JQuery = $(this);
+      const $this: JQuery = uvj$(this);
 
       $this.on(
         "click",
         function(e) {
           const tagName: string = (<any>e.target).tagName;
-          const $checkbox: JQuery = $(this).find(":checkbox");
+          const $checkbox: JQuery = uvj$(this).find(":checkbox");
 
           if (tagName !== "INPUT") {
             e.preventDefault();
@@ -22,18 +22,18 @@ export default function jqueryPlugins($) {
     });
   };
 
-  $.fn.disable = function() {
+  uvj$.fn.disable = function() {
     return this.each(function() {
-      const $this: JQuery = $(this);
+      const $this: JQuery = uvj$(this);
       $this.addClass("disabled");
       $this.data("tabindex", $this.attr("tabindex"));
       $this.removeAttr("tabindex");
     });
   };
 
-  $.fn.ellipsis = function(chars: number) {
+  uvj$.fn.ellipsis = function(chars: number) {
     return this.each(function() {
-      const $self: JQuery = $(this);
+      const $self: JQuery = uvj$(this);
       const text: string = $self.text();
 
       if (text.length > chars) {
@@ -48,18 +48,18 @@ export default function jqueryPlugins($) {
     });
   };
 
-  $.fn.ellipsisFill = function(text: string) {
+  uvj$.fn.ellipsisFill = function(text: string) {
     let textPassed: boolean = true;
     if (!text) textPassed = false;
 
     return this.each(function() {
-      const $self: JQuery = $(this);
+      const $self: JQuery = uvj$(this);
 
       if (!textPassed) text = $self.text();
 
       $self.empty();
 
-      const $spanElem: JQuery = $('<span title="' + text + '"></span>');
+      const $spanElem: JQuery = uvj$('<span title="' + text + '"></span>');
       $self.append($spanElem);
       $self.css("overflow", "hidden");
       $spanElem.css("white-space", "nowrap");
@@ -82,12 +82,12 @@ export default function jqueryPlugins($) {
   };
 
   // Truncates to a certain number of letters, while ignoring and preserving HTML
-  $.fn.ellipsisHtmlFixed = function(chars: number, cb: Function) {
+  uvj$.fn.ellipsisHtmlFixed = function(chars: number, cb: Function) {
     return this.each(function() {
-      const $self: JQuery = $(this);
+      const $self: JQuery = uvj$(this);
       const expandedText: string = $self.html();
 
-      const $trunc: JQuery = $("<span></span>");
+      const $trunc: JQuery = uvj$("<span></span>");
       $trunc.html(
         $self
           .html()
@@ -111,7 +111,7 @@ export default function jqueryPlugins($) {
       (<any>$self).toggle = function() {
         $self.empty();
 
-        const $toggleButton: JQuery = $('<a href="#" class="toggle"></a>');
+        const $toggleButton: JQuery = uvj$('<a href="#" class="toggle"></a>');
 
         if (expanded) {
           $self.html(expandedText + " ");
@@ -139,15 +139,15 @@ export default function jqueryPlugins($) {
     });
   };
 
-  $.fn.enable = function() {
+  uvj$.fn.enable = function() {
     return this.each(function() {
-      const $self: JQuery = $(this);
+      const $self: JQuery = uvj$(this);
       $self.removeClass("disabled");
       $self.attr("tabindex", $self.data("tabindex"));
     });
   };
 
-  $.fn.equaliseHeight = function(reset: boolean, average: boolean) {
+  uvj$.fn.equaliseHeight = function(reset: boolean, average: boolean) {
     let maxHeight: number = -1;
     let minHeight: number = Number.MAX_VALUE;
     const heights: number[] = [];
@@ -160,7 +160,7 @@ export default function jqueryPlugins($) {
     }
 
     this.each(function() {
-      const currentHeight: number = $(this).height();
+      const currentHeight: number = uvj$(this).height();
       heights.push(currentHeight);
       maxHeight = maxHeight > currentHeight ? maxHeight : currentHeight;
       minHeight = minHeight < currentHeight ? minHeight : currentHeight;
@@ -182,14 +182,14 @@ export default function jqueryPlugins($) {
     }
 
     this.each(function() {
-      $(this).height(finalHeight);
+      uvj$(this).height(finalHeight);
     });
 
     return this;
   };
 
-  $.fn.getVisibleElementWithGreatestTabIndex = function() {
-    const $self: JQuery = $(this);
+  uvj$.fn.getVisibleElementWithGreatestTabIndex = function() {
+    const $self: JQuery = uvj$(this);
 
     let maxTabIndex: number = 0;
     let $elementWithGreatestTabIndex: JQuery | null = null;
@@ -197,7 +197,7 @@ export default function jqueryPlugins($) {
     $self
       .find("*:visible[tabindex]")
       .each(function(index: number, el: Element) {
-        const $el: JQuery = $(el);
+        const $el: JQuery = uvj$(el);
         const tabIndex: number = parseInt($el.attr("tabindex"));
         if (tabIndex > maxTabIndex) {
           maxTabIndex = tabIndex;
@@ -208,71 +208,71 @@ export default function jqueryPlugins($) {
     return $elementWithGreatestTabIndex;
   };
 
-  $.fn.horizontalMargins = function() {
-    const $self: JQuery = $(this);
+  uvj$.fn.horizontalMargins = function() {
+    const $self: JQuery = uvj$(this);
     return (
       parseInt($self.css("marginLeft")) + parseInt($self.css("marginRight"))
     );
   };
 
-  $.fn.leftMargin = function() {
-    const $self: JQuery = $(this);
+  uvj$.fn.leftMargin = function() {
+    const $self: JQuery = uvj$(this);
     return parseInt($self.css("marginLeft"));
   };
 
-  $.fn.rightMargin = function() {
-    const $self: JQuery = $(this);
+  uvj$.fn.rightMargin = function() {
+    const $self: JQuery = uvj$(this);
     return parseInt($self.css("marginRight"));
   };
 
-  $.fn.horizontalPadding = function() {
-    const $self: JQuery = $(this);
+  uvj$.fn.horizontalPadding = function() {
+    const $self: JQuery = uvj$(this);
     return (
       parseInt($self.css("paddingLeft")) + parseInt($self.css("paddingRight"))
     );
   };
 
-  $.fn.leftPadding = function() {
-    const $self: JQuery = $(this);
+  uvj$.fn.leftPadding = function() {
+    const $self: JQuery = uvj$(this);
     return parseInt($self.css("paddingLeft"));
   };
 
-  $.fn.rightPadding = function() {
-    const $self: JQuery = $(this);
+  uvj$.fn.rightPadding = function() {
+    const $self: JQuery = uvj$(this);
     return parseInt($self.css("paddingRight"));
   };
 
-  $.mlp = { x: 0, y: 0 }; // Mouse Last Position
+  uvj$.mlp = { x: 0, y: 0 }; // Mouse Last Position
   function documentHandler() {
-    const $current: JQuery = this === document ? $(this) : $(this).contents();
+    const $current: JQuery = this === document ? uvj$(this) : $(this).contents();
     $current.mousemove(function(e) {
-      $.mlp = { x: e.pageX, y: e.pageY };
+      uvj$.mlp = { x: e.pageX, y: e.pageY };
     });
     $current.find("iframe").on("load", documentHandler);
   }
-  $(documentHandler);
-  $.fn.ismouseover = function() {
+  uvj$(documentHandler);
+  uvj$.fn.ismouseover = function() {
     let result: boolean = false;
     this.eq(0).each(function() {
-      const $current: JQuery = $(this).is("iframe")
-        ? $(this)
+      const $current: JQuery = uvj$(this).is("iframe")
+        ? uvj$(this)
             .contents()
             .find("body")
-        : $(this);
+        : uvj$(this);
       const offset: JQueryCoordinates = $current.offset();
       result =
-        offset.left <= $.mlp.x &&
-        offset.left + $current.outerWidth() > $.mlp.x &&
-        offset.top <= $.mlp.y &&
-        offset.top + $current.outerHeight() > $.mlp.y;
+        offset.left <= uvj$.mlp.x &&
+        offset.left + $current.outerWidth() > uvj$.mlp.x &&
+        offset.top <= uvj$.mlp.y &&
+        offset.top + $current.outerHeight() > uvj$.mlp.y;
     });
     return result;
   };
 
-  let on = $.fn.on;
+  let on = uvj$.fn.on;
   let timer: any;
 
-  $.fn.on = function() {
+  uvj$.fn.on = function() {
     const args: any = Array.apply(null, arguments);
     const last: any = args[args.length - 1];
 
@@ -293,9 +293,9 @@ export default function jqueryPlugins($) {
     return on.apply(this, args);
   };
 
-  $.fn.onEnter = function(cb: Function) {
+  uvj$.fn.onEnter = function(cb: Function) {
     return this.each(function() {
-      const $this: JQuery = $(this);
+      const $this: JQuery = uvj$(this);
 
       $this.on(
         "keyup",
@@ -310,9 +310,9 @@ export default function jqueryPlugins($) {
     });
   };
 
-  $.fn.onPressed = function(cb: Function) {
+  uvj$.fn.onPressed = function(cb: Function) {
     return this.each(function() {
-      const $this: JQuery = $(this);
+      const $this: JQuery = uvj$(this);
 
       $this.on(
         "click",
@@ -337,9 +337,9 @@ export default function jqueryPlugins($) {
   };
 
   // Recursively removes the last empty element (img, audio, etc) or word in an element
-  $.fn.removeLastWord = function(chars: number = 8, depth: number = 0) {
+  uvj$.fn.removeLastWord = function(chars: number = 8, depth: number = 0) {
     return this.each(function() {
-      const $self: JQuery = $(this);
+      const $self: JQuery =uvj$(this);
       if ($self.contents().length > 0) {
         const $lastElement: JQuery = $self.contents().last();
         if ($lastElement[0].nodeType === 3) {
@@ -369,9 +369,9 @@ export default function jqueryPlugins($) {
     });
   };
 
-  $.fn.switchClass = function(class1: string, class2: string) {
+  uvj$.fn.switchClass = function(class1: string, class2: string) {
     return this.each(function() {
-      $(this)
+      uvj$(this)
         .removeClass(class1)
         .addClass(class2);
     });
@@ -392,7 +392,7 @@ export default function jqueryPlugins($) {
     cb: () => void
   ) {
     return this.each(function() {
-      const $self: JQuery = $(this);
+      const $self: JQuery = uvj$(this);
       const expandedText: string = $self.html();
 
       if (chars > expandedText.length) return;
@@ -408,7 +408,7 @@ export default function jqueryPlugins($) {
       (<any>$self).toggle = function() {
         $self.empty();
 
-        const $toggleButton: JQuery = $('<a href="#" class="toggle"></a>');
+        const $toggleButton: JQuery = uvj$('<a href="#" class="toggle"></a>');
 
         if (expanded) {
           $self.html(expandedText + "&nbsp;");
@@ -437,17 +437,17 @@ export default function jqueryPlugins($) {
   };
 
   // Toggle expansion by number of lines
-  $.fn.toggleExpandTextByLines = function(
+  uvj$.fn.toggleExpandTextByLines = function(
     lines: number,
     lessText: string,
     moreText: string,
     cb: () => void
   ) {
     return this.each(function() {
-      const $self: JQuery = $(this);
+      const $self: JQuery = uvj$(this);
       const expandedText: string = $self.html();
       // add 'pad' to account for the right margin in the sidebar
-      const $buttonPad: JQuery = $(
+      const $buttonPad: JQuery = uvj$(
         '<span>&hellip; <a href="#" class="toggle more">morepad</a></span>'
       );
       // when height changes, store string, then pick from line counts
@@ -479,7 +479,7 @@ export default function jqueryPlugins($) {
 
       (<any>$self).toggle = function() {
         $self.empty();
-        const $toggleButton: JQuery = $('<a href="#" class="toggle"></a>');
+        const $toggleButton: JQuery = uvj$('<a href="#" class="toggle"></a>');
         if (expanded) {
           $self.html(expandedText + " ");
           $toggleButton.text(lessText);
@@ -501,21 +501,21 @@ export default function jqueryPlugins($) {
     });
   };
 
-  $.fn.toggleText = function(text1: string, text2: string) {
+  uvj$.fn.toggleText = function(text1: string, text2: string) {
     return this.each(function() {
-      const $self: JQuery = $(this);
+      const $self: JQuery = uvj$(this);
 
       if ($self.text() === text1) {
-        $(this).text(text2);
+        uvj$(this).text(text2);
       } else {
-        $(this).text(text1);
+        uvj$(this).text(text1);
       }
     });
   };
 
-  $.fn.updateAttr = function(attrName: string, oldVal: string, newVal: string) {
+  uvj$.fn.updateAttr = function(attrName: string, oldVal: string, newVal: string) {
     return this.each(function() {
-      const $self: JQuery = $(this);
+      const $self: JQuery = uvj$(this);
       let attr: string = $self.attr(attrName);
 
       if (attr && attr.indexOf(oldVal) === 0) {
@@ -525,15 +525,15 @@ export default function jqueryPlugins($) {
     });
   };
 
-  $.fn.verticalMargins = function() {
-    const $self: JQuery = $(this);
+  uvj$.fn.verticalMargins = function() {
+    const $self: JQuery = uvj$(this);
     return (
       parseInt($self.css("marginTop")) + parseInt($self.css("marginBottom"))
     );
   };
 
-  $.fn.verticalPadding = function() {
-    const $self: JQuery = $(this);
+  uvj$.fn.verticalPadding = function() {
+    const $self: JQuery = uvj$(this);
     return (
       parseInt($self.css("paddingTop")) + parseInt($self.css("paddingBottom"))
     );

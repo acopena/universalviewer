@@ -1,4 +1,4 @@
-const $ = require("jquery");
+const uvj$ = require("jquery");
 import { IIIFEvents } from "../../IIIFEvents";
 import { PDFExtensionEvents } from "../../extensions/uv-pdf-extension/Events";
 //import { FooterPanel } from "../uv-shared-module/FooterPanel";
@@ -51,10 +51,10 @@ export class PDFHeaderPanel extends HeaderPanel {
       }
     );
 
-    this.$prevOptions = $('<div class="prevOptions"></div>');
+    this.$prevOptions = uvj$('<div class="prevOptions"></div>');
     this.$centerOptions.append(this.$prevOptions);
 
-    this.$firstButton = $(`
+    this.$firstButton = uvj$(`
           <button class="btn imageBtn first" tabindex="0" title="${this.content.first}">
             <i class="uv-icon-first" aria-hidden="true"></i>
             <span class="sr-only">${this.content.first}</span>
@@ -63,7 +63,7 @@ export class PDFHeaderPanel extends HeaderPanel {
     this.$prevOptions.append(this.$firstButton);
     this.$firstButton.disable();
 
-    this.$prevButton = $(`
+    this.$prevButton = uvj$(`
           <button class="btn imageBtn prev" tabindex="0" title="${this.content.previous}">
             <i class="uv-icon-prev" aria-hidden="true"></i>
             <span class="sr-only">${this.content.previous}</span>
@@ -72,29 +72,29 @@ export class PDFHeaderPanel extends HeaderPanel {
     this.$prevOptions.append(this.$prevButton);
     this.$prevButton.disable();
 
-    this.$search = $('<div class="search"></div>');
+    this.$search = uvj$('<div class="search"></div>');
     this.$centerOptions.append(this.$search);
 
-    this.$searchText = $(
+    this.$searchText = uvj$(
       '<input class="searchText" maxlength="50" type="text" tabindex="0" aria-label="' +
         this.content.pageSearchLabel +
         '"/>'
     );
     this.$search.append(this.$searchText);
 
-    this.$total = $('<span class="total"></span>');
+    this.$total = uvj$('<span class="total"></span>');
     this.$search.append(this.$total);
 
-    this.$searchButton = $(
+    this.$searchButton = uvj$(
       '<a class="go btn btn-primary" tabindex="0">' + this.content.go + "</a>"
     );
     this.$search.append(this.$searchButton);
     this.$searchButton.disable();
 
-    this.$nextOptions = $('<div class="nextOptions"></div>');
+    this.$nextOptions = uvj$('<div class="nextOptions"></div>');
     this.$centerOptions.append(this.$nextOptions);
 
-    this.$nextButton = $(`
+    this.$nextButton = uvj$(`
           <button class="btn imageBtn next" tabindex="0" title="${this.content.next}">
             <i class="uv-icon-next" aria-hidden="true"></i>
             <span class="sr-only">${this.content.next}</span>
@@ -103,7 +103,7 @@ export class PDFHeaderPanel extends HeaderPanel {
     this.$nextOptions.append(this.$nextButton);
     this.$nextButton.disable();
 
-    this.$lastButton = $(`
+    this.$lastButton = uvj$(`
           <button class="btn imageBtn last" tabindex="0" title="${this.content.last}">
             <i class="uv-icon-last" aria-hidden="true"></i>
             <span class="sr-only">${this.content.last}</span>

@@ -1,4 +1,3 @@
-const $ = require("jquery");
 import { IIIFEvents } from "../../IIIFEvents";
 import { sanitize } from "../../../../Utils";
 import { InformationArgs } from "./InformationArgs";

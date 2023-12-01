@@ -1,4 +1,4 @@
-const $ = require("jquery");
+const uvj$ = require("jquery");
 import { SettingsDialogue as BaseSettingsDialogue } from "../../modules/uv-dialogues-module/SettingsDialogue";
 
 export class SettingsDialogue extends BaseSettingsDialogue {
@@ -24,59 +24,59 @@ export class SettingsDialogue extends BaseSettingsDialogue {
 
     super.create();
 
-    this.$navigatorEnabled = $('<div class="setting navigatorEnabled"></div>');
+    this.$navigatorEnabled = uvj$('<div class="setting navigatorEnabled"></div>');
     this.$scroll.append(this.$navigatorEnabled);
 
     // todo: use .checkboxButton jquery extension
-    this.$navigatorEnabledCheckbox = $(
+    this.$navigatorEnabledCheckbox = uvj$(
       '<input id="navigatorEnabled" type="checkbox" tabindex="0" />'
     );
     this.$navigatorEnabled.append(this.$navigatorEnabledCheckbox);
 
-    this.$navigatorEnabledLabel = $(
+    this.$navigatorEnabledLabel = uvj$(
       '<label for="navigatorEnabled">' +
         this.content.navigatorEnabled +
         "</label>"
     );
     this.$navigatorEnabled.append(this.$navigatorEnabledLabel);
 
-    this.$pagingEnabled = $('<div class="setting pagingEnabled"></div>');
+    this.$pagingEnabled = uvj$('<div class="setting pagingEnabled"></div>');
     this.$scroll.append(this.$pagingEnabled);
 
-    this.$pagingEnabledCheckbox = $(
+    this.$pagingEnabledCheckbox = uvj$(
       '<input id="pagingEnabled" type="checkbox" tabindex="0" />'
     );
     this.$pagingEnabled.append(this.$pagingEnabledCheckbox);
 
-    this.$pagingEnabledLabel = $(
+    this.$pagingEnabledLabel = uvj$(
       '<label for="pagingEnabled">' + this.content.pagingEnabled + "</label>"
     );
     this.$pagingEnabled.append(this.$pagingEnabledLabel);
 
-    this.$clickToZoomEnabled = $('<div class="setting clickToZoom"></div>');
+    this.$clickToZoomEnabled = uvj$('<div class="setting clickToZoom"></div>');
     this.$scroll.append(this.$clickToZoomEnabled);
 
-    this.$clickToZoomEnabledCheckbox = $(
+    this.$clickToZoomEnabledCheckbox = uvj$(
       '<input id="clickToZoomEnabled" type="checkbox" />'
     );
     this.$clickToZoomEnabled.append(this.$clickToZoomEnabledCheckbox);
 
-    this.$clickToZoomEnabledLabel = $(
+    this.$clickToZoomEnabledLabel = uvj$(
       '<label for="clickToZoomEnabled">' +
         this.content.clickToZoomEnabled +
         "</label>"
     );
     this.$clickToZoomEnabled.append(this.$clickToZoomEnabledLabel);
 
-    this.$preserveViewport = $('<div class="setting preserveViewport"></div>');
+    this.$preserveViewport = uvj$('<div class="setting preserveViewport"></div>');
     this.$scroll.append(this.$preserveViewport);
 
-    this.$preserveViewportCheckbox = $(
+    this.$preserveViewportCheckbox = uvj$(
       '<input id="preserveViewport" type="checkbox" tabindex="0" />'
     );
     this.$preserveViewport.append(this.$preserveViewportCheckbox);
 
-    this.$preserveViewportLabel = $(
+    this.$preserveViewportLabel = uvj$(
       '<label for="preserveViewport">' +
         this.content.preserveViewport +
         "</label>"

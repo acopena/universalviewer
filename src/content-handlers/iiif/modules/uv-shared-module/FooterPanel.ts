@@ -1,4 +1,4 @@
-const $ = require("jquery");
+const uvj$ = require("jquery");
 import { IIIFEvents } from "../../IIIFEvents";
 import { BaseView } from "./BaseView";
 import { Bools, Documents } from "@edsilv/utils";
@@ -45,10 +45,10 @@ export class FooterPanel extends BaseView {
       this.updateDownloadButton();
     });
 
-    this.$options = $('<div class="options"></div>');
+    this.$options = uvj$('<div class="options"></div>');
     // this.$element.append(this.$options);
 
-    this.$feedbackButton = $(`
+    this.$feedbackButton = uvj$(`
           <button class="feedback btn imageBtn" title="${this.content.feedback}">
             <i class="uv-icon uv-icon-feedback" aria-hidden="true"></i>
             <span class="sr-only">${this.content.feedback}</span>
@@ -56,7 +56,7 @@ export class FooterPanel extends BaseView {
         `);
     this.$options.prepend(this.$feedbackButton);
 
-    this.$openButton = $(`
+    this.$openButton = uvj$(`
           <button class="open btn imageBtn" title="${this.content.open}">
             <i class="uv-icon-open" aria-hidden="true"></i>
             <span class="sr-only">${this.content.open}</span>
@@ -64,7 +64,7 @@ export class FooterPanel extends BaseView {
         `);
     this.$options.prepend(this.$openButton);
 
-    this.$bookmarkButton = $(`
+    this.$bookmarkButton = uvj$(`
           <button class="bookmark btn imageBtn" title="${this.content.bookmark}">
             <i class="uv-icon uv-icon-bookmark" aria-hidden="true"></i>
             <span class="sr-only">${this.content.bookmark}</span>
@@ -72,7 +72,7 @@ export class FooterPanel extends BaseView {
         `);
     this.$options.prepend(this.$bookmarkButton);
 
-    this.$shareButton = $(`
+    this.$shareButton = uvj$(`
           <button class="share btn imageBtn" title="${this.content.share}">
             <i class="uv-icon uv-icon-share" aria-hidden="true"></i>
             <span class="sr-only">${this.content.share}</span>
@@ -80,7 +80,7 @@ export class FooterPanel extends BaseView {
         `);
     this.$options.append(this.$shareButton);
 
-    this.$embedButton = $(`
+    this.$embedButton = uvj$(`
           <button class="embed btn imageBtn" title="${this.content.embed}">
             <i class="uv-icon uv-icon-embed" aria-hidden="true"></i>
             <span class="sr-only">${this.content.embed}</span>
@@ -88,7 +88,7 @@ export class FooterPanel extends BaseView {
         `);
     this.$options.append(this.$embedButton);
 
-    this.$downloadButton = $(`
+    this.$downloadButton = uvj$(`
           <button class="download btn imageBtn" title="${this.content.download}" id="download-btn">
             <i class="uv-icon uv-icon-download" aria-hidden="true"></i>
             <span class="sr-only">${this.content.download}</span>
@@ -96,7 +96,7 @@ export class FooterPanel extends BaseView {
         `);
     this.$options.prepend(this.$downloadButton);
 
-    this.$moreInfoButton = $(`
+    this.$moreInfoButton = uvj$(`
           <button class="moreInfo btn imageBtn" title="${this.content.moreInfo}">
             <i class="uv-icon uv-icon-more-info" aria-hidden="true"></i>
             <span class="sr-only">${this.content.moreInfo}</span>

@@ -1,4 +1,4 @@
-const $ = require("jquery");
+const uvj$ = require("jquery");
 import { IIIFEvents } from "../../IIIFEvents";
 import { Dialogue } from "../uv-shared-module/Dialogue";
 
@@ -26,7 +26,7 @@ export class ExternalContentDialogue extends Dialogue {
       this.close();
     });
 
-    this.$iframe = $("<iframe></iframe>");
+    this.$iframe = uvj$("<iframe></iframe>");
     this.$content.append(this.$iframe);
 
     this.$element.hide();

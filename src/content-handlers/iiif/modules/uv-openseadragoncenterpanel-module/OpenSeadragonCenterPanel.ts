@@ -1,4 +1,4 @@
-const $ = require("jquery");
+const uvj$ = require("jquery");
 import { AnnotationGroup, AnnotationRect } from "@iiif/manifold";
 import { Async, Bools, Dimensions } from "@edsilv/utils";
 import {
@@ -71,7 +71,7 @@ export class OpenSeadragonCenterPanel extends CenterPanel {
     super.create();
 
     this.viewerId = "osd" + new Date().getTime();
-    this.$viewer = $('<div id="' + this.viewerId + '" class="viewer"></div>');
+    this.$viewer = uvj$('<div id="' + this.viewerId + '" class="viewer"></div>');
     this.$content.prepend(this.$viewer);
     this.isUcc =  this.extension.data.config?.options.isUcc;
     this.extensionHost.subscribe(IIIFEvents.ANNOTATIONS, (args: any) => {
@@ -208,7 +208,7 @@ export class OpenSeadragonCenterPanel extends CenterPanel {
   }
 
   async createUI(): Promise<void> {
-    this.$spinner = $('<div class="spinner"></div>');
+    this.$spinner = uvj$('<div class="spinner"></div>');
     this.$content.append(this.$spinner);
 
     // Transparent pixel
@@ -483,7 +483,7 @@ export class OpenSeadragonCenterPanel extends CenterPanel {
       this.extension.helper.getViewingDirection() ||
       ViewingDirection.LEFT_TO_RIGHT;
 
-    this.$prevButton = $('<div class="paging btn prev" tabindex="0"></div>');
+    this.$prevButton = uvj$('<div class="paging btn prev" tabindex="0"></div>');
 
     if (this.extension.helper.isRightToLeft()) {
       this.$prevButton.prop("title", this.content.next);
@@ -491,7 +491,7 @@ export class OpenSeadragonCenterPanel extends CenterPanel {
       this.$prevButton.prop("title", this.content.previous);
     }
 
-    this.$nextButton = $('<div class="paging btn next" tabindex="0"></div>');
+    this.$nextButton = uvj$('<div class="paging btn next" tabindex="0"></div>');
 
     if (this.extension.helper.isRightToLeft()) {
       this.$nextButton.prop("title", this.content.previous);
@@ -786,7 +786,7 @@ export class OpenSeadragonCenterPanel extends CenterPanel {
       this.showPrevButton();
       this.showNextButton();
 
-      $(".navigator").addClass("extraMargin");
+      uvj$(".navigator").addClass("extraMargin");
 
       const viewingDirection: ViewingDirection =
         this.extension.helper.getViewingDirection() ||
@@ -1265,11 +1265,11 @@ export class OpenSeadragonCenterPanel extends CenterPanel {
   }
 
   highlightAnnotationRect(annotationRect: AnnotationRect): void {
-    const $rect = $(
+    const $rect = uvj$(
       "#annotation-" + annotationRect.canvasIndex + "-" + annotationRect.index
     );
     $rect.addClass("current");
-    $(".annotationRect")
+    uvj$(".annotationRect")
       .not($rect)
       .removeClass("current");
   }

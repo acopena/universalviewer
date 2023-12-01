@@ -1,4 +1,4 @@
-const $ = require("jquery");
+const uvj$ = require("jquery");
 import { isVisible } from "../../../../Utils";
 import { IIIFEvents } from "../../IIIFEvents";
 import { BaseView } from "./BaseView";
@@ -38,13 +38,13 @@ export class Shell extends BaseView {
         "</a>"
     );
 
-    this.$headerPanel = $('<div class="headerPanel"></div>');
+    this.$headerPanel = uvj$('<div class="headerPanel"></div>');
     this.$element.append(this.$headerPanel);
 
-    this.$mainPanel = $('<div class="mainPanel"></div>');
+    this.$mainPanel = uvj$('<div class="mainPanel"></div>');
     this.$element.append(this.$mainPanel);
 
-    this.$centerPanel = $('<div class="centerPanel"></div>');
+    this.$centerPanel = uvj$('<div class="centerPanel"></div>');
     this.$centerPanel.append(
       '<h2 class="sr-only">' +
         this.extension.data.config.content.mediaViewer +
@@ -52,23 +52,23 @@ export class Shell extends BaseView {
     );
     this.$mainPanel.append(this.$centerPanel);
 
-    this.$leftPanel = $('<div class="leftPanel"></div>');
+    this.$leftPanel = uvj$('<div class="leftPanel"></div>');
     this.$mainPanel.append(this.$leftPanel);
 
-    this.$rightPanel = $('<div class="rightPanel"></div>');
+    this.$rightPanel = uvj$('<div class="rightPanel"></div>');
     this.$mainPanel.append(this.$rightPanel);
 
-    this.$footerPanel = $('<div class="footerPanel"></div>');
+    this.$footerPanel = uvj$('<div class="footerPanel"></div>');
     this.$element.append(this.$footerPanel);
 
-    this.$mobileFooterPanel = $('<div class="mobileFooterPanel"></div>');
+    this.$mobileFooterPanel = uvj$('<div class="mobileFooterPanel"></div>');
     this.$element.append(this.$mobileFooterPanel);
 
-    this.$overlays = $('<div class="overlays"></div>');
+    this.$overlays = uvj$('<div class="overlays"></div>');
     this.$element.append(this.$overlays);
     this.$overlays.hide();
 
-    this.$genericDialogue = $(
+    this.$genericDialogue = uvj$(
       '<div class="overlay genericDialogue" aria-hidden="true"></div>'
     );
     this.$overlays.append(this.$genericDialogue);

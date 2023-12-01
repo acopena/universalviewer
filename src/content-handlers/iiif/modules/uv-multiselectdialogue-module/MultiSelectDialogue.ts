@@ -1,4 +1,4 @@
-const $ = require("jquery");
+const uvj$ = require("jquery");
 import { IIIFEvents } from "../../IIIFEvents";
 import { Dialogue } from "../uv-shared-module/Dialogue";
 import OpenSeadragonExtension from "../../extensions/uv-openseadragon-extension/Extension";
@@ -41,11 +41,11 @@ export class MultiSelectDialogue extends Dialogue {
       multiSelectState.setEnabled(false);
     });
 
-    this.$title = $(`<div role="heading" class="heading"></div>`);
+    this.$title = uvj$(`<div role="heading" class="heading"></div>`);
     this.$content.append(this.$title);
     this.$title.text(this.content.title);
 
-    this.$gallery = $('<div class="iiif-gallery-component"></div>');
+    this.$gallery = uvj$('<div class="iiif-gallery-component"></div>');
     this.$content.append(this.$gallery);
 
     this.data = {

@@ -1,4 +1,4 @@
-const $ = require("jquery");
+const uvj$ = require("jquery");
 import { IIIFEvents } from "../../IIIFEvents";
 import { Dialogue } from "../uv-shared-module/Dialogue";
 import { sanitize } from "../../../../Utils";
@@ -41,12 +41,12 @@ export class MoreInfoDialogue extends Dialogue {
     this.config.options = this.extension.data.config.modules.moreInfoRightPanel.options;
 
     // create ui
-    this.$title = $(
+    this.$title = uvj$(
       `<div role="heading" class="heading">${this.config.content.title}</div>`
     );
     this.$content.append(this.$title);
 
-    this.$metadata = $('<div class="iiif-metadata-component"></div>');
+    this.$metadata = uvj$('<div class="iiif-metadata-component"></div>');
     this.$content.append(this.$metadata);
 
     this.metadataComponent = new MetadataComponent({

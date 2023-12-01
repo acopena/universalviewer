@@ -1,4 +1,4 @@
-const $ = require("jquery");
+const uvj$ = require("jquery");
 import { IIIFEvents } from "../../IIIFEvents";
 import { CenterPanel } from "../uv-shared-module/CenterPanel";
 import { sanitize } from "../../../../Utils";
@@ -32,13 +32,13 @@ export class FileLinkCenterPanel extends CenterPanel {
       }
     );
 
-    this.$scroll = $('<div class="scroll"></div>');
+    this.$scroll = uvj$('<div class="scroll"></div>');
     this.$content.append(this.$scroll);
 
-    this.$downloadItems = $("<ol></ol>");
+    this.$downloadItems = uvj$("<ol></ol>");
     this.$scroll.append(this.$downloadItems);
 
-    this.$downloadItemTemplate = $(
+    this.$downloadItemTemplate = uvj$(
       '<li><img/><div class="col2"><a class="filename" target="_blank" download=""></a><span class="label"></span><a class="description" target="_blank" download=""></a></div></li>'
     );
 

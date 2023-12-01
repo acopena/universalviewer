@@ -1,6 +1,6 @@
 import { Dimensions } from "@edsilv/utils";
 
-const $ = require("jquery");
+const uvj$ = require("jquery");
 import { IIIFEvents } from "../../IIIFEvents";
 import { MediaElementExtensionEvents } from "../../extensions/uv-mediaelement-extension/Events";
 import { CenterPanel } from "../uv-shared-module/CenterPanel";
@@ -59,10 +59,10 @@ export class MediaElementCenterPanel extends CenterPanel {
       }
     );
 
-    this.$wrapper = $('<div class="wrapper"></div>');
+    this.$wrapper = uvj$('<div class="wrapper"></div>');
     this.$content.append(this.$wrapper);
 
-    this.$container = $('<div class="container"></div>');
+    this.$container = uvj$('<div class="container"></div>');
     this.$wrapper.append(this.$container);
 
     this.title = this.extension.helper.getLabel();
@@ -123,7 +123,7 @@ export class MediaElementCenterPanel extends CenterPanel {
     }
 
     if (this.isVideo()) {
-      this.$media = $(
+      this.$media = uvj$(
         '<video controls="controls" preload="none" style="width:100%;height:100%;" width="100%" height="100%"></video>'
       );
 
@@ -203,13 +203,13 @@ export class MediaElementCenterPanel extends CenterPanel {
     } else {
       // audio
 
-      this.$media = $(
+      this.$media = uvj$(
         '<audio controls="controls" preload="none" style="width:100%;height:100%;" width="100%" height="100%"></audio>'
       );
 
       for (const source of sources) {
         this.$media.append(
-          $(
+          uvj$(
             `<source src="${source.src}" type="${source.type}" title="${source.label}">`
           )
         );

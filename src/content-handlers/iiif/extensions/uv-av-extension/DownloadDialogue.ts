@@ -1,4 +1,4 @@
-const $ = require("jquery");
+const uvj$ = require("jquery");
 import { DownloadDialogue as BaseDownloadDialogue } from "../../modules/uv-dialogues-module/DownloadDialogue";
 import { DownloadOption } from "../../modules/uv-shared-module/DownloadOption";
 import { IIIFEvents } from "../../IIIFEvents";
@@ -37,22 +37,22 @@ export class DownloadDialogue extends BaseDownloadDialogue {
     this.$downloadOptions.append(this.$entireFileAsOriginal);
     this.$entireFileAsOriginal.hide();
 
-    this.$downloadButton = $(
+    this.$downloadButton = uvj$(
       '<a class="btn btn-primary" href="#" tabindex="0">' +
         this.content.download +
         "</a>"
     );
     this.$buttons.prepend(this.$downloadButton);
-    this.$imageOptionsContainer = $('<li class="group image"></li>');
-    this.$imageOptions = $("<ul></ul>");
+    this.$imageOptionsContainer = uvj$('<li class="group image"></li>');
+    this.$imageOptions = uvj$("<ul></ul>");
     this.$imageOptionsContainer.append(this.$imageOptions);
 
-    this.$canvasOptionsContainer = $('<li class="group canvas"></li>');
-    this.$canvasOptions = $("<ul></ul>");
+    this.$canvasOptionsContainer = uvj$('<li class="group canvas"></li>');
+    this.$canvasOptions = uvj$("<ul></ul>");
     this.$canvasOptionsContainer.append(this.$canvasOptions);
 
-    this.$manifestOptionsContainer = $('<li class="group manifest"></li>');
-    this.$manifestOptions = $("<ul></ul>");
+    this.$manifestOptionsContainer = uvj$('<li class="group manifest"></li>');
+    this.$manifestOptions = uvj$("<ul></ul>");
     this.$manifestOptionsContainer.append(this.$manifestOptions);
 
     const that = this;

@@ -1,4 +1,4 @@
-const $ = require("jquery");
+const uvj$ = require("jquery");
 import { AutoComplete } from "../uv-shared-module/AutoComplete";
 import { IIIFEvents } from "../../IIIFEvents";
 import { OpenSeadragonExtensionEvents } from "../../extensions/uv-openseadragon-extension/Events";
@@ -88,10 +88,10 @@ export class PagingHeaderPanel extends HeaderPanel {
       }
     );
 
-    this.$prevOptions = $('<div class="prevOptions"></div>');
+    this.$prevOptions = uvj$('<div class="prevOptions"></div>');
     this.$centerOptions.append(this.$prevOptions);
 
-    this.$firstButton = $(`
+    this.$firstButton = uvj$(`
           <button class="btn imageBtn first" tabindex="0" title="${this.content.first}">
             <i class="uv-icon-first" aria-hidden="true"></i>
             <span class="sr-only">${this.content.first}</span>
@@ -99,7 +99,7 @@ export class PagingHeaderPanel extends HeaderPanel {
         `);
     this.$prevOptions.append(this.$firstButton);
 
-    this.$prevButton = $(`
+    this.$prevButton = uvj$(`
           <button class="btn imageBtn prev" tabindex="0" title="${this.content.previous}">
             <i class="uv-icon-prev" aria-hidden="true"></i>
             <span class="sr-only">${this.content.previous}</span>
@@ -107,29 +107,29 @@ export class PagingHeaderPanel extends HeaderPanel {
         `);
     this.$prevOptions.append(this.$prevButton);
 
-    this.$modeOptions = $('<div class="mode"></div>');
+    this.$modeOptions = uvj$('<div class="mode"></div>');
     this.$centerOptions.append(this.$modeOptions);
 
-    this.$imageModeLabel = $(
+    this.$imageModeLabel = uvj$(
       '<label for="image">' + this.content.image + "</label>"
     );
     this.$modeOptions.append(this.$imageModeLabel);
-    this.$imageModeOption = $(
+    this.$imageModeOption = uvj$(
       '<input type="radio" id="image" name="mode" tabindex="0"/>'
     );
     this.$modeOptions.append(this.$imageModeOption);
 
-    this.$pageModeLabel = $('<label for="page"></label>');
+    this.$pageModeLabel = uvj$('<label for="page"></label>');
     this.$modeOptions.append(this.$pageModeLabel);
-    this.$pageModeOption = $(
+    this.$pageModeOption = uvj$(
       '<input type="radio" id="page" name="mode" tabindex="0"/>'
     );
     this.$modeOptions.append(this.$pageModeOption);
 
-    this.$search = $('<div class="search"></div>');
+    this.$search = uvj$('<div class="search"></div>');
     this.$centerOptions.append(this.$search);
 
-    this.$searchText = $(
+    this.$searchText = uvj$(
       '<input class="searchText" maxlength="50" type="text" tabindex="0" aria-label="' +
       this.content.pageSearchLabel +
       '"/>'
@@ -138,7 +138,7 @@ export class PagingHeaderPanel extends HeaderPanel {
 
     if (Bools.getBool(this.options.autoCompleteBoxEnabled, true)) {
       this.$searchText.hide();
-      this.$autoCompleteBox = $(
+      this.$autoCompleteBox = uvj$(
         '<input class="autocompleteText" type="text" maxlength="100" aria-label="' +
         this.content.pageSearchLabel +
         '"/>'
@@ -185,11 +185,11 @@ export class PagingHeaderPanel extends HeaderPanel {
         Bools.getBool(this.options.autocompleteAllowWords, false)
       );
     } else if (Bools.getBool(this.options.imageSelectionBoxEnabled, true)) {
-      this.$selectionBoxOptions = $(
+      this.$selectionBoxOptions = uvj$(
         '<div class="image-selectionbox-options"></div>'
       );
       this.$centerOptions.append(this.$selectionBoxOptions);
-      this.$imageSelectionBox = $(
+      this.$imageSelectionBox = uvj$(
         '<select class="image-selectionbox" name="image-select" tabindex="0" ></select>'
       );
       this.$selectionBoxOptions.append(this.$imageSelectionBox);
@@ -224,18 +224,18 @@ export class PagingHeaderPanel extends HeaderPanel {
       });
     }
 
-    this.$total = $('<span class="total"></span>');
+    this.$total = uvj$('<span class="total"></span>');
     this.$search.append(this.$total);
 
-    this.$searchButton = $(
+    this.$searchButton = uvj$(
       `<a class="go btn btn-primary" tabindex="0">${this.content.go}</a>`
     );
     this.$search.append(this.$searchButton);
 
-    this.$nextOptions = $('<div class="nextOptions"></div>');
+    this.$nextOptions = uvj$('<div class="nextOptions"></div>');
     this.$centerOptions.append(this.$nextOptions);
 
-    this.$nextButton = $(`
+    this.$nextButton = uvj$(`
           <button class="btn imageBtn next" tabindex="0" title="${this.content.next}">
             <i class="uv-icon-next" aria-hidden="true"></i>
             <span class="sr-only">${this.content.next}</span>
@@ -243,7 +243,7 @@ export class PagingHeaderPanel extends HeaderPanel {
         `);
     this.$nextOptions.append(this.$nextButton);
 
-    this.$lastButton = $(`
+    this.$lastButton = uvj$(`
           <button class="btn imageBtn last" tabindex="0" title="${this.content.last}">
             <i class="uv-icon-last" aria-hidden="true"></i>
             <span class="sr-only">${this.content.last}</span>
@@ -268,7 +268,7 @@ export class PagingHeaderPanel extends HeaderPanel {
       this.$pageModeLabel.text(this.content.page);
     }
 
-    this.$galleryButton = $(`
+    this.$galleryButton = uvj$(`
           <button class="btn imageBtn gallery" title="${this.content.gallery}">
             <i class="uv-icon-gallery" aria-hidden="true"></i>
             <span class="sr-only">${this.content.gallery}</span>
@@ -276,10 +276,10 @@ export class PagingHeaderPanel extends HeaderPanel {
         `);
     this.$rightOptions.prepend(this.$galleryButton);
 
-    this.$pagingToggleButtons = $('<div class="pagingToggleButtons"></div>');
+    this.$pagingToggleButtons = uvj$('<div class="pagingToggleButtons"></div>');
     this.$rightOptions.prepend(this.$pagingToggleButtons);
 
-    this.$fullScreenBtn = $(`
+    this.$fullScreenBtn = uvj$(`
         <button class="fullScreen btn imageBtn" title="${this.content.fullScreen}">
           <i class="uv-icon uv-icon-fullscreen" aria-hidden="true"></i>
           <span class="sr-only">${this.content.fullScreen}</span>
@@ -288,14 +288,14 @@ export class PagingHeaderPanel extends HeaderPanel {
 
     this.$rightOptions.prepend(this.$fullScreenBtn);
 
-    this.$oneUpButton = $(`
+    this.$oneUpButton = uvj$(`
           <button class="btn imageBtn one-up" title="${this.content.oneUp}">
             <i class="uv-icon-one-up" aria-hidden="true"></i>
             <span class="sr-only">${this.content.oneUp}</span>
           </button>`);
     this.$pagingToggleButtons.append(this.$oneUpButton);
 
-    this.$twoUpButton = $(`
+    this.$twoUpButton = uvj$(`
           <button class="btn imageBtn two-up" title="${this.content.twoUp}">
             <i class="uv-icon-two-up" aria-hidden="true"></i>
             <span class="sr-only">${this.content.twoUp}</span>
