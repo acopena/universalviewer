@@ -12,6 +12,11 @@
 
       "manifests": [
         {
+          "@id": "src/536622.json",
+          "@type": "sc:Manifest",
+          "label": "536622 Items"
+        },       
+        {
           "@id": "src/LACCollection.json",
           "@type": "sc:Manifest",
           "label": "LAC Collection"
@@ -27,9 +32,9 @@
           "label": "LAC Image with rendering to download"
         },        
         {
-          "@id": "https://stdigitalmanifestspr.blob.core.windows.net/manifest/5/84037/manifest.json",
+          "@id": "https://stdigitalmanifests.blob.core.windows.net/manifest/1/536622/manifest.json",
           "@type": "sc:Manifest",
-          "label": "Capital case - LAC images"
+          "label": "LAC digital - 536622"
         },        
         {
           "@id": "src/manifest.json",

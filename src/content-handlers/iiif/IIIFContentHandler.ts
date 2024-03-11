@@ -307,7 +307,10 @@ export default class IIIFContentHandler extends BaseContentHandler<IIIFData>
         ", URI: " + (window.location !== window.parent.location)
           ? document.referrer
           : document.location;
+          
       window.trackingLabel = trackingLabel;
+      console.log('Tracking label');
+      console.log(trackingLabel);
     }
 
 

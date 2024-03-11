@@ -105,6 +105,10 @@ docReady(function() {
         var manifestUrl = z;
 
         var fullUrl = appUri + '#?manifest=' + manifestUrl + '&c=' + ci + '&m=' + mi + '&s=' + si + '&cv=' + cvi + '&config=' + cfg + '&locales=' + dl;
+        if (appUri.indexOf > -1) {
+             fullUrl = appUri + '#&manifest=' + manifestUrl + '&c=' + ci + '&m=' + mi + '&s=' + si + '&cv=' + cvi + '&config=' + cfg + '&locales=' + dl;
+        }
+        
         var iframe = document.createElement('iframe');
         iframe.src = fullUrl;
         iframe.width = ud.style.width;

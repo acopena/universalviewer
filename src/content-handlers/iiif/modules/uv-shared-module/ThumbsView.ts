@@ -271,8 +271,7 @@ export class ThumbsView extends BaseView {
               that.config.options.thumbsCacheInvalidation.paramType
             }t=${Dates.getTimeStamp()}`;
           }
-          console.log(src);
-
+       
           const $img: JQuery = uvj$('<img src="' + src + '" alt="" />');
           // fade in on load.
           $img.hide();
@@ -339,6 +338,7 @@ export class ThumbsView extends BaseView {
 
   selectIndex(index: number): void {
     // may be authenticating
+    console.log(index);
     if (index === -1) return;
     if (!this.thumbs || !this.thumbs.length) return;
     this.getAllThumbs().removeClass("selected");

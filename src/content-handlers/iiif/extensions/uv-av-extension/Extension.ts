@@ -150,7 +150,11 @@ export default class Extension extends BaseExtension implements IAVExtension {
 
   getEmbedScript(template: string, width: number, height: number): string {
     const appUri: string = this.getAppUri();      
-    const iframeSrc: string = `${appUri}#?manifest=${this.helper.manifestUri}&c=${this.helper.collectionIndex}&m=${this.helper.manifestIndex}&cv=${this.helper.canvasIndex}&rid=${this.helper.rangeId}`;
+    let iframeSrc: string = `${appUri}#?manifest=${this.helper.manifestUri}&c=${this.helper.collectionIndex}&m=${this.helper.manifestIndex}&cv=${this.helper.canvasIndex}&rid=${this.helper.rangeId}`;
+    if (appUri.indexOf('?') > -1) {
+      iframeSrc =`${appUri}#&manifest=${this.helper.manifestUri}&c=${this.helper.collectionIndex}&m=${this.helper.manifestIndex}&cv=${this.helper.canvasIndex}&rid=${this.helper.rangeId}`;
+    }
+    
     const script: string = Strings.format(
       template,
       iframeSrc,

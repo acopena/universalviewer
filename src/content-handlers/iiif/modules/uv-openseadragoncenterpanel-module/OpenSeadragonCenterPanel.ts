@@ -74,6 +74,10 @@ export class OpenSeadragonCenterPanel extends CenterPanel {
     this.$viewer = uvj$('<div id="' + this.viewerId + '" class="viewer"></div>');
     this.$content.prepend(this.$viewer);
     this.isUcc =  this.extension.data.config?.options.isUcc;
+    console.log('****this.extension.data****');
+    console.log(this.extension.data);
+
+
     this.extensionHost.subscribe(IIIFEvents.ANNOTATIONS, (args: any) => {
       this.overlayAnnotations();
       // this.zoomToInitialAnnotation();
@@ -1265,11 +1269,11 @@ export class OpenSeadragonCenterPanel extends CenterPanel {
   }
 
   highlightAnnotationRect(annotationRect: AnnotationRect): void {
-    const $rect = uvj$(
+    const $rect = $(
       "#annotation-" + annotationRect.canvasIndex + "-" + annotationRect.index
     );
     $rect.addClass("current");
-    uvj$(".annotationRect")
+    $(".annotationRect")
       .not($rect)
       .removeClass("current");
   }
