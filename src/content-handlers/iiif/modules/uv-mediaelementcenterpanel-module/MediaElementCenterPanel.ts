@@ -1,5 +1,4 @@
 import { Dimensions } from "@edsilv/utils";
-
 const uvj$ = require("jquery");
 import { IIIFEvents } from "../../IIIFEvents";
 import { MediaElementExtensionEvents } from "../../extensions/uv-mediaelement-extension/Events";
@@ -18,7 +17,7 @@ import "mediaelement-plugins/dist/source-chooser/source-chooser";
 import "mediaelement-plugins/dist/source-chooser/source-chooser.css";
 import { TFragment } from "../uv-shared-module/TFragment";
 import { Events } from "../../../../Events";
-
+//import Hls from 'hls.js';
 export class MediaElementCenterPanel extends CenterPanel {
   $wrapper: JQuery;
   $container: JQuery;
@@ -132,21 +131,19 @@ export class MediaElementCenterPanel extends CenterPanel {
         this.$media.append(
           $(`<track label="${subtitle.label}" kind="subtitles" srclang="${subtitle.language
             }" src="${subtitle.id}" ${subtitles.indexOf(subtitle) === 0 ? "default" : ""
-            }>
-`)
-        );
+            }>`)
+        );    
       }
-
+     
       for (const source of sources) {
         this.$media.append(
           $(
-            `<source src="${source.src}" type="${source.type}" title="${source.label}">`
+            `<source src="${source.src}" "type="${source.type}"" title="${source.label}">`
           )
         );
       }
-
+      
       this.$container.append(this.$media);
-
       this.player = new MediaElementPlayer($("video")[0], {
         poster: poster,
         toggleCaptionsButtonWhenOnlyOne: true,

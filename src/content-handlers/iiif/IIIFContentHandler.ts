@@ -125,12 +125,9 @@ export default class IIIFContentHandler extends BaseContentHandler<IIIFData>
     this._extensionRegistry[ExternalResourceType.CANVAS] = Extension.OSD;
     this._extensionRegistry[ExternalResourceType.DOCUMENT] = Extension.PDF;
     this._extensionRegistry[ExternalResourceType.IMAGE] = Extension.OSD;
-    this._extensionRegistry[ExternalResourceType.MOVING_IMAGE] =
-      Extension.MEDIAELEMENT;
-    this._extensionRegistry[ExternalResourceType.PHYSICAL_OBJECT] =
-      Extension.MODELVIEWER;
-    this._extensionRegistry[ExternalResourceType.SOUND] =
-      Extension.MEDIAELEMENT;
+    this._extensionRegistry[ExternalResourceType.MOVING_IMAGE] = Extension.MEDIAELEMENT;
+    this._extensionRegistry[ExternalResourceType.PHYSICAL_OBJECT] = Extension.MODELVIEWER;
+    this._extensionRegistry[ExternalResourceType.SOUND] = Extension.MEDIAELEMENT;
     this._extensionRegistry[MediaType.AUDIO_MP4] = Extension.AV;
     this._extensionRegistry[MediaType.DICOM] = Extension.ALEPH;
     this._extensionRegistry[MediaType.DRACO] = Extension.MODELVIEWER;
@@ -147,7 +144,9 @@ export default class IIIFContentHandler extends BaseContentHandler<IIIFData>
     this._extensionRegistry[MediaType.VIDEO_MP4] = Extension.AV;
     this._extensionRegistry[MediaType.WAV] = Extension.AV;
     this._extensionRegistry[MediaType.WEBM] = Extension.AV;
+    this._extensionRegistry[MediaType.M3U8] = Extension.MEDIAELEMENT;
     this._extensionRegistry[RenderingFormat.PDF] = Extension.PDF;
+    
 
     this.on(
       Events.CREATED,
@@ -184,11 +183,11 @@ export default class IIIFContentHandler extends BaseContentHandler<IIIFData>
     const m = await type.loader();
     const extension: IExtension = new m.default();
     extension.format = format;
-    extension.type = type;
+    extension.type = type; 
     return extension;
   }
 
-  private _getExtensionByFormat(format: string): any {
+  private _getExtensionByFormat(format: string): any {  
     if (!this._extensionRegistry[format]) {
       return this._getExtensionByType(Extension.DEFAULT, format);
     }
@@ -226,6 +225,7 @@ export default class IIIFContentHandler extends BaseContentHandler<IIIFData>
         this.extension.data = newData;
         this.extension.render();
       }
+      
     }
 
 
@@ -309,8 +309,6 @@ export default class IIIFContentHandler extends BaseContentHandler<IIIFData>
           : document.location;
           
       window.trackingLabel = trackingLabel;
-      console.log('Tracking label');
-      console.log(trackingLabel);
     }
 
 
@@ -367,7 +365,7 @@ export default class IIIFContentHandler extends BaseContentHandler<IIIFData>
 
     // if using uv-av-extension and there is no structure, fall back to uv-mediaelement-extension
     const hasRanges: boolean = helper.getRanges().length > 0;
-
+  
     if (extension!.type === Extension.AV && !hasRanges) {
       extension = await that._getExtensionByType(
         Extension.MEDIAELEMENT,
@@ -379,7 +377,7 @@ export default class IIIFContentHandler extends BaseContentHandler<IIIFData>
     if (!extension) {
       extension = await that._getExtensionByFormat(Extension.DEFAULT.name);
     }
-
+    console.log(extension);
     if (!data.locales) {
       data.locales = [];
       data.locales.push(defaultLocale);

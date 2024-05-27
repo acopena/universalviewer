@@ -39,9 +39,6 @@ export default class Extension extends BaseExtension implements IAVExtension {
 
   create(): void {
     super.create();
-
-    //requirejs.config({shim: {'uv/lib/hls.min': { deps: ['require'], exports: "Hls"}}});
-
     this.extensionHost.subscribe(
       IIIFEvents.CANVAS_INDEX_CHANGE,
       (canvasIndex: number) => {
@@ -66,16 +63,18 @@ export default class Extension extends BaseExtension implements IAVExtension {
   }
 
   dependencyLoaded(index: number, dep: any): void {
-    if (index === (<any>this).getDependencyIndex("waveform-data")) {
-      window.WaveformData = dep;
-    } else if (index === (<any>this).getDependencyIndex("hls")) {
-      window.Hls = dep; // https://github.com/mrdoob/three.js/issues/9602
-    }
+
+     if (index === (<any>this).getDependencyIndex("waveform-data")) {
+       window.WaveformData = dep;
+     } else if (index === (<any>this).getDependencyIndex("hls")) {
+       console.log('hls load here......')
+       window.Hls = dep; // https://github.com/mrdoob/three.js/issues/9602
+     }
   }
 
   createModules(): void {
     super.createModules();
-
+    console.log('**** uv-av extensiton ****');   
     if (this.isHeaderPanelEnabled()) {
       this.headerPanel = new HeaderPanel(this.shell.$headerPanel);
     } else {

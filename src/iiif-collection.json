@@ -11,6 +11,12 @@
       
 
       "manifests": [
+                
+        {
+          "@id": "https://dzfp7doimzcyb.cloudfront.net/ecc9d8b0-7cd2-4803-8dbe-60dd16509b27/manifest.json",
+          "@type": "sc:Manifest",
+          "label": "LAC Video m3u8"
+        },
         {
           "@id": "src/536622.json",
           "@type": "sc:Manifest",
@@ -61,7 +67,11 @@
           "@type": "sc:Manifest",
           "label": "LAC local Manifest video"
         },
-
+        {
+          "@id": "src/beethoven.json",
+          "@type": "sc:Manifest",
+          "label": "Beethoevn"
+        },
         {
           "@id": "https://stdigitalmanifestspr.blob.core.windows.net/manifest/5/3352/manifest.json",
           "@type": "sc:Manifest",
