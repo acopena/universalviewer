@@ -28,13 +28,20 @@ export class URLAdapter extends UVAdapter {
   }
 
   public set<T>(key: string, value: T): void {
-    if (!this.readonly) {
-      if (value) {
-        Urls.setHashParameter(key, value, document);
-      } else {
-        const existing = Urls.getHashParameter(key);
-        if (existing !== null) {
-          Urls.setHashParameter(key, "", document);
+    const url = window.location.href;
+    if (url.indexOf(key) == -1) {
+      // console.log('URLAdapters...');
+      // console.log(value);
+      // console.log(key);
+      if (!this.readonly) {
+        if (value) {
+         // Urls.setHashParameter(key, value, document);
+          //console.log(document)
+        } else {
+          const existing = Urls.getHashParameter(key);
+          if (existing !== null) {
+            Urls.setHashParameter(key, "", document);
+          }
         }
       }
     }

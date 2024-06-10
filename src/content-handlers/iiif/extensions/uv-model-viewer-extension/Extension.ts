@@ -265,11 +265,15 @@ export default class ModelViewerExtension extends BaseExtension {
 
   getEmbedScript(template: string, width: number, height: number): string {
     const appUri: string = this.getAppUri();  
-    let iframeSrc: string = `${appUri}#?manifest=${this.helper.manifestUri}&c=${this.helper.collectionIndex}&m=${this.helper.manifestIndex}&cv=${this.helper.canvasIndex}`;
+    let iframeSrc: string = '';
     if (appUri.indexOf('?') > -1) {
       iframeSrc = `${appUri}#&manifest=${this.helper.manifestUri}&c=${this.helper.collectionIndex}&m=${this.helper.manifestIndex}&cv=${this.helper.canvasIndex}`;
     }
-    
+    else {
+      iframeSrc = `${appUri}#?manifest=${this.helper.manifestUri}&c=${this.helper.collectionIndex}&m=${this.helper.manifestIndex}&cv=${this.helper.canvasIndex}`;
+    }
+    console.log(iframeSrc);
+    console.log(iframeSrc.indexOf('?') );
     const script: string = Strings.format(
       template,
       iframeSrc,

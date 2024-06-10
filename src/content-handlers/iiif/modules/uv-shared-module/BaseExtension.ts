@@ -703,17 +703,44 @@ export class BaseExtension implements IExtension {
     return this.data.config.options.seeAlsoEnabled !== false;
   }
 
+  cleanUrlParam(url: string): string | null {
+     let  newUrl : string ='';
+
+    let urlList =url.split('?'); 
+    if (urlList.length >= 3) {
+      for(let x=0; x < urlList.length; x++){
+        if (x==0){
+          newUrl = urlList[x] + "?";
+        }
+        else 
+        {
+          let urlx =urlList[x].replace('&','').replace('#',''); 
+          
+          newUrl += urlx + '&';
+        }
+      }
+     }
+    return newUrl;
+  }
   getShareUrl(): string | null {
     // If not embedded on an external domain (this causes CORS errors when fetching parent url)
+  
+    const currentUrl = window.location.href;
+    let uptUrl = this.cleanUrlParam(currentUrl);    
+    window.history.replaceState(null,"",uptUrl);
+
     if (!this.data.embedded) {
       // Use the current page URL with hash params
       if (Documents.isInIFrame()) {
+        
         return (<any>parent.document).location.href;
       } else {
-        return (<any>document).location.href;
+        return (<any>document.location.href);
+        
       }
     } else {
       // If there's a `related` property of format `text/html` in the manifest
+      
       if (this.helper.hasRelatedPage()) {
         // Use the `related` property in the URL box
         var related: any = this.helper.getRelated();
@@ -722,8 +749,8 @@ export class BaseExtension implements IExtension {
         }
         return related["@id"];
       }
+      
     }
-
     return null;
   }
 
@@ -746,7 +773,7 @@ export class BaseExtension implements IExtension {
   // }
 
   getDomain(): string {
-    const parts: any = Urls.getUrlParts(this.helper.manifestUri);
+    const parts: any = Urls.getUrlParts(this.helper.manifestUri);    
     return parts.host;
   }
 
@@ -755,8 +782,7 @@ export class BaseExtension implements IExtension {
       window.location.protocol +
       "//" +
       window.location.hostname +
-      (window.location.port ? ":" + window.location.port : "");
-    
+      (window.location.port ? ":" + window.location.port : "");     
     return appUri + "/uv.html" ;
   }
 

@@ -380,6 +380,8 @@ export default class OpenSeadragonExtension extends BaseExtension {
             xywh.toString()
           );
           this.data.target = canvas.id + "#xywh=" + xywh.toString();
+          console.log(this.data.target);
+
           this.fire(IIIFEvents.TARGET_CHANGE, this.data.target);
         }
 
@@ -727,6 +729,7 @@ export default class OpenSeadragonExtension extends BaseExtension {
 
       // trigger SET_TARGET which calls fitToBounds(xywh) in OpenSeadragonCenterPanel
       const selector: string = components[1];
+      console.log(selector);
       this.extensionHost.publish(
         IIIFEvents.SET_TARGET,
         XYWHFragment.fromString(selector)
@@ -845,8 +848,7 @@ export default class OpenSeadragonExtension extends BaseExtension {
     // if a highlight param is set, use it to search.
     const highlight: string | undefined = (<IOpenSeadragonExtensionData>(
       this.data
-    )).highlight;
-
+    )).highlight;    
     if (highlight) {
       highlight.replace(/\+/g, " ").replace(/"/g, "");
       this.extensionHost.publish(
@@ -872,9 +874,7 @@ export default class OpenSeadragonExtension extends BaseExtension {
     const isUcc = this.data.config?.options.isUcc;
     if (isUcc) {
       canvasIndex = 0;
-      this.helper.canvasIndex = 0;
-      console.log(canvasIndex)
-      console.log(this.helper.canvasIndex)
+      this.helper.canvasIndex = 0;    
     }
     if (canvasIndex === -1) return;
     let isReload: boolean = false;
@@ -890,9 +890,7 @@ export default class OpenSeadragonExtension extends BaseExtension {
     }
 
     if (this.isPagingSettingEnabled() && !isReload) {
-      console.log('changeCanvas: isPagingSettingEnabled ' + canvasIndex);
       const indices: number[] = this.getPagedIndices(canvasIndex);
-      console.log('changeCanvas: getPagedIndices ' + indices);
       // if the page is already displayed, only advance canvasIndex.
       if (indices.includes(this.helper.canvasIndex)) {
         this.viewCanvas(canvasIndex);
@@ -1370,10 +1368,14 @@ export default class OpenSeadragonExtension extends BaseExtension {
     const config: string = this.data.config.uri || "";
     const locales: string | null = this.getSerializedLocales();
     const appUri: string = this.getAppUri();
-    let iframeSrc: string = `${appUri}#?manifest=${this.helper.manifestUri}&c=${this.helper.collectionIndex}&m=${this.helper.manifestIndex}&cv=${this.helper.canvasIndex}&config=${config}&locales=${locales}&xywh=${zoom}&r=${rotation}`;
+    let iframeSrc :string = '';
     if (appUri.indexOf('?') > -1) {
       iframeSrc = `${appUri}#&manifest=${this.helper.manifestUri}&c=${this.helper.collectionIndex}&m=${this.helper.manifestIndex}&cv=${this.helper.canvasIndex}&config=${config}&locales=${locales}&xywh=${zoom}&r=${rotation}`;
     }
+    else {
+     iframeSrc = `${appUri}#?manifest=${this.helper.manifestUri}&c=${this.helper.collectionIndex}&m=${this.helper.manifestIndex}&cv=${this.helper.canvasIndex}&config=${config}&locales=${locales}&xywh=${zoom}&r=${rotation}`;
+    } 
+    
     const script: string = Strings.format(
       template,
       iframeSrc,
@@ -1426,6 +1428,7 @@ export default class OpenSeadragonExtension extends BaseExtension {
 
     let uri: string = service.id;
     uri = uri + "?q={0}";
+    console.log(uri);
     return uri;
   }
 

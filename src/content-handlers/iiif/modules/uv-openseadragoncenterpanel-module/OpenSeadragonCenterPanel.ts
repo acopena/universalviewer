@@ -74,10 +74,7 @@ export class OpenSeadragonCenterPanel extends CenterPanel {
     this.$viewer = uvj$('<div id="' + this.viewerId + '" class="viewer"></div>');
     this.$content.prepend(this.$viewer);
     this.isUcc =  this.extension.data.config?.options.isUcc;
-    console.log('****this.extension.data****');
-    console.log(this.extension.data);
-
-
+   
     this.extensionHost.subscribe(IIIFEvents.ANNOTATIONS, (args: any) => {
       this.overlayAnnotations();
       // this.zoomToInitialAnnotation();

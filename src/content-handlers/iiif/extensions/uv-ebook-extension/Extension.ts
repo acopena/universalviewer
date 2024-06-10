@@ -144,10 +144,15 @@ export default class Extension extends BaseExtension
 
   getEmbedScript(template: string, width: number, height: number): string {
     const appUri: string = this.getAppUri();       
-    let iframeSrc: string = `${appUri}#?manifest=${this.helper.manifestUri}&cfi=${this.cfiFragement}`;
+    let iframeSrc: string ='';
     if (appUri.indexOf('?') > -1) {
       iframeSrc = `${appUri}#&manifest=${this.helper.manifestUri}&cfi=${this.cfiFragement}`;
     }
+    else {
+      iframeSrc = `${appUri}#?manifest=${this.helper.manifestUri}&cfi=${this.cfiFragement}`;
+    }
+    console.log(iframeSrc);
+    console.log(iframeSrc.indexOf('?') );
     const script: string = Strings.format(
       template,
       iframeSrc,

@@ -92,6 +92,7 @@ docReady(function() {
     //window.isHomeDomain = document.domain === domain;
     var uvDiv = document.getElementsByClassName('uv');
 
+
     Array.prototype.forEach.call(uvDiv, function(ud) {
         var z = ud.getAttribute('data-uri');
         var ci = ud.getAttribute('data-collectionindex') || 0;
@@ -104,11 +105,13 @@ docReady(function() {
         var dl = ud.getAttribute('data-locale');
         var manifestUrl = z;
 
-        var fullUrl = appUri + '#?manifest=' + manifestUrl + '&c=' + ci + '&m=' + mi + '&s=' + si + '&cv=' + cvi + '&config=' + cfg + '&locales=' + dl;
-        if (appUri.indexOf > -1) {
+        var fullUrl = '';
+        if (appUri.indexOf('?') > -1) {
              fullUrl = appUri + '#&manifest=' + manifestUrl + '&c=' + ci + '&m=' + mi + '&s=' + si + '&cv=' + cvi + '&config=' + cfg + '&locales=' + dl;
         }
-        
+        else {
+            fullUrl = appUri + '#?manifest=' + manifestUrl + '&c=' + ci + '&m=' + mi + '&s=' + si + '&cv=' + cvi + '&config=' + cfg + '&locales=' + dl;
+        }      
         var iframe = document.createElement('iframe');
         iframe.src = fullUrl;
         iframe.width = ud.style.width;
