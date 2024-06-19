@@ -144,7 +144,7 @@ export default class Extension extends BaseExtension
       this.rightPanel = new MoreInfoRightPanel(this.shell.$rightPanel);
     }
 
-    console.log('**** uv Mediaelement extensiton ****');   
+    
     if (this.isFooterPanelEnabled()) {
       this.footerPanel = new FooterPanel(this.shell.$footerPanel);
     } else {
@@ -258,8 +258,7 @@ export default class Extension extends BaseExtension
     else {
       iframeSrc = `${appUri}#?manifest=${this.helper.manifestUri}&c=${this.helper.collectionIndex}&m=${this.helper.manifestIndex}&cv=${this.helper.canvasIndex}`;
     }
-    console.log(iframeSrc);
-    console.log(iframeSrc.indexOf('?') );
+    
     const script: string = Strings.format(
       template,
       iframeSrc,

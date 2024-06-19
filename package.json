@@ -106,7 +106,7 @@
     "esbuild-plugin-less": "^1.1.5",
     "esbuild-plugin-svg": "^0.1.0",
     "hls.js": "^1.5.8",
-    "jquery": "3.5.0",
+    "jquery": "3.6.0",
     "jsviews": "0.9.83",
     "less-plugin-clean-css": "^1.5.1",
     "manifesto.js": "^4.2.14",

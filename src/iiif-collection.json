@@ -18,6 +18,11 @@
           "label": "LAC Video m3u8"
         },
         {
+          "@id": "src/manifesm3u8.json",
+          "@type": "sc:Manifest",
+          "label": "LAC local m3u8"
+        },
+        {
           "@id": "src/536622.json",
           "@type": "sc:Manifest",
           "label": "536622 Items"

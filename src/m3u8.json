@@ -1,0 +1,139 @@
+{
+1  "@context": "http://iiif.io/api/presentation/3/context.json",
+  "id": "https://iiif.io/api/cookbook/recipe/0065-opera-multiple-canvases/manifest.json",
+  "type": "Manifest",
+  "label": {
+    "en": [
+      "After One Hundred Years : [incomplete]"
+    ]
+  },
+  "metadata": [
+    {
+      "label": {
+        "en": [
+          "Creator"
+        ]
+      },
+      "value": {
+        "en": [
+          "Ontario Motion Picture Bureau"
+        ]
+      }
+    },
+    {
+      "label": {
+        "en": [
+          "Description"
+        ]
+      },
+      "value": {
+        "en": [
+          "This film commemorates the one hundredth anniversary of the University of Toronto in 1927.  The first scene shows a re-enactment of the founding of the University by John Strachan in 1827.  One hundred years later, the Board of Governors are seen in a meeting room.  An animated drawing shows the new buildings and colleges that have become part of the University in the past one hundred years.  Simcoe Hall and the Senate Chamber are shown.  A new student is seen in the Registrar's Office where he can register in Arts, Medicine or Applied Science and Engineering.  Activities in the large swimming pool at Hart House are shown, including water polo and diving.  Also seen is the Great Hall where people are eating.  Scenes of a dramatic production at Hart House Theatre are shown.  Nearby is the Soldiers' Tower which commemorates those University men and women who died in the Great War.  The football team is seen playing at the University stadium.  A parade celebrating the hockey team's victory in the Dominion Championship is shown; among those celebrating are women's Intercollegiate Championship hockey team.  Shots of the denominational colleges federated with the University are shown (Victoria, Trinity and Saint Michael's Colleges).  Apart from the students attending the University are those taking courses through the extension department.  The crisis in University life comes with examinations; students are seen writing in a large room.  Finally, graduation comes; students are seen lined up for the procession and then inside Convocation Hall.  To celebrate, everyone attends the garden party.  An intertitle announces that, \"The University is celebtrating its Centenary on October 6, 7, 8.\"  The final title asks, \"Will you come?\"   <14mn 33s>"
+        ]
+      }
+    },
+    {
+      "label": {
+        "en": [
+          "Date Issued"
+        ]
+      },
+      "value": {
+        "en": [
+          ""
+        ]
+      }
+    },
+    {
+      "label": {
+        "en": [
+          "Publisher"
+        ]
+      },
+      "value": {
+        "en": [
+          "Ontario Motion Picture Bureau"
+        ]
+      }
+    },
+    {
+      "label": {
+        "en": [
+          "Language"
+        ]
+      },
+      "value": {
+        "en": [
+          "eng"
+        ]
+      }
+    },
+    {
+      "label": {
+        "en": [
+          "Restriction On Access"
+        ]
+      },
+      "value": {
+        "en": [
+          "Open for consultation"
+        ]
+      }
+    },
+    {
+      "label": {
+        "en": [
+          "Terms of Use Copyright"
+        ]
+      },
+      "value": {
+        "en": [
+          "Copyright expired."
+        ]
+      }
+    },
+    {
+      "label": {
+        "en": [
+          "Terms of Use Restrictions"
+        ]
+      },
+      "value": {
+        "en": [
+          "with written permission of copyright owner : with permission of Library and Archives Canada"
+        ]
+      }
+    }
+  ],
+  "items": [
+    {
+      "id": "https://iiif.io/api/cookbook/recipe/0065-opera-multiple-canvases/canvas",
+      "type": "Canvas",
+      "height": 360,
+      "width": 640,
+      "duration": 1780.708,
+      "items": [
+        {
+          "id": "https://iiif.io/api/cookbook/recipe/0065-opera-multiple-canvases/canvas/page",
+          "type": "AnnotationPage",
+          "items": [
+            {
+              "id": "https://iiif.io/api/cookbook/recipe/0065-opera-multiple-canvases/canvas/page/annotation",
+              "type": "Annotation",
+              "motivation": "painting",
+              "body": {
+                "id": "https://dzfp7doimzcyb.cloudfront.net/ecc9d8b0-7cd2-4803-8dbe-60dd16509b27/playlist.m3u8",
+                "type": "Video",
+                "format": "video/mp4",
+                "height": 360,
+                "width": 480,
+                "duration": 1780.708
+              },
+              "target": "https://iiif.io/api/cookbook/recipe/0065-opera-multiple-canvases/canvas"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

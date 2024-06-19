@@ -206,12 +206,12 @@ export default class IIIFContentHandler extends BaseContentHandler<IIIFData>
         console.warn(`iiifManifestId is required.`);
         return;
       }
-      console.log(data);
+      
       this._reload(data);
     } else {
       // changing any of these data properties forces the UV to reload.
       const newData: IUVData = Object.assign({}, this.extension.data, data);
-      console.log(newData);
+      
       if (
         newData.isReload ||
         newData.iiifManifestId !== this.extension.data.iiifManifestId ||
@@ -310,8 +310,7 @@ export default class IIIFContentHandler extends BaseContentHandler<IIIFData>
           : document.location;
           
       window.trackingLabel = trackingLabel;
-      console.log(window.trackingLabel);
-      console.log(document.location);
+      
     }
 
 
@@ -380,7 +379,7 @@ export default class IIIFContentHandler extends BaseContentHandler<IIIFData>
     if (!extension) {
       extension = await that._getExtensionByFormat(Extension.DEFAULT.name);
     }
-    console.log(extension);
+  
     if (!data.locales) {
       data.locales = [];
       data.locales.push(defaultLocale);

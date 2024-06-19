@@ -380,8 +380,7 @@ export default class OpenSeadragonExtension extends BaseExtension {
             xywh.toString()
           );
           this.data.target = canvas.id + "#xywh=" + xywh.toString();
-          console.log(this.data.target);
-
+          
           this.fire(IIIFEvents.TARGET_CHANGE, this.data.target);
         }
 
