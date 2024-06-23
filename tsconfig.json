@@ -5,8 +5,7 @@
     "paths": {
       "@/*": ["src/*"]
     },
-    "allowSyntheticDefaultImports": true,
-    "ignoreDeprecations": "5.0",
+    "allowSyntheticDefaultImports": true,    
     "incremental": true,
     "lib": ["ES2015", "DOM"],
     "module": "ESNext",
