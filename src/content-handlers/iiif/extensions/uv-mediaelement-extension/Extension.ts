@@ -193,6 +193,8 @@ export default class Extension extends BaseExtension
   checkForTarget(): void {
     if (this.data.target) {
       // Split target into canvas id and selector
+      console.log(this.data);
+      console.log(this.helper);
       const components: string[] = this.data.target.split("#");
       const canvasId: string = components[0];
 

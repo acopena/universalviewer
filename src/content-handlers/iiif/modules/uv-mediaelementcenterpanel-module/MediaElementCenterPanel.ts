@@ -17,6 +17,7 @@ import "mediaelement-plugins/dist/source-chooser/source-chooser";
 import "mediaelement-plugins/dist/source-chooser/source-chooser.css";
 import { TFragment } from "../uv-shared-module/TFragment";
 import { Events } from "../../../../Events";
+
 //import Hls from 'hls.js';
 export class MediaElementCenterPanel extends CenterPanel {
   $wrapper: JQuery;
@@ -51,6 +52,7 @@ export class MediaElementCenterPanel extends CenterPanel {
       that.player.play();
     });
 
+
     this.extensionHost.subscribe(
       IIIFEvents.OPEN_EXTERNAL_RESOURCE,
       (resources: IExternalResource[]) => {
@@ -67,15 +69,13 @@ export class MediaElementCenterPanel extends CenterPanel {
     this.title = this.extension.helper.getLabel();
   }
 
+
   async openMedia(resources: IExternalResource[]) {
     const that = this;
-
     await this.extension.getExternalResources(resources);
-
     this.$container.empty();
 
     const canvas: Canvas = this.extension.helper.getCurrentCanvas();
-
     this.mediaHeight = this.config.defaultHeight;
     this.mediaWidth = this.config.defaultWidth;
 
@@ -93,21 +93,22 @@ export class MediaElementCenterPanel extends CenterPanel {
 
     if (renderings && renderings.length) {
       canvas.getRenderings().forEach((rendering: Rendering) => {
+
         sources.push({
           type: rendering.getFormat().toString(),
           src: rendering.id,
         });
       });
+
     } else {
       const formats: AnnotationBody[] | null = this.extension.getMediaFormats(
         this.extension.helper.getCurrentCanvas()
       );
 
+
       if (formats && formats.length) {
         formats.forEach((format: AnnotationBody) => {
           const type: MediaType | null = format.getFormat();
-
-          // Add any additional subtitle types if required.
           if (type && type.toString() === "text/vtt") {
             subtitles.push(format.__jsonld);
           } else if (type) {
@@ -132,17 +133,36 @@ export class MediaElementCenterPanel extends CenterPanel {
           $(`<track label="${subtitle.label}" kind="subtitles" srclang="${subtitle.language
             }" src="${subtitle.id}" ${subtitles.indexOf(subtitle) === 0 ? "default" : ""
             }>`)
-        );    
+        );
       }
-     
+
       for (const source of sources) {
+        //Added by Albert Opena
+        //This will get the actual url playlist from Central
+        await this.getVideoUrlFromCentral(source.src).then((data) => {
+          if (data == undefined) {
+            source.src = this.getM3U8url(source.src); 
+            console.log(source.src);
+          }
+          else {
+            console.log(data);
+            source.src = data;
+          }
+        })        
+        .catch( (error) => {
+          console.log('errror encountered');
+          console.log(error);
+           source.src = this.getM3U8url(source.src);
+        })
+        //***** End  */
+
         this.$media.append(
           $(
             `<source src="${source.src}" "type="${source.type}"" title="${source.label}">`
           )
         );
       }
-      
+
       this.$container.append(this.$media);
       this.player = new MediaElementPlayer($("video")[0], {
         poster: poster,
@@ -200,11 +220,26 @@ export class MediaElementCenterPanel extends CenterPanel {
     } else {
       // audio
 
+      console.log('********* Audio part *********')
       this.$media = uvj$(
         '<audio controls="controls" preload="none" style="width:100%;height:100%;" width="100%" height="100%"></audio>'
       );
 
       for (const source of sources) {
+         //Added by Albert Opena
+        //This will get the actual url playlist from Central
+        await this.getVideoUrlFromCentral(source.src).then((data) => {
+          if (data == undefined) {
+            source.src = this.getM3U8url(source.src);           
+          }
+          else {           
+            source.src = data;
+          }          
+        })   
+        .catch( (error) => {        
+           source.src = this.getM3U8url(source.src);
+        })
+        //***** End  */
         this.$media.append(
           uvj$(
             `<source src="${source.src}" type="${source.type}" title="${source.label}">`
@@ -269,6 +304,36 @@ export class MediaElementCenterPanel extends CenterPanel {
 
     this.extensionHost.publish(Events.EXTERNAL_RESOURCE_OPENED);
     this.extensionHost.publish(Events.LOAD);
+  }
+
+
+
+  getM3U8url(bodyId: string) {
+    let m3u8Url = bodyId;
+    console.log('url to get value from central :' + bodyId);
+    let urlBody = new URL(bodyId.toLocaleLowerCase());
+    const idx: string | null = urlBody.searchParams.get('id');
+    console.log('getm3u8 url ID:' + idx);
+    if (idx && idx.length >= 30) {
+      m3u8Url = "https://d34nlrv9tbrf93.cloudfront.net/" + idx + "/playlist.m3u8";
+    }
+    return m3u8Url;
+  }
+
+  async getVideoUrlFromCentral(urlId: string) {
+    let result;
+    try {
+      result = await $.ajax({
+        url: urlId,
+        type: 'GET',
+      });
+      return result;
+    }
+    catch (error) {
+      console.log(error)
+      return result;
+    }
+
   }
 
   isVideo(): boolean {

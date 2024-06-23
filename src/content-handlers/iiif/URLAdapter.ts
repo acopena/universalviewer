@@ -29,10 +29,7 @@ export class URLAdapter extends UVAdapter {
 
   public set<T>(key: string, value: T): void {
     const url = window.location.href;
-    if (url.indexOf(key) == -1) {
-      // console.log('URLAdapters...');
-      // console.log(value);
-      // console.log(key);
+    if (url.indexOf(key) == -1) {     
       if (!this.readonly) {
         if (value) {
          // Urls.setHashParameter(key, value, document);

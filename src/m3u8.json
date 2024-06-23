@@ -1,5 +1,5 @@
 {
-1  "@context": "http://iiif.io/api/presentation/3/context.json",
+  "@context": "http://iiif.io/api/presentation/3/context.json",
   "id": "https://iiif.io/api/cookbook/recipe/0065-opera-multiple-canvases/manifest.json",
   "type": "Manifest",
   "label": {
@@ -122,8 +122,8 @@
               "type": "Annotation",
               "motivation": "painting",
               "body": {
-                "id": "https://dzfp7doimzcyb.cloudfront.net/ecc9d8b0-7cd2-4803-8dbe-60dd16509b27/playlist.m3u8",
-                "type": "Video",
+                "id": "https://central-d.dev.bac-lac.gc.ca/.item?op=video&app=fvs&id=1055033e-f01b-4f7c-ab00-c666c06fec22",
+                "type": "Audio",
                 "format": "video/mp4",
                 "height": 360,
                 "width": 480,

@@ -696,7 +696,9 @@ export class BaseExtension implements IExtension {
 
   // re-bootstraps the application with new querystring params
   reload(data?: IUVData): void {  
+    
     this.extensionHost.publish(Events.RELOAD, data);
+   
   }
 
   isSeeAlsoEnabled(): boolean {
@@ -892,7 +894,7 @@ export class BaseExtension implements IExtension {
 
     indices.forEach((index: number) => {
       //const canvas: Canvas = this.helper.getCanvasByIndex(index);
-      const canvas: Canvas = this.isUcc? this.helper.getCanvasByIndex(0) : this.helper.getCurrentCanvas();
+      const canvas: Canvas = this.isUcc? this.helper.getCanvasByIndex(0) : this.helper.getCanvasByIndex(index);
       let r: IExternalResource;
 
       if (!canvas.externalResource) {

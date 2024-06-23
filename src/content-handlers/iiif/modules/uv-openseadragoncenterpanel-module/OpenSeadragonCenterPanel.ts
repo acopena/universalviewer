@@ -77,13 +77,15 @@ export class OpenSeadragonCenterPanel extends CenterPanel {
    
     this.extensionHost.subscribe(IIIFEvents.ANNOTATIONS, (args: any) => {
       this.overlayAnnotations();
-      // this.zoomToInitialAnnotation();
+      this.zoomToInitialAnnotation();
     });
 
     this.extensionHost.subscribe(
       IIIFEvents.SETTINGS_CHANGE,
       (args: ISettings) => {
+      
         this.viewer.gestureSettingsMouse.clickToZoom = args.clickToZoomEnabled;
+        
       }
     );
 
@@ -187,6 +189,7 @@ export class OpenSeadragonCenterPanel extends CenterPanel {
   }
 
   zoomIn(): void {
+    console.log('zoom click');
     this.viewer.viewport.zoomTo(this.viewer.viewport.getZoom(true) * 2);
   }
 
@@ -427,7 +430,7 @@ export class OpenSeadragonCenterPanel extends CenterPanel {
     //this.viewer.addHandler("open-failed", () => {
     //});
 
-    this.viewer.addHandler("resize", (viewer: any) => {
+    this.viewer.addHandler("resize", (viewer: any) => {      
       this.extensionHost.publish(
         OpenSeadragonExtensionEvents.OPENSEADRAGON_RESIZE,
         viewer
@@ -435,21 +438,21 @@ export class OpenSeadragonCenterPanel extends CenterPanel {
       this.viewerResize(viewer);
     });
 
-    this.viewer.addHandler("animation-start", (viewer: any) => {
+    this.viewer.addHandler("animation-start", (viewer: any) => {      
       this.extensionHost.publish(
         OpenSeadragonExtensionEvents.OPENSEADRAGON_ANIMATION_START,
         viewer
       );
     });
 
-    this.viewer.addHandler("animation", (viewer: any) => {
+    this.viewer.addHandler("animation", (viewer: any) => {      
       this.extensionHost.publish(
         OpenSeadragonExtensionEvents.OPENSEADRAGON_ANIMATION,
         viewer
       );
     });
 
-    this.viewer.addHandler("animation-finish", (viewer: any) => {
+    this.viewer.addHandler("animation-finish", (viewer: any) => {      
       this.currentBounds = this.getViewportBounds();
 
       this.updateVisibleAnnotationRects();
@@ -564,13 +567,6 @@ export class OpenSeadragonCenterPanel extends CenterPanel {
       console.log('next button press');
       this.controlsVisible = true;
       this.viewer.setControlsEnabled(true);
-
-
-      // const fireEvent = () => {
-      //   EventRegister.emit('itemChanged');
-
-      // };
-
     });
   } 
 
@@ -578,8 +574,7 @@ export class OpenSeadragonCenterPanel extends CenterPanel {
     return new Promise<any>((resolve) => {
       let canvas: Canvas = this.extension.helper.getCurrentCanvas();
       const annotations: Annotation[] = canvas.getContent();
-      console.log('annotations');
-      console.log(annotations);
+
       if (annotations.length) {
         const annotation: Annotation = annotations[0];
         const body: AnnotationBody[] = annotation.getBody();
@@ -650,12 +645,16 @@ export class OpenSeadragonCenterPanel extends CenterPanel {
     
     let mediaItem  = this.extension.helper.manifest?.items[0].items[0] as Canvas;  
 
+    //Albert Opena added
+    // Update this.extension.format
     if (mediaItem != undefined) {
       //let mediaData  = mediaItem[this.extension.helper.canvasIndex]['__jsonld'];
       let mediaData  = mediaItem['__jsonld'];
       //console.log('index :' +  this.extension.helper.canvasIndex);     
       this.extension.format = mediaData.format;
     }
+    // ****** end
+
     let isGirder: boolean = this.extension.format === MediaType.GIRDER;    
   
 
@@ -819,9 +818,7 @@ export class OpenSeadragonCenterPanel extends CenterPanel {
         }
       }
     }
-    else {
-      console.log('*** this is not multicanvas ***')
-    }
+    
 
     this.setNavigatorVisible();
 
@@ -1044,8 +1041,7 @@ export class OpenSeadragonCenterPanel extends CenterPanel {
           break;
         }
       }
-    }
-    console.log(annotationsForCurrentImages);
+    }    
     return annotationsForCurrentImages;
   }
 
@@ -1228,7 +1224,7 @@ export class OpenSeadragonCenterPanel extends CenterPanel {
       annotationRect;
     (this
       .extension as OpenSeadragonExtension).currentAnnotationRect = annotationRect;
-
+console.log('******** ZOOM IN *******')
     // if zoomToBoundsEnabled, zoom to the annotation's bounds.
     // otherwise, pan into view preserving the current zoom level.
     if (

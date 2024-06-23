@@ -60,7 +60,7 @@ export class HeaderPanel extends BaseView {
           </button>
         `);
     this.$settingsButton.attr("title", this.content.settings);
-    this.$rightOptions.append(this.$settingsButton);
+   this.$rightOptions.append(this.$settingsButton);
 
     this.$informationBox = uvj$(
       '<div class="informationBox" aria-hidden="true"> \
@@ -99,7 +99,7 @@ export class HeaderPanel extends BaseView {
     }
 
     this.updateLocaleToggle();
-    this.updateSettingsButton();
+    //this.updateSettingsButton();
   }
 
   updateLocaleToggle(): void {

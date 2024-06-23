@@ -11,27 +11,28 @@
       
 
       "manifests": [
-                
         {
-          "@id": "https://dzfp7doimzcyb.cloudfront.net/ecc9d8b0-7cd2-4803-8dbe-60dd16509b27/manifest.json",
+          "@id": "https://wellcomelibrary.org/iiif/b19684538/manifest",
           "@type": "sc:Manifest",
-          "label": "LAC Video m3u8"
+          "label": "Pseudo-Albert the Great (folio)"
         },
         {
-          "@id": "src/manifesm3u8.json",
+          "@id": "src/m3u8.json",
           "@type": "sc:Manifest",
           "label": "LAC local m3u8"
-        },
-        {
-          "@id": "src/536622.json",
-          "@type": "sc:Manifest",
-          "label": "536622 Items"
         },       
+     
         {
           "@id": "src/LACCollection.json",
           "@type": "sc:Manifest",
           "label": "LAC Collection"
-        },        
+        },       
+     
+        {
+          "@id": "src/536622.json",
+          "@type": "sc:Manifest",
+          "label": "536622 Items"
+        },             
         {
           "@id": "src/LACPdf.json",
           "@type": "sc:Manifest",
@@ -42,11 +43,7 @@
           "@type": "sc:Manifest",
           "label": "LAC Image with rendering to download"
         },        
-        {
-          "@id": "https://stdigitalmanifests.blob.core.windows.net/manifest/1/536622/manifest.json",
-          "@type": "sc:Manifest",
-          "label": "LAC digital - 536622"
-        },        
+        
         {
           "@id": "src/manifest.json",
           "@type": "sc:Manifest",

@@ -10,7 +10,7 @@ export class SettingsDialogue extends Dialogue {
   $scroll: JQuery;
   $title: JQuery;
   $version: JQuery;
-  $website: JQuery;
+  // $website: JQuery;
 
   // Accessibility elements
   $reducedAnimation: JQuery;
@@ -51,8 +51,8 @@ export class SettingsDialogue extends Dialogue {
     this.$version = uvj$('<div class="version"></div>');
     this.$content.append(this.$version);
 
-    this.$website = uvj$('<div class="website"></div>');
-    this.$content.append(this.$website);
+    // this.$website = uvj$('<div class="website"></div>');
+    // this.$content.append(this.$website);
 
     this.$locale = uvj$('<div class="setting locale"></div>');
     this.$scroll.append(this.$locale);
@@ -68,8 +68,8 @@ export class SettingsDialogue extends Dialogue {
     // initialise ui.
     this.$title.text(this.content.title);
 
-    this.$website.html(this.content.website);
-    this.$website.targetBlank();
+    // this.$website.html(this.content.website);
+    // this.$website.targetBlank();
 
     this._createLocalesMenu();
 

@@ -286,7 +286,8 @@ export default class IIIFContentHandler extends BaseContentHandler<IIIFData>
 
     // empty the containing element
     $elem.empty();
-
+    
+   
     const that = this;
   
     const helper: Helper = await loadManifest({
@@ -299,7 +300,6 @@ export default class IIIFContentHandler extends BaseContentHandler<IIIFData>
       isUcc: true,
       locale: data.locales ? data.locales[0].name : undefined,
     } as IManifoldOptions);
-
 
     let trackingLabel: string | null = helper.getTrackingLabel();
 
@@ -392,6 +392,8 @@ export default class IIIFContentHandler extends BaseContentHandler<IIIFData>
     // UCC functionality
     let cIndex = data.config?.options.canvasIndex;
     let isUCC = data.config?.options['isUcc'];
+
+  
     
     if (!isUCC) {
       if (cIndex) {
@@ -406,12 +408,12 @@ export default class IIIFContentHandler extends BaseContentHandler<IIIFData>
         helper.manifest?.items[0].items.splice(0, helper.getCanvases().length);
         helper.manifest?.items[0].items.push(newCanvas);
         helper.canvasIndex = 0;
-        helper.collectionIndex =0;
+        helper.collectionIndex = 0;
         
         sessionStorage.setItem('UVCurrentIndex', data.canvasIndex.toString());  
       }
     }   
-
+   
     //***** UCC end functionality
 
     that._createExtension(extension, data, helper);

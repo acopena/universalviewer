@@ -728,7 +728,6 @@ export default class OpenSeadragonExtension extends BaseExtension {
 
       // trigger SET_TARGET which calls fitToBounds(xywh) in OpenSeadragonCenterPanel
       const selector: string = components[1];
-      console.log(selector);
       this.extensionHost.publish(
         IIIFEvents.SET_TARGET,
         XYWHFragment.fromString(selector)
@@ -875,6 +874,7 @@ export default class OpenSeadragonExtension extends BaseExtension {
       canvasIndex = 0;
       this.helper.canvasIndex = 0;    
     }
+
     if (canvasIndex === -1) return;
     let isReload: boolean = false;
 
@@ -883,8 +883,7 @@ export default class OpenSeadragonExtension extends BaseExtension {
     }
 
     if (this.helper.isCanvasIndexOutOfRange(canvasIndex)) {
-      this.showMessage(this.data.config.content.canvasIndexOutOfRange);
-      this.showMessage(this.data.config.content.canvasIndexOutOfRange);
+      this.showMessage(this.data.config.content.canvasIndexOutOfRange);      
       canvasIndex = 0;
     }
 
@@ -1367,14 +1366,8 @@ export default class OpenSeadragonExtension extends BaseExtension {
     const config: string = this.data.config.uri || "";
     const locales: string | null = this.getSerializedLocales();
     const appUri: string = this.getAppUri();
-    let iframeSrc :string = '';
-    if (appUri.indexOf('?') > -1) {
-      iframeSrc = `${appUri}#&manifest=${this.helper.manifestUri}&c=${this.helper.collectionIndex}&m=${this.helper.manifestIndex}&cv=${this.helper.canvasIndex}&config=${config}&locales=${locales}&xywh=${zoom}&r=${rotation}`;
-    }
-    else {
-     iframeSrc = `${appUri}#?manifest=${this.helper.manifestUri}&c=${this.helper.collectionIndex}&m=${this.helper.manifestIndex}&cv=${this.helper.canvasIndex}&config=${config}&locales=${locales}&xywh=${zoom}&r=${rotation}`;
-    } 
-    
+    const iframeSrc: string = `${appUri}#?manifest=${this.helper.manifestUri}&c=${this.helper.collectionIndex}&m=${this.helper.manifestIndex}&cv=${this.helper.canvasIndex}&config=${config}&locales=${locales}&xywh=${zoom}&r=${rotation}`;
+     
     const script: string = Strings.format(
       template,
       iframeSrc,
@@ -1575,8 +1568,6 @@ export default class OpenSeadragonExtension extends BaseExtension {
   getPagedIndices(canvasIndex: number = this.helper.canvasIndex): number[] {
     // todo: get these from the store (inc canvasIndex)
     const sequence = this.helper.manifest!.getSequences()[0];
-
-
     let isUCC = false;
     let uccIndex = 0;
     if (this.data.config?.options['is-ucc']) {
@@ -1592,6 +1583,7 @@ export default class OpenSeadragonExtension extends BaseExtension {
     else {
       canvases = sequence.getCanvases();
     }
+   
 
 
     const paged = !!this.getSettings().pagingEnabled;
