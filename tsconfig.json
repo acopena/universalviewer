@@ -6,6 +6,7 @@
       "@/*": ["src/*"]
     },
     "allowSyntheticDefaultImports": true,
+    "ignoreDeprecations": "5.0",
     "incremental": true,
     "lib": ["ES2015", "DOM"],
     "module": "ESNext",
