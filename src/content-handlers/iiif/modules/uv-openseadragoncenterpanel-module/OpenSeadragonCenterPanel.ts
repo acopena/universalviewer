@@ -629,6 +629,10 @@ export class OpenSeadragonCenterPanel extends CenterPanel {
     });
   }
 
+  getManifestItemBody(item) {
+    const itemLevel1 = item[0].items;
+    return itemLevel1[0].body;    
+  }
   async openMedia(resources?: IExternalResource[]): Promise<void> {
     // uv may have been unloaded
     if (!this.viewer) {
@@ -648,10 +652,16 @@ export class OpenSeadragonCenterPanel extends CenterPanel {
     //Albert Opena added
     // Update this.extension.format
     if (mediaItem != undefined) {
-      //let mediaData  = mediaItem[this.extension.helper.canvasIndex]['__jsonld'];
       let mediaData  = mediaItem['__jsonld'];
-      //console.log('index :' +  this.extension.helper.canvasIndex);     
-      this.extension.format = mediaData.format;
+      console.log(mediaData);
+      if (mediaData.images) {
+        const resourceData = mediaData.images[0].resource;        
+        this.extension.format = resourceData. format;
+      }
+      else {
+        const itemBody = mediaData.items[0].items[0].body;
+        this.extension.format = itemBody.format;
+      }
     }
     // ****** end
 
@@ -1224,7 +1234,7 @@ export class OpenSeadragonCenterPanel extends CenterPanel {
       annotationRect;
     (this
       .extension as OpenSeadragonExtension).currentAnnotationRect = annotationRect;
-console.log('******** ZOOM IN *******')
+
     // if zoomToBoundsEnabled, zoom to the annotation's bounds.
     // otherwise, pan into view preserving the current zoom level.
     if (
