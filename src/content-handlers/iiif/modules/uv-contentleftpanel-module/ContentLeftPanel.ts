@@ -26,7 +26,7 @@ import { isVisible } from "../../../../Utils";
 import { init } from "../../../../Init";
 
 
-export class ContentLeftPanel extends LeftPanel {  
+export class ContentLeftPanel extends LeftPanel {
   metadataComponent: any;
   $metadata: JQuery;
 
@@ -64,19 +64,19 @@ export class ContentLeftPanel extends LeftPanel {
   treeView: TreeView;
   thumbsRoot: Root;
 
-  
-  constructor($element: JQuery   ) {
-    super($element);  
-    
+
+  constructor($element: JQuery) {
+    super($element);
+
   }
 
   create(): void {
     this.setConfig("contentLeftPanel");
     super.create();
     //For moreinfo
-    this.extensionHost.subscribe(IIIFEvents.CANVAS_INDEX_CHANGE, () => {     
+    this.extensionHost.subscribe(IIIFEvents.CANVAS_INDEX_CHANGE, () => {
       this.checkTypeData();
-      this.databind();     
+      this.databind();
     });
 
     this.extensionHost.subscribe(IIIFEvents.RANGE_CHANGE, () => {
@@ -88,8 +88,8 @@ export class ContentLeftPanel extends LeftPanel {
     });
 
     this.extensionHost.subscribe(IIIFEvents.CANVAS_INDEX_CHANGE, () => {
-   
-      this.render();     
+
+      this.render();
     });
 
     this.extensionHost.subscribe(IIIFEvents.GALLERY_THUMB_SELECTED, () => {
@@ -296,20 +296,21 @@ export class ContentLeftPanel extends LeftPanel {
     this.metadataComponent.set(this._getData());
   }
 
-  checkTypeData():void {  
+  checkTypeData(): void {
     if (typeof (this.extension) !== 'undefined' && this.extension != null) {
       const canvases = this.extension.getCurrentCanvases();
       const typeName = this.extension.type.name;
       const jsonId = canvases[0].__jsonld;
-      if (typeName == "uv-openseadragon-extension") {      
-        this._redirectUrl( "image/jpeg",  jsonId);
+
+      if (typeName == "uv-openseadragon-extension") {
+        this._redirectUrl("image/jpeg", jsonId);
       }
       else if (typeName == "uv-pdf-extension") {
         this._redirectUrl("application/pdf", jsonId);
       }
       else if (typeName == "uv-mediaelement-extension") {
-        this._redirectUrl("video/mp4", jsonId);        
-      }   
+        this._redirectUrl("video/mp4", jsonId);
+      }
     }
     else {
       let x = 2;
@@ -317,20 +318,46 @@ export class ContentLeftPanel extends LeftPanel {
     }
   }
 
-  private _redirectUrl(fortmatName : string, jsonId?: any): void {  
-    if (jsonId) {      
-      if (jsonId.format) {
-        if (jsonId.format != fortmatName) {    
-          
-          init('uv', this.extension.data);      
+  private _redirectUrl(fortmatName: string, jsonId?: any): void {
+    let iFormat;
+    let newFormat = '';
+
+    iFormat = this.getCurrentFormat(jsonId);
+    if (iFormat) {
+      newFormat = iFormat.body.format;
+    }
+    else {
+      newFormat = jsonId.format;
+    }
+    if (jsonId) {
+      if (newFormat) {
+        if (newFormat != fortmatName) {
+          console.log('inititalizing uv');
+          init('uv', this.extension.data);
         }
       }
     }
   }
 
 
+  private getCurrentFormat(jsonId: any): any {
+    let newFormat;
+    if (jsonId.items) {
+      if (jsonId.items[0]) {
+        let jbody = jsonId.items[0].items[0];
+        return jbody
+      }
+    }
+    return newFormat;
+  }
+
   private _getData() {
-    const canvases = this.extension.getCurrentCanvases();    
+    let canvases = this.extension.getCurrentCanvases();
+    const jsonId = canvases[0].__jsonld;
+    let getCurrentFormat = this.getCurrentFormat(jsonId);
+    if (getCurrentFormat) {
+      canvases[0].id = getCurrentFormat.body.id;
+    }
     let data = {
       canvasDisplayOrder: this.config.options.canvasDisplayOrder,
       canvases: canvases,
@@ -358,7 +385,6 @@ export class ContentLeftPanel extends LeftPanel {
       },
       showAllLanguages: this.config.options.showAllLanguages,
     };
-    
     return data;
   }
 
@@ -425,7 +451,6 @@ export class ContentLeftPanel extends LeftPanel {
       width = this.config.options.oneColThumbWidth;
       height = this.config.options.oneColThumbHeight;
     }
-
     const thumbs: Thumb[] = <Thumb[]>(
       this.extension.helper.getThumbs(width, height)
     );

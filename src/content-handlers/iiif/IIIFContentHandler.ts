@@ -144,7 +144,7 @@ export default class IIIFContentHandler extends BaseContentHandler<IIIFData>
     this._extensionRegistry[MediaType.VIDEO_MP4] = Extension.AV;
     this._extensionRegistry[MediaType.WAV] = Extension.AV;
     this._extensionRegistry[MediaType.WEBM] = Extension.AV;
-    this._extensionRegistry[MediaType.M3U8] = Extension.MEDIAELEMENT;
+    this._extensionRegistry[MediaType.M3U8] = Extension.AV;
     this._extensionRegistry[RenderingFormat.PDF] = Extension.PDF;
     
 
@@ -182,6 +182,10 @@ export default class IIIFContentHandler extends BaseContentHandler<IIIFData>
     // )) as any;
     const m = await type.loader();
     const extension: IExtension = new m.default();
+  
+    if (format== "application/pdf") {
+      format = "document";  
+    }
     extension.format = format;
     extension.type = type; 
     return extension;
@@ -199,7 +203,7 @@ export default class IIIFContentHandler extends BaseContentHandler<IIIFData>
     if (initial) {
       this.extra.initial = true;
     }
-      
+    
     // if this is the first set
     if (!this.extension) {
       if (!data.iiifManifestId) {
@@ -331,7 +335,6 @@ export default class IIIFContentHandler extends BaseContentHandler<IIIFData>
       const body: AnnotationBody[] = annotation.getBody();
       if (body && body.length) {
         format = body[0].getFormat() as string;
-
         if (format) {
           extension = await that._getExtensionByFormat(format);
 

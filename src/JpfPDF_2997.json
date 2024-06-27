@@ -320,7 +320,8 @@
                     ]
                 },
                 {
-                    "@id": "https://central.bac-lac.gc.ca/.item/?id=B0525-S032&app=PfFww&op=pdf",
+                    
+                    "@id":"https://central.bac-lac.gc.ca/.item/?id=B6320-S021&app=PfFww&op=pdf",
                     "@context": "http://iiif.io/api/presentation/2/context.json",
                     "@type": "Document",
                     "format": "application/pdf",

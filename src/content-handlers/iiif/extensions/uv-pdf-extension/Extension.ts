@@ -90,6 +90,7 @@ export default class Extension extends BaseExtension implements IPDFExtension {
   }
 
   isHeaderPanelEnabled(): boolean {
+    console.log(this.data.config.options);
     return (
       super.isHeaderPanelEnabled() &&
       Bools.getBool(this.data.config.options.usePdfJs, true)
@@ -97,7 +98,10 @@ export default class Extension extends BaseExtension implements IPDFExtension {
   }
 
   createModules(): void {
+
     super.createModules();    
+     
+
     if (this.isHeaderPanelEnabled()) {
       this.headerPanel = new PDFHeaderPanel(this.shell.$headerPanel);
     } else {
@@ -116,15 +120,12 @@ export default class Extension extends BaseExtension implements IPDFExtension {
     // }
 
     this.centerPanel = new PDFCenterPanel(this.shell.$centerPanel);
-
     if (this.isRightPanelEnabled()) {
       this.rightPanel = new MoreInfoRightPanel(this.shell.$rightPanel);
     }   
-  
+    console.log(this.isFooterPanelEnabled());
     if (this.isFooterPanelEnabled()) {
       this.footerPanel = new FooterPanel(this.shell.$footerPanel);
-      console.log(this.footerPanel);
-      
     } else {
       this.shell.$footerPanel.hide();
     }
@@ -146,8 +147,7 @@ export default class Extension extends BaseExtension implements IPDFExtension {
     );
     this.shell.$overlays.append(this.$settingsDialogue);
     this.settingsDialogue = new SettingsDialogue(this.$settingsDialogue);
-
-   // this.pagingPanel = new PagingHeaderPanel(this.shell.$footerPanel);
+  
     if (this.isLeftPanelEnabled()) {
       this.leftPanel.init();
     }
@@ -155,9 +155,9 @@ export default class Extension extends BaseExtension implements IPDFExtension {
     if (this.isRightPanelEnabled()) {
       this.rightPanel.init();
     }
-    // if (this.isFooterPanelEnabled()) {
-    //   this.footerPanel.init();
-    // }
+    if (this.isFooterPanelEnabled()) {
+      this.footerPanel.init();
+    }
   }
 
   bookmark(): void {
@@ -191,8 +191,6 @@ export default class Extension extends BaseExtension implements IPDFExtension {
     else{
       iframeSrc = `${appUri}#?manifest=${this.helper.manifestUri}&c=${this.helper.collectionIndex}&m=${this.helper.manifestIndex}&cv=${this.helper.canvasIndex}`;
     }
-    console.log(iframeSrc);
-    console.log(iframeSrc.indexOf('?') );
     const script: string = Strings.format(
       template,
       iframeSrc,

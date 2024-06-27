@@ -648,12 +648,11 @@ export class OpenSeadragonCenterPanel extends CenterPanel {
     
     
     let mediaItem  = this.extension.helper.manifest?.items[0].items[0] as Canvas;  
-
+    
     //Albert Opena added
     // Update this.extension.format
     if (mediaItem != undefined) {
-      let mediaData  = mediaItem['__jsonld'];
-      console.log(mediaData);
+      let mediaData  = mediaItem['__jsonld'];      
       if (mediaData.images) {
         const resourceData = mediaData.images[0].resource;        
         this.extension.format = resourceData. format;
@@ -665,6 +664,7 @@ export class OpenSeadragonCenterPanel extends CenterPanel {
     }
     // ****** end
 
+    
     let isGirder: boolean = this.extension.format === MediaType.GIRDER;    
   
 

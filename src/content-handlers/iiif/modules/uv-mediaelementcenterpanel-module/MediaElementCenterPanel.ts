@@ -105,6 +105,7 @@ export class MediaElementCenterPanel extends CenterPanel {
         this.extension.helper.getCurrentCanvas()
       );
 
+      console.log('***** Opening open media****')
 
       if (formats && formats.length) {
         formats.forEach((format: AnnotationBody) => {
