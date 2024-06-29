@@ -17,11 +17,6 @@
           "label": "LAC Collection"
         },       
         {
-          "@id": "src/jpfPDF_2997.json",
-          "@type": "sc:Manifest",
-          "label": "LAC local Manifest Mixed of image and PDF"
-        },
-        {
           "@id": "https://wellcomelibrary.org/iiif/b19684538/manifest",
           "@type": "sc:Manifest",
           "label": "Pseudo-Albert the Great (folio)"
@@ -32,8 +27,13 @@
           "label": "LAC local m3u8"
         },       
      
-     
-     
+        {
+          "@id": "src/jpfPDF_2997.json",
+          "@type": "sc:Manifest",
+          "label": "LAC local Manifest Mixed of image and PDF"
+        },
+       
+       
         {
           "@id": "src/536622.json",
           "@type": "sc:Manifest",

@@ -41,7 +41,7 @@ export class BaseExpandPanel extends BaseView {
     }
 
     this.$collapseButton = uvj$(
-      '<div role="button" class="collapseButton" tabindex="0"></div>'
+      '<div role="button" class="collapseButton" tabindex="0" id="leftCollapseButton"></div>'
     );
     this.$collapseButton.prop("title", this.content.collapse);
     this.$top.append(this.$collapseButton);

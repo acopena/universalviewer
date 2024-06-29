@@ -182,6 +182,10 @@ export default class Extension extends BaseExtension
     if (this.isRightPanelEnabled()) {
       this.rightPanel.init();
     }
+
+    if (this.isFooterPanelEnabled()) {
+      this.footerPanel.init();
+    }
   }
 
   render(): void {
@@ -193,8 +197,6 @@ export default class Extension extends BaseExtension
   checkForTarget(): void {
     if (this.data.target) {
       // Split target into canvas id and selector
-      console.log(this.data);
-      console.log(this.helper);
       const components: string[] = this.data.target.split("#");
       const canvasId: string = components[0];
 
@@ -204,7 +206,6 @@ export default class Extension extends BaseExtension
       if (index !== null && this.helper.canvasIndex !== index) {
         this.extensionHost.publish(IIIFEvents.CANVAS_INDEX_CHANGE, index);
       }
-
       // trigger SET_TARGET which calls fitToBounds(xywh) in OpenSeadragonCenterPanel
       const selector: string = components[1];
       this.extensionHost.publish(
@@ -215,19 +216,12 @@ export default class Extension extends BaseExtension
   }
 
   isLeftPanelEnabled(): boolean {
- 
-    (this.helper.isMultiCanvas() ||
-      this.helper.isMultiSequence() ||
-      this.helper.hasResources());
-     
-
-    return (
-      Bools.getBool(this.data.config.options.leftPanelEnabled, true) &&
-      (this.helper.isMultiCanvas() ||
-        this.helper.isMultiSequence() ||
-        this.helper.hasResources())
-    );
-    //return true;
+    // (this.helper.isMultiCanvas() ||
+    //   this.helper.isMultiSequence() ||
+    //   this.helper.hasResources());
+    return ( Bools.getBool(this.data.config.options.leftPanelEnabled, true) )
+    
+    
   }
 
   bookmark(): void {

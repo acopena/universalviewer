@@ -1070,7 +1070,7 @@ export class BaseExtension implements IExtension {
   isHeaderPanelEnabled(): boolean {
     return Bools.getBool(this.data.config.options.headerPanelEnabled, true);
   }
-
+  
   isLeftPanelEnabled(): boolean {   
     if (Bools.getBool(this.data.config.options.leftPanelEnabled, true)) {
       if (this.helper.hasParentCollection()) {       

@@ -1,118 +1,371 @@
 {
-    "@context": "http://iiif.io/api/presentation/2/context.json",
-    "@id": "https://iiif.wellcomecollection.org/presentation/v2/b18031511",
-    "@type": "sc:Collection",
-    "label": "The biological basis of medicine / edited by E. Edward Bittar ; assisted by Neville Bittar.",
+    "@context": "http://iiif.io/api/presentation/3/context.json",
+    "id": "https://digitalmanifest.bac-lac.gc.ca/DigitalManifest/16/181840",
+    "type": "Manifest",
+    "label": {
+        "en": [
+            "MOORE, CHARLES MELBOURNE"
+        ],
+        "fr": [
+            "MOORE, CHARLES MELBOURNE"
+        ]
+    },
     "metadata": [
         {
-            "label": "Publication/creation",
-            "value": "London : Academic Press, 1968-"
+            "label": {
+                "en": [
+                    "Found In"
+                ],
+                "fr": [
+                    "Found In(Fr)"
+                ]
+            },
+            "value": {
+                "en": [
+                    "Genealogy / Military / Personal Records - First World War"
+                ],
+                "fr": [
+                    "Génealogie / Militaire / Fichiers personnels  de la Première Guerre mondiale"
+                ]
+            }
         },
         {
-            "label": "Physical description",
-            "value": "volumes : illustrations ; 26 cm"
+            "label": {
+                "en": [
+                    "Reference"
+                ],
+                "fr": [
+                    "Reference"
+                ]
+            },
+            "value": {
+                "en": [
+                    "RG 150, Accession 1992-93/166, Box 6320 - 21"
+                ],
+                "fr": [
+                    "RG 150, versement 1992-93/166, boîte 6320 - 21"
+                ]
+            }
         },
         {
-            "label": "Contributors",
-            "value": "Bittar, E. Edward.; Bittar, Neville."
-        },
-        {
-            "label": "Notes",
-            "value": "Copy 1 Vol. 3 1969 Note: 1971 reprint.  22400036674; Copy 1 Vol. 4 1969 Note: 1971 reprint. 22400036656; Copy 1 Vol. 5 1969 Note: 1970 reprint. 22400036834"
-        },
-        {
-            "label": "Subjects",
-            "value": "Physiology, Pathological; Cell Biology; Physiology; Biochemistry; Medicine"
+            "label": {
+                "en": [
+                    "Item number"
+                ],
+                "fr": [
+                    "No d’identification"
+                ]
+            },
+            "value": {
+                "en": [
+                    "181840"
+                ],
+                "fr": [
+                    "181840"
+                ]
+            }
         }
     ],
-    "license": "http://creativecommons.org/licenses/by-nc/4.0/",
-    "logo": "https://iiif.wellcomecollection.org/logos/wellcome-collection-black.png",
-    "related": {
-        "@id": "https://wellcomecollection.org/works/ysmqsfhg",
-        "format": "text/html",
-        "label": "The biological basis of medicine / edited by E. Edward Bittar ; assisted by Neville Bittar."
-    },
-    "seeAlso": {
-        "@id": "https://api.wellcomecollection.org/catalogue/v2/works/ysmqsfhg",
-        "profile": "https://api.wellcomecollection.org/catalogue/v2/context.json",
-        "format": "application/json",
-        "label": "Wellcome Collection Catalogue API"
-    },
-    "viewingHint": "multi-part",
-    "within": "https://iiif.wellcomecollection.org/presentation/v2/collections/contributors/rz39rquh",
-    "manifests": [
+    "items": [
         {
-            "@id": "src/dataCollection1.json",
-            "@type": "sc:Manifest",
-            "label": "Volume 1",
-            "thumbnail": {
-                "@id": "https://iiif.wellcomecollection.org/thumbs/b18031511_vol_1_0008.JP2/full/61,100/0/default.jpg",
-                "@type": "dctypes:Image",
-                "service": {
-                    "@context": "http://iiif.io/api/image/2/context.json",
-                    "@id": "https://iiif.wellcomecollection.org/thumbs/b18031511_vol_1_0008.JP2",
-                    "profile": "http://iiif.io/api/image/2/level0.json",
-                    "protocol": "http://iiif.io/api/image",
-                    "width": 626,
-                    "height": 1024,
-                    "sizes": [
-                        {
-                            "width": 61,
-                            "height": 100
-                        },
-                        {
-                            "width": 122,
-                            "height": 200
-                        },
-                        {
-                            "width": 245,
-                            "height": 400
-                        },
-                        {
-                            "width": 626,
-                            "height": 1024
-                        }
-                    ]
-                }
+            "label": {
+                "en": [
+                    "506515a"
+                ],
+                "fr": [
+                    "506515a"
+                ]
             },
-            "within": ""
+            "metadata": [
+                {
+                    "label": {
+                        "en": [
+                            "Name"
+                        ],
+                        "fr": [
+                            "Nom"
+                        ]
+                    },
+                    "value": {
+                        "en": [
+                            "MOORE, CHARLES MELBOURNE"
+                        ],
+                        "fr": [
+                            "MOORE, CHARLES MELBOURNE"
+                        ]
+                    }
+                },
+                {
+                    "label": {
+                        "en": [
+                            "Regimental number"
+                        ],
+                        "fr": [
+                            "Numéro de matricule"
+                        ]
+                    },
+                    "value": {
+                        "en": [
+                            "1100021"
+                        ],
+                        "fr": [
+                            "1100021"
+                        ]
+                    }
+                },
+                {
+                    "label": {
+                        "en": [
+                            "Ecopy number"
+                        ],
+                        "fr": [
+                            "Numéro ecopy"
+                        ]
+                    },
+                    "value": {
+                        "en": [
+                            "506515a"
+                        ],
+                        "fr": [
+                            "506515a"
+                        ]
+                    }
+                }
+            ],
+            "thumbnail": [
+                {
+                    "id": "https://central.bac-lac.gc.ca/.item?id=506515a&app=pffww&op=thumb&height=150",
+                    "type": "Image",
+                    "format": "image/jpeg",
+                    "height": 91,
+                    "width": 150
+                }
+            ],
+            "height": 1000,
+            "width": 1656,
+            "items": [
+                {
+                    "items": [
+                        {
+                            "id": "http://bac-lac.gc.ca/Canvas/AnnotationPage/Annotation",
+                            "type": "Annotation",
+                            "motivation": "Painting",
+                            "body": {
+                                "id": "https://central.bac-lac.gc.ca/.item/?id=506515a&app=PfFww&op=img",
+                                "type": "Image",
+                                "height": 1000,
+                                "width": 1656,
+                                "format": "image/jpeg"
+                            },
+                            "target": "http://bac-lac.gc.ca/Canvas"
+                        }
+                    ],
+                    "id": "http://bac-lac.gc.ca/Canvas/AnnotationPage",
+                    "type": "AnnotationPage"
+                }
+            ],
+            "id": "http://bac-lac.gc.ca/Canvas",
+            "type": "Canvas"
         },
         {
-            "@id": "https://stdigitalmanifestspr.blob.core.windows.net/manifest/2/18215/manifest.json",
-            "@type": "sc:Manifest",
-            "label": "Volume 2",
-            "thumbnail": {
-                "@id": "https://iiif.wellcomecollection.org/thumbs/b18031511_vol_2_0001.JP2/full/67,100/0/default.jpg",
-                "@type": "dctypes:Image",
-                "service": {
-                    "@context": "http://iiif.io/api/image/2/context.json",
-                    "@id": "https://iiif.wellcomecollection.org/thumbs/b18031511_vol_2_0001.JP2",
-                    "profile": "http://iiif.io/api/image/2/level0.json",
-                    "protocol": "http://iiif.io/api/image",
-                    "width": 691,
-                    "height": 1024,
-                    "sizes": [
-                        {
-                            "width": 67,
-                            "height": 100
-                        },
-                        {
-                            "width": 135,
-                            "height": 200
-                        },
-                        {
-                            "width": 270,
-                            "height": 400
-                        },
-                        {
-                            "width": 691,
-                            "height": 1024
-                        }
-                    ]
-                }
+            "label": {
+                "en": [
+                    "506515b"
+                ],
+                "fr": [
+                    "506515b"
+                ]
             },
-            "within": ""
+            "metadata": [
+                {
+                    "label": {
+                        "en": [
+                            "Name"
+                        ],
+                        "fr": [
+                            "Nom"
+                        ]
+                    },
+                    "value": {
+                        "en": [
+                            "MOORE, CHARLES MELBOURNE"
+                        ],
+                        "fr": [
+                            "MOORE, CHARLES MELBOURNE"
+                        ]
+                    }
+                },
+                {
+                    "label": {
+                        "en": [
+                            "Regimental number"
+                        ],
+                        "fr": [
+                            "Numéro de matricule"
+                        ]
+                    },
+                    "value": {
+                        "en": [
+                            "1100021"
+                        ],
+                        "fr": [
+                            "1100021"
+                        ]
+                    }
+                },
+                {
+                    "label": {
+                        "en": [
+                            "Ecopy number"
+                        ],
+                        "fr": [
+                            "Numéro ecopy"
+                        ]
+                    },
+                    "value": {
+                        "en": [
+                            "506515b"
+                        ],
+                        "fr": [
+                            "506515b"
+                        ]
+                    }
+                }
+            ],
+            "thumbnail": [
+                {
+                    "id": "https://central.bac-lac.gc.ca/.item?id=506515b&app=pffww&op=thumb&height=150",
+                    "type": "Image",
+                    "format": "image/jpeg",
+                    "height": 91,
+                    "width": 150
+                }
+            ],
+            "height": 1000,
+            "width": 1656,
+            "items": [
+                {
+                    "items": [
+                        {
+                            "id": "http://bac-lac.gc.ca/Canvas/AnnotationPage/Annotation",
+                            "type": "Annotation",
+                            "motivation": "Painting",
+                            "body": {
+                                "id": "https://central.bac-lac.gc.ca/.item/?id=506515b&app=PfFww&op=img",
+                                "type": "Image",
+                                "height": 1000,
+                                "width": 1656,
+                                "format": "image/jpeg"
+                            },
+                            "target": "http://bac-lac.gc.ca/Canvas"
+                        }
+                    ],
+                    "id": "http://bac-lac.gc.ca/Canvas/AnnotationPage",
+                    "type": "AnnotationPage"
+                }
+            ],
+            "id": "http://bac-lac.gc.ca/Canvas",
+            "type": "Canvas"
+        },
+        {
+            "label": {
+                "en": [
+                    "B6320-S021"
+                ],
+                "fr": [
+                    "B6320-S021"
+                ]
+            },
+            "metadata": [
+                {
+                    "label": {
+                        "en": [
+                            "Name"
+                        ],
+                        "fr": [
+                            "Nom"
+                        ]
+                    },
+                    "value": {
+                        "en": [
+                            "MOORE, CHARLES MELBOURNE"
+                        ],
+                        "fr": [
+                            "MOORE, CHARLES MELBOURNE"
+                        ]
+                    }
+                },
+                {
+                    "label": {
+                        "en": [
+                            "Regimental number"
+                        ],
+                        "fr": [
+                            "Numéro de matricule"
+                        ]
+                    },
+                    "value": {
+                        "en": [
+                            "1100021"
+                        ],
+                        "fr": [
+                            "1100021"
+                        ]
+                    }
+                },
+                {
+                    "label": {
+                        "en": [
+                            "Ecopy number"
+                        ],
+                        "fr": [
+                            "Numéro ecopy"
+                        ]
+                    },
+                    "value": {
+                        "en": [
+                            "B6320-S021"
+                        ],
+                        "fr": [
+                            "B6320-S021"
+                        ]
+                    }
+                }
+            ],
+            "thumbnail": [
+                {
+                    "id": "https://central.bac-lac.gc.ca/.item?id=B6320-S021&app=pffww&op=thumb&height=150",
+                    "type": "Image",
+                    "format": "image/jpeg",
+                    "height": 91,
+                    "width": 150
+                }
+            ],
+            "height": 0,
+            "width": 0,
+            "items": [
+                {
+                    "items": [
+                        {
+                            "id": "http://bac-lac.gc.ca/Canvas/AnnotationPage/Annotation",
+                            "type": "Annotation",
+                            "motivation": "Painting",
+                            "body": {
+                                "id": "https://central.bac-lac.gc.ca/.item/?id=B6320-S021&app=PfFww&op=pdf",
+                                "type": "Document",
+                                "height": 0,
+                                "width": 0,
+                                "format": "application/pdf"
+                            },
+                            "target": "http://bac-lac.gc.ca/Canvas"
+                        }
+                    ],
+                    "id": "http://bac-lac.gc.ca/Canvas/AnnotationPage",
+                    "type": "AnnotationPage"
+                }
+            ],
+            "id": "http://bac-lac.gc.ca/Canvas",
+            "type": "Canvas"
         }
-     
     ]
 }

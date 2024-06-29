@@ -144,7 +144,7 @@ export default class IIIFContentHandler extends BaseContentHandler<IIIFData>
     this._extensionRegistry[MediaType.VIDEO_MP4] = Extension.AV;
     this._extensionRegistry[MediaType.WAV] = Extension.AV;
     this._extensionRegistry[MediaType.WEBM] = Extension.AV;
-    this._extensionRegistry[MediaType.M3U8] = Extension.AV;
+    this._extensionRegistry[MediaType.M3U8] = Extension.MEDIAELEMENT;
     this._extensionRegistry[RenderingFormat.PDF] = Extension.PDF;
     
 
@@ -183,7 +183,7 @@ export default class IIIFContentHandler extends BaseContentHandler<IIIFData>
     const m = await type.loader();
     const extension: IExtension = new m.default();
   
-    if (format== "application/pdf") {
+    if (format == "application/pdf") {
       format = "document";  
     }
     extension.format = format;
