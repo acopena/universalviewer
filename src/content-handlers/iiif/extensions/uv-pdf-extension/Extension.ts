@@ -109,6 +109,7 @@ export default class Extension extends BaseExtension implements IPDFExtension {
     }
 
     
+    
     if (this.isLeftPanelEnabled()) {
       this.leftPanel = new ContentLeftPanel(this.shell.$leftPanel);
     } else {
@@ -199,4 +200,5 @@ export default class Extension extends BaseExtension implements IPDFExtension {
     );
     return script;
   }
+
 }

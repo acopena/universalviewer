@@ -192,6 +192,13 @@ export default class Extension extends BaseExtension
     super.render();
 
     this.checkForTarget();
+       //added by Albert Opena
+    //Hide options mimiseButton footer 
+    let footerOption = document.getElementsByClassName('options minimiseButtons');
+    for (let i = 0; i < footerOption.length; i++) {      
+      footerOption[i].setAttribute('style','display:none');
+    }
+    // ****** end Here
   }
 
   checkForTarget(): void {

@@ -610,9 +610,9 @@ export default class OpenSeadragonExtension extends BaseExtension {
       this.rightPanel.init();
     }
 
-    if (this.isFooterPanelEnabled()) {
-      this.footerPanel.init();
-    }
+    // if (this.isFooterPanelEnabled()) {
+    //   this.footerPanel.init();
+    // }
   }
 
   render(): void {
@@ -621,6 +621,15 @@ export default class OpenSeadragonExtension extends BaseExtension {
     this.checkForAnnotations();
     this.checkForSearchParam();
     this.checkForRotationParam();
+
+    //added by Albert Opena
+    //Hide options mimiseButton footer 
+    let footerOption = document.getElementsByClassName('options minimiseButtons');
+    for (let i = 0; i < footerOption.length; i++) {      
+      footerOption[i].setAttribute('style','display:none');
+    }
+    // ****** end Here
+    
   }
 
   renderDownloadDialogue(): void {
@@ -656,25 +665,24 @@ export default class OpenSeadragonExtension extends BaseExtension {
       ServiceProfile.DOWNLOAD_EXTENSIONS
     );
 
-    const selectionEnabled =
-      config.options.selectionEnabled &&
-      downloadService?.__jsonld.selectionEnabled;
+    const selectionEnabled = this.checkType(config)  && downloadService?.__jsonld.selectionEnabled;
 
     this.downloadDialogueRoot.render(
+      
       createElement(DownloadDialogue, {
         canvases: canvases,
-        confinedImageSize: config.options.confinedImageSize,
+        confinedImageSize: this.checkConfig(config,'confinedImageSize'), //   config.options.confinedImageSize,
         content: config.content,
         locale: this.getLocale(),
         manifest: this.helper.manifest as Manifest,
-        maxImageWidth: config.options.maxImageWidth,
+        maxImageWidth:  this.checkConfig(config,'maxImageWidth'),  //config.options.maxImageWidth,
         mediaDownloadEnabled: this.helper.isUIEnabled("mediaDownload"),
         open: downloadDialogueOpen,
         paged: paged,
         parent: this.shell.$overlays[0] as HTMLElement,
         resources: this.resources,
         requiredStatement: this.helper.getRequiredStatement()?.value,
-        termsOfUseEnabled: this.data.config.options.termsOfUseEnabled,
+        termsOfUseEnabled:  this.data.config.options.termsOfUseEnabled,
         rotation: this.getViewerRotation() as number,
         selectionEnabled: selectionEnabled,
         sequence: this.helper.getCurrentSequence(),
@@ -712,6 +720,24 @@ export default class OpenSeadragonExtension extends BaseExtension {
       })
     );
   }
+
+  checkType(config):boolean {
+    let selectOption = false;
+    if (config.options != undefined) {
+        return config.options.selectionEnabled
+    }
+    return selectOption;
+  }
+
+  checkConfig(config,fieldName): any {
+    let option;
+    if (config.options != undefined) {
+      if (config.options[fieldName] != undefined) {
+        return config.options[fieldName]
+      }      
+    }
+    return option;
+  };
 
   checkForTarget(): void {
     if (this.data.target) {

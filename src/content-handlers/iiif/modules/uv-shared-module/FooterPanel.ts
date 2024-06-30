@@ -2,7 +2,7 @@ const uvj$ = require("jquery");
 import { IIIFEvents } from "../../IIIFEvents";
 import { BaseView } from "./BaseView";
 import { Bools, Documents } from "@edsilv/utils";
-
+import { Events } from "../../../../Events";
 export class FooterPanel extends BaseView {
   $centerOptions: JQuery;
   $feedbackButton: JQuery;
@@ -12,7 +12,7 @@ export class FooterPanel extends BaseView {
   $shareButton: JQuery;
   $embedButton: JQuery;
   $openButton: JQuery;
-  // $fullScreenBtn: JQuery;
+  $fullScreenBtn: JQuery;
   $options: JQuery;
   $rightOptions: JQuery;
 
@@ -24,17 +24,19 @@ export class FooterPanel extends BaseView {
     this.setConfig("footerPanel");
 
     super.create();
+    console.log("loading footer here")
 
-    // this.extensionHost.subscribe(Events.TOGGLE_FULLSCREEN, () => {
-    //   this.updateFullScreenButton();
 
-    //   // hack for firefox when exiting full screen
-    //   if (!this.extensionHost.isFullScreen) {
-    //     setTimeout(() => {
-    //       this.resize();
-    //     }, 1001); // wait one ms longer than the resize timeout in uv-helpers.js
-    //   }
-    // });
+    this.extensionHost.subscribe(Events.TOGGLE_FULLSCREEN, () => {
+      this.updateFullScreenButton();
+
+      // hack for firefox when exiting full screen
+      if (!this.extensionHost.isFullScreen) {
+        setTimeout(() => {
+          this.resize();
+        }, 1001); // wait one ms longer than the resize timeout in uv-helpers.js
+      }
+    });
 
     this.extensionHost.subscribe(IIIFEvents.METRIC_CHANGE, () => {
       this.updateMinimisedButtons();
@@ -46,7 +48,8 @@ export class FooterPanel extends BaseView {
     });
 
     this.$options = uvj$('<div class="options"></div>');
-    // this.$element.append(this.$options);
+
+    this.$element.append(this.$options);
 
     this.$feedbackButton = uvj$(`
           <button class="feedback btn imageBtn" title="${this.content.feedback}">
@@ -104,13 +107,13 @@ export class FooterPanel extends BaseView {
         `);
     this.$options.prepend(this.$moreInfoButton);
 
-    // this.$fullScreenBtn = $(`
-    //       <button class="fullScreen btn imageBtn" title="${this.content.fullScreen}">
-    //         <i class="uv-icon uv-icon-fullscreen" aria-hidden="true"></i>
-    //         <span class="sr-only">${this.content.fullScreen}</span>
-    //       </button>
-    //     `);
-    // this.$options.append(this.$fullScreenBtn);
+    this.$fullScreenBtn = $(`
+          <button class="fullScreen btn imageBtn" title="${this.content.fullScreen}" >
+            <i class="uv-icon uv-icon-fullscreen" aria-hidden="true"></i>
+            <span class="sr-only">${this.content.fullScreen}</span>
+          </button>
+        `);
+    this.$options.append(this.$fullScreenBtn);
 
     this.$openButton.onPressed(() => {
       this.extensionHost.publish(IIIFEvents.OPEN);
@@ -152,14 +155,36 @@ export class FooterPanel extends BaseView {
       );
     });
 
-    // this.onAccessibleClick(
-    //   this.$fullScreenBtn,
-    //   (e) => {
-    //     e.preventDefault();
-    //     this.extensionHost.publish(Events.TOGGLE_FULLSCREEN);
-    //   },
-    //   true
-    // );
+    // this.$fullScreenBtn.onPressed(() => {
+    //   window.moveTo(0, 0);
+
+    //   if (document.all) {
+    //       top.window.resizeTo(screen.availWidth, screen.availHeight);
+    //   }
+
+    //   else if (document.layers || document.getElementById) {
+    //       if (top.window.outerHeight < screen.availHeight || top.window.outerWidth < screen.availWidth) {
+    //           top.window.outerHeight = screen.availHeight;
+    //           top.window.outerWidth = screen.availWidth;
+    //       }
+    //   }
+
+    //   // if (!document.fullscreenElement) {
+    //   //   document.documentElement.requestFullscreen();
+    //   // } else if (document.exitFullscreen) {
+    //   //   document.exitFullscreen();
+    //   // }
+
+    // });
+
+    this.onAccessibleClick(
+      this.$fullScreenBtn,
+      (e) => {
+        e.preventDefault();
+        this.extensionHost.publish(Events.TOGGLE_FULLSCREEN);
+      },
+      true
+    );
 
     if (!Bools.getBool(this.options.embedEnabled, true)) {
       this.$embedButton.hide();
@@ -171,9 +196,19 @@ export class FooterPanel extends BaseView {
     this.updateBookmarkButton();
     this.updateEmbedButton();
     this.updateDownloadButton();
-    // this.updateFullScreenButton();
+    this.updateFullScreenButton();
     this.updateShareButton();
     this.updateMinimisedButtons();
+  }
+
+
+  getFullScreen() {
+    if (!document.fullscreenElement) {
+      document.documentElement.requestFullscreen();
+    } else if (document.exitFullscreen) {
+      document.exitFullscreen();
+    }
+
   }
 
   updateMinimisedButtons(): void {
@@ -216,35 +251,35 @@ export class FooterPanel extends BaseView {
     }
   }
 
-  // updateFullScreenButton(): void {
-  //   if (
-  //     !Bools.getBool(this.options.fullscreenEnabled, true) ||
-  //     !Documents.supportsFullscreen()
-  //   ) {
-  //     this.$fullScreenBtn.hide();
-  //     return;
-  //   }
+  updateFullScreenButton(): void {
+    if (
+      !Bools.getBool(this.options.fullscreenEnabled, true) ||
+      !Documents.supportsFullscreen()
+    ) {
+      this.$fullScreenBtn.hide();
+      return;
+    }
 
-  //   if (this.extension.isFullScreen()) {
-  //     this.$fullScreenBtn.switchClass("fullScreen", "exitFullscreen");
-  //     this.$fullScreenBtn
-  //       .find("i")
-  //       .switchClass("uv-icon-fullscreen", "uv-icon-exit-fullscreen");
-  //     this.$fullScreenBtn.attr("title", this.content.exitFullScreen);
-  //     $(
-  //       (<any>this.$fullScreenBtn[0].firstChild).nextSibling.nextSibling
-  //     ).replaceWith(this.content.exitFullScreen);
-  //   } else {
-  //     this.$fullScreenBtn.switchClass("exitFullscreen", "fullScreen");
-  //     this.$fullScreenBtn
-  //       .find("i")
-  //       .switchClass("uv-icon-exit-fullscreen", "uv-icon-fullscreen");
-  //     this.$fullScreenBtn.attr("title", this.content.fullScreen);
-  //     $(
-  //       (<any>this.$fullScreenBtn[0].firstChild).nextSibling.nextSibling
-  //     ).replaceWith(this.content.fullScreen);
-  //   }
-  // }
+    if (this.extension.isFullScreen()) {
+      this.$fullScreenBtn.switchClass("fullScreen", "exitFullscreen");
+      this.$fullScreenBtn
+        .find("i")
+        .switchClass("uv-icon-fullscreen", "uv-icon-exit-fullscreen");
+      this.$fullScreenBtn.attr("title", this.content.exitFullScreen);
+      $(
+        (<any>this.$fullScreenBtn[0].firstChild).nextSibling.nextSibling
+      ).replaceWith(this.content.exitFullScreen);
+    } else {
+      this.$fullScreenBtn.switchClass("exitFullscreen", "fullScreen");
+      this.$fullScreenBtn
+        .find("i")
+        .switchClass("uv-icon-exit-fullscreen", "uv-icon-fullscreen");
+      this.$fullScreenBtn.attr("title", this.content.fullScreen);
+      $(
+        (<any>this.$fullScreenBtn[0].firstChild).nextSibling.nextSibling
+      ).replaceWith(this.content.fullScreen);
+    }
+  }
 
   updateEmbedButton(): void {
     if (

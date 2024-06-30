@@ -25,6 +25,7 @@ export class IIIFEvents {
   static FEEDBACK: string = "feedback";
   static FIRST: string = "first";
   static FORBIDDEN: string = "forbidden";
+  static TOGGLE_FULLSCREEN: string = "toggleFullScreen";
   static GALLERY_DECREASE_SIZE: string = "galleryDecreaseSize";
   static GALLERY_INCREASE_SIZE: string = "galleryIncreaseSize";
   static GALLERY_THUMB_SELECTED: string = "galleryThumbSelected";

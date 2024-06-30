@@ -43,7 +43,7 @@ export class PDFCenterPanel extends CenterPanel {
 
     super.create();
 
-    this._$pdfContainer = uvj$('<div class="pdfContainer"></div>');
+    this._$pdfContainer = uvj$('<div class="pdfContainer" id="pdfContainer"></div>');
     this._$canvas = uvj$("<canvas></canvas>");
     // this._$spinner = $('<div class="spinner"></div>');
     this._$progress = uvj$('<progress max="100" value="0"></progress>');

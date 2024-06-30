@@ -58,7 +58,7 @@ const ThumbImage = ({
         className="wrap"
         id = {eCopy}
         style={{
-          height: "128px;" // thumb.height + 8 + "px",
+          height: thumb.height + 8 + "px",
         }}
       >
         {inView && <img src={thumb.uri} alt={thumb.label} />}
