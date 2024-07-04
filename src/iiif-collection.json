@@ -12,6 +12,11 @@
 
       "manifests": [
         {
+          "@id": "https://digitalmanifest.bac-lac.gc.ca/DigitalManifest/1/1642152",
+          "@type": "sc:Manifest",
+          "label": "LAC Manifest with PDF at the start"
+        },       
+        {
           "@id": "src/LACCollection.json",
           "@type": "sc:Manifest",
           "label": "LAC Collection"

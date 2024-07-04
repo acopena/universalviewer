@@ -6,7 +6,7 @@ export const init = (el: string | HTMLDivElement, data) => {
   let isFullScreen = false;
   let overrideFullScreen = false;
   const container = typeof el === "string" ? document.getElementById(el) : el;
-
+  
   if (!container) {
     throw new Error("UV target element not found");
   }
@@ -74,6 +74,7 @@ export const init = (el: string | HTMLDivElement, data) => {
       isFullScreen = data.isFullScreen;
       overrideFullScreen = data.overrideFullScreen;
 
+      console.log(data);
       if (!data.overrideFullScreen) {
         if (isFullScreen) {
           const requestFullScreen = getRequestFullScreen(parent);

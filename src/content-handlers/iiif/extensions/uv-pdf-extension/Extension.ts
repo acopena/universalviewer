@@ -89,8 +89,7 @@ export default class Extension extends BaseExtension implements IPDFExtension {
     super.render();
   }
 
-  isHeaderPanelEnabled(): boolean {
-    console.log(this.data.config.options);
+  isHeaderPanelEnabled(): boolean {    
     return (
       super.isHeaderPanelEnabled() &&
       Bools.getBool(this.data.config.options.usePdfJs, true)
@@ -124,7 +123,7 @@ export default class Extension extends BaseExtension implements IPDFExtension {
     if (this.isRightPanelEnabled()) {
       this.rightPanel = new MoreInfoRightPanel(this.shell.$rightPanel);
     }   
-    console.log(this.isFooterPanelEnabled());
+  
     if (this.isFooterPanelEnabled()) {
       this.footerPanel = new FooterPanel(this.shell.$footerPanel);
     } else {

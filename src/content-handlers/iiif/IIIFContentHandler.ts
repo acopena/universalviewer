@@ -146,7 +146,7 @@ export default class IIIFContentHandler extends BaseContentHandler<IIIFData>
     this._extensionRegistry[MediaType.WEBM] = Extension.AV;
     this._extensionRegistry[MediaType.M3U8] = Extension.MEDIAELEMENT;
     this._extensionRegistry[RenderingFormat.PDF] = Extension.PDF;
-    
+
 
     this.on(
       Events.CREATED,
@@ -182,16 +182,16 @@ export default class IIIFContentHandler extends BaseContentHandler<IIIFData>
     // )) as any;
     const m = await type.loader();
     const extension: IExtension = new m.default();
-  
+
     if (format == "application/pdf") {
-      format = "document";  
+      format = "document";
     }
     extension.format = format;
-    extension.type = type; 
+    extension.type = type;
     return extension;
   }
 
-  private _getExtensionByFormat(format: string): any {  
+  private _getExtensionByFormat(format: string): any {
     if (!this._extensionRegistry[format]) {
       return this._getExtensionByType(Extension.DEFAULT, format);
     }
@@ -203,19 +203,19 @@ export default class IIIFContentHandler extends BaseContentHandler<IIIFData>
     if (initial) {
       this.extra.initial = true;
     }
-    
+
     // if this is the first set
     if (!this.extension) {
       if (!data.iiifManifestId) {
         console.warn(`iiifManifestId is required.`);
         return;
       }
-      
+
       this._reload(data);
     } else {
       // changing any of these data properties forces the UV to reload.
       const newData: IUVData = Object.assign({}, this.extension.data, data);
-      
+
       if (
         newData.isReload ||
         newData.iiifManifestId !== this.extension.data.iiifManifestId ||
@@ -230,7 +230,7 @@ export default class IIIFContentHandler extends BaseContentHandler<IIIFData>
         this.extension.data = newData;
         this.extension.render();
       }
-      
+
     }
 
 
@@ -290,10 +290,10 @@ export default class IIIFContentHandler extends BaseContentHandler<IIIFData>
 
     // empty the containing element
     $elem.empty();
-    
-   
+
+
     const that = this;
-  
+
     const helper: Helper = await loadManifest({
       manifestUri: data.iiifManifestId,
       collectionIndex: data.collectionIndex, // this has to be undefined by default otherwise it's assumed that the first manifest is within a collection
@@ -312,14 +312,51 @@ export default class IIIFContentHandler extends BaseContentHandler<IIIFData>
         ", URI: " + (window.location !== window.parent.location)
           ? document.referrer
           : document.location;
-          
+
       window.trackingLabel = trackingLabel;
-      
+
     }
 
+    let isUcc = false;
+    if (localStorage.getItem('isUcc')) {
+      const storeIsUcc = localStorage.getItem('isUcc');
+      console.log('reading from localstorage');
+      if (storeIsUcc == 'true') {
+        isUcc = true;
+      }
+    }
+    console.log('isUcc : ' + isUcc);
 
     let canvas: Canvas | undefined;
-    canvas = helper.getCurrentCanvas();
+    let uccItem;
+    let newCanvasItem = helper.getCanvases();
+    // let newCanvas: Canvas|undefined;
+    if (isUcc) {
+      let eCopy: any | undefined;
+      if (localStorage.getItem('eCopy')) {
+        eCopy = localStorage.getItem('eCopy');
+        console.log('local storage ecopy : ' + eCopy);
+        newCanvasItem.forEach((item) => {
+          var ibody = item.getMetadata().filter(s => s.label?.getValue() == 'Ecopy number');
+          var ieCopy = ibody[0].getValue();
+          if (ieCopy == eCopy) {
+            item.index=0;
+            uccItem = item;
+          }
+        });
+        newCanvasItem.splice(0, helper.getCanvases().length);
+        newCanvasItem.push(uccItem);
+        canvas = uccItem;
+      }
+      else {
+        canvas = helper.getCurrentCanvas();
+      }
+
+    }
+    else {
+      canvas = helper.getCurrentCanvas();
+    }
+    //canvas =  canvas;//  helper.getCurrentCanvas();
     if (!canvas) {
       that._error(`Canvas ${data.canvasIndex} not found.`);
       return;
@@ -329,12 +366,12 @@ export default class IIIFContentHandler extends BaseContentHandler<IIIFData>
 
     const content: Annotation[] = canvas.getContent();
     let format: string | undefined;
-
     if (content.length) {
       const annotation: Annotation = content[0];
       const body: AnnotationBody[] = annotation.getBody();
       if (body && body.length) {
         format = body[0].getFormat() as string;
+        console.log(format);
         if (format) {
           extension = await that._getExtensionByFormat(format);
 
@@ -370,7 +407,7 @@ export default class IIIFContentHandler extends BaseContentHandler<IIIFData>
 
     // if using uv-av-extension and there is no structure, fall back to uv-mediaelement-extension
     const hasRanges: boolean = helper.getRanges().length > 0;
-  
+
     if (extension!.type === Extension.AV && !hasRanges) {
       extension = await that._getExtensionByType(
         Extension.MEDIAELEMENT,
@@ -382,7 +419,7 @@ export default class IIIFContentHandler extends BaseContentHandler<IIIFData>
     if (!extension) {
       extension = await that._getExtensionByFormat(Extension.DEFAULT.name);
     }
-  
+
     if (!data.locales) {
       data.locales = [];
       data.locales.push(defaultLocale);
@@ -394,29 +431,20 @@ export default class IIIFContentHandler extends BaseContentHandler<IIIFData>
 
     // UCC functionality
     let cIndex = data.config?.options.canvasIndex;
-    let isUCC = data.config?.options['isUcc'];
-
-  
     
-    if (!isUCC) {
+    if (!isUcc) {
       if (cIndex) {
         data.canvasIndex = cIndex;
       }
     }
     else {
       data.canvasIndex = 0;
-      let newCanvas = helper.getCanvasByIndex(cIndex);
-      newCanvas.index=0;      
-      if (newCanvas) {
-        helper.manifest?.items[0].items.splice(0, helper.getCanvases().length);
-        helper.manifest?.items[0].items.push(newCanvas);
-        helper.canvasIndex = 0;
-        helper.collectionIndex = 0;
-        
-        sessionStorage.setItem('UVCurrentIndex', data.canvasIndex.toString());  
-      }
-    }   
-   
+      sessionStorage.setItem('UVCurrentIndex', data.canvasIndex.toString());
+      helper.canvasIndex = 0;
+      helper.collectionIndex = 0;
+      
+    }
+
     //***** UCC end functionality
 
     that._createExtension(extension, data, helper);
