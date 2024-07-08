@@ -146,7 +146,7 @@ export default class IIIFContentHandler extends BaseContentHandler<IIIFData>
     this._extensionRegistry[MediaType.WEBM] = Extension.AV;
     this._extensionRegistry[MediaType.M3U8] = Extension.MEDIAELEMENT;
     this._extensionRegistry[RenderingFormat.PDF] = Extension.PDF;
-
+    
 
     this.on(
       Events.CREATED,
@@ -232,9 +232,6 @@ export default class IIIFContentHandler extends BaseContentHandler<IIIFData>
       }
 
     }
-
-
-
     this.extra.initial = false;
   }
 
@@ -320,12 +317,10 @@ export default class IIIFContentHandler extends BaseContentHandler<IIIFData>
     let isUcc = false;
     if (localStorage.getItem('isUcc')) {
       const storeIsUcc = localStorage.getItem('isUcc');
-      console.log('reading from localstorage');
       if (storeIsUcc == 'true') {
         isUcc = true;
       }
     }
-    console.log('isUcc : ' + isUcc);
 
     let canvas: Canvas | undefined;
     let uccItem;
@@ -335,15 +330,16 @@ export default class IIIFContentHandler extends BaseContentHandler<IIIFData>
       let eCopy: any | undefined;
       if (localStorage.getItem('eCopy')) {
         eCopy = localStorage.getItem('eCopy');
-        console.log('local storage ecopy : ' + eCopy);
-        newCanvasItem.forEach((item) => {
-          var ibody = item.getMetadata().filter(s => s.label?.getValue() == 'Ecopy number');
-          var ieCopy = ibody[0].getValue();
+        for(let x=0; x < newCanvasItem.length; x++){
+          const item = newCanvasItem[x];
+          const meta = item.getMetadata().filter(s => s.label?.getValue()?.toLowerCase() == 'ecopy number');
+          const ieCopy = meta[0].getValue();
           if (ieCopy == eCopy) {
             item.index=0;
             uccItem = item;
+            break;
           }
-        });
+        }
         newCanvasItem.splice(0, helper.getCanvases().length);
         newCanvasItem.push(uccItem);
         canvas = uccItem;
@@ -370,8 +366,7 @@ export default class IIIFContentHandler extends BaseContentHandler<IIIFData>
       const annotation: Annotation = content[0];
       const body: AnnotationBody[] = annotation.getBody();
       if (body && body.length) {
-        format = body[0].getFormat() as string;
-        console.log(format);
+        format = body[0].getFormat() as string;     
         if (format) {
           extension = await that._getExtensionByFormat(format);
 
@@ -435,11 +430,12 @@ export default class IIIFContentHandler extends BaseContentHandler<IIIFData>
     if (!isUcc) {
       if (cIndex) {
         data.canvasIndex = cIndex;
-      }
+      }      
     }
     else {
       data.canvasIndex = 0;
       sessionStorage.setItem('UVCurrentIndex', data.canvasIndex.toString());
+      
       helper.canvasIndex = 0;
       helper.collectionIndex = 0;
       
