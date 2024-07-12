@@ -12,6 +12,11 @@
 
       "manifests": [
         {
+          "@id": "https://digitalmanifest.bac-lac.gc.ca/DigitalManifest/9/18605",
+          "@type": "sc:Manifest",
+          "label": "LAC local m3u8"
+        },       
+        {
           "@id": "https://digitalmanifest.bac-lac.gc.ca/DigitalManifest/1/1642152",
           "@type": "sc:Manifest",
           "label": "LAC Manifest with PDF at the start"
@@ -26,11 +31,7 @@
           "@type": "sc:Manifest",
           "label": "Pseudo-Albert the Great (folio)"
         },
-        {
-          "@id": "src/m3u8.json",
-          "@type": "sc:Manifest",
-          "label": "LAC local m3u8"
-        },       
+     
      
         {
           "@id": "src/jpfPDF_2997.json",

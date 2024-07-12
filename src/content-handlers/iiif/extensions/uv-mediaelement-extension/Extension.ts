@@ -110,6 +110,18 @@ export default class Extension extends BaseExtension
         this.fire(MediaElementExtensionEvents.MEDIA_PLAYED);
       }
     );
+    this.extensionHost.subscribe(
+      MediaElementExtensionEvents.MEDIA_FORWARD,
+      () => {
+        this.fire(MediaElementExtensionEvents.MEDIA_FORWARD);
+      }
+    );
+    this.extensionHost.subscribe(
+      MediaElementExtensionEvents.MEDIA_BACKWARD,
+      () => {
+        this.fire(MediaElementExtensionEvents.MEDIA_BACKWARD);
+      }
+    );
 
     this.extensionHost.subscribe(
       MediaElementExtensionEvents.MEDIA_TIME_UPDATE,
@@ -199,6 +211,8 @@ export default class Extension extends BaseExtension
       footerOption[i].setAttribute('style','display:none');
     }
     // ****** end Here
+
+ 
   }
 
   checkForTarget(): void {

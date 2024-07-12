@@ -125,7 +125,7 @@ export class MediaElementCenterPanel extends CenterPanel {
 
     if (this.isVideo()) {
       this.$media = uvj$(
-        '<video controls="controls" preload="none" style="width:100%;height:100%;" width="100%" height="100%"></video>'
+        '<video controls="controls" preload="none" style="width:100%;height:100%;" width="100%" height="100%"></video>@'
       );
 
       // Add VTT subtitles/captions.
@@ -143,10 +143,8 @@ export class MediaElementCenterPanel extends CenterPanel {
         await this.getVideoUrlFromCentral(source.src).then((data) => {
           if (data == undefined) {
             source.src = this.getM3U8url(source.src); 
-            console.log(source.src);
           }
           else {
-            console.log(data);
             source.src = data;
           }
         })        
@@ -175,7 +173,9 @@ export class MediaElementCenterPanel extends CenterPanel {
           "tracks",
           "volume",
           "sourcechooser",
-          "fullscreen"
+          "fullscreen",
+          "backward",
+          "forward"
         ],
         success: function (mediaElement: any, originalNode: any) {
           mediaElement.addEventListener("loadstart", () => {
@@ -214,6 +214,20 @@ export class MediaElementCenterPanel extends CenterPanel {
             that.extensionHost.publish(
               MediaElementExtensionEvents.MEDIA_TIME_UPDATE,
               Math.floor(mediaElement.currentTime)
+            );
+          });
+
+          mediaElement.addEventListener("backward", () => {
+            that.extensionHost.publish(
+              MediaElementExtensionEvents.MEDIA_BACKWARD,
+              Math.floor(mediaElement.backward)
+            );
+          });
+
+          mediaElement.addEventListener("forward", () => {
+            that.extensionHost.publish(
+              MediaElementExtensionEvents.MEDIA_FORWARD,
+              Math.floor(mediaElement.forward)
             );
           });
         },
@@ -260,6 +274,8 @@ export class MediaElementCenterPanel extends CenterPanel {
           "tracks",
           "volume",
           "sourcechooser",
+          "forward",
+          "backward"
         ],
         stretching: "responsive",
         defaultAudioHeight: "auto",
@@ -299,6 +315,18 @@ export class MediaElementCenterPanel extends CenterPanel {
               Math.floor(mediaElement.currentTime)
             );
           });
+          mediaElement.addEventListener("backward", () => {
+            that.extensionHost.publish(
+              MediaElementExtensionEvents.MEDIA_BACKWARD,
+              Math.floor(mediaElement.currentTime)
+            );
+          });
+          mediaElement.addEventListener("forward", () => {
+            that.extensionHost.publish(
+              MediaElementExtensionEvents.MEDIA_FORWARD,
+              Math.floor(mediaElement.currentTime)
+            );
+          });
         },
       });
     }
@@ -310,8 +338,7 @@ export class MediaElementCenterPanel extends CenterPanel {
 
 
   getM3U8url(bodyId: string) {
-    let m3u8Url = bodyId;
-    console.log('url to get value from central :' + bodyId);
+    let m3u8Url = bodyId;    
     let urlBody = new URL(bodyId.toLocaleLowerCase());
     const idx: string | null = urlBody.searchParams.get('id');
     console.log('getm3u8 url ID:' + idx);
