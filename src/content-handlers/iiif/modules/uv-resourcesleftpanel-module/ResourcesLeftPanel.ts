@@ -32,12 +32,6 @@ export class ResourcesLeftPanel extends LeftPanel {
 
     this.setTitle(this.content.title);
 
-    console.log(this.content);
-    console.log(this.content.title);
-
-
-
-
 
     //  TODO: make tabs work
 

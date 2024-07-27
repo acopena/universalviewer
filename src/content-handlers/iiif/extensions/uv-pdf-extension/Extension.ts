@@ -21,7 +21,9 @@ import { Bools, Strings } from "@edsilv/utils";
 import { Canvas, LanguageMap, Thumb } from "manifesto.js";
 import "./theme/theme.less";
 import defaultConfig from "./config/en-CA.json";
+import frenchConfig from "./config/fr-CA.json";
 import { Events } from "../../../../Events";
+
 
 
 export default class Extension extends BaseExtension implements IPDFExtension {
@@ -44,14 +46,16 @@ export default class Extension extends BaseExtension implements IPDFExtension {
   rightPanel: MoreInfoRightPanel;
   settingsDialogue: SettingsDialogue;
   defaultConfig: any = defaultConfig;
+  frenchConfig: any= frenchConfig;
   locales = {
     "en-CA": defaultConfig,
-    "fr-CA": () => import("./config/fr-CA.json")
+    "fr-CA": frenchConfig  // () => import("./config/fr-CA.json")
   };
 
   create(): void {
     super.create();
     console.log('**** uv pdf extention ****');   
+    console.log(this.locales);
     
     this.extensionHost.subscribe(
       IIIFEvents.CANVAS_INDEX_CHANGE,
@@ -108,7 +112,8 @@ export default class Extension extends BaseExtension implements IPDFExtension {
     }
 
     
-    
+    console.log('isLeftPanelEnable');
+    console.log(this.isLeftPanelEnabled());
     if (this.isLeftPanelEnabled()) {
       this.leftPanel = new ContentLeftPanel(this.shell.$leftPanel);
     } else {
@@ -185,18 +190,21 @@ export default class Extension extends BaseExtension implements IPDFExtension {
   getEmbedScript(template: string, width: number, height: number): string {
     const appUri: string = this.getAppUri();    
     let iframeSrc: string = '';
+    
     if (appUri.indexOf('?') > -1) {
       iframeSrc = `${appUri}#&manifest=${this.helper.manifestUri}&c=${this.helper.collectionIndex}&m=${this.helper.manifestIndex}&cv=${this.helper.canvasIndex}`;
     }
     else{
       iframeSrc = `${appUri}#?manifest=${this.helper.manifestUri}&c=${this.helper.collectionIndex}&m=${this.helper.manifestIndex}&cv=${this.helper.canvasIndex}`;
     }
+  
     const script: string = Strings.format(
       template,
       iframeSrc,
       width.toString(),
       height.toString()
     );
+    console.log(script);
     return script;
   }
 

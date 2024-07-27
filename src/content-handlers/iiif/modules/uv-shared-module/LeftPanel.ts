@@ -22,15 +22,19 @@ export class LeftPanel extends BaseExpandPanel {
   }
 
   init(): void {
-    super.init();
-
+    super.init();  
     const shouldOpenPanel: boolean = Bools.getBool(
       this.extension.getSettings().leftPanelOpen,
       this.options.panelOpen
     );
-
-    if (shouldOpenPanel) {
+    if (shouldOpenPanel == null) {
       this.toggle(true);
+    }
+    else {
+
+      if (shouldOpenPanel) {
+        this.toggle(true);
+      }
     }
   }
 
