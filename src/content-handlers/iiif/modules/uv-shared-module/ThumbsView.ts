@@ -337,8 +337,7 @@ export class ThumbsView extends BaseView {
   }
 
   selectIndex(index: number): void {
-    // may be authenticating
-    console.log(index);
+    // may be authenticating    
     if (index === -1) return;
     if (!this.thumbs || !this.thumbs.length) return;
     this.getAllThumbs().removeClass("selected");

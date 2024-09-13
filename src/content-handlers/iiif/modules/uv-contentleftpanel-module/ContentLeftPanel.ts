@@ -331,8 +331,7 @@ export class ContentLeftPanel extends LeftPanel {
     }
     if (jsonId) {
       if (newFormat) {
-        if (newFormat != fortmatName) {
-          console.log('inititalizing uv');
+        if (newFormat != fortmatName) {          
           init('uv', this.extension.data);
         }
       }

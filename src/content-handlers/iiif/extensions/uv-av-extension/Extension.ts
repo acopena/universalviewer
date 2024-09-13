@@ -66,15 +66,13 @@ export default class Extension extends BaseExtension implements IAVExtension {
 
      if (index === (<any>this).getDependencyIndex("waveform-data")) {
        window.WaveformData = dep;
-     } else if (index === (<any>this).getDependencyIndex("hls")) {
-       console.log('hls load here......')
+     } else if (index === (<any>this).getDependencyIndex("hls")) {      
        window.Hls = dep; // https://github.com/mrdoob/three.js/issues/9602
      }
   }
 
   createModules(): void {
-    super.createModules();
-    console.log('**** uv-av extensiton ****');   
+    super.createModules();    
     if (this.isHeaderPanelEnabled()) {
       this.headerPanel = new HeaderPanel(this.shell.$headerPanel);
     } else {
@@ -156,8 +154,6 @@ export default class Extension extends BaseExtension implements IAVExtension {
     else {
        iframeSrc = `${appUri}#?manifest=${this.helper.manifestUri}&c=${this.helper.collectionIndex}&m=${this.helper.manifestIndex}&cv=${this.helper.canvasIndex}&rid=${this.helper.rangeId}`;
     }
-    console.log(iframeSrc);
-    console.log(iframeSrc.indexOf('?') );
     const script: string = Strings.format(
       template,
       iframeSrc,

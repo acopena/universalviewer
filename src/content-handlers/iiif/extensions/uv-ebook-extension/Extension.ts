@@ -151,8 +151,7 @@ export default class Extension extends BaseExtension
     else {
       iframeSrc = `${appUri}#?manifest=${this.helper.manifestUri}&cfi=${this.cfiFragement}`;
     }
-    console.log(iframeSrc);
-    console.log(iframeSrc.indexOf('?') );
+  
     const script: string = Strings.format(
       template,
       iframeSrc,

@@ -81,8 +81,6 @@ export default class ModelViewerExtension extends BaseExtension {
   createModules(): void {
     super.createModules();
 
-    console.log('ModelViewerExtension')
-
     if (this.isHeaderPanelEnabled()) {
       this.headerPanel = new HeaderPanel(this.shell.$headerPanel);
     } else {
@@ -271,9 +269,7 @@ export default class ModelViewerExtension extends BaseExtension {
     }
     else {
       iframeSrc = `${appUri}#?manifest=${this.helper.manifestUri}&c=${this.helper.collectionIndex}&m=${this.helper.manifestIndex}&cv=${this.helper.canvasIndex}`;
-    }
-    console.log(iframeSrc);
-    console.log(iframeSrc.indexOf('?') );
+    }   
     const script: string = Strings.format(
       template,
       iframeSrc,

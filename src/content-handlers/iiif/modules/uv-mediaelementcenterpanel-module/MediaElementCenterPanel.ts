@@ -105,8 +105,7 @@ export class MediaElementCenterPanel extends CenterPanel {
         this.extension.helper.getCurrentCanvas()
       );
 
-      console.log('***** Opening open media****')
-
+      
       if (formats && formats.length) {
         formats.forEach((format: AnnotationBody) => {
           const type: MediaType | null = format.getFormat();
@@ -340,8 +339,7 @@ export class MediaElementCenterPanel extends CenterPanel {
   getM3U8url(bodyId: string) {
     let m3u8Url = bodyId;    
     let urlBody = new URL(bodyId.toLocaleLowerCase());
-    const idx: string | null = urlBody.searchParams.get('id');
-    console.log('getm3u8 url ID:' + idx);
+    const idx: string | null = urlBody.searchParams.get('id');    
     if (idx && idx.length >= 30) {
       m3u8Url = "https://d34nlrv9tbrf93.cloudfront.net/" + idx + "/playlist.m3u8";
     }

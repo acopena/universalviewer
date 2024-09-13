@@ -23,10 +23,6 @@ export const sanitize = (html: string) => {
 export const isValidUrl = (value: string): boolean => {
   const a = document.createElement("a");
   a.href = value;
-  console.log('utils8***********');
-  console.log(a.host);
-  console.log(window.location.host);
-
   return !!a.host && a.host !== window.location.host;
 };
 

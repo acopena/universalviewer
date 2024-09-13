@@ -128,10 +128,8 @@ export default class Extension extends BaseExtension
     }
     else {
        iframeSrc = `${appUri}#?manifest=${this.helper.manifestUri}&c=${this.helper.collectionIndex}&m=${this.helper.manifestIndex}&cv=${this.helper.canvasIndex}`;
-    }
-    
-    console.log(iframeSrc);
-    console.log(iframeSrc.indexOf('?') );
+    }   
+  
     const script: string = Strings.format(
       template,
       iframeSrc,

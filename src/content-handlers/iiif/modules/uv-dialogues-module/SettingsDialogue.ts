@@ -84,7 +84,7 @@ export class SettingsDialogue extends Dialogue {
 
   updateSettings(settings: ISettings): void {
     this.extension.updateSettings(settings);
-    console.log(settings);
+    
 
     this.extensionHost.publish(IIIFEvents.UPDATE_SETTINGS, settings);
   }

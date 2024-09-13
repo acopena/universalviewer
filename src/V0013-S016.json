@@ -1,0 +1,1255 @@
+{
+  "Collection": null,
+  "ParentEcopy": "V0013-S016",
+  "Images": [
+    {
+      "Width": 0,
+      "Height": 0,
+      "Ecopy": "V0013-001-S016",
+      "HasUcc": false,
+      "UrlImage": "http://central-d.dev.bac-lac.gc.ca//.item/?app=cloud&op=img&id=V0013-001-S016",
+      "UrlThumbnail": "http://central-d.dev.bac-lac.gc.ca//.item/?app=cloud&op=thumb&height=150&id=V0013-001-S016"
+    },
+    {
+      "Width": 0,
+      "Height": 0,
+      "Ecopy": "V0013-002-S016",
+      "HasUcc": false,
+      "UrlImage": "http://central-d.dev.bac-lac.gc.ca//.item/?app=cloud&op=img&id=V0013-002-S016",
+      "UrlThumbnail": "http://central-d.dev.bac-lac.gc.ca//.item/?app=cloud&op=thumb&height=150&id=V0013-002-S016"
+    },
+    {
+      "Width": 0,
+      "Height": 0,
+      "Ecopy": "V0013-003-S016",
+      "HasUcc": false,
+      "UrlImage": "http://central-d.dev.bac-lac.gc.ca//.item/?app=cloud&op=img&id=V0013-003-S016",
+      "UrlThumbnail": "http://central-d.dev.bac-lac.gc.ca//.item/?app=cloud&op=thumb&height=150&id=V0013-003-S016"
+    },
+    {
+      "Width": 0,
+      "Height": 0,
+      "Ecopy": "V0013-004-S016",
+      "HasUcc": false,
+      "UrlImage": "http://central-d.dev.bac-lac.gc.ca//.item/?app=cloud&op=img&id=V0013-004-S016",
+      "UrlThumbnail": "http://central-d.dev.bac-lac.gc.ca//.item/?app=cloud&op=thumb&height=150&id=V0013-004-S016"
+    },
+    {
+      "Width": 0,
+      "Height": 0,
+      "Ecopy": "V0013-005-S016",
+      "HasUcc": false,
+      "UrlImage": "http://central-d.dev.bac-lac.gc.ca//.item/?app=cloud&op=img&id=V0013-005-S016",
+      "UrlThumbnail": "http://central-d.dev.bac-lac.gc.ca//.item/?app=cloud&op=thumb&height=150&id=V0013-005-S016"
+    },
+    {
+      "Width": 0,
+      "Height": 0,
+      "Ecopy": "V0013-006-S016",
+      "HasUcc": false,
+      "UrlImage": "http://central-d.dev.bac-lac.gc.ca//.item/?app=cloud&op=img&id=V0013-006-S016",
+      "UrlThumbnail": "http://central-d.dev.bac-lac.gc.ca//.item/?app=cloud&op=thumb&height=150&id=V0013-006-S016"
+    },
+    {
+      "Width": 0,
+      "Height": 0,
+      "Ecopy": "V0013-007-S016",
+      "HasUcc": false,
+      "UrlImage": "http://central-d.dev.bac-lac.gc.ca//.item/?app=cloud&op=img&id=V0013-007-S016",
+      "UrlThumbnail": "http://central-d.dev.bac-lac.gc.ca//.item/?app=cloud&op=thumb&height=150&id=V0013-007-S016"
+    },
+    {
+      "Width": 0,
+      "Height": 0,
+      "Ecopy": "V0013-008-S016",
+      "HasUcc": false,
+      "UrlImage": "http://central-d.dev.bac-lac.gc.ca//.item/?app=cloud&op=img&id=V0013-008-S016",
+      "UrlThumbnail": "http://central-d.dev.bac-lac.gc.ca//.item/?app=cloud&op=thumb&height=150&id=V0013-008-S016"
+    },
+    {
+      "Width": 0,
+      "Height": 0,
+      "Ecopy": "V0013-009-S016",
+      "HasUcc": false,
+      "UrlImage": "http://central-d.dev.bac-lac.gc.ca//.item/?app=cloud&op=img&id=V0013-009-S016",
+      "UrlThumbnail": "http://central-d.dev.bac-lac.gc.ca//.item/?app=cloud&op=thumb&height=150&id=V0013-009-S016"
+    },
+    {
+      "Width": 0,
+      "Height": 0,
+      "Ecopy": "V0013-010-S016",
+      "HasUcc": false,
+      "UrlImage": "http://central-d.dev.bac-lac.gc.ca//.item/?app=cloud&op=img&id=V0013-010-S016",
+      "UrlThumbnail": "http://central-d.dev.bac-lac.gc.ca//.item/?app=cloud&op=thumb&height=150&id=V0013-010-S016"
+    },
+    {
+      "Width": 0,
+      "Height": 0,
+      "Ecopy": "V0013-011-S016",
+      "HasUcc": false,
+      "UrlImage": "http://central-d.dev.bac-lac.gc.ca//.item/?app=cloud&op=img&id=V0013-011-S016",
+      "UrlThumbnail": "http://central-d.dev.bac-lac.gc.ca//.item/?app=cloud&op=thumb&height=150&id=V0013-011-S016"
+    },
+    {
+      "Width": 0,
+      "Height": 0,
+      "Ecopy": "V0013-012-S016",
+      "HasUcc": false,
+      "UrlImage": "http://central-d.dev.bac-lac.gc.ca//.item/?app=cloud&op=img&id=V0013-012-S016",
+      "UrlThumbnail": "http://central-d.dev.bac-lac.gc.ca//.item/?app=cloud&op=thumb&height=150&id=V0013-012-S016"
+    },
+    {
+      "Width": 0,
+      "Height": 0,
+      "Ecopy": "V0013-013-S016",
+      "HasUcc": false,
+      "UrlImage": "http://central-d.dev.bac-lac.gc.ca//.item/?app=cloud&op=img&id=V0013-013-S016",
+      "UrlThumbnail": "http://central-d.dev.bac-lac.gc.ca//.item/?app=cloud&op=thumb&height=150&id=V0013-013-S016"
+    },
+    {
+      "Width": 0,
+      "Height": 0,
+      "Ecopy": "V0013-014-S016",
+      "HasUcc": false,
+      "UrlImage": "http://central-d.dev.bac-lac.gc.ca//.item/?app=cloud&op=img&id=V0013-014-S016",
+      "UrlThumbnail": "http://central-d.dev.bac-lac.gc.ca//.item/?app=cloud&op=thumb&height=150&id=V0013-014-S016"
+    },
+    {
+      "Width": 0,
+      "Height": 0,
+      "Ecopy": "V0013-015-S016",
+      "HasUcc": false,
+      "UrlImage": "http://central-d.dev.bac-lac.gc.ca//.item/?app=cloud&op=img&id=V0013-015-S016",
+      "UrlThumbnail": "http://central-d.dev.bac-lac.gc.ca//.item/?app=cloud&op=thumb&height=150&id=V0013-015-S016"
+    },
+    {
+      "Width": 0,
+      "Height": 0,
+      "Ecopy": "V0013-016-S016",
+      "HasUcc": false,
+      "UrlImage": "http://central-d.dev.bac-lac.gc.ca//.item/?app=cloud&op=img&id=V0013-016-S016",
+      "UrlThumbnail": "http://central-d.dev.bac-lac.gc.ca//.item/?app=cloud&op=thumb&height=150&id=V0013-016-S016"
+    },
+    {
+      "Width": 0,
+      "Height": 0,
+      "Ecopy": "V0013-017-S016",
+      "HasUcc": false,
+      "UrlImage": "http://central-d.dev.bac-lac.gc.ca//.item/?app=cloud&op=img&id=V0013-017-S016",
+      "UrlThumbnail": "http://central-d.dev.bac-lac.gc.ca//.item/?app=cloud&op=thumb&height=150&id=V0013-017-S016"
+    },
+    {
+      "Width": 0,
+      "Height": 0,
+      "Ecopy": "V0013-018-S016",
+      "HasUcc": false,
+      "UrlImage": "http://central-d.dev.bac-lac.gc.ca//.item/?app=cloud&op=img&id=V0013-018-S016",
+      "UrlThumbnail": "http://central-d.dev.bac-lac.gc.ca//.item/?app=cloud&op=thumb&height=150&id=V0013-018-S016"
+    },
+    {
+      "Width": 0,
+      "Height": 0,
+      "Ecopy": "V0013-019-S016",
+      "HasUcc": false,
+      "UrlImage": "http://central-d.dev.bac-lac.gc.ca//.item/?app=cloud&op=img&id=V0013-019-S016",
+      "UrlThumbnail": "http://central-d.dev.bac-lac.gc.ca//.item/?app=cloud&op=thumb&height=150&id=V0013-019-S016"
+    },
+    {
+      "Width": 0,
+      "Height": 0,
+      "Ecopy": "V0013-020-S016",
+      "HasUcc": false,
+      "UrlImage": "http://central-d.dev.bac-lac.gc.ca//.item/?app=cloud&op=img&id=V0013-020-S016",
+      "UrlThumbnail": "http://central-d.dev.bac-lac.gc.ca//.item/?app=cloud&op=thumb&height=150&id=V0013-020-S016"
+    },
+    {
+      "Width": 0,
+      "Height": 0,
+      "Ecopy": "V0013-021-S016",
+      "HasUcc": false,
+      "UrlImage": "http://central-d.dev.bac-lac.gc.ca//.item/?app=cloud&op=img&id=V0013-021-S016",
+      "UrlThumbnail": "http://central-d.dev.bac-lac.gc.ca//.item/?app=cloud&op=thumb&height=150&id=V0013-021-S016"
+    },
+    {
+      "Width": 0,
+      "Height": 0,
+      "Ecopy": "V0013-022-S016",
+      "HasUcc": false,
+      "UrlImage": "http://central-d.dev.bac-lac.gc.ca//.item/?app=cloud&op=img&id=V0013-022-S016",
+      "UrlThumbnail": "http://central-d.dev.bac-lac.gc.ca//.item/?app=cloud&op=thumb&height=150&id=V0013-022-S016"
+    },
+    {
+      "Width": 0,
+      "Height": 0,
+      "Ecopy": "V0013-023-S016",
+      "HasUcc": false,
+      "UrlImage": "http://central-d.dev.bac-lac.gc.ca//.item/?app=cloud&op=img&id=V0013-023-S016",
+      "UrlThumbnail": "http://central-d.dev.bac-lac.gc.ca//.item/?app=cloud&op=thumb&height=150&id=V0013-023-S016"
+    },
+    {
+      "Width": 0,
+      "Height": 0,
+      "Ecopy": "V0013-024-S016",
+      "HasUcc": false,
+      "UrlImage": "http://central-d.dev.bac-lac.gc.ca//.item/?app=cloud&op=img&id=V0013-024-S016",
+      "UrlThumbnail": "http://central-d.dev.bac-lac.gc.ca//.item/?app=cloud&op=thumb&height=150&id=V0013-024-S016"
+    },
+    {
+      "Width": 0,
+      "Height": 0,
+      "Ecopy": "V0013-025-S016",
+      "HasUcc": false,
+      "UrlImage": "http://central-d.dev.bac-lac.gc.ca//.item/?app=cloud&op=img&id=V0013-025-S016",
+      "UrlThumbnail": "http://central-d.dev.bac-lac.gc.ca//.item/?app=cloud&op=thumb&height=150&id=V0013-025-S016"
+    },
+    {
+      "Width": 0,
+      "Height": 0,
+      "Ecopy": "V0013-026-S016",
+      "HasUcc": false,
+      "UrlImage": "http://central-d.dev.bac-lac.gc.ca//.item/?app=cloud&op=img&id=V0013-026-S016",
+      "UrlThumbnail": "http://central-d.dev.bac-lac.gc.ca//.item/?app=cloud&op=thumb&height=150&id=V0013-026-S016"
+    },
+    {
+      "Width": 0,
+      "Height": 0,
+      "Ecopy": "V0013-027-S016",
+      "HasUcc": false,
+      "UrlImage": "http://central-d.dev.bac-lac.gc.ca//.item/?app=cloud&op=img&id=V0013-027-S016",
+      "UrlThumbnail": "http://central-d.dev.bac-lac.gc.ca//.item/?app=cloud&op=thumb&height=150&id=V0013-027-S016"
+    },
+    {
+      "Width": 0,
+      "Height": 0,
+      "Ecopy": "V0013-028-S016",
+      "HasUcc": false,
+      "UrlImage": "http://central-d.dev.bac-lac.gc.ca//.item/?app=cloud&op=img&id=V0013-028-S016",
+      "UrlThumbnail": "http://central-d.dev.bac-lac.gc.ca//.item/?app=cloud&op=thumb&height=150&id=V0013-028-S016"
+    },
+    {
+      "Width": 0,
+      "Height": 0,
+      "Ecopy": "V0013-029-S016",
+      "HasUcc": false,
+      "UrlImage": "http://central-d.dev.bac-lac.gc.ca//.item/?app=cloud&op=img&id=V0013-029-S016",
+      "UrlThumbnail": "http://central-d.dev.bac-lac.gc.ca//.item/?app=cloud&op=thumb&height=150&id=V0013-029-S016"
+    },
+    {
+      "Width": 0,
+      "Height": 0,
+      "Ecopy": "V0013-030-S016",
+      "HasUcc": false,
+      "UrlImage": "http://central-d.dev.bac-lac.gc.ca//.item/?app=cloud&op=img&id=V0013-030-S016",
+      "UrlThumbnail": "http://central-d.dev.bac-lac.gc.ca//.item/?app=cloud&op=thumb&height=150&id=V0013-030-S016"
+    },
+    {
+      "Width": 0,
+      "Height": 0,
+      "Ecopy": "V0013-031-S016",
+      "HasUcc": false,
+      "UrlImage": "http://central-d.dev.bac-lac.gc.ca//.item/?app=cloud&op=img&id=V0013-031-S016",
+      "UrlThumbnail": "http://central-d.dev.bac-lac.gc.ca//.item/?app=cloud&op=thumb&height=150&id=V0013-031-S016"
+    },
+    {
+      "Width": 0,
+      "Height": 0,
+      "Ecopy": "V0013-032-S016",
+      "HasUcc": false,
+      "UrlImage": "http://central-d.dev.bac-lac.gc.ca//.item/?app=cloud&op=img&id=V0013-032-S016",
+      "UrlThumbnail": "http://central-d.dev.bac-lac.gc.ca//.item/?app=cloud&op=thumb&height=150&id=V0013-032-S016"
+    },
+    {
+      "Width": 0,
+      "Height": 0,
+      "Ecopy": "V0013-033-S016",
+      "HasUcc": false,
+      "UrlImage": "http://central-d.dev.bac-lac.gc.ca//.item/?app=cloud&op=img&id=V0013-033-S016",
+      "UrlThumbnail": "http://central-d.dev.bac-lac.gc.ca//.item/?app=cloud&op=thumb&height=150&id=V0013-033-S016"
+    },
+    {
+      "Width": 0,
+      "Height": 0,
+      "Ecopy": "V0013-034-S016",
+      "HasUcc": false,
+      "UrlImage": "http://central-d.dev.bac-lac.gc.ca//.item/?app=cloud&op=img&id=V0013-034-S016",
+      "UrlThumbnail": "http://central-d.dev.bac-lac.gc.ca//.item/?app=cloud&op=thumb&height=150&id=V0013-034-S016"
+    },
+    {
+      "Width": 0,
+      "Height": 0,
+      "Ecopy": "V0013-035-S016",
+      "HasUcc": false,
+      "UrlImage": "http://central-d.dev.bac-lac.gc.ca//.item/?app=cloud&op=img&id=V0013-035-S016",
+      "UrlThumbnail": "http://central-d.dev.bac-lac.gc.ca//.item/?app=cloud&op=thumb&height=150&id=V0013-035-S016"
+    },
+    {
+      "Width": 0,
+      "Height": 0,
+      "Ecopy": "V0013-036-S016",
+      "HasUcc": false,
+      "UrlImage": "http://central-d.dev.bac-lac.gc.ca//.item/?app=cloud&op=img&id=V0013-036-S016",
+      "UrlThumbnail": "http://central-d.dev.bac-lac.gc.ca//.item/?app=cloud&op=thumb&height=150&id=V0013-036-S016"
+    },
+    {
+      "Width": 0,
+      "Height": 0,
+      "Ecopy": "V0013-037-S016",
+      "HasUcc": false,
+      "UrlImage": "http://central-d.dev.bac-lac.gc.ca//.item/?app=cloud&op=img&id=V0013-037-S016",
+      "UrlThumbnail": "http://central-d.dev.bac-lac.gc.ca//.item/?app=cloud&op=thumb&height=150&id=V0013-037-S016"
+    },
+    {
+      "Width": 0,
+      "Height": 0,
+      "Ecopy": "V0013-038-S016",
+      "HasUcc": false,
+      "UrlImage": "http://central-d.dev.bac-lac.gc.ca//.item/?app=cloud&op=img&id=V0013-038-S016",
+      "UrlThumbnail": "http://central-d.dev.bac-lac.gc.ca//.item/?app=cloud&op=thumb&height=150&id=V0013-038-S016"
+    },
+    {
+      "Width": 0,
+      "Height": 0,
+      "Ecopy": "V0013-039-S016",
+      "HasUcc": false,
+      "UrlImage": "http://central-d.dev.bac-lac.gc.ca//.item/?app=cloud&op=img&id=V0013-039-S016",
+      "UrlThumbnail": "http://central-d.dev.bac-lac.gc.ca//.item/?app=cloud&op=thumb&height=150&id=V0013-039-S016"
+    },
+    {
+      "Width": 0,
+      "Height": 0,
+      "Ecopy": "V0013-040-S016",
+      "HasUcc": false,
+      "UrlImage": "http://central-d.dev.bac-lac.gc.ca//.item/?app=cloud&op=img&id=V0013-040-S016",
+      "UrlThumbnail": "http://central-d.dev.bac-lac.gc.ca//.item/?app=cloud&op=thumb&height=150&id=V0013-040-S016"
+    },
+    {
+      "Width": 0,
+      "Height": 0,
+      "Ecopy": "V0013-041-S016",
+      "HasUcc": false,
+      "UrlImage": "http://central-d.dev.bac-lac.gc.ca//.item/?app=cloud&op=img&id=V0013-041-S016",
+      "UrlThumbnail": "http://central-d.dev.bac-lac.gc.ca//.item/?app=cloud&op=thumb&height=150&id=V0013-041-S016"
+    },
+    {
+      "Width": 0,
+      "Height": 0,
+      "Ecopy": "V0013-042-S016",
+      "HasUcc": false,
+      "UrlImage": "http://central-d.dev.bac-lac.gc.ca//.item/?app=cloud&op=img&id=V0013-042-S016",
+      "UrlThumbnail": "http://central-d.dev.bac-lac.gc.ca//.item/?app=cloud&op=thumb&height=150&id=V0013-042-S016"
+    },
+    {
+      "Width": 0,
+      "Height": 0,
+      "Ecopy": "V0013-043-S016",
+      "HasUcc": false,
+      "UrlImage": "http://central-d.dev.bac-lac.gc.ca//.item/?app=cloud&op=img&id=V0013-043-S016",
+      "UrlThumbnail": "http://central-d.dev.bac-lac.gc.ca//.item/?app=cloud&op=thumb&height=150&id=V0013-043-S016"
+    },
+    {
+      "Width": 0,
+      "Height": 0,
+      "Ecopy": "V0013-044-S016",
+      "HasUcc": false,
+      "UrlImage": "http://central-d.dev.bac-lac.gc.ca//.item/?app=cloud&op=img&id=V0013-044-S016",
+      "UrlThumbnail": "http://central-d.dev.bac-lac.gc.ca//.item/?app=cloud&op=thumb&height=150&id=V0013-044-S016"
+    },
+    {
+      "Width": 0,
+      "Height": 0,
+      "Ecopy": "V0013-045-S016",
+      "HasUcc": false,
+      "UrlImage": "http://central-d.dev.bac-lac.gc.ca//.item/?app=cloud&op=img&id=V0013-045-S016",
+      "UrlThumbnail": "http://central-d.dev.bac-lac.gc.ca//.item/?app=cloud&op=thumb&height=150&id=V0013-045-S016"
+    },
+    {
+      "Width": 0,
+      "Height": 0,
+      "Ecopy": "V0013-046-S016",
+      "HasUcc": false,
+      "UrlImage": "http://central-d.dev.bac-lac.gc.ca//.item/?app=cloud&op=img&id=V0013-046-S016",
+      "UrlThumbnail": "http://central-d.dev.bac-lac.gc.ca//.item/?app=cloud&op=thumb&height=150&id=V0013-046-S016"
+    },
+    {
+      "Width": 0,
+      "Height": 0,
+      "Ecopy": "V0013-047-S016",
+      "HasUcc": false,
+      "UrlImage": "http://central-d.dev.bac-lac.gc.ca//.item/?app=cloud&op=img&id=V0013-047-S016",
+      "UrlThumbnail": "http://central-d.dev.bac-lac.gc.ca//.item/?app=cloud&op=thumb&height=150&id=V0013-047-S016"
+    },
+    {
+      "Width": 0,
+      "Height": 0,
+      "Ecopy": "V0013-048-S016",
+      "HasUcc": false,
+      "UrlImage": "http://central-d.dev.bac-lac.gc.ca//.item/?app=cloud&op=img&id=V0013-048-S016",
+      "UrlThumbnail": "http://central-d.dev.bac-lac.gc.ca//.item/?app=cloud&op=thumb&height=150&id=V0013-048-S016"
+    },
+    {
+      "Width": 0,
+      "Height": 0,
+      "Ecopy": "V0013-049-S016",
+      "HasUcc": false,
+      "UrlImage": "http://central-d.dev.bac-lac.gc.ca//.item/?app=cloud&op=img&id=V0013-049-S016",
+      "UrlThumbnail": "http://central-d.dev.bac-lac.gc.ca//.item/?app=cloud&op=thumb&height=150&id=V0013-049-S016"
+    },
+    {
+      "Width": 0,
+      "Height": 0,
+      "Ecopy": "V0013-050-S016",
+      "HasUcc": false,
+      "UrlImage": "http://central-d.dev.bac-lac.gc.ca//.item/?app=cloud&op=img&id=V0013-050-S016",
+      "UrlThumbnail": "http://central-d.dev.bac-lac.gc.ca//.item/?app=cloud&op=thumb&height=150&id=V0013-050-S016"
+    },
+    {
+      "Width": 0,
+      "Height": 0,
+      "Ecopy": "V0013-051-S016",
+      "HasUcc": false,
+      "UrlImage": "http://central-d.dev.bac-lac.gc.ca//.item/?app=cloud&op=img&id=V0013-051-S016",
+      "UrlThumbnail": "http://central-d.dev.bac-lac.gc.ca//.item/?app=cloud&op=thumb&height=150&id=V0013-051-S016"
+    },
+    {
+      "Width": 0,
+      "Height": 0,
+      "Ecopy": "V0013-052-S016",
+      "HasUcc": false,
+      "UrlImage": "http://central-d.dev.bac-lac.gc.ca//.item/?app=cloud&op=img&id=V0013-052-S016",
+      "UrlThumbnail": "http://central-d.dev.bac-lac.gc.ca//.item/?app=cloud&op=thumb&height=150&id=V0013-052-S016"
+    },
+    {
+      "Width": 0,
+      "Height": 0,
+      "Ecopy": "V0013-053-S016",
+      "HasUcc": false,
+      "UrlImage": "http://central-d.dev.bac-lac.gc.ca//.item/?app=cloud&op=img&id=V0013-053-S016",
+      "UrlThumbnail": "http://central-d.dev.bac-lac.gc.ca//.item/?app=cloud&op=thumb&height=150&id=V0013-053-S016"
+    },
+    {
+      "Width": 0,
+      "Height": 0,
+      "Ecopy": "V0013-054-S016",
+      "HasUcc": false,
+      "UrlImage": "http://central-d.dev.bac-lac.gc.ca//.item/?app=cloud&op=img&id=V0013-054-S016",
+      "UrlThumbnail": "http://central-d.dev.bac-lac.gc.ca//.item/?app=cloud&op=thumb&height=150&id=V0013-054-S016"
+    },
+    {
+      "Width": 0,
+      "Height": 0,
+      "Ecopy": "V0013-055-S016",
+      "HasUcc": false,
+      "UrlImage": "http://central-d.dev.bac-lac.gc.ca//.item/?app=cloud&op=img&id=V0013-055-S016",
+      "UrlThumbnail": "http://central-d.dev.bac-lac.gc.ca//.item/?app=cloud&op=thumb&height=150&id=V0013-055-S016"
+    },
+    {
+      "Width": 0,
+      "Height": 0,
+      "Ecopy": "V0013-056-S016",
+      "HasUcc": false,
+      "UrlImage": "http://central-d.dev.bac-lac.gc.ca//.item/?app=cloud&op=img&id=V0013-056-S016",
+      "UrlThumbnail": "http://central-d.dev.bac-lac.gc.ca//.item/?app=cloud&op=thumb&height=150&id=V0013-056-S016"
+    },
+    {
+      "Width": 0,
+      "Height": 0,
+      "Ecopy": "V0013-057-S016",
+      "HasUcc": false,
+      "UrlImage": "http://central-d.dev.bac-lac.gc.ca//.item/?app=cloud&op=img&id=V0013-057-S016",
+      "UrlThumbnail": "http://central-d.dev.bac-lac.gc.ca//.item/?app=cloud&op=thumb&height=150&id=V0013-057-S016"
+    },
+    {
+      "Width": 0,
+      "Height": 0,
+      "Ecopy": "V0013-058-S016",
+      "HasUcc": false,
+      "UrlImage": "http://central-d.dev.bac-lac.gc.ca//.item/?app=cloud&op=img&id=V0013-058-S016",
+      "UrlThumbnail": "http://central-d.dev.bac-lac.gc.ca//.item/?app=cloud&op=thumb&height=150&id=V0013-058-S016"
+    },
+    {
+      "Width": 0,
+      "Height": 0,
+      "Ecopy": "V0013-059-S016",
+      "HasUcc": false,
+      "UrlImage": "http://central-d.dev.bac-lac.gc.ca//.item/?app=cloud&op=img&id=V0013-059-S016",
+      "UrlThumbnail": "http://central-d.dev.bac-lac.gc.ca//.item/?app=cloud&op=thumb&height=150&id=V0013-059-S016"
+    },
+    {
+      "Width": 0,
+      "Height": 0,
+      "Ecopy": "V0013-060-S016",
+      "HasUcc": false,
+      "UrlImage": "http://central-d.dev.bac-lac.gc.ca//.item/?app=cloud&op=img&id=V0013-060-S016",
+      "UrlThumbnail": "http://central-d.dev.bac-lac.gc.ca//.item/?app=cloud&op=thumb&height=150&id=V0013-060-S016"
+    },
+    {
+      "Width": 0,
+      "Height": 0,
+      "Ecopy": "V0013-061-S016",
+      "HasUcc": false,
+      "UrlImage": "http://central-d.dev.bac-lac.gc.ca//.item/?app=cloud&op=img&id=V0013-061-S016",
+      "UrlThumbnail": "http://central-d.dev.bac-lac.gc.ca//.item/?app=cloud&op=thumb&height=150&id=V0013-061-S016"
+    },
+    {
+      "Width": 0,
+      "Height": 0,
+      "Ecopy": "V0013-062-S016",
+      "HasUcc": false,
+      "UrlImage": "http://central-d.dev.bac-lac.gc.ca//.item/?app=cloud&op=img&id=V0013-062-S016",
+      "UrlThumbnail": "http://central-d.dev.bac-lac.gc.ca//.item/?app=cloud&op=thumb&height=150&id=V0013-062-S016"
+    },
+    {
+      "Width": 0,
+      "Height": 0,
+      "Ecopy": "V0013-063-S016",
+      "HasUcc": false,
+      "UrlImage": "http://central-d.dev.bac-lac.gc.ca//.item/?app=cloud&op=img&id=V0013-063-S016",
+      "UrlThumbnail": "http://central-d.dev.bac-lac.gc.ca//.item/?app=cloud&op=thumb&height=150&id=V0013-063-S016"
+    },
+    {
+      "Width": 0,
+      "Height": 0,
+      "Ecopy": "V0013-064-S016",
+      "HasUcc": false,
+      "UrlImage": "http://central-d.dev.bac-lac.gc.ca//.item/?app=cloud&op=img&id=V0013-064-S016",
+      "UrlThumbnail": "http://central-d.dev.bac-lac.gc.ca//.item/?app=cloud&op=thumb&height=150&id=V0013-064-S016"
+    },
+    {
+      "Width": 0,
+      "Height": 0,
+      "Ecopy": "V0013-065-S016",
+      "HasUcc": false,
+      "UrlImage": "http://central-d.dev.bac-lac.gc.ca//.item/?app=cloud&op=img&id=V0013-065-S016",
+      "UrlThumbnail": "http://central-d.dev.bac-lac.gc.ca//.item/?app=cloud&op=thumb&height=150&id=V0013-065-S016"
+    },
+    {
+      "Width": 0,
+      "Height": 0,
+      "Ecopy": "V0013-066-S016",
+      "HasUcc": false,
+      "UrlImage": "http://central-d.dev.bac-lac.gc.ca//.item/?app=cloud&op=img&id=V0013-066-S016",
+      "UrlThumbnail": "http://central-d.dev.bac-lac.gc.ca//.item/?app=cloud&op=thumb&height=150&id=V0013-066-S016"
+    },
+    {
+      "Width": 0,
+      "Height": 0,
+      "Ecopy": "V0013-067-S016",
+      "HasUcc": false,
+      "UrlImage": "http://central-d.dev.bac-lac.gc.ca//.item/?app=cloud&op=img&id=V0013-067-S016",
+      "UrlThumbnail": "http://central-d.dev.bac-lac.gc.ca//.item/?app=cloud&op=thumb&height=150&id=V0013-067-S016"
+    },
+    {
+      "Width": 0,
+      "Height": 0,
+      "Ecopy": "V0013-068-S016",
+      "HasUcc": false,
+      "UrlImage": "http://central-d.dev.bac-lac.gc.ca//.item/?app=cloud&op=img&id=V0013-068-S016",
+      "UrlThumbnail": "http://central-d.dev.bac-lac.gc.ca//.item/?app=cloud&op=thumb&height=150&id=V0013-068-S016"
+    },
+    {
+      "Width": 0,
+      "Height": 0,
+      "Ecopy": "V0013-069-S016",
+      "HasUcc": false,
+      "UrlImage": "http://central-d.dev.bac-lac.gc.ca//.item/?app=cloud&op=img&id=V0013-069-S016",
+      "UrlThumbnail": "http://central-d.dev.bac-lac.gc.ca//.item/?app=cloud&op=thumb&height=150&id=V0013-069-S016"
+    },
+    {
+      "Width": 0,
+      "Height": 0,
+      "Ecopy": "V0013-070-S016",
+      "HasUcc": false,
+      "UrlImage": "http://central-d.dev.bac-lac.gc.ca//.item/?app=cloud&op=img&id=V0013-070-S016",
+      "UrlThumbnail": "http://central-d.dev.bac-lac.gc.ca//.item/?app=cloud&op=thumb&height=150&id=V0013-070-S016"
+    },
+    {
+      "Width": 0,
+      "Height": 0,
+      "Ecopy": "V0013-071-S016",
+      "HasUcc": false,
+      "UrlImage": "http://central-d.dev.bac-lac.gc.ca//.item/?app=cloud&op=img&id=V0013-071-S016",
+      "UrlThumbnail": "http://central-d.dev.bac-lac.gc.ca//.item/?app=cloud&op=thumb&height=150&id=V0013-071-S016"
+    },
+    {
+      "Width": 0,
+      "Height": 0,
+      "Ecopy": "V0013-072-S016",
+      "HasUcc": false,
+      "UrlImage": "http://central-d.dev.bac-lac.gc.ca//.item/?app=cloud&op=img&id=V0013-072-S016",
+      "UrlThumbnail": "http://central-d.dev.bac-lac.gc.ca//.item/?app=cloud&op=thumb&height=150&id=V0013-072-S016"
+    },
+    {
+      "Width": 0,
+      "Height": 0,
+      "Ecopy": "V0013-073-S016",
+      "HasUcc": false,
+      "UrlImage": "http://central-d.dev.bac-lac.gc.ca//.item/?app=cloud&op=img&id=V0013-073-S016",
+      "UrlThumbnail": "http://central-d.dev.bac-lac.gc.ca//.item/?app=cloud&op=thumb&height=150&id=V0013-073-S016"
+    },
+    {
+      "Width": 0,
+      "Height": 0,
+      "Ecopy": "V0013-074-S016",
+      "HasUcc": false,
+      "UrlImage": "http://central-d.dev.bac-lac.gc.ca//.item/?app=cloud&op=img&id=V0013-074-S016",
+      "UrlThumbnail": "http://central-d.dev.bac-lac.gc.ca//.item/?app=cloud&op=thumb&height=150&id=V0013-074-S016"
+    },
+    {
+      "Width": 0,
+      "Height": 0,
+      "Ecopy": "V0013-075-S016",
+      "HasUcc": false,
+      "UrlImage": "http://central-d.dev.bac-lac.gc.ca//.item/?app=cloud&op=img&id=V0013-075-S016",
+      "UrlThumbnail": "http://central-d.dev.bac-lac.gc.ca//.item/?app=cloud&op=thumb&height=150&id=V0013-075-S016"
+    },
+    {
+      "Width": 0,
+      "Height": 0,
+      "Ecopy": "V0013-076-S016",
+      "HasUcc": false,
+      "UrlImage": "http://central-d.dev.bac-lac.gc.ca//.item/?app=cloud&op=img&id=V0013-076-S016",
+      "UrlThumbnail": "http://central-d.dev.bac-lac.gc.ca//.item/?app=cloud&op=thumb&height=150&id=V0013-076-S016"
+    },
+    {
+      "Width": 0,
+      "Height": 0,
+      "Ecopy": "V0013-077-S016",
+      "HasUcc": false,
+      "UrlImage": "http://central-d.dev.bac-lac.gc.ca//.item/?app=cloud&op=img&id=V0013-077-S016",
+      "UrlThumbnail": "http://central-d.dev.bac-lac.gc.ca//.item/?app=cloud&op=thumb&height=150&id=V0013-077-S016"
+    },
+    {
+      "Width": 0,
+      "Height": 0,
+      "Ecopy": "V0013-078-S016",
+      "HasUcc": false,
+      "UrlImage": "http://central-d.dev.bac-lac.gc.ca//.item/?app=cloud&op=img&id=V0013-078-S016",
+      "UrlThumbnail": "http://central-d.dev.bac-lac.gc.ca//.item/?app=cloud&op=thumb&height=150&id=V0013-078-S016"
+    },
+    {
+      "Width": 0,
+      "Height": 0,
+      "Ecopy": "V0013-S016-001",
+      "HasUcc": false,
+      "UrlImage": "http://central-d.dev.bac-lac.gc.ca//.item/?app=cloud&op=img&id=V0013-S016-001",
+      "UrlThumbnail": "http://central-d.dev.bac-lac.gc.ca//.item/?app=cloud&op=thumb&height=150&id=V0013-S016-001"
+    },
+    {
+      "Width": 0,
+      "Height": 0,
+      "Ecopy": "V0013-S016-002",
+      "HasUcc": false,
+      "UrlImage": "http://central-d.dev.bac-lac.gc.ca//.item/?app=cloud&op=img&id=V0013-S016-002",
+      "UrlThumbnail": "http://central-d.dev.bac-lac.gc.ca//.item/?app=cloud&op=thumb&height=150&id=V0013-S016-002"
+    },
+    {
+      "Width": 0,
+      "Height": 0,
+      "Ecopy": "V0013-S016-003",
+      "HasUcc": false,
+      "UrlImage": "http://central-d.dev.bac-lac.gc.ca//.item/?app=cloud&op=img&id=V0013-S016-003",
+      "UrlThumbnail": "http://central-d.dev.bac-lac.gc.ca//.item/?app=cloud&op=thumb&height=150&id=V0013-S016-003"
+    },
+    {
+      "Width": 0,
+      "Height": 0,
+      "Ecopy": "V0013-S016-004",
+      "HasUcc": false,
+      "UrlImage": "http://central-d.dev.bac-lac.gc.ca//.item/?app=cloud&op=img&id=V0013-S016-004",
+      "UrlThumbnail": "http://central-d.dev.bac-lac.gc.ca//.item/?app=cloud&op=thumb&height=150&id=V0013-S016-004"
+    },
+    {
+      "Width": 0,
+      "Height": 0,
+      "Ecopy": "V0013-S016-005",
+      "HasUcc": false,
+      "UrlImage": "http://central-d.dev.bac-lac.gc.ca//.item/?app=cloud&op=img&id=V0013-S016-005",
+      "UrlThumbnail": "http://central-d.dev.bac-lac.gc.ca//.item/?app=cloud&op=thumb&height=150&id=V0013-S016-005"
+    },
+    {
+      "Width": 0,
+      "Height": 0,
+      "Ecopy": "V0013-S016-006",
+      "HasUcc": false,
+      "UrlImage": "http://central-d.dev.bac-lac.gc.ca//.item/?app=cloud&op=img&id=V0013-S016-006",
+      "UrlThumbnail": "http://central-d.dev.bac-lac.gc.ca//.item/?app=cloud&op=thumb&height=150&id=V0013-S016-006"
+    },
+    {
+      "Width": 0,
+      "Height": 0,
+      "Ecopy": "V0013-S016-007",
+      "HasUcc": false,
+      "UrlImage": "http://central-d.dev.bac-lac.gc.ca//.item/?app=cloud&op=img&id=V0013-S016-007",
+      "UrlThumbnail": "http://central-d.dev.bac-lac.gc.ca//.item/?app=cloud&op=thumb&height=150&id=V0013-S016-007"
+    },
+    {
+      "Width": 0,
+      "Height": 0,
+      "Ecopy": "V0013-S016-008",
+      "HasUcc": false,
+      "UrlImage": "http://central-d.dev.bac-lac.gc.ca//.item/?app=cloud&op=img&id=V0013-S016-008",
+      "UrlThumbnail": "http://central-d.dev.bac-lac.gc.ca//.item/?app=cloud&op=thumb&height=150&id=V0013-S016-008"
+    },
+    {
+      "Width": 0,
+      "Height": 0,
+      "Ecopy": "V0013-S016-009",
+      "HasUcc": false,
+      "UrlImage": "http://central-d.dev.bac-lac.gc.ca//.item/?app=cloud&op=img&id=V0013-S016-009",
+      "UrlThumbnail": "http://central-d.dev.bac-lac.gc.ca//.item/?app=cloud&op=thumb&height=150&id=V0013-S016-009"
+    },
+    {
+      "Width": 0,
+      "Height": 0,
+      "Ecopy": "V0013-S016-010",
+      "HasUcc": false,
+      "UrlImage": "http://central-d.dev.bac-lac.gc.ca//.item/?app=cloud&op=img&id=V0013-S016-010",
+      "UrlThumbnail": "http://central-d.dev.bac-lac.gc.ca//.item/?app=cloud&op=thumb&height=150&id=V0013-S016-010"
+    },
+    {
+      "Width": 0,
+      "Height": 0,
+      "Ecopy": "V0013-S016-011",
+      "HasUcc": false,
+      "UrlImage": "http://central-d.dev.bac-lac.gc.ca//.item/?app=cloud&op=img&id=V0013-S016-011",
+      "UrlThumbnail": "http://central-d.dev.bac-lac.gc.ca//.item/?app=cloud&op=thumb&height=150&id=V0013-S016-011"
+    },
+    {
+      "Width": 0,
+      "Height": 0,
+      "Ecopy": "V0013-S016-012",
+      "HasUcc": false,
+      "UrlImage": "http://central-d.dev.bac-lac.gc.ca//.item/?app=cloud&op=img&id=V0013-S016-012",
+      "UrlThumbnail": "http://central-d.dev.bac-lac.gc.ca//.item/?app=cloud&op=thumb&height=150&id=V0013-S016-012"
+    },
+    {
+      "Width": 0,
+      "Height": 0,
+      "Ecopy": "V0013-S016-013",
+      "HasUcc": false,
+      "UrlImage": "http://central-d.dev.bac-lac.gc.ca//.item/?app=cloud&op=img&id=V0013-S016-013",
+      "UrlThumbnail": "http://central-d.dev.bac-lac.gc.ca//.item/?app=cloud&op=thumb&height=150&id=V0013-S016-013"
+    },
+    {
+      "Width": 0,
+      "Height": 0,
+      "Ecopy": "V0013-S016-014",
+      "HasUcc": false,
+      "UrlImage": "http://central-d.dev.bac-lac.gc.ca//.item/?app=cloud&op=img&id=V0013-S016-014",
+      "UrlThumbnail": "http://central-d.dev.bac-lac.gc.ca//.item/?app=cloud&op=thumb&height=150&id=V0013-S016-014"
+    },
+    {
+      "Width": 0,
+      "Height": 0,
+      "Ecopy": "V0013-S016-015",
+      "HasUcc": false,
+      "UrlImage": "http://central-d.dev.bac-lac.gc.ca//.item/?app=cloud&op=img&id=V0013-S016-015",
+      "UrlThumbnail": "http://central-d.dev.bac-lac.gc.ca//.item/?app=cloud&op=thumb&height=150&id=V0013-S016-015"
+    },
+    {
+      "Width": 0,
+      "Height": 0,
+      "Ecopy": "V0013-S016-016",
+      "HasUcc": false,
+      "UrlImage": "http://central-d.dev.bac-lac.gc.ca//.item/?app=cloud&op=img&id=V0013-S016-016",
+      "UrlThumbnail": "http://central-d.dev.bac-lac.gc.ca//.item/?app=cloud&op=thumb&height=150&id=V0013-S016-016"
+    },
+    {
+      "Width": 0,
+      "Height": 0,
+      "Ecopy": "V0013-S016-017",
+      "HasUcc": false,
+      "UrlImage": "http://central-d.dev.bac-lac.gc.ca//.item/?app=cloud&op=img&id=V0013-S016-017",
+      "UrlThumbnail": "http://central-d.dev.bac-lac.gc.ca//.item/?app=cloud&op=thumb&height=150&id=V0013-S016-017"
+    },
+    {
+      "Width": 0,
+      "Height": 0,
+      "Ecopy": "V0013-S016-018",
+      "HasUcc": false,
+      "UrlImage": "http://central-d.dev.bac-lac.gc.ca//.item/?app=cloud&op=img&id=V0013-S016-018",
+      "UrlThumbnail": "http://central-d.dev.bac-lac.gc.ca//.item/?app=cloud&op=thumb&height=150&id=V0013-S016-018"
+    },
+    {
+      "Width": 0,
+      "Height": 0,
+      "Ecopy": "V0013-S016-019",
+      "HasUcc": false,
+      "UrlImage": "http://central-d.dev.bac-lac.gc.ca//.item/?app=cloud&op=img&id=V0013-S016-019",
+      "UrlThumbnail": "http://central-d.dev.bac-lac.gc.ca//.item/?app=cloud&op=thumb&height=150&id=V0013-S016-019"
+    },
+    {
+      "Width": 0,
+      "Height": 0,
+      "Ecopy": "V0013-S016-020",
+      "HasUcc": false,
+      "UrlImage": "http://central-d.dev.bac-lac.gc.ca//.item/?app=cloud&op=img&id=V0013-S016-020",
+      "UrlThumbnail": "http://central-d.dev.bac-lac.gc.ca//.item/?app=cloud&op=thumb&height=150&id=V0013-S016-020"
+    },
+    {
+      "Width": 0,
+      "Height": 0,
+      "Ecopy": "V0013-S016-021",
+      "HasUcc": false,
+      "UrlImage": "http://central-d.dev.bac-lac.gc.ca//.item/?app=cloud&op=img&id=V0013-S016-021",
+      "UrlThumbnail": "http://central-d.dev.bac-lac.gc.ca//.item/?app=cloud&op=thumb&height=150&id=V0013-S016-021"
+    },
+    {
+      "Width": 0,
+      "Height": 0,
+      "Ecopy": "V0013-S016-022",
+      "HasUcc": false,
+      "UrlImage": "http://central-d.dev.bac-lac.gc.ca//.item/?app=cloud&op=img&id=V0013-S016-022",
+      "UrlThumbnail": "http://central-d.dev.bac-lac.gc.ca//.item/?app=cloud&op=thumb&height=150&id=V0013-S016-022"
+    },
+    {
+      "Width": 0,
+      "Height": 0,
+      "Ecopy": "V0013-S016-023",
+      "HasUcc": false,
+      "UrlImage": "http://central-d.dev.bac-lac.gc.ca//.item/?app=cloud&op=img&id=V0013-S016-023",
+      "UrlThumbnail": "http://central-d.dev.bac-lac.gc.ca//.item/?app=cloud&op=thumb&height=150&id=V0013-S016-023"
+    },
+    {
+      "Width": 0,
+      "Height": 0,
+      "Ecopy": "V0013-S016-024",
+      "HasUcc": false,
+      "UrlImage": "http://central-d.dev.bac-lac.gc.ca//.item/?app=cloud&op=img&id=V0013-S016-024",
+      "UrlThumbnail": "http://central-d.dev.bac-lac.gc.ca//.item/?app=cloud&op=thumb&height=150&id=V0013-S016-024"
+    },
+    {
+      "Width": 0,
+      "Height": 0,
+      "Ecopy": "V0013-S016-025",
+      "HasUcc": false,
+      "UrlImage": "http://central-d.dev.bac-lac.gc.ca//.item/?app=cloud&op=img&id=V0013-S016-025",
+      "UrlThumbnail": "http://central-d.dev.bac-lac.gc.ca//.item/?app=cloud&op=thumb&height=150&id=V0013-S016-025"
+    },
+    {
+      "Width": 0,
+      "Height": 0,
+      "Ecopy": "V0013-S016-026",
+      "HasUcc": false,
+      "UrlImage": "http://central-d.dev.bac-lac.gc.ca//.item/?app=cloud&op=img&id=V0013-S016-026",
+      "UrlThumbnail": "http://central-d.dev.bac-lac.gc.ca//.item/?app=cloud&op=thumb&height=150&id=V0013-S016-026"
+    },
+    {
+      "Width": 0,
+      "Height": 0,
+      "Ecopy": "V0013-S016-027",
+      "HasUcc": false,
+      "UrlImage": "http://central-d.dev.bac-lac.gc.ca//.item/?app=cloud&op=img&id=V0013-S016-027",
+      "UrlThumbnail": "http://central-d.dev.bac-lac.gc.ca//.item/?app=cloud&op=thumb&height=150&id=V0013-S016-027"
+    },
+    {
+      "Width": 0,
+      "Height": 0,
+      "Ecopy": "V0013-S016-028",
+      "HasUcc": false,
+      "UrlImage": "http://central-d.dev.bac-lac.gc.ca//.item/?app=cloud&op=img&id=V0013-S016-028",
+      "UrlThumbnail": "http://central-d.dev.bac-lac.gc.ca//.item/?app=cloud&op=thumb&height=150&id=V0013-S016-028"
+    },
+    {
+      "Width": 0,
+      "Height": 0,
+      "Ecopy": "V0013-S016-029",
+      "HasUcc": false,
+      "UrlImage": "http://central-d.dev.bac-lac.gc.ca//.item/?app=cloud&op=img&id=V0013-S016-029",
+      "UrlThumbnail": "http://central-d.dev.bac-lac.gc.ca//.item/?app=cloud&op=thumb&height=150&id=V0013-S016-029"
+    },
+    {
+      "Width": 0,
+      "Height": 0,
+      "Ecopy": "V0013-S016-030",
+      "HasUcc": false,
+      "UrlImage": "http://central-d.dev.bac-lac.gc.ca//.item/?app=cloud&op=img&id=V0013-S016-030",
+      "UrlThumbnail": "http://central-d.dev.bac-lac.gc.ca//.item/?app=cloud&op=thumb&height=150&id=V0013-S016-030"
+    },
+    {
+      "Width": 0,
+      "Height": 0,
+      "Ecopy": "V0013-S016-031",
+      "HasUcc": false,
+      "UrlImage": "http://central-d.dev.bac-lac.gc.ca//.item/?app=cloud&op=img&id=V0013-S016-031",
+      "UrlThumbnail": "http://central-d.dev.bac-lac.gc.ca//.item/?app=cloud&op=thumb&height=150&id=V0013-S016-031"
+    },
+    {
+      "Width": 0,
+      "Height": 0,
+      "Ecopy": "V0013-S016-032",
+      "HasUcc": false,
+      "UrlImage": "http://central-d.dev.bac-lac.gc.ca//.item/?app=cloud&op=img&id=V0013-S016-032",
+      "UrlThumbnail": "http://central-d.dev.bac-lac.gc.ca//.item/?app=cloud&op=thumb&height=150&id=V0013-S016-032"
+    },
+    {
+      "Width": 0,
+      "Height": 0,
+      "Ecopy": "V0013-S016-033",
+      "HasUcc": false,
+      "UrlImage": "http://central-d.dev.bac-lac.gc.ca//.item/?app=cloud&op=img&id=V0013-S016-033",
+      "UrlThumbnail": "http://central-d.dev.bac-lac.gc.ca//.item/?app=cloud&op=thumb&height=150&id=V0013-S016-033"
+    },
+    {
+      "Width": 0,
+      "Height": 0,
+      "Ecopy": "V0013-S016-034",
+      "HasUcc": false,
+      "UrlImage": "http://central-d.dev.bac-lac.gc.ca//.item/?app=cloud&op=img&id=V0013-S016-034",
+      "UrlThumbnail": "http://central-d.dev.bac-lac.gc.ca//.item/?app=cloud&op=thumb&height=150&id=V0013-S016-034"
+    },
+    {
+      "Width": 0,
+      "Height": 0,
+      "Ecopy": "V0013-S016-035",
+      "HasUcc": false,
+      "UrlImage": "http://central-d.dev.bac-lac.gc.ca//.item/?app=cloud&op=img&id=V0013-S016-035",
+      "UrlThumbnail": "http://central-d.dev.bac-lac.gc.ca//.item/?app=cloud&op=thumb&height=150&id=V0013-S016-035"
+    },
+    {
+      "Width": 0,
+      "Height": 0,
+      "Ecopy": "V0013-S016-036",
+      "HasUcc": false,
+      "UrlImage": "http://central-d.dev.bac-lac.gc.ca//.item/?app=cloud&op=img&id=V0013-S016-036",
+      "UrlThumbnail": "http://central-d.dev.bac-lac.gc.ca//.item/?app=cloud&op=thumb&height=150&id=V0013-S016-036"
+    },
+    {
+      "Width": 0,
+      "Height": 0,
+      "Ecopy": "V0013-S016-037",
+      "HasUcc": false,
+      "UrlImage": "http://central-d.dev.bac-lac.gc.ca//.item/?app=cloud&op=img&id=V0013-S016-037",
+      "UrlThumbnail": "http://central-d.dev.bac-lac.gc.ca//.item/?app=cloud&op=thumb&height=150&id=V0013-S016-037"
+    },
+    {
+      "Width": 0,
+      "Height": 0,
+      "Ecopy": "V0013-S016-038",
+      "HasUcc": false,
+      "UrlImage": "http://central-d.dev.bac-lac.gc.ca//.item/?app=cloud&op=img&id=V0013-S016-038",
+      "UrlThumbnail": "http://central-d.dev.bac-lac.gc.ca//.item/?app=cloud&op=thumb&height=150&id=V0013-S016-038"
+    },
+    {
+      "Width": 0,
+      "Height": 0,
+      "Ecopy": "V0013-S016-039",
+      "HasUcc": false,
+      "UrlImage": "http://central-d.dev.bac-lac.gc.ca//.item/?app=cloud&op=img&id=V0013-S016-039",
+      "UrlThumbnail": "http://central-d.dev.bac-lac.gc.ca//.item/?app=cloud&op=thumb&height=150&id=V0013-S016-039"
+    },
+    {
+      "Width": 0,
+      "Height": 0,
+      "Ecopy": "V0013-S016-040",
+      "HasUcc": false,
+      "UrlImage": "http://central-d.dev.bac-lac.gc.ca//.item/?app=cloud&op=img&id=V0013-S016-040",
+      "UrlThumbnail": "http://central-d.dev.bac-lac.gc.ca//.item/?app=cloud&op=thumb&height=150&id=V0013-S016-040"
+    },
+    {
+      "Width": 0,
+      "Height": 0,
+      "Ecopy": "V0013-S016-041",
+      "HasUcc": false,
+      "UrlImage": "http://central-d.dev.bac-lac.gc.ca//.item/?app=cloud&op=img&id=V0013-S016-041",
+      "UrlThumbnail": "http://central-d.dev.bac-lac.gc.ca//.item/?app=cloud&op=thumb&height=150&id=V0013-S016-041"
+    },
+    {
+      "Width": 0,
+      "Height": 0,
+      "Ecopy": "V0013-S016-042",
+      "HasUcc": false,
+      "UrlImage": "http://central-d.dev.bac-lac.gc.ca//.item/?app=cloud&op=img&id=V0013-S016-042",
+      "UrlThumbnail": "http://central-d.dev.bac-lac.gc.ca//.item/?app=cloud&op=thumb&height=150&id=V0013-S016-042"
+    },
+    {
+      "Width": 0,
+      "Height": 0,
+      "Ecopy": "V0013-S016-043",
+      "HasUcc": false,
+      "UrlImage": "http://central-d.dev.bac-lac.gc.ca//.item/?app=cloud&op=img&id=V0013-S016-043",
+      "UrlThumbnail": "http://central-d.dev.bac-lac.gc.ca//.item/?app=cloud&op=thumb&height=150&id=V0013-S016-043"
+    },
+    {
+      "Width": 0,
+      "Height": 0,
+      "Ecopy": "V0013-S016-044",
+      "HasUcc": false,
+      "UrlImage": "http://central-d.dev.bac-lac.gc.ca//.item/?app=cloud&op=img&id=V0013-S016-044",
+      "UrlThumbnail": "http://central-d.dev.bac-lac.gc.ca//.item/?app=cloud&op=thumb&height=150&id=V0013-S016-044"
+    },
+    {
+      "Width": 0,
+      "Height": 0,
+      "Ecopy": "V0013-S016-045",
+      "HasUcc": false,
+      "UrlImage": "http://central-d.dev.bac-lac.gc.ca//.item/?app=cloud&op=img&id=V0013-S016-045",
+      "UrlThumbnail": "http://central-d.dev.bac-lac.gc.ca//.item/?app=cloud&op=thumb&height=150&id=V0013-S016-045"
+    },
+    {
+      "Width": 0,
+      "Height": 0,
+      "Ecopy": "V0013-S016-046",
+      "HasUcc": false,
+      "UrlImage": "http://central-d.dev.bac-lac.gc.ca//.item/?app=cloud&op=img&id=V0013-S016-046",
+      "UrlThumbnail": "http://central-d.dev.bac-lac.gc.ca//.item/?app=cloud&op=thumb&height=150&id=V0013-S016-046"
+    },
+    {
+      "Width": 0,
+      "Height": 0,
+      "Ecopy": "V0013-S016-047",
+      "HasUcc": false,
+      "UrlImage": "http://central-d.dev.bac-lac.gc.ca//.item/?app=cloud&op=img&id=V0013-S016-047",
+      "UrlThumbnail": "http://central-d.dev.bac-lac.gc.ca//.item/?app=cloud&op=thumb&height=150&id=V0013-S016-047"
+    },
+    {
+      "Width": 0,
+      "Height": 0,
+      "Ecopy": "V0013-S016-048",
+      "HasUcc": false,
+      "UrlImage": "http://central-d.dev.bac-lac.gc.ca//.item/?app=cloud&op=img&id=V0013-S016-048",
+      "UrlThumbnail": "http://central-d.dev.bac-lac.gc.ca//.item/?app=cloud&op=thumb&height=150&id=V0013-S016-048"
+    },
+    {
+      "Width": 0,
+      "Height": 0,
+      "Ecopy": "V0013-S016-049",
+      "HasUcc": false,
+      "UrlImage": "http://central-d.dev.bac-lac.gc.ca//.item/?app=cloud&op=img&id=V0013-S016-049",
+      "UrlThumbnail": "http://central-d.dev.bac-lac.gc.ca//.item/?app=cloud&op=thumb&height=150&id=V0013-S016-049"
+    },
+    {
+      "Width": 0,
+      "Height": 0,
+      "Ecopy": "V0013-S016-050",
+      "HasUcc": false,
+      "UrlImage": "http://central-d.dev.bac-lac.gc.ca//.item/?app=cloud&op=img&id=V0013-S016-050",
+      "UrlThumbnail": "http://central-d.dev.bac-lac.gc.ca//.item/?app=cloud&op=thumb&height=150&id=V0013-S016-050"
+    },
+    {
+      "Width": 0,
+      "Height": 0,
+      "Ecopy": "V0013-S016-051",
+      "HasUcc": false,
+      "UrlImage": "http://central-d.dev.bac-lac.gc.ca//.item/?app=cloud&op=img&id=V0013-S016-051",
+      "UrlThumbnail": "http://central-d.dev.bac-lac.gc.ca//.item/?app=cloud&op=thumb&height=150&id=V0013-S016-051"
+    },
+    {
+      "Width": 0,
+      "Height": 0,
+      "Ecopy": "V0013-S016-052",
+      "HasUcc": false,
+      "UrlImage": "http://central-d.dev.bac-lac.gc.ca//.item/?app=cloud&op=img&id=V0013-S016-052",
+      "UrlThumbnail": "http://central-d.dev.bac-lac.gc.ca//.item/?app=cloud&op=thumb&height=150&id=V0013-S016-052"
+    },
+    {
+      "Width": 0,
+      "Height": 0,
+      "Ecopy": "V0013-S016-053",
+      "HasUcc": false,
+      "UrlImage": "http://central-d.dev.bac-lac.gc.ca//.item/?app=cloud&op=img&id=V0013-S016-053",
+      "UrlThumbnail": "http://central-d.dev.bac-lac.gc.ca//.item/?app=cloud&op=thumb&height=150&id=V0013-S016-053"
+    },
+    {
+      "Width": 0,
+      "Height": 0,
+      "Ecopy": "V0013-S016-054",
+      "HasUcc": false,
+      "UrlImage": "http://central-d.dev.bac-lac.gc.ca//.item/?app=cloud&op=img&id=V0013-S016-054",
+      "UrlThumbnail": "http://central-d.dev.bac-lac.gc.ca//.item/?app=cloud&op=thumb&height=150&id=V0013-S016-054"
+    },
+    {
+      "Width": 0,
+      "Height": 0,
+      "Ecopy": "V0013-S016-055",
+      "HasUcc": false,
+      "UrlImage": "http://central-d.dev.bac-lac.gc.ca//.item/?app=cloud&op=img&id=V0013-S016-055",
+      "UrlThumbnail": "http://central-d.dev.bac-lac.gc.ca//.item/?app=cloud&op=thumb&height=150&id=V0013-S016-055"
+    },
+    {
+      "Width": 0,
+      "Height": 0,
+      "Ecopy": "V0013-S016-056",
+      "HasUcc": false,
+      "UrlImage": "http://central-d.dev.bac-lac.gc.ca//.item/?app=cloud&op=img&id=V0013-S016-056",
+      "UrlThumbnail": "http://central-d.dev.bac-lac.gc.ca//.item/?app=cloud&op=thumb&height=150&id=V0013-S016-056"
+    },
+    {
+      "Width": 0,
+      "Height": 0,
+      "Ecopy": "V0013-S016-057",
+      "HasUcc": false,
+      "UrlImage": "http://central-d.dev.bac-lac.gc.ca//.item/?app=cloud&op=img&id=V0013-S016-057",
+      "UrlThumbnail": "http://central-d.dev.bac-lac.gc.ca//.item/?app=cloud&op=thumb&height=150&id=V0013-S016-057"
+    },
+    {
+      "Width": 0,
+      "Height": 0,
+      "Ecopy": "V0013-S016-058",
+      "HasUcc": false,
+      "UrlImage": "http://central-d.dev.bac-lac.gc.ca//.item/?app=cloud&op=img&id=V0013-S016-058",
+      "UrlThumbnail": "http://central-d.dev.bac-lac.gc.ca//.item/?app=cloud&op=thumb&height=150&id=V0013-S016-058"
+    },
+    {
+      "Width": 0,
+      "Height": 0,
+      "Ecopy": "V0013-S016-059",
+      "HasUcc": false,
+      "UrlImage": "http://central-d.dev.bac-lac.gc.ca//.item/?app=cloud&op=img&id=V0013-S016-059",
+      "UrlThumbnail": "http://central-d.dev.bac-lac.gc.ca//.item/?app=cloud&op=thumb&height=150&id=V0013-S016-059"
+    },
+    {
+      "Width": 0,
+      "Height": 0,
+      "Ecopy": "V0013-S016-060",
+      "HasUcc": false,
+      "UrlImage": "http://central-d.dev.bac-lac.gc.ca//.item/?app=cloud&op=img&id=V0013-S016-060",
+      "UrlThumbnail": "http://central-d.dev.bac-lac.gc.ca//.item/?app=cloud&op=thumb&height=150&id=V0013-S016-060"
+    },
+    {
+      "Width": 0,
+      "Height": 0,
+      "Ecopy": "V0013-S016-061",
+      "HasUcc": false,
+      "UrlImage": "http://central-d.dev.bac-lac.gc.ca//.item/?app=cloud&op=img&id=V0013-S016-061",
+      "UrlThumbnail": "http://central-d.dev.bac-lac.gc.ca//.item/?app=cloud&op=thumb&height=150&id=V0013-S016-061"
+    },
+    {
+      "Width": 0,
+      "Height": 0,
+      "Ecopy": "V0013-S016-062",
+      "HasUcc": false,
+      "UrlImage": "http://central-d.dev.bac-lac.gc.ca//.item/?app=cloud&op=img&id=V0013-S016-062",
+      "UrlThumbnail": "http://central-d.dev.bac-lac.gc.ca//.item/?app=cloud&op=thumb&height=150&id=V0013-S016-062"
+    },
+    {
+      "Width": 0,
+      "Height": 0,
+      "Ecopy": "V0013-S016-063",
+      "HasUcc": false,
+      "UrlImage": "http://central-d.dev.bac-lac.gc.ca//.item/?app=cloud&op=img&id=V0013-S016-063",
+      "UrlThumbnail": "http://central-d.dev.bac-lac.gc.ca//.item/?app=cloud&op=thumb&height=150&id=V0013-S016-063"
+    },
+    {
+      "Width": 0,
+      "Height": 0,
+      "Ecopy": "V0013-S016-064",
+      "HasUcc": false,
+      "UrlImage": "http://central-d.dev.bac-lac.gc.ca//.item/?app=cloud&op=img&id=V0013-S016-064",
+      "UrlThumbnail": "http://central-d.dev.bac-lac.gc.ca//.item/?app=cloud&op=thumb&height=150&id=V0013-S016-064"
+    },
+    {
+      "Width": 0,
+      "Height": 0,
+      "Ecopy": "V0013-S016-065",
+      "HasUcc": false,
+      "UrlImage": "http://central-d.dev.bac-lac.gc.ca//.item/?app=cloud&op=img&id=V0013-S016-065",
+      "UrlThumbnail": "http://central-d.dev.bac-lac.gc.ca//.item/?app=cloud&op=thumb&height=150&id=V0013-S016-065"
+    },
+    {
+      "Width": 0,
+      "Height": 0,
+      "Ecopy": "V0013-S016-066",
+      "HasUcc": false,
+      "UrlImage": "http://central-d.dev.bac-lac.gc.ca//.item/?app=cloud&op=img&id=V0013-S016-066",
+      "UrlThumbnail": "http://central-d.dev.bac-lac.gc.ca//.item/?app=cloud&op=thumb&height=150&id=V0013-S016-066"
+    },
+    {
+      "Width": 0,
+      "Height": 0,
+      "Ecopy": "V0013-S016-067",
+      "HasUcc": false,
+      "UrlImage": "http://central-d.dev.bac-lac.gc.ca//.item/?app=cloud&op=img&id=V0013-S016-067",
+      "UrlThumbnail": "http://central-d.dev.bac-lac.gc.ca//.item/?app=cloud&op=thumb&height=150&id=V0013-S016-067"
+    },
+    {
+      "Width": 0,
+      "Height": 0,
+      "Ecopy": "V0013-S016-068",
+      "HasUcc": false,
+      "UrlImage": "http://central-d.dev.bac-lac.gc.ca//.item/?app=cloud&op=img&id=V0013-S016-068",
+      "UrlThumbnail": "http://central-d.dev.bac-lac.gc.ca//.item/?app=cloud&op=thumb&height=150&id=V0013-S016-068"
+    },
+    {
+      "Width": 0,
+      "Height": 0,
+      "Ecopy": "V0013-S016-069",
+      "HasUcc": false,
+      "UrlImage": "http://central-d.dev.bac-lac.gc.ca//.item/?app=cloud&op=img&id=V0013-S016-069",
+      "UrlThumbnail": "http://central-d.dev.bac-lac.gc.ca//.item/?app=cloud&op=thumb&height=150&id=V0013-S016-069"
+    },
+    {
+      "Width": 0,
+      "Height": 0,
+      "Ecopy": "V0013-S016-070",
+      "HasUcc": false,
+      "UrlImage": "http://central-d.dev.bac-lac.gc.ca//.item/?app=cloud&op=img&id=V0013-S016-070",
+      "UrlThumbnail": "http://central-d.dev.bac-lac.gc.ca//.item/?app=cloud&op=thumb&height=150&id=V0013-S016-070"
+    },
+    {
+      "Width": 0,
+      "Height": 0,
+      "Ecopy": "V0013-S016-071",
+      "HasUcc": false,
+      "UrlImage": "http://central-d.dev.bac-lac.gc.ca//.item/?app=cloud&op=img&id=V0013-S016-071",
+      "UrlThumbnail": "http://central-d.dev.bac-lac.gc.ca//.item/?app=cloud&op=thumb&height=150&id=V0013-S016-071"
+    },
+    {
+      "Width": 0,
+      "Height": 0,
+      "Ecopy": "V0013-S016-072",
+      "HasUcc": false,
+      "UrlImage": "http://central-d.dev.bac-lac.gc.ca//.item/?app=cloud&op=img&id=V0013-S016-072",
+      "UrlThumbnail": "http://central-d.dev.bac-lac.gc.ca//.item/?app=cloud&op=thumb&height=150&id=V0013-S016-072"
+    },
+    {
+      "Width": 0,
+      "Height": 0,
+      "Ecopy": "V0013-S016-073",
+      "HasUcc": false,
+      "UrlImage": "http://central-d.dev.bac-lac.gc.ca//.item/?app=cloud&op=img&id=V0013-S016-073",
+      "UrlThumbnail": "http://central-d.dev.bac-lac.gc.ca//.item/?app=cloud&op=thumb&height=150&id=V0013-S016-073"
+    },
+    {
+      "Width": 0,
+      "Height": 0,
+      "Ecopy": "V0013-S016-074",
+      "HasUcc": false,
+      "UrlImage": "http://central-d.dev.bac-lac.gc.ca//.item/?app=cloud&op=img&id=V0013-S016-074",
+      "UrlThumbnail": "http://central-d.dev.bac-lac.gc.ca//.item/?app=cloud&op=thumb&height=150&id=V0013-S016-074"
+    },
+    {
+      "Width": 0,
+      "Height": 0,
+      "Ecopy": "V0013-S016-075",
+      "HasUcc": false,
+      "UrlImage": "http://central-d.dev.bac-lac.gc.ca//.item/?app=cloud&op=img&id=V0013-S016-075",
+      "UrlThumbnail": "http://central-d.dev.bac-lac.gc.ca//.item/?app=cloud&op=thumb&height=150&id=V0013-S016-075"
+    },
+    {
+      "Width": 0,
+      "Height": 0,
+      "Ecopy": "V0013-S016-076",
+      "HasUcc": false,
+      "UrlImage": "http://central-d.dev.bac-lac.gc.ca//.item/?app=cloud&op=img&id=V0013-S016-076",
+      "UrlThumbnail": "http://central-d.dev.bac-lac.gc.ca//.item/?app=cloud&op=thumb&height=150&id=V0013-S016-076"
+    },
+    {
+      "Width": 0,
+      "Height": 0,
+      "Ecopy": "V0013-S016-077",
+      "HasUcc": false,
+      "UrlImage": "http://central-d.dev.bac-lac.gc.ca//.item/?app=cloud&op=img&id=V0013-S016-077",
+      "UrlThumbnail": "http://central-d.dev.bac-lac.gc.ca//.item/?app=cloud&op=thumb&height=150&id=V0013-S016-077"
+    },
+    {
+      "Width": 0,
+      "Height": 0,
+      "Ecopy": "V0013-S016-078",
+      "HasUcc": false,
+      "UrlImage": "http://central-d.dev.bac-lac.gc.ca//.item/?app=cloud&op=img&id=V0013-S016-078",
+      "UrlThumbnail": "http://central-d.dev.bac-lac.gc.ca//.item/?app=cloud&op=thumb&height=150&id=V0013-S016-078"
+    }
+  ],
+  "Status": 1
+}

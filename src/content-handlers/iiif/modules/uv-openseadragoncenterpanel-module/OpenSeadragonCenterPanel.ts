@@ -563,8 +563,7 @@ export class OpenSeadragonCenterPanel extends CenterPanel {
     });
 
     this.$nextButton.on("focus", () => {
-      if (this.controlsVisible) return;
-      console.log('next button press');
+      if (this.controlsVisible) return;      
       this.controlsVisible = true;
       this.viewer.setControlsEnabled(true);
     });

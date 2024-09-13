@@ -177,8 +177,7 @@ const DownloadDialogue = ({
   }
 
   function isDownloadOptionAvailable(option: DownloadOption) {
-    const selectedResource: IExternalResourceData | null = getSelectedResource();
-    console.log(selectedResource);
+    const selectedResource: IExternalResourceData | null = getSelectedResource();    
     if (!selectedResource) {
       return false;
     }
@@ -196,15 +195,12 @@ const DownloadDialogue = ({
       if (option === DownloadOption.WHOLE_IMAGE_HIGH_RES) {
         // if in one-up mode, or in two-up mode with a single page being shown
         if (!(paged || (paged && selectedResource))) {
-          console.log('returning true');
           return true;
         }
-      }
-      console.log('returning false');
+      }      
       return false;
     }
 
-    console.log(option);
     switch (option) {
       case DownloadOption.CURRENT_VIEW:
         return !paged;

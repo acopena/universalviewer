@@ -24,9 +24,7 @@ export class FooterPanel extends BaseView {
     this.setConfig("footerPanel");
 
     super.create();
-    console.log("loading footer here")
-
-
+    
     this.extensionHost.subscribe(Events.TOGGLE_FULLSCREEN, () => {
       this.updateFullScreenButton();
 

@@ -54,9 +54,7 @@ export default class Extension extends BaseExtension implements IPDFExtension {
 
   create(): void {
     super.create();
-    console.log('**** uv pdf extention ****');   
-    console.log(this.locales);
-    
+            
     this.extensionHost.subscribe(
       IIIFEvents.CANVAS_INDEX_CHANGE,
       (canvasIndex: number) => {
@@ -110,10 +108,6 @@ export default class Extension extends BaseExtension implements IPDFExtension {
     } else {
       this.shell.$headerPanel.hide();
     }
-
-    
-    console.log('isLeftPanelEnable');
-    console.log(this.isLeftPanelEnabled());
     if (this.isLeftPanelEnabled()) {
       this.leftPanel = new ContentLeftPanel(this.shell.$leftPanel);
     } else {
@@ -203,8 +197,7 @@ export default class Extension extends BaseExtension implements IPDFExtension {
       iframeSrc,
       width.toString(),
       height.toString()
-    );
-    console.log(script);
+    );    
     return script;
   }
 

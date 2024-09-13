@@ -74,7 +74,6 @@ export const init = (el: string | HTMLDivElement, data) => {
       isFullScreen = data.isFullScreen;
       overrideFullScreen = data.overrideFullScreen;
 
-      console.log(data);
       if (!data.overrideFullScreen) {
         if (isFullScreen) {
           const requestFullScreen = getRequestFullScreen(parent);

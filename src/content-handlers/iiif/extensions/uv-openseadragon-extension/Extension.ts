@@ -1445,8 +1445,7 @@ export default class OpenSeadragonExtension extends BaseExtension {
     if (!service) return null;
 
     let uri: string = service.id;
-    uri = uri + "?q={0}";
-    console.log(uri);
+    uri = uri + "?q={0}";    
     return uri;
   }
 
