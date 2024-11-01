@@ -315,8 +315,8 @@ export default class IIIFContentHandler extends BaseContentHandler<IIIFData>
     }
 
     let isUcc = false;
-    if (localStorage.getItem('isUcc')) {
-      const storeIsUcc = localStorage.getItem('isUcc');
+    if (sessionStorage.getItem('isUcc')) {
+      const storeIsUcc = sessionStorage.getItem('isUcc');
       if (storeIsUcc == 'true') {
         isUcc = true;
       }
@@ -328,8 +328,8 @@ export default class IIIFContentHandler extends BaseContentHandler<IIIFData>
     // let newCanvas: Canvas|undefined;
     if (isUcc) {
       let eCopy: any | undefined;
-      if (localStorage.getItem('eCopy')) {
-        eCopy = localStorage.getItem('eCopy');
+      if (sessionStorage.getItem('eCopy')) {
+        eCopy = sessionStorage.getItem('eCopy');
         for(let x=0; x < newCanvasItem.length; x++){
           const item = newCanvasItem[x];
           const meta = item.getMetadata().filter(s => s.label?.getValue()?.toLowerCase() == 'ecopy number');

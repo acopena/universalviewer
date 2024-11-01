@@ -12,12 +12,12 @@
 
       "manifests": [
         {
-          "@id": "https://digitalmanifest.bac-lac.gc.ca/DigitalManifest/1/4126381",
+          "@id": "https://digitalmanifest.bac-lac.gc.ca/DigitalManifest/12/391",
           "@type": "sc:Manifest",
           "label": "LAC Manifest with PDF at the start"
         },       
         {
-          "@id": "https://digitalmanifest.bac-lac.gc.ca/DigitalManifest/9/18605",
+          "@id": "src/m3u8.json",
           "@type": "sc:Manifest",
           "label": "LAC local m3u8"
         },       

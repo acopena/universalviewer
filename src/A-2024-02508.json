@@ -1,0 +1,171 @@
+{
+  "@context": "http://iiif.io/api/presentation/3/context.json",
+  "id": "http://localhost:44337/A-2024-02508.json",
+  "type": "Manifest",
+  "label": {
+      "en": [
+          "Request number"
+      ],
+      "fr": [
+          "Numéro de la demande"
+      ]
+  },
+  "metadata": [
+      {
+          "label": {
+              "en": [
+                  "Request number"
+              ],
+              "fr": [
+                  "Request number"
+              ]
+          },
+          "value": {
+              "en": [
+                  "A-2024-02508"
+              ],
+              "fr": [
+                  "A-2024-02508"
+              ]
+          }
+      }
+  ],
+  "items": [
+      {
+          "id": "http://bac-lac.gc.ca/canvas",
+          "type": "Canvas",
+          "label": {
+              "en": [
+                  "A-2024-02508_01.pdf"
+              ],
+              "fr": [
+                  "A-2024-02508_01.pdf"
+              ]
+          },
+          "metadata": [
+              {
+                  "label": {
+                      "en": [
+                          "Reference"
+                      ],
+                      "fr": [
+                          "Référence"
+                      ]
+                  },
+                  "value": {
+                      "en": [
+                          "RG24-G-8-5-2,     Volume number: 22362,   File number: \tCDA-1440-2,   File title: Historical Matters - Enemy Equipment - Disposal,   Item ID number: 956222"
+                      ],
+                      "fr": [
+                          "RG24-G-8-5-2,     numéro de volume : 22362,   numéro de dossier : \tCDA-1440-2,   titre du dossier : « Historical Matters - Enemy Equipment - Disposal »,   numéro d'identification : 956222"
+                      ]
+                  }
+              },
+              {
+                  "label": {
+                      "en": [
+                          "Disposition"
+                      ],
+                      "fr": [
+                          "Disposition"
+                      ]
+                  },
+                  "value": {
+                      "en": [
+                          "All disclosed"
+                      ],
+                      "fr": [
+                          "Communication totale"
+                      ]
+                  }
+              },
+              {
+                  "label": {
+                      "en": [
+                          "Number of pages"
+                      ],
+                      "fr": [
+                          "Nombre de pages"
+                      ]
+                  },
+                  "value": {
+                      "en": [
+                          "128"
+                      ],
+                      "fr": [
+                          "128"
+                      ]
+                  }
+              },
+              {
+                  "label": {
+                      "en": [
+                          "File name"
+                      ],
+                      "fr": [
+                          "File name"
+                      ]
+                  },
+                  "value": {
+                      "en": [
+                          "A-2024-02508_01.pdf"
+                      ],
+                      "fr": [
+                          "A-2024-02508_01.pdf"
+                      ]
+                  }
+              },
+              {
+                  "label": {
+                      "en": [
+                          "File size"
+                      ],
+                      "fr": [
+                          "File size"
+                      ]
+                  },
+                  "value": {
+                      "en": [
+                          "27.39"
+                      ],
+                      "fr": [
+                          "27.39"
+                      ]
+                  }
+              }
+          ],
+          "thumbnail": [
+              {
+                  "id": "http://central.bac-lac.gc.ca/.item?id=B6320-S021&op=thumb&height=150&app=PfFww",
+                  "type": "Image",
+                  "format": "image/jpeg",
+                  "height": 150,
+                  "width": 150
+              }
+          ],
+          "height": 0,
+          "width": 0,
+          "items": [
+              {
+                  "id": "http://bac-lac.gc.ca/Canvas/AnnotationPage",
+                  "type": "AnnotationPage",
+                  "items": [
+                      {
+                          "id": "http://bac-lac.gc.ca/canvas/annotationpage/Annotation",
+                          "type": "Annotation",
+                          "motivation": "painting",
+                          "target": "http://bac-lac.gc.ca/Canvas",
+                          "body": {
+                              "id": "https://central.bac-lac.gc.ca/.item/?id=B6320-S021&app=PfFww&op=pdf",
+                              "type": "document",
+                              "height": 0,
+                              "width": 0,
+                              "format": "application/pdf"
+                          }
+                      }
+                  ]
+              }
+          ]
+      }
+  ]
+}

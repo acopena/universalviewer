@@ -1,263 +1,39 @@
 {
-    "@context": "http://iiif.io/api/presentation/3/context.json",
-    "id": "https://digitalmanifest.bac-lac.gc.ca/DigitalManifest/1/536622",
-    "type": "Manifest",
-    "label": {
-      "en": [
-        "[Correspondence]"
-      ],
-      "fr": [
-        "[Correspondence]"
-      ]
-    },
-    "metadata": [
-      {
-        "label": {
-          "en": [
-            "Found In"
-          ],
-          "fr": [
-            "Found In(Fr)"
-          ]
-        },
-        "value": {
-          "en": [
-            "Archives / Collections and Fonds"
-          ],
-          "fr": [
-            "Archives / Collections et Fonds"
-          ]
-        }
-      },
-      {
-        "label": {
-          "en": [
-            "Reference"
-          ],
-          "fr": [
-            "Reference"
-          ]
-        },
-        "value": {
-          "en": [
-            "MG26-A"
-          ],
-          "fr": [
-            "MG26-A"
-          ]
-        }
-      },
-      {
-        "label": {
-          "en": [
-            "Date Issued"
-          ],
-          "fr": [
-            "Date Issued(Fr)"
-          ]
-        },
-        "value": {
-          "en": [
-            "1880"
-          ],
-          "fr": [
-            "1880"
-          ]
-        }
-      }
-    ],
-    "items": [
-      {
-        "label": {
-          "en": [
-            "p. 171490"
-          ],
-          "fr": [
-            "p. 171490"
-          ]
-        },
-        "metadata": [
-          {
-            "label": {
-              "en": [
-                "Ecopy"
-              ],
-              "fr": [
-                "Ecopy"
-              ]
-            },
-            "value": {
-              "en": [
-                "e008559606"
-              ],
-              "fr": [
-                "e008559606"
-              ]
-            }
-          }
-        ],
-        "thumbnail": [
-          {
-            "id": "http://central.bac-lac.gc.ca/.item?id=e008559606&op=thumb&height=150&app=FonAndCol",
-            "type": "Image",
-            "format": "image/jpg",
-            "height": 150,
-            "width": 222
-          }
-        ],
-        "height": 1000,
-        "width": 1482,
-        "items": [
-          {
-            "items": [
-              {
-                "id": "http://bac-lac.gc.ca/Canvas/AnnotationPage/Annotation",
-                "type": "Annotation",
-                "motivation": "Painting",
-                "body": {
-                  "id": "https://central.bac-lac.gc.ca/.item?id=e008559606&app=FonAndCol&op=img",
-                  "type": "Image",
-                  "height": 1000,
-                  "width": 1482,
-                  "format": "image/jpeg"
-                },
-                "target": "http://bac-lac.gc.ca/Canvas"
-              }
-            ],
-            "id": "http://bac-lac.gc.ca/Canvas/AnnotationPage",
-            "type": "AnnotationPage"
-          }
-        ],
-        "id": "http://bac-lac.gc.ca/Canvas",
-        "type": "Canvas"
-      },
-      {
-        "label": {
-          "en": [
-            "p. 171491"
-          ],
-          "fr": [
-            "p. 171491"
-          ]
-        },
-        "metadata": [
-          {
-            "label": {
-              "en": [
-                "Ecopy"
-              ],
-              "fr": [
-                "Ecopy"
-              ]
-            },
-            "value": {
-              "en": [
-                "e008559607"
-              ],
-              "fr": [
-                "e008559607"
-              ]
-            }
-          }
-        ],
-        "thumbnail": [
-          {
-            "id": "http://central.bac-lac.gc.ca/.item?id=e008559607&op=thumb&height=150&app=FonAndCol",
-            "type": "Image",
-            "format": "image/jpg",
-            "height": 150,
-            "width": 215
-          }
-        ],
-        "height": 1000,
-        "width": 1434,
-        "items": [
-          {
-            "items": [
-              {
-                "id": "http://bac-lac.gc.ca/Canvas/AnnotationPage/Annotation",
-                "type": "Annotation",
-                "motivation": "Painting",
-                "body": {
-                  "id": "https://central.bac-lac.gc.ca/.item?id=e008559607&app=FonAndCol&op=img",
-                  "type": "Image",
-                  "height": 1000,
-                  "width": 1434,
-                  "format": "image/jpeg"
-                },
-                "target": "http://bac-lac.gc.ca/Canvas"
-              }
-            ],
-            "id": "http://bac-lac.gc.ca/Canvas/AnnotationPage",
-            "type": "AnnotationPage"
-          }
-        ],
-        "id": "http://bac-lac.gc.ca/Canvas",
-        "type": "Canvas"
-      },
-      {
-        "label": {
-          "en": [
-            "p. 171492"
-          ],
-          "fr": [
-            "p. 171492"
-          ]
-        },
-        "metadata": [
-          {
-            "label": {
-              "en": [
-                "Ecopy"
-              ],
-              "fr": [
-                "Ecopy"
-              ]
-            },
-            "value": {
-              "en": [
-                "e008559608"
-              ],
-              "fr": [
-                "e008559608"
-              ]
-            }
-          }
-        ],
-        "thumbnail": [
-          {
-            "id": "http://central.bac-lac.gc.ca/.item?id=e008559608&op=thumb&height=150&app=FonAndCol",
-            "type": "Image",
-            "format": "image/jpg",
-            "height": 150,
-            "width": 276
-          }
-        ],
-        "height": 1000,
-        "width": 1840,
-        "items": [
-          {
-            "items": [
-              {
-                "id": "http://bac-lac.gc.ca/Canvas/AnnotationPage/Annotation",
-                "type": "Annotation",
-                "motivation": "Painting",
-                "body": {
-                  "id": "https://central.bac-lac.gc.ca/.item?id=e008559608&app=FonAndCol&op=img",
-                  "type": "Image",
-                  "height": 1000,
-                  "width": 1840,
-                  "format": "image/jpeg"
-                },
-                "target": "http://bac-lac.gc.ca/Canvas"
-              }
-            ],
-            "id": "http://bac-lac.gc.ca/Canvas/AnnotationPage",
-            "type": "AnnotationPage"
-          }
-        ],
-        "id": "http://bac-lac.gc.ca/Canvas",
-        "type": "Canvas"
-      }
+  "@context": "http://iiif.io/api/presentation/3/context.json",
+  "id": "https://iiif.io/api/cookbook/recipe/0001-mvm-image/manifest.json",
+  "type": "Manifest",
+  "label": {
+    "en": [
+      "DR-_MG_7780"
     ]
-  }
+  },
+  "items": [
+    {
+      "id": "https://iiif.io/api/cookbook/recipe/0001-mvm-image/canvas/p1",
+      "type": "Canvas",
+      "height": 1800,
+      "width": 1200,
+      "items": [
+        {
+          "id": "https://iiif.io/api/cookbook/recipe/0001-mvm-image/page/p1/1",
+          "type": "AnnotationPage",
+          "items": [
+            {
+              "id": "https://iiif.io/api/cookbook/recipe/0001-mvm-image/annotation/p0001-image",
+              "type": "Annotation",
+              "motivation": "painting",
+              "body": {
+                "id": "https://db8dfp7oka45j.cloudfront.net/iiif/3/a8e6ec79-a0c5-43a4-836f-152e0a238ad2/DR-_MG_7780/full/max/0/default.jpg",
+                "type": "Image",
+                "format": "image/jpeg",
+                "height": 1800,
+                "width": 1200
+              },
+              "target": "https://iiif.io/api/cookbook/recipe/0001-mvm-image/canvas/p1"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
