@@ -190,14 +190,14 @@ export default class Extension extends BaseExtension implements IPDFExtension {
     }
     else{
       iframeSrc = `${appUri}#?manifest=${this.helper.manifestUri}&c=${this.helper.collectionIndex}&m=${this.helper.manifestIndex}&cv=${this.helper.canvasIndex}`;
-    }
-  
+    }  
     const script: string = Strings.format(
       template,
       iframeSrc,
       width.toString(),
       height.toString()
-    );    
+    );
+    
     return script;
   }
 

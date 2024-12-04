@@ -12,20 +12,14 @@
 
       "manifests": [
         {
-          "@id": "https://digitalmanifest.bac-lac.gc.ca/DigitalManifest/12/391",
+          "@id": "src/MultiPDFFonAndCol.json",
           "@type": "sc:Manifest",
-          "label": "LAC Manifest with PDF at the start"
+          "label": "PDF only"
         },       
         {
           "@id": "src/m3u8.json",
           "@type": "sc:Manifest",
           "label": "LAC local m3u8"
-        },       
-      
-        {
-          "@id": "src/LACCollection.json",
-          "@type": "sc:Manifest",
-          "label": "LAC Collection"
         },       
         {
           "@id": "https://wellcomelibrary.org/iiif/b19684538/manifest",

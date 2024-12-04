@@ -264,18 +264,22 @@ export class PDFCenterPanel extends CenterPanel {
     }
 
     this._lastMediaUri = mediaUri;
-
+    console.log('***** PDF Center Panels *****');
     if (!Bools.getBool(this.extension.data.config.options.usePdfJs, false)) {
+      console.log('pdfContainer');
+      console.log(pdfUri);
       window.PDFObject = await import(
         /* webpackChunkName: "pdfobject" */ /* webpackMode: "lazy" */ "pdfobject"
       );
-      window.PDFObject.embed(pdfUri, ".pdfContainer", { id: "PDF" });
-    } else {
-      // PDFJS = await import(
-      //   /* webpackChunkName: "pdfjs" */ /* webpackMode: "lazy" */ "pdfjs-dist"
-      // );
+      const newPdfUri = pdfUri + '#navpanes=0';
+      window.PDFObject.embed(newPdfUri, ".pdfContainer", { id: "PDF" });
 
-      // PDFJS.disableWorker = true;
+    } else {
+      PDFJS = await import(
+        /* webpackChunkName: "pdfjs" */ /* webpackMode: "lazy" */ "pdfjs-dist"
+      );
+
+      PDFJS.disableWorker = true;
 
       // use pdfjs cdn, it just isn't working with webpack
       //https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.js
@@ -284,8 +288,7 @@ export class PDFCenterPanel extends CenterPanel {
         //await loadScripts(["//mozilla.github.io/pdf.js/build/pdf.js"]);
         await loadScripts(["https://cdn.jsdelivr.net/npm/pdfjs-dist@3.11.174/build/pdf.min.js"]);
         this._pdfjsLib = window["pdfjs-dist/build/pdf"];
-        this._pdfjsLib.GlobalWorkerOptions.workerSrc =
-          "//mozilla.github.io/pdf.js/build/pdf.worker.js";
+        this._pdfjsLib.GlobalWorkerOptions.workerSrc = "//mozilla.github.io/pdf.js/build/pdf.worker.js";        
       } else {
         this._$progress[0].setAttribute("value", "0");
         this._$progress.show();
@@ -321,7 +324,7 @@ export class PDFCenterPanel extends CenterPanel {
     if (!Bools.getBool(this.extension.data.config.options.usePdfJs, false)) {
       return;
     }
-
+    console.log('***** PDF _render *****');
     this._pageRendering = true;
     this._$zoomOutButton.enable();
     this._$zoomInButton.enable();
