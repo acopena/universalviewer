@@ -12,6 +12,85 @@
         }
       }
 
+      .pdfDownloadPrintHideChrome {
+        position: absolute;
+        z-index: 9999;
+        color: rgb(50, 54, 57);
+
+        div {
+          background-color: rgb(50, 54, 57);
+          font-size: 3.5vh;
+          cursor: default;
+
+        }
+      }
+
+      .pdfDownloadPrintHideEdge {
+        position: absolute;
+        z-index: 9999;
+        color: rgb(247, 247, 247);
+
+        div {
+          background-color: rgb(247, 247, 247);
+          font-size: 1.75rem;
+          cursor: default;
+        }
+      }
+
+      .pdfDownloadPrintHideFirefox {
+        position: absolute;
+        z-index: 9999;
+        color: rgb(249, 249, 250);
+        margin-top: 0px;
+
+        div {
+          background-color: rgb(249, 249, 250);
+          font-size: 1.25rem;
+          cursor: default;
+        }
+      }
+
+      @media only screen and (max-width:767px) {
+        .pdfDownloadPrintHideChrome {
+          position: absolute;
+          z-index: 9999;
+          color: rgb(50, 54, 57);
+
+          div {
+            background-color: rgb(50, 54, 57);
+            font-size: 0.75rem;
+            cursor: default;
+
+          }
+        }
+
+        .pdfDownloadPrintHideEdge {
+          position: absolute;
+          z-index: 9999;
+          color: rgb(247, 247, 247);
+
+          div {
+            background-color: rgb(247, 247, 247);
+            font-size: 0.75rem;
+            cursor: default;
+          }
+        }
+
+        .pdfDownloadPrintHideFirefox {
+          position: absolute;
+          z-index: 9999;
+          color: rgb(255, 255, 255);
+          margin-top: -4px;
+
+          div {
+            background-color: rgb(255, 255, 255);
+            font-size: 0.75rem;
+            cursor: default;
+          }
+        }
+      }
+
+
       .spinner {
         position: absolute;
         width: 27px;
@@ -58,9 +137,11 @@
           margin: 3px !important;
           top: 0px;
           left: 0px;
+
           img {
             display: none;
           }
+
           &:focus {
             .tab-focus();
           }
@@ -74,9 +155,11 @@
           margin: 3px !important;
           top: 0px;
           left: 32px;
+
           img {
             display: none;
           }
+
           &:focus {
             .tab-focus();
           }
@@ -85,6 +168,7 @@
         &.prev {
           margin-left: 5px;
           background-image: data-uri("../img/left_arrow.png");
+
           &.disabled {
             background-image: data-uri("../img/left_arrow_disabled.png");
           }
@@ -93,6 +177,7 @@
         &.next {
           margin-right: 20px;
           background-image: data-uri("../img/right_arrow.png");
+
           &.disabled {
             background-image: data-uri("../img/right_arrow_disabled.png");
           }
@@ -103,7 +188,7 @@
 }
 
 .uv {
-  .leftPanel{
+  .leftPanel {
     .top {
       .title {
         text-transform: uppercase;
@@ -225,7 +310,7 @@
         }
       }
 
-     
+
 
       //.galleryView{
       // iiif-gallery-component (shared-module)
@@ -275,4 +360,3 @@
     }
   }
 }
-

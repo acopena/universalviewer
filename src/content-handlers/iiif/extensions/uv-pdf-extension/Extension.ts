@@ -157,6 +157,8 @@ export default class Extension extends BaseExtension implements IPDFExtension {
     if (this.isFooterPanelEnabled()) {
       this.footerPanel.init();
     }
+
+  
   }
 
   bookmark(): void {

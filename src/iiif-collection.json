@@ -12,7 +12,7 @@
 
       "manifests": [
         {
-          "@id": "src/MultiPDFFonAndCol.json",
+          "@id": "https://wellcomelibrary.org/iiif/b17502792/manifest",
           "@type": "sc:Manifest",
           "label": "PDF only"
         },       

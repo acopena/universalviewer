@@ -11,7 +11,8 @@
     "pessimisticAccessControl": false,
     "rightPanelEnabled": false,
     "theme": "uv-en-CA-theme",
-    "usePdfJs": true
+    "usePdfJs": true,
+    "showDownloadAndPrint": true
   },
   "modules": {
     "shareDialogue": {

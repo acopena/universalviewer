@@ -7,8 +7,6 @@ import { AnnotationBody, Canvas, IExternalResource } from "manifesto.js";
 import { Events } from "../../../../Events";
 import { loadScripts } from "../../../../Utils";
 
-// declare var PDFJS: any;
-
 export class PDFCenterPanel extends CenterPanel {
   // private _$spinner: JQuery;
   private _$canvas: JQuery;
@@ -33,7 +31,15 @@ export class PDFCenterPanel extends CenterPanel {
   private _renderTask: any;
   private _scale: number = 0.7;
   private _viewport: any;
-
+  //private isAndroid = /Android/.test(navigator.userAgent);
+  private isEdge = /Edg/.test(navigator.userAgent);
+  private isFirefox = /Firefox/.test(navigator.userAgent);
+  private isChrome = /Google Inc/.test(navigator.vendor);
+  // private isChromeIOS = /CriOS/.test(navigator.userAgent);
+  // private isIE = /Trident/.test(navigator.userAgent);
+  // private isIOS = /(iPhone|iPad|iPod)/.test(navigator.platform);
+  // private isOpera = /OPR/.test(navigator.userAgent);
+  // private isSafari = /Safari/.test(navigator.userAgent) && !/Chrome/.test(navigator.userAgent);
   constructor($element: JQuery) {
     super($element);
   }
@@ -42,6 +48,8 @@ export class PDFCenterPanel extends CenterPanel {
     this.setConfig("pdfCenterPanel");
 
     super.create();
+
+
 
     this._$pdfContainer = uvj$('<div class="pdfContainer" id="pdfContainer"></div>');
     this._$canvas = uvj$("<canvas></canvas>");
@@ -264,15 +272,54 @@ export class PDFCenterPanel extends CenterPanel {
     }
 
     this._lastMediaUri = mediaUri;
-    console.log('***** PDF Center Panels *****');
+    let showDownloadAndPrint = true;
+    showDownloadAndPrint = this.extension.data.config.options.showDownloadAndPrint;
+    console.log(showDownloadAndPrint);
+    console.log(this.extension.data.config.options.showDownloadAndPrint);
+
+    if (!showDownloadAndPrint) {
+      setTimeout(() => {
+        console.log('<----- This will hide the PDF download and print  ---->')
+        console.log($(window).innerWidth());
+        const innerWidth = $(window).innerWidth();
+        let content = document.getElementById('content');
+        let coverMe = document.createElement('div');
+        coverMe.setAttribute('id', 'coverMe');
+        coverMe.setAttribute('class', 'coverMe');
+        let margingLeft = '0px';
+        let newWidth = 105;
+        if (this.isChrome && !this.isEdge) {
+          coverMe.setAttribute('class', 'pdfDownloadPrintHideChrome');
+          if (innerWidth > 767) {
+            newWidth = 170;
+          }
+        }
+        else if (this.isEdge) {  //for edge
+          coverMe.setAttribute('class', 'pdfDownloadPrintHideEdge');
+          if (innerWidth > 767) {
+            newWidth = 269;
+          }
+        }
+        else if (this.isFirefox) {
+          coverMe.setAttribute('class', 'pdfDownloadPrintHideFirefox');
+          if (innerWidth > 767) {
+            newWidth = 193;
+          }
+        }
+        margingLeft = (this.$content.width() - newWidth) + 'px';
+        coverMe.setAttribute('style', 'margin-left:' + margingLeft);
+        coverMe.innerHTML = "<div id='coverDownloadPrint'>##########</div>";
+        content?.prepend(coverMe);
+      }, 100);
+
+    }
+
     if (!Bools.getBool(this.extension.data.config.options.usePdfJs, false)) {
-      console.log('pdfContainer');
-      console.log(pdfUri);
       window.PDFObject = await import(
         /* webpackChunkName: "pdfobject" */ /* webpackMode: "lazy" */ "pdfobject"
       );
-      const newPdfUri = pdfUri + '#navpanes=0';
-      window.PDFObject.embed(newPdfUri, ".pdfContainer", { id: "PDF" });
+      // const newPdfUri = pdfUri + '#navpanes=0';
+      window.PDFObject.embed(pdfUri, ".pdfContainer", { id: "PDF" });
 
     } else {
       PDFJS = await import(
@@ -288,7 +335,7 @@ export class PDFCenterPanel extends CenterPanel {
         //await loadScripts(["//mozilla.github.io/pdf.js/build/pdf.js"]);
         await loadScripts(["https://cdn.jsdelivr.net/npm/pdfjs-dist@3.11.174/build/pdf.min.js"]);
         this._pdfjsLib = window["pdfjs-dist/build/pdf"];
-        this._pdfjsLib.GlobalWorkerOptions.workerSrc = "//mozilla.github.io/pdf.js/build/pdf.worker.js";        
+        this._pdfjsLib.GlobalWorkerOptions.workerSrc = "//mozilla.github.io/pdf.js/build/pdf.worker.js";
       } else {
         this._$progress[0].setAttribute("value", "0");
         this._$progress.show();
@@ -321,10 +368,11 @@ export class PDFCenterPanel extends CenterPanel {
   }
 
   private _render(num: number): void {
+
+
     if (!Bools.getBool(this.extension.data.config.options.usePdfJs, false)) {
       return;
     }
-    console.log('***** PDF _render *****');
     this._pageRendering = true;
     this._$zoomOutButton.enable();
     this._$zoomInButton.enable();
@@ -401,6 +449,8 @@ export class PDFCenterPanel extends CenterPanel {
           //console.log(err);
         });
     });
+
+
   }
 
   private _queueRenderPage(num: number) {
@@ -413,6 +463,54 @@ export class PDFCenterPanel extends CenterPanel {
 
   resize() {
     super.resize();
+
+    // let coverPrntDwnl = document.getElementById('coverDownloadPrint');
+    let showDownloadAndPrint = true;
+    showDownloadAndPrint = this.extension.data.config.options.showDownloadAndPrint;
+    // let fontSize = 32;
+    // const wh = $(window).height();
+    // if (wh >= 919) {
+    //   fontSize += (8)
+    // }
+    // else {
+
+    // }
+    if (!showDownloadAndPrint) {
+      let coverMe = document.getElementById('coverMe');
+      const innerWidth = $(window).innerWidth();
+      const contentWidth  = this.$content.width();
+      console.log(innerWidth);
+      console.log(contentWidth);
+      if (coverMe) {
+        let downloadPrint = document.getElementById('coverDownloadPrint');
+        console.log('xxx widht:' + downloadPrint?.style.width);
+        if (downloadPrint) {
+          const conFontSize = window.getComputedStyle(downloadPrint).getPropertyValue('font-size');
+          console.log('calfont size:' + conFontSize);
+        }
+        let calculatedWidth = 0;
+
+        calculatedWidth = 105;
+        if (this.isChrome && !this.isEdge) {
+
+          if (innerWidth > 767 && innerWidth <= 2800) {
+            calculatedWidth = 170;
+          }
+        }
+        else if (this.isEdge) {  //for edge
+          if (innerWidth > 767) {
+            calculatedWidth = 174;
+          }
+        }
+        else if (this.isFirefox) {
+          if (innerWidth > 767) {
+            calculatedWidth = 111;
+          }
+        }
+        coverMe.style.marginLeft = (this.$content.width() - calculatedWidth) + 'px';
+      }
+    }
+
 
     this._$pdfContainer.width(this.$content.width());
     this._$pdfContainer.height(this.$content.height());
@@ -447,10 +545,12 @@ export class PDFCenterPanel extends CenterPanel {
         (this._$nextButton.width() + this._$nextButton.horizontalMargins()),
     });
 
+
     if (!this._viewport) {
       return;
     }
 
     this._render(this._pageIndex);
+
   }
 }

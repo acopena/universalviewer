@@ -12,7 +12,8 @@
     "rightPanelEnabled": false,
     "theme": "uv-en-CA-theme",
     "usePdfJs": false,
-    "pagingEnabled": false
+    "pagingEnabled": false,
+    "showDownloadAndPrint": false
   },
   "modules": {
     "shareDialogue": {
