@@ -1,11 +1,11 @@
 <!DOCTYPE html>
 <html lang="en" xmlns="http://www.w3.org/1999/xhtml">
 
-<head>  
+<head>
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
   <meta name="dcterms.language" title="ISO639-2" content="eng">
   <title>Universal Viewer Examples</title>
-  <!-- https://tailwindcss.com/docs/installation/play-cdn -->   
+  <!-- https://tailwindcss.com/docs/installation/play-cdn -->
   <script src="https://cdn.tailwindcss.com"></script>
   <script src="https://cdn.tailwindcss.com?plugins=forms"></script>
   <link href="/dist/output.css" rel="stylesheet">
@@ -88,6 +88,27 @@
           @apply bg-gray-200 p-6;
         }
       }
+
+      .download {
+      display: none !important;
+    }
+
+    .print {
+      display: none !important;
+    }
+
+
+    #download {
+      display: none !important;
+    }
+
+    #print {
+      display: none !important;
+    }
+
+    viewer-download-controls {
+      display: none !important;
+    }
     </style>
     <!-- https://css-tricks.com/the-trick-to-viewport-units-on-mobile/ -->
     <script>
@@ -495,7 +516,7 @@
           iiifManifestId: iiifManifestId,
           debug: false,
           footerPanelEnabled: true,
-          locales:[{  name: "en-CA"}]
+          locales: [{ name: "en-CA" }]
         });
 
         if (uv) {
@@ -504,7 +525,7 @@
 
         uv = UV.init("uv", data);
         urlAdapter.bindTo(uv);
-     
+
         uv.on("configure", function ({ config, cb }) {
           const manifest = urlAdapter.get("iiifManifestId");
           if (
@@ -553,7 +574,7 @@
                 contentLeftPanel: {
                   options: {
                     defaultToTreeEnabled: false,
-                    panelOpen:true
+                    panelOpen: true
                   },
                 },
               },
@@ -746,7 +767,7 @@
         uv.on("configure", function ({ config, cb }) {
           cb(
             new Promise(function (resolve) {
-              const cff =  `uv-${type}-config.json`;
+              const cff = `uv-${type}-config.json`;
               console.log('****** cffffff ****')
               console.log(cff);
               fetch(`uv-${type}-config.json`).then(function (response) {

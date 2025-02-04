@@ -41,10 +41,10 @@ export class Shell extends BaseView {
     this.$headerPanel = uvj$('<div class="headerPanel"></div>');
     this.$element.append(this.$headerPanel);
 
-    this.$mainPanel = uvj$('<div class="mainPanel"></div>');
+    this.$mainPanel = uvj$('<div class="mainPanel" id="mainPanel"></div>');
     this.$element.append(this.$mainPanel);
 
-    this.$centerPanel = uvj$('<div class="centerPanel"></div>');
+    this.$centerPanel = uvj$('<div class="centerPanel" id="centerPanel"></div>');
     this.$centerPanel.append(
       '<h2 class="sr-only">' +
         this.extension.data.config.content.mediaViewer +

@@ -78,7 +78,7 @@
         "label": "XSequence 0",
         "elements": [
           {
-            "@id": "https://iiif.wellcomecollection.org/file/b17502792_Science and the Public.pdf",
+            "@id": "https://iiif.wellcomecollection.org/file/b17502792_Science and the Public.pdf#toolbar=0",
             "@type": "foaf:Document",
             "format": "application/pdf",
             "label": "Science and the public : a review of science communication and public attitudes to science in Britain : a joint report / by the Office of Science and Technology and the Wellcome Trust.",
