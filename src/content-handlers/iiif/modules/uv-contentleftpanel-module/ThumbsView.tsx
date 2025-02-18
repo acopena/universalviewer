@@ -25,7 +25,6 @@ const ThumbImage = ({
     rootMargin: "0px 0px 0px 0px",
     triggerOnce: true,
   });
-
   let eCopy= thumb.label;  
   if (thumb.uri.indexOf('id') > -1){    
     let eCopyList = thumb.uri.split('&');    
@@ -34,8 +33,19 @@ const ThumbImage = ({
       let eCopyX = x[0].split('=');      
       eCopy = eCopyX[1];
     }
-  }  
+  } 
+  
+  //Overwrite thumbnails (Albert Opena)
+  let thumbData = thumb.data;
+  if (thumbData) {
+    const tjson = thumbData.__jsonld.thumbnail[0];
+    if (tjson) {
+      thumb.uri = tjson.id;
+    }
+  }
+  // End
 
+  
   return (
     
     <div

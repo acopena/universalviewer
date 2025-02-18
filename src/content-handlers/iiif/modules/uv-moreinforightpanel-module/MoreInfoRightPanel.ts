@@ -40,6 +40,8 @@ export class MoreInfoRightPanel extends RightPanel {
       data: this._getData(),
     });
 
+    console.log(this.metadataComponent.target);
+    
     this.metadataComponent.on(
       "iiifViewerLinkClicked",
       (href: string) => {

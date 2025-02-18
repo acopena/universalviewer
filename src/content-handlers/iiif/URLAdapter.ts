@@ -12,7 +12,7 @@ export class URLAdapter extends UVAdapter {
   }
 
   public get<T>(key: string, defaultValue?: T | undefined): T | undefined {
-    const hashParameter: string | null = Urls.getHashParameter(key, document);   
+    const hashParameter: string | null = Urls.getHashParameter(key, document);
 
     if (hashParameter === null) {
       return defaultValue;
@@ -23,17 +23,20 @@ export class URLAdapter extends UVAdapter {
 
   public getFragment(key: string, url: string): string | null {
     const regex = new RegExp("#.*" + key + "=([^&]+)(&|$)");
-    const match = regex.exec(url);  
+    const match = regex.exec(url);
     return match ? decodeURIComponent(match[1].replace(/\+/g, " ")) : null;
   }
 
   public set<T>(key: string, value: T): void {
     const url = window.location.href;
-    if (url.indexOf(key) == -1) {     
+    if (url.indexOf(key) == -1) {
       if (!this.readonly) {
         if (value) {
-         // Urls.setHashParameter(key, value, document);
-          //console.log(document)
+
+          // Disable this to remove the update on the URL parameter
+          //  Urls.setHashParameter(key, value, document);
+          // console.log(document)
+
         } else {
           const existing = Urls.getHashParameter(key);
           if (existing !== null) {
@@ -45,11 +48,20 @@ export class URLAdapter extends UVAdapter {
   }
 
   public getInitialData(overrides?: IUVData): IUVData {
-
-    
     const formattedLocales: Array<{ label?: string; name: string }> = [];
-    const locales = this.get<string>("locales", "");
+    let locales = this.get<string>("locales", "");
 
+    // this will use force to use the define locales (Albert Opena)
+    // let lcl = overrides?.locales;
+    // if (lcl) {
+    //   const lclLen = lcl.length;
+    //   if (lclLen != null) {
+    //     for (let x = 0; x < lclLen; x++) {
+    //       locales = "name:" + lcl[x].name;
+    //     }
+    //   }
+    // }
+    // end
     if (locales) {
       const names = locales.split(",");
       for (let i in names) {
@@ -58,8 +70,8 @@ export class URLAdapter extends UVAdapter {
       }
     } else {
       formattedLocales.push(defaultLocale);
-    }   
-
+    }
+    
     function numberOrUndefined(num) {
       if (num === undefined) {
         return undefined;
@@ -69,14 +81,14 @@ export class URLAdapter extends UVAdapter {
     }
 
     // if there's a iiif_content param in the qs, parse out the components of it and use those
-    const iiifContent = this.get<string>("iiif-content", "");   
+    const iiifContent = this.get<string>("iiif-content", "");
     if (iiifContent) {
       let iiifManifestId: string = "";
       let canvasId: string = "";
       let xywh: string = "";
       const contentState = parseContentStateParameter(iiifContent) as any;
-     
-      
+
+
       if (contentState.type === "remote-content-state") {
         iiifManifestId = contentState.id;
       } else if (contentState && contentState.target.length) {
@@ -110,7 +122,6 @@ export class URLAdapter extends UVAdapter {
           }
         }
       }
-
       return {
         iiifManifestId: iiifManifestId,
         collectionIndex: undefined,
@@ -121,8 +132,6 @@ export class URLAdapter extends UVAdapter {
         rangeId: "",
         xywh: xywh,
         target: "",
-        // cfi: this.get<string>("cfi", ""),
-        // youTubeVideoId: this.get<string>("youTubeVideoId", ""),
         locales: formattedLocales.length ? formattedLocales : undefined,
         ...overrides,
       };
@@ -138,8 +147,6 @@ export class URLAdapter extends UVAdapter {
       rangeId: this.get<string>("rid", ""),
       xywh: this.get<string>("xywh", ""),
       target: this.get<string>("target", ""),
-      // cfi: this.get<string>("cfi", ""),
-      // youTubeVideoId: this.get<string>("youTubeVideoId", ""),
       locales: formattedLocales.length ? formattedLocales : undefined,
       ...overrides,
     };

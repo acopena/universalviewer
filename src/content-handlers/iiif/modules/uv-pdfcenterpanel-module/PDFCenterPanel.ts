@@ -274,20 +274,22 @@ export class PDFCenterPanel extends CenterPanel {
       window.PDFObject.embed(pdfUri, ".pdfContainer", { id: "PDF" });
 
     } else {
-      PDFJS = await import(
-        /* webpackChunkName: "pdfjs" */ /* webpackMode: "lazy" */ "pdfjs-dist"
-      );
+     // PDFJS = await import(
+     //   /* webpackChunkName: "pdfjs" */ /* webpackMode: "lazy" */ "pdfjs-dist"
+     // );
 
-      PDFJS.disableWorker = true;
+      //PDFJS.disableWorker = true;
 
       // use pdfjs cdn, it just isn't working with webpack
       //https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.js
 
       if (!this._pdfjsLib) {
         //await loadScripts(["//mozilla.github.io/pdf.js/build/pdf.js"]);
-        await loadScripts(["https://cdn.jsdelivr.net/npm/pdfjs-dist@3.11.174/build/pdf.min.js"]);
+        //await loadScripts(["https://cdn.jsdelivr.net/npm/pdfjs-dist@3.11.174/build/pdf.min.js"]);
+        await loadScripts(["//cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.min.js"]);
         this._pdfjsLib = window["pdfjs-dist/build/pdf"];
-        this._pdfjsLib.GlobalWorkerOptions.workerSrc = "//mozilla.github.io/pdf.js/build/pdf.worker.js";
+        //this._pdfjsLib.GlobalWorkerOptions.workerSrc = "https://cdn.jsdelivr.net/npm/pdfjs-dist@3.11.174/build/pdf.worker.min.js";
+        this._pdfjsLib.GlobalWorkerOptions.workerSrc = "//cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.worker.min.js";
       } else {
         this._$progress[0].setAttribute("value", "0");
         this._$progress.show();
@@ -322,9 +324,9 @@ export class PDFCenterPanel extends CenterPanel {
   private _render(num: number): void {
 
 
-    if (!Bools.getBool(this.extension.data.config.options.usePdfJs, false)) {
-      return;
-    }
+    // if (!Bools.getBool(this.extension.data.config.options.usePdfJs, false)) {
+    //   return;
+    // }
     this._pageRendering = true;
     this._$zoomOutButton.enable();
     this._$zoomInButton.enable();

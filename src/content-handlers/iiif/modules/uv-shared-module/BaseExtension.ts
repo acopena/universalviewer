@@ -45,8 +45,9 @@ import {
 import { isVisible } from "../../../../Utils";
 import { IIIFEvents } from "../../IIIFEvents";
 import { Events } from "../../../../Events";
-import { StoreApi } from "zustand/vanilla";
+import type { StoreApi } from "zustand/vanilla";
 import { ExtensionState } from "./ExtensionState";
+
 
 export class BaseExtension implements IExtension {
   $authDialogue: JQuery;
@@ -486,7 +487,6 @@ export class BaseExtension implements IExtension {
       config = await config();
       config = JSON.parse(JSON.stringify(config));
     }
-
     return config;
   }
 
@@ -618,11 +618,13 @@ export class BaseExtension implements IExtension {
     // if limitLocales is disabled,
     // loop through remaining availableLocales and add to finalLocales.
 
+
     if (configuredLocales) {
       configuredLocales.forEach((configuredLocale: ILocale) => {
         const match: any[] = availableLocales.filter((item: any) => {
           return item.name === configuredLocale.name;
-        });
+        });       
+
         if (match.length) {
           var m: any = match[0];
           if (configuredLocale.label) m.label = configuredLocale.label;
@@ -630,7 +632,7 @@ export class BaseExtension implements IExtension {
           finalLocales.push(m);
         }
       });
-
+  
       const limitLocales: boolean = Bools.getBool(
         this.data.config.options.limitLocales,
         false
@@ -645,7 +647,8 @@ export class BaseExtension implements IExtension {
         });
       }
 
-      this.data.locales = finalLocales;
+      this.data.locales = configuredLocales; //finalLocales;
+     
     } else {
       console.warn("No locales configured");
     }
@@ -816,6 +819,8 @@ export class BaseExtension implements IExtension {
   }
 
   getLocale(): string {
+    console.log('--- >this.helper.options.locale');
+    console.log(this.helper.options.locale);
     return this.helper.options.locale as string;
   }
 
@@ -1181,7 +1186,7 @@ export class BaseExtension implements IExtension {
   }
 
   dispose(): void {
-    this.store?.destroy();
+    this.store?.getInitialState();
   }
 }
 

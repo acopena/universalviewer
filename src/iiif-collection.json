@@ -12,6 +12,16 @@
 
       "manifests": [
         {
+          "@id": "src/29975.json",
+          "@type": "sc:Manifest",
+          "label": "Search Past ATI - Manifest"
+        },
+        {
+          "@id": "src/LAC84037.json",
+          "@type": "sc:Manifest",
+          "label": "LAC Image with rendering to download"
+        },        
+        {
           "@id": "https://wellcomelibrary.org/iiif/b17502792/manifest",
           "@type": "sc:Manifest",
           "label": "PDF only"
@@ -46,11 +56,7 @@
           "@type": "sc:Manifest",
           "label": "LAC Pdf only"
         },        
-        {
-          "@id": "src/LAC84037.json",
-          "@type": "sc:Manifest",
-          "label": "LAC Image with rendering to download"
-        },        
+      
         
         {
           "@id": "src/manifest.json",
@@ -58,11 +64,7 @@
           "label": "LAC local Manifest PDF"
         },
       
-        {
-          "@id": "src/29975.json",
-          "@type": "sc:Manifest",
-          "label": "LAC local Manifest Mixed of image and PDF v1"
-        },
+        
         {
           "@id": "src/MultiPDFFonAndCol.json",
           "@type": "sc:Manifest",

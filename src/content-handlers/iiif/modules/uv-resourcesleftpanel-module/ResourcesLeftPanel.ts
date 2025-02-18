@@ -5,7 +5,7 @@ import { ThumbsView } from "./ThumbsView";
 import { ViewingDirection, MediaType } from "@iiif/vocabulary/dist-commonjs/";
 import { Files } from "@edsilv/utils";
 
-import { Annotation, LanguageMap, Resource } from "manifesto.js";
+import { Annotation, LanguageMap,  Resource } from "manifesto.js";
 
 export class ResourcesLeftPanel extends LeftPanel {
   $resources: JQuery;
@@ -79,7 +79,7 @@ export class ResourcesLeftPanel extends LeftPanel {
       const annotation: Annotation = annotations[i];
       const resource: Resource = annotation.getResource();
       if (resource) {
-        const label: string | null = LanguageMap.getValue(
+        const label: string | null =  LanguageMap.getValue(
           <LanguageMap>resource.getLabel()
         );
 

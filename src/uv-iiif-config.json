@@ -13,7 +13,7 @@
     "canvasIndex":0,
     "isUcc": false,
     "ecopy":"",
-    "locales" : [{ "name" : "en-CA"}]
+    "locales" : [{ "name" : "en-CA"},{"name":"fr-CA"}]
   },
   "modules": {
     "avCenterPanel": {

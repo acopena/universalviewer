@@ -4,7 +4,7 @@ import { Bookmark } from "../../modules/uv-shared-module/Bookmark";
 import { XYWHFragment } from "../../modules/uv-shared-module/XYWHFragment";
 import { ContentLeftPanel } from "../../modules/uv-contentleftpanel-module/ContentLeftPanel";
 import { CroppedImageDimensions } from "./CroppedImageDimensions";
-import DownloadDialogue from "./DownloadDialogueReact";
+import  DownloadDialogue  from "./DownloadDialogue";
 import { OpenSeadragonExtensionEvents } from "./Events";
 import { ExternalContentDialogue } from "../../modules/uv-dialogues-module/ExternalContentDialogue";
 import { FooterPanel as MobileFooterPanel } from "../../modules/uv-osdmobilefooterpanel-module/MobileFooter";
@@ -668,24 +668,28 @@ export default class OpenSeadragonExtension extends BaseExtension {
     const selectionEnabled = this.checkType(config)  && downloadService?.__jsonld.selectionEnabled;
 
     this.downloadDialogueRoot.render(
-      
       createElement(DownloadDialogue, {
         canvases: canvases,
-        confinedImageSize: this.checkConfig(config,'confinedImageSize'), //   config.options.confinedImageSize,
+        confinedImageSize: config.options.confinedImageSize,
         content: config.content,
+        downloadCurrentViewEnabled: config.options.downloadCurrentViewEnabled,
+        downloadWholeImageHighResEnabled:
+          config.options.downloadWholeImageHighResEnabled,
+        downloadWholeImageLowResEnabled:
+          config.options.downloadWholeImageLowResEnabled,
         locale: this.getLocale(),
         manifest: this.helper.manifest as Manifest,
-        maxImageWidth:  this.checkConfig(config,'maxImageWidth'),  //config.options.maxImageWidth,
+        maxImageWidth: config.options.maxImageWidth,
         mediaDownloadEnabled: this.helper.isUIEnabled("mediaDownload"),
         open: downloadDialogueOpen,
         paged: paged,
         parent: this.shell.$overlays[0] as HTMLElement,
-        resources: this.resources,
         requiredStatement: this.helper.getRequiredStatement()?.value,
-        termsOfUseEnabled:  this.data.config.options.termsOfUseEnabled,
+        resources: this.resources,
         rotation: this.getViewerRotation() as number,
         selectionEnabled: selectionEnabled,
         sequence: this.helper.getCurrentSequence(),
+        termsOfUseEnabled: this.data.config!.options.termsOfUseEnabled,
         triggerButton: dialogueTriggerButton as HTMLElement,
         getCroppedImageDimensions: (canvas: Canvas) => {
           return this.getCroppedImageDimensions(canvas, this.getViewer());
@@ -703,18 +707,18 @@ export default class OpenSeadragonExtension extends BaseExtension {
           );
         },
         onClose: () => {
-          this.store.getState().closeDialogue();
+          this.closeActiveDialogue();
         },
         onDownloadCurrentView: (canvas: Canvas) => {
           const viewer: any = this.getViewer();
           window.open(<string>this.getCroppedImageUri(canvas, viewer));
         },
         onDownloadSelection: () => {
-          this.store.getState().closeDialogue();
+          this.closeActiveDialogue();
           this.extensionHost.publish(IIIFEvents.SHOW_MULTISELECT_DIALOGUE);
         },
         onShowTermsOfUse: () => {
-          this.store.getState().closeDialogue();
+          this.closeActiveDialogue();
           this.extensionHost.publish(IIIFEvents.SHOW_TERMS_OF_USE);
         },
       })
@@ -975,6 +979,8 @@ export default class OpenSeadragonExtension extends BaseExtension {
       return;
     }
 
+    console.log(label);
+    console.log(this.helper.getCanvasIndexByLabel(label));
     const index: number = this.helper.getCanvasIndexByLabel(label);
 
     if (index != -1) {

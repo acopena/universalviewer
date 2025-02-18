@@ -303,6 +303,7 @@ export default class IIIFContentHandler extends BaseContentHandler<IIIFData>
     } as IManifoldOptions);
 
     let trackingLabel: string | null = helper.getTrackingLabel();
+ 
 
     if (trackingLabel) {
       trackingLabel +=
@@ -414,7 +415,7 @@ export default class IIIFContentHandler extends BaseContentHandler<IIIFData>
     if (!extension) {
       extension = await that._getExtensionByFormat(Extension.DEFAULT.name);
     }
-
+   
     if (!data.locales) {
       data.locales = [];
       data.locales.push(defaultLocale);

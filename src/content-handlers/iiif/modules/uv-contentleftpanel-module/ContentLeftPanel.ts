@@ -196,7 +196,7 @@ export class ContentLeftPanel extends LeftPanel {
     this.$views.append(this.$galleryView);
 
     this.$detailsView = uvj$(
-      '<div class="detailsView"></div>'
+      '<div class="detailsView" style="max-width:210px"></div>'
     );
     this.$views.append(this.$detailsView);
 
@@ -208,6 +208,7 @@ export class ContentLeftPanel extends LeftPanel {
       data: this._getData(),
     });
 
+    
     // this.$downloadButton.onPressed(() => {
     //   this.extensionHost.publish(
     //     IIIFEvents.SHOW_DOWNLOAD_DIALOGUE,
@@ -289,8 +290,8 @@ export class ContentLeftPanel extends LeftPanel {
       },
       false
     );
-
   }
+  
   //Data bind for Metadata
   databind(): void {
     this.metadataComponent.set(this._getData());
@@ -434,7 +435,7 @@ export class ContentLeftPanel extends LeftPanel {
     let height: number;
 
     const viewingHint: ViewingHint | null = this.getViewingHint();
-    const viewingDirection: ViewingDirection | null = this.getViewingDirection();
+    const viewingDirection: ViewingDirection | null = this.getViewingDirection();  
 
     if (
       viewingDirection &&
@@ -460,6 +461,7 @@ export class ContentLeftPanel extends LeftPanel {
     ) {
       thumbs.reverse();
     }
+   
 
     // add a search result icon for pages with results
     const searchResults: AnnotationGroup[] | null = (<OpenSeadragonExtension>(

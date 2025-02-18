@@ -20,11 +20,11 @@
     "resolveJsonModule": true,
     "sourceMap": true,
     "strictNullChecks": true,
-    "esModuleInterop": true,
-    "suppressImplicitAnyIndexErrors": true,
+    "esModuleInterop": true,    
     "target": "ES5",
     "tsBuildInfoFile": "./buildcache/front-end",
-    "types": ["@iiif/base-component", "jest", "jquery", "node"]
+    "types": ["@iiif/base-component", "jest", "jquery", "node"],
+    "skipDefaultLibCheck": true
   },
   "exclude": ["node_modules", "src/**/*.test.ts", "src/**/*.spec.ts"],
   "include": ["src"]

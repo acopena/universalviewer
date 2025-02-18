@@ -338,10 +338,11 @@ export class MediaElementCenterPanel extends CenterPanel {
 
   getM3U8url(bodyId: string) {
     let m3u8Url = bodyId;    
+    console.log(bodyId);
     let urlBody = new URL(bodyId.toLocaleLowerCase());
     const idx: string | null = urlBody.searchParams.get('id');    
     if (idx && idx.length >= 30) {
-      m3u8Url = "https://d34nlrv9tbrf93.cloudfront.net/" + idx + "/playlist.m3u8";
+      m3u8Url = "https://d6k0n7qq3l4nj.cloudfront.net/" + idx + "/playlist.m3u8";
     }
     return m3u8Url;
   }

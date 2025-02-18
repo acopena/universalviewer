@@ -1,4 +1,4 @@
-import create from "zustand/vanilla";
+import {createStore as create} from "zustand/vanilla";
 import { ExtensionState } from "../../modules/uv-shared-module/ExtensionState";
 
 export interface OpenSeadragonExtensionState extends ExtensionState {}

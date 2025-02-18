@@ -68,6 +68,7 @@ export class ThumbsView extends BaseView {
     });
 
     const extraHeight: number = this.options.thumbsExtraHeight;
+    console.log(this.options);
 
     $.views.helpers({
       separator: function() {
@@ -153,7 +154,6 @@ export class ThumbsView extends BaseView {
 
     // get median height
     let heights: number[] = [];
-
     for (let i = 0; i < this.thumbs.length; i++) {
       const thumb: Thumb = this.thumbs[i];
       heights.push(thumb.height);

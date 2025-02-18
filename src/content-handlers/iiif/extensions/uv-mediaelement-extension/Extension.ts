@@ -49,8 +49,7 @@ export default class Extension extends BaseExtension
   defaultConfig: any = defaultConfig;
   locales = {
     "en-CA": defaultConfig,
-    "fr-CA": () => import("./config/fr-CA.json")
-   
+    "fr-CA": () => import("./config/fr-CA.json")   
   };
 
   create(): void {
