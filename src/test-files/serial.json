@@ -1,0 +1,95 @@
+{
+    "API-Response": {
+        "Description": " ",
+        "Language": "eng",
+        "File-Count": 8,
+        "Metadata": [
+            {
+                "Bitstream-Filename": "v25n01-Summer2023.pdf",
+                "Bitstream-Length": 5361835,
+                "Format-Group": "pdf",
+                "Security-Descriptor": "public",
+                "Title": "AABC newsletter",
+                "Issue": "v.25:no.1 (2023: Summer)",
+                "Navigation-Date": 1685592000000,
+                "URL": "https://1i2t1z04ef.execute-api.ca-central-1.amazonaws.com/prod/asset?app=dev&type=IO&uuid=d9fb9c49-5a29-4929-8090-87e00abb366e"
+            },
+            {
+                "Bitstream-Filename": "v24n02-Winter2022.pdf",
+                "Bitstream-Length": 10964192,
+                "Format-Group": "pdf",
+                "Security-Descriptor": "public",
+                "Title": "AABC newsletter",
+                "Issue": "v.24:no.2 (2022: Winter)",
+                "Navigation-Date": 1669867200000,
+                "URL": "https://1i2t1z04ef.execute-api.ca-central-1.amazonaws.com/prod/asset?app=dev&type=IO&uuid=d51344d1-0743-458a-8b5a-0a9f0b61618e"
+            },
+            {
+                "Bitstream-Filename": "v24n01-Summer2022.pdf",
+                "Bitstream-Length": 9747203,
+                "Format-Group": "pdf",
+                "Security-Descriptor": "public",
+                "Title": "AABC newsletter",
+                "Issue": "v.24:no.1 (2022: Summer)",
+                "Navigation-Date": 1654056000000,
+                "URL": "https://1i2t1z04ef.execute-api.ca-central-1.amazonaws.com/prod/asset?app=dev&type=IO&uuid=a9cf3de4-ca5c-419a-bb14-4d4aca58915e"
+            },
+            {
+                "Bitstream-Filename": "v23n01-Winter2021.pdf",
+                "Bitstream-Length": 30071971,
+                "Format-Group": "pdf",
+                "Security-Descriptor": "public",
+                "Title": "AABC newsletter",
+                "Issue": "v.23:no.1 (2021: Winter)",
+                "Navigation-Date": 1638331200000,
+                "URL": "https://1i2t1z04ef.execute-api.ca-central-1.amazonaws.com/prod/asset?app=dev&type=IO&uuid=8d572bbe-7950-41b2-9c39-49c469d915ee"
+            },
+            {
+                "Bitstream-Filename": "v22n01-Fall2020.pdf",
+                "Bitstream-Length": 1865202,
+                "Format-Group": "pdf",
+                "Security-Descriptor": "public",
+                "Title": "AABC newsletter",
+                "Issue": "v.22:no.1 (2020: Fall)",
+                "Navigation-Date": 1598932800000,
+                "URL": "https://1i2t1z04ef.execute-api.ca-central-1.amazonaws.com/prod/asset?app=dev&type=IO&uuid=6e49a1cc-4aaa-473a-8901-f35785aa1c46"
+            },
+            {
+                "Bitstream-Filename": "LAC CRL reportcor.pdf",
+                "Bitstream-Length": 698276,
+                "Format-Group": "pdf",
+                "Security-Descriptor": "public",
+                "Title": "AABC newsletter (Vancouver, B.C. : Online)",
+                "Issue": "Volume 1, 2015",
+                "Navigation-Date": 1422676800000,
+                "URL": "https://1i2t1z04ef.execute-api.ca-central-1.amazonaws.com/prod/asset?app=dev&type=IO&uuid=8486776d-45e0-4128-83b3-99435c2d6e72"
+            },
+            {
+                "Bitstream-Filename": "v16n01-v21n02-Winter2006-Spring2011.pdf",
+                "Bitstream-Length": 9249640,
+                "Format-Group": "pdf",
+                "Security-Descriptor": "public",
+                "Title": "AABC newsletter",
+                "Issue": "v.16:no.1-v.21no.2 (2006-2011: Winter-Spring)",
+                "Navigation-Date": 1164945600000,
+                "URL": "https://1i2t1z04ef.execute-api.ca-central-1.amazonaws.com/prod/asset?app=dev&type=IO&uuid=bcf0203f-6e0c-450a-9d1e-0b124c668965"
+            },
+            {
+                "Bitstream-Filename": "v09n02_3-v15n04-Spring_Summer1999-Fall2005.pdf",
+                "Bitstream-Length": 6719081,
+                "Format-Group": "pdf",
+                "Security-Descriptor": "public",
+                "Title": "AABC newsletter",
+                "Issue": "v.09:no.2_3-v.15no.4 (1999-2005: Spring_Summer-Fall)",
+                "Navigation-Date": 920260800000,
+                "URL": "https://1i2t1z04ef.execute-api.ca-central-1.amazonaws.com/prod/asset?app=dev&type=IO&uuid=96c3cc53-4e21-4a33-893f-7fe2bd233b95"
+            }
+        ],
+        "Title": "AABC newsletter ",
+        "Creator": "Archives Association of British Columbia.",
+        "Publisher": "Archives Association of British Columbia",
+        "Date-Issued": "1999",
+        "Requested-UUID": "cf60842e-a1c0-4b0a-a4ae-3af8788ced9f",
+        "Location": "Vancouver"
+    }
+}

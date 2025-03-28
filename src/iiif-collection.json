@@ -16,11 +16,7 @@
           "@type": "sc:Manifest",
           "label": "okaura book of Tea epub"
         },        
-        {
-          "@id": "src/test-files/LAC84037.json",
-          "@type": "sc:Manifest",
-          "label": "LAC Image with rendering to download"
-        },        
+       
         {
           "@id": "https://wellcomelibrary.org/iiif/b17502792/manifest",
           "@type": "sc:Manifest",
@@ -35,43 +31,18 @@
           "@id": "https://wellcomelibrary.org/iiif/b19684538/manifest",
           "@type": "sc:Manifest",
           "label": "Pseudo-Albert the Great (folio)"
-        },
-     
-     
-        {
-          "@id": "src/test-files/jpfPDF_2997.json",
-          "@type": "sc:Manifest",
-          "label": "LAC local Manifest Mixed of image and PDF"
-        },
-       
-       
+        },    
         {
           "@id": "src/test-files/536622.json",
           "@type": "sc:Manifest",
           "label": "536622 Items"
-        },             
-       
-        {
-          "@id": "src/test-files/LACPdf.json",
-          "@type": "sc:Manifest",
-          "label": "LAC Pdf only"
-        },        
+        },  
         {
           "@id": "src/test-files/manifest.json",
           "@type": "sc:Manifest",
           "label": "LAC local Manifest PDF"
-        },
-        {
-          "@id": "src/test-files/MultiPDFFonAndCol.json",
-          "@type": "sc:Manifest",
-          "label": "LAC local The Algonquin Regiment (7 PDF)"        
-        },
-        {
-          "@id": "src/test-files/lacVideo.json",
-          "@type": "sc:Manifest",
-          "label": "LAC local Manifest video"
-        },
-        {
+        },      
+       {
           "@id": "src/test-files/beethoven.json",
           "@type": "sc:Manifest",
           "label": "Beethoevn"
