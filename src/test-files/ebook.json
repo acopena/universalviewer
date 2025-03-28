@@ -1,0 +1,44 @@
+{
+    "id": "https://ebook-test-manifests.netlify.app/collection/alice-in-wonderland/index.json",
+    "type": "Manifest",
+    "items": [
+      {
+        "id": "https://ebook-test-manifests.netlify.app/collection/alice-in-wonderland/index.json/canvas/0",
+        "type": "Canvas",
+        "items": [
+          {
+            "id": "https://ebook-test-manifests.netlify.app/collection/alice-in-wonderland/index.json/canvas/0/annotationpage/0",
+            "type": "AnnotationPage",
+            "items": [
+              {
+                "id": "https://ebook-test-manifests.netlify.app/collection/alice-in-wonderland/index.json/canvas/0/annotation/0",
+                "type": "Annotation",
+                "motivation": "painting",
+                "body": {
+                  "id": "src/test-files/okakura-book-of-tea.epub",
+                  "type": "Text",
+                  "format": "application/epub+zip",
+                  "label": {
+                    "@none": [
+                      "_alice-in-wonderland"
+                    ]
+                  }
+                },
+                "target": "https://ebook-test-manifests.netlify.app/collection/alice-in-wonderland/index.json/canvas/0"
+              }
+            ]
+          }
+        ],
+        "label": {
+          "@none": [
+            "_alice-in-wonderland"
+          ]
+        }
+      }
+    ],
+    "label": {
+      "@none": [
+        "alice-in-wonderland"
+      ]
+    }
+  }

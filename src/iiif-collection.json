@@ -12,12 +12,12 @@
 
       "manifests": [
         {
-          "@id": "src/29975.json",
+          "@id": "src/test-files/ebook.json",
           "@type": "sc:Manifest",
-          "label": "Search Past ATI - Manifest"
-        },
+          "label": "okaura book of Tea epub"
+        },        
         {
-          "@id": "src/LAC84037.json",
+          "@id": "src/test-files/LAC84037.json",
           "@type": "sc:Manifest",
           "label": "LAC Image with rendering to download"
         },        
@@ -27,7 +27,7 @@
           "label": "PDF only"
         },       
         {
-          "@id": "src/m3u8.json",
+          "@id": "src/test-files/m3u8.json",
           "@type": "sc:Manifest",
           "label": "LAC local m3u8"
         },       
@@ -39,44 +39,40 @@
      
      
         {
-          "@id": "src/jpfPDF_2997.json",
+          "@id": "src/test-files/jpfPDF_2997.json",
           "@type": "sc:Manifest",
           "label": "LAC local Manifest Mixed of image and PDF"
         },
        
        
         {
-          "@id": "src/536622.json",
+          "@id": "src/test-files/536622.json",
           "@type": "sc:Manifest",
           "label": "536622 Items"
         },             
        
         {
-          "@id": "src/LACPdf.json",
+          "@id": "src/test-files/LACPdf.json",
           "@type": "sc:Manifest",
           "label": "LAC Pdf only"
         },        
-      
-        
         {
-          "@id": "src/manifest.json",
+          "@id": "src/test-files/manifest.json",
           "@type": "sc:Manifest",
           "label": "LAC local Manifest PDF"
         },
-      
-        
         {
-          "@id": "src/MultiPDFFonAndCol.json",
+          "@id": "src/test-files/MultiPDFFonAndCol.json",
           "@type": "sc:Manifest",
           "label": "LAC local The Algonquin Regiment (7 PDF)"        
         },
         {
-          "@id": "src/lacVideo.json",
+          "@id": "src/test-files/lacVideo.json",
           "@type": "sc:Manifest",
           "label": "LAC local Manifest video"
         },
         {
-          "@id": "src/beethoven.json",
+          "@id": "src/test-files/beethoven.json",
           "@type": "sc:Manifest",
           "label": "Beethoevn"
         },
