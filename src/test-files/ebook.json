@@ -16,7 +16,7 @@
                 "motivation": "painting",
                 "body": {
                   "id": "src/test-files/okakura-book-of-tea.epub",
-                  "type": "Text",
+                  "type": "Document",
                   "format": "application/epub+zip",
                   "label": {
                     "@none": [

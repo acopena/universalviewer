@@ -1,0 +1,712 @@
+{
+    "@context": "http://iiif.io/api/presentation/3/context.json",
+    "id": "https://digitalmanifest.bac-lac.gc.ca/DigitalManifest/1008/215",
+    "type": "Manifest",
+    "label": {
+        "en": [
+            "Cabinet Conclusions - April 17, 1946"
+        ],
+        "fr": [
+            "Conclusions du Cabinet - 17 avril 1946"
+        ]
+    },
+    "metadata": [
+        {
+            "label": {
+                "en": [
+                    "Found In"
+                ],
+                "fr": [
+                    "Trouvé dans"
+                ]
+            },
+            "value": {
+                "en": [
+                    "Archives / Cabinet Conclusions"
+                ],
+                "fr": [
+                    "Archives / Conclusions du Cabinet"
+                ]
+            }
+        },
+        {
+            "label": {
+                "en": [
+                    "Reference"
+                ],
+                "fr": [
+                    "Référence"
+                ]
+            },
+            "value": {
+                "en": [
+                    "RG2, Privy Council Office, Series A-5-a,, Privy Council Office, Series Volume:, Privy Council Office, Series 2638,, Privy Council Office, Series Access, Privy Council Office, Series code:, Privy Council Office, Series 90:, Privy Council Office, Series Open, Volume 2638 Access Code: "
+                ],
+                "fr": [
+                    "RG2, Bureau du conseil privé, Series A-5-a,, Bureau du conseil privé, Series Volume:, Bureau du conseil privé, Series 2638,, Bureau du conseil privé, Series Code, Bureau du conseil privé, Series d'accès:, Bureau du conseil privé, Series 90:, Bureau du conseil privé, Series Ouvert, Volume 2638 Code d'accès : "
+                ]
+            }
+        },
+        {
+            "label": {
+                "en": [
+                    "Item number"
+                ],
+                "fr": [
+                    "No d'identification"
+                ]
+            },
+            "value": {
+                "en": [
+                    "215"
+                ],
+                "fr": [
+                    "215"
+                ]
+            }
+        }
+    ],
+   
+    "items": [
+        {
+            "id": "http://bac-lac.gc.ca/canvas",
+            "type": "canvas",
+            "label": {
+                "en": [
+                    "p. 1a"
+                ],
+                "fr": [
+                    "p. 1a"
+                ]
+            },
+            "metadata": [
+                {
+                    "label": {
+                        "en": [
+                            "Meeting date"
+                        ],
+                        "fr": [
+                            "Date de la réunion"
+                        ]
+                    },
+                    "value": {
+                        "en": [
+                            "1946-04-17"
+                        ],
+                        "fr": [
+                            "1946-04-17"
+                        ]
+                    }
+                },
+                {
+                    "label": {
+                        "en": [
+                            "Ecopy number"
+                        ],
+                        "fr": [
+                            "Numéro ecopy"
+                        ]
+                    },
+                    "value": {
+                        "en": [
+                            "e000822362"
+                        ],
+                        "fr": [
+                            "e000822362"
+                        ]
+                    }
+                }
+            ],
+            "thumbnail": [
+                {
+                    "id": "http://central.bac-lac.gc.ca/.item?id=e000822362&op=thumb&height=150&app=CabCon",
+                    "type": "image",
+                    "format": "image/jpeg",
+                    "width": 94,
+                    "height": 150
+                }
+            ],
+            "height": 720,
+            "width": 1139,
+            "items": [
+                {
+                    "items": [
+                        {
+                            "id": "http://bac-lac.gc.ca/canvas/annotationpage/Annotation",
+                            "type": "Annotation",
+                            "motivation": "painting",
+                            "body": {
+                                "id": "https://central.bac-lac.gc.ca/.item/?id=e000822362&app=CabCon&op=img",
+                                "type": "Image",
+                                "format": "image/jpeg",
+                                "height": 720,
+                                "width": 1139
+                            },
+                            "target": "http://bac-lac.gc.ca/Canvas"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "id": "http://bac-lac.gc.ca/canvas",
+            "type": "canvas",
+            "label": {
+                "en": [
+                    "p. 1b"
+                ],
+                "fr": [
+                    "p. 1b"
+                ]
+            },
+            "metadata": [
+                {
+                    "label": {
+                        "en": [
+                            "Meeting date"
+                        ],
+                        "fr": [
+                            "Date de la réunion"
+                        ]
+                    },
+                    "value": {
+                        "en": [
+                            "1946-04-17"
+                        ],
+                        "fr": [
+                            "1946-04-17"
+                        ]
+                    }
+                },
+                {
+                    "label": {
+                        "en": [
+                            "Ecopy number"
+                        ],
+                        "fr": [
+                            "Numéro ecopy"
+                        ]
+                    },
+                    "value": {
+                        "en": [
+                            "e000822363"
+                        ],
+                        "fr": [
+                            "e000822363"
+                        ]
+                    }
+                }
+            ],
+            "thumbnail": [
+                {
+                    "id": "http://central.bac-lac.gc.ca/.item?id=e000822363&op=thumb&height=150&app=CabCon",
+                    "type": "image",
+                    "format": "image/jpeg",
+                    "width": 95,
+                    "height": 150
+                }
+            ],
+            "height": 720,
+            "width": 1135,
+            "items": [
+                {
+                    "items": [
+                        {
+                            "id": "http://bac-lac.gc.ca/canvas/annotationpage/Annotation",
+                            "type": "Annotation",
+                            "motivation": "painting",
+                            "body": {
+                                "id": "https://central.bac-lac.gc.ca/.item/?id=e000822363&app=CabCon&op=img",
+                                "type": "Image",
+                                "format": "image/jpeg",
+                                "height": 720,
+                                "width": 1135
+                            },
+                            "target": "http://bac-lac.gc.ca/Canvas"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "id": "http://bac-lac.gc.ca/canvas",
+            "type": "canvas",
+            "label": {
+                "en": [
+                    "p. 2"
+                ],
+                "fr": [
+                    "p. 2"
+                ]
+            },
+            "metadata": [
+                {
+                    "label": {
+                        "en": [
+                            "Meeting date"
+                        ],
+                        "fr": [
+                            "Date de la réunion"
+                        ]
+                    },
+                    "value": {
+                        "en": [
+                            "1946-04-17"
+                        ],
+                        "fr": [
+                            "1946-04-17"
+                        ]
+                    }
+                },
+                {
+                    "label": {
+                        "en": [
+                            "Ecopy number"
+                        ],
+                        "fr": [
+                            "Numéro ecopy"
+                        ]
+                    },
+                    "value": {
+                        "en": [
+                            "e000822364"
+                        ],
+                        "fr": [
+                            "e000822364"
+                        ]
+                    }
+                }
+            ],
+            "thumbnail": [
+                {
+                    "id": "http://central.bac-lac.gc.ca/.item?id=e000822364&op=thumb&height=150&app=CabCon",
+                    "type": "image",
+                    "format": "image/jpeg",
+                    "width": 95,
+                    "height": 150
+                }
+            ],
+            "height": 720,
+            "width": 1130,
+            "items": [
+                {
+                    "items": [
+                        {
+                            "id": "http://bac-lac.gc.ca/canvas/annotationpage/Annotation",
+                            "type": "Annotation",
+                            "motivation": "painting",
+                            "body": {
+                                "id": "https://central.bac-lac.gc.ca/.item/?id=e000822364&app=CabCon&op=img",
+                                "type": "Image",
+                                "format": "image/jpeg",
+                                "height": 720,
+                                "width": 1130
+                            },
+                            "target": "http://bac-lac.gc.ca/Canvas"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "id": "http://bac-lac.gc.ca/canvas",
+            "type": "canvas",
+            "label": {
+                "en": [
+                    "p. 3"
+                ],
+                "fr": [
+                    "p. 3"
+                ]
+            },
+            "metadata": [
+                {
+                    "label": {
+                        "en": [
+                            "Meeting date"
+                        ],
+                        "fr": [
+                            "Date de la réunion"
+                        ]
+                    },
+                    "value": {
+                        "en": [
+                            "1946-04-17"
+                        ],
+                        "fr": [
+                            "1946-04-17"
+                        ]
+                    }
+                },
+                {
+                    "label": {
+                        "en": [
+                            "Ecopy number"
+                        ],
+                        "fr": [
+                            "Numéro ecopy"
+                        ]
+                    },
+                    "value": {
+                        "en": [
+                            "e000822365"
+                        ],
+                        "fr": [
+                            "e000822365"
+                        ]
+                    }
+                }
+            ],
+            "thumbnail": [
+                {
+                    "id": "http://central.bac-lac.gc.ca/.item?id=e000822365&op=thumb&height=150&app=CabCon",
+                    "type": "image",
+                    "format": "image/jpeg",
+                    "width": 94,
+                    "height": 150
+                }
+            ],
+            "height": 720,
+            "width": 1145,
+            "items": [
+                {
+                    "items": [
+                        {
+                            "id": "http://bac-lac.gc.ca/canvas/annotationpage/Annotation",
+                            "type": "Annotation",
+                            "motivation": "painting",
+                            "body": {
+                                "id": "https://central.bac-lac.gc.ca/.item/?id=e000822365&app=CabCon&op=img",
+                                "type": "Image",
+                                "format": "image/jpeg",
+                                "height": 720,
+                                "width": 1145
+                            },
+                            "target": "http://bac-lac.gc.ca/Canvas"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "id": "http://bac-lac.gc.ca/canvas",
+            "type": "canvas",
+            "label": {
+                "en": [
+                    "p. 4"
+                ],
+                "fr": [
+                    "p. 4"
+                ]
+            },
+            "metadata": [
+                {
+                    "label": {
+                        "en": [
+                            "Meeting date"
+                        ],
+                        "fr": [
+                            "Date de la réunion"
+                        ]
+                    },
+                    "value": {
+                        "en": [
+                            "1946-04-17"
+                        ],
+                        "fr": [
+                            "1946-04-17"
+                        ]
+                    }
+                },
+                {
+                    "label": {
+                        "en": [
+                            "Ecopy number"
+                        ],
+                        "fr": [
+                            "Numéro ecopy"
+                        ]
+                    },
+                    "value": {
+                        "en": [
+                            "e000822366"
+                        ],
+                        "fr": [
+                            "e000822366"
+                        ]
+                    }
+                }
+            ],
+            "thumbnail": [
+                {
+                    "id": "http://central.bac-lac.gc.ca/.item?id=e000822366&op=thumb&height=150&app=CabCon",
+                    "type": "image",
+                    "format": "image/jpeg",
+                    "width": 93,
+                    "height": 150
+                }
+            ],
+            "height": 720,
+            "width": 1154,
+            "items": [
+                {
+                    "items": [
+                        {
+                            "id": "http://bac-lac.gc.ca/canvas/annotationpage/Annotation",
+                            "type": "Annotation",
+                            "motivation": "painting",
+                            "body": {
+                                "id": "https://central.bac-lac.gc.ca/.item/?id=e000822366&app=CabCon&op=img",
+                                "type": "Image",
+                                "format": "image/jpeg",
+                                "height": 720,
+                                "width": 1154
+                            },
+                            "target": "http://bac-lac.gc.ca/Canvas"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "id": "http://bac-lac.gc.ca/canvas",
+            "type": "canvas",
+            "label": {
+                "en": [
+                    "p. 5"
+                ],
+                "fr": [
+                    "p. 5"
+                ]
+            },
+            "metadata": [
+                {
+                    "label": {
+                        "en": [
+                            "Meeting date"
+                        ],
+                        "fr": [
+                            "Date de la réunion"
+                        ]
+                    },
+                    "value": {
+                        "en": [
+                            "1946-04-17"
+                        ],
+                        "fr": [
+                            "1946-04-17"
+                        ]
+                    }
+                },
+                {
+                    "label": {
+                        "en": [
+                            "Ecopy number"
+                        ],
+                        "fr": [
+                            "Numéro ecopy"
+                        ]
+                    },
+                    "value": {
+                        "en": [
+                            "e000822367"
+                        ],
+                        "fr": [
+                            "e000822367"
+                        ]
+                    }
+                }
+            ],
+            "thumbnail": [
+                {
+                    "id": "http://central.bac-lac.gc.ca/.item?id=e000822367&op=thumb&height=150&app=CabCon",
+                    "type": "image",
+                    "format": "image/jpeg",
+                    "width": 95,
+                    "height": 150
+                }
+            ],
+            "height": 720,
+            "width": 1127,
+            "items": [
+                {
+                    "items": [
+                        {
+                            "id": "http://bac-lac.gc.ca/canvas/annotationpage/Annotation",
+                            "type": "Annotation",
+                            "motivation": "painting",
+                            "body": {
+                                "id": "https://central.bac-lac.gc.ca/.item/?id=e000822367&app=CabCon&op=img",
+                                "type": "Image",
+                                "format": "image/jpeg",
+                                "height": 720,
+                                "width": 1127
+                            },
+                            "target": "http://bac-lac.gc.ca/Canvas"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "id": "http://bac-lac.gc.ca/canvas",
+            "type": "canvas",
+            "label": {
+                "en": [
+                    "p. 6"
+                ],
+                "fr": [
+                    "p. 6"
+                ]
+            },
+            "metadata": [
+                {
+                    "label": {
+                        "en": [
+                            "Meeting date"
+                        ],
+                        "fr": [
+                            "Date de la réunion"
+                        ]
+                    },
+                    "value": {
+                        "en": [
+                            "1946-04-17"
+                        ],
+                        "fr": [
+                            "1946-04-17"
+                        ]
+                    }
+                },
+                {
+                    "label": {
+                        "en": [
+                            "Ecopy number"
+                        ],
+                        "fr": [
+                            "Numéro ecopy"
+                        ]
+                    },
+                    "value": {
+                        "en": [
+                            "e000822368"
+                        ],
+                        "fr": [
+                            "e000822368"
+                        ]
+                    }
+                }
+            ],
+            "thumbnail": [
+                {
+                    "id": "http://central.bac-lac.gc.ca/.item?id=e000822368&op=thumb&height=150&app=CabCon",
+                    "type": "image",
+                    "format": "image/jpeg",
+                    "width": 95,
+                    "height": 150
+                }
+            ],
+            "height": 720,
+            "width": 1136,
+            "items": [
+                {
+                    "items": [
+                        {
+                            "id": "http://bac-lac.gc.ca/canvas/annotationpage/Annotation",
+                            "type": "Annotation",
+                            "motivation": "painting",
+                            "body": {
+                                "id": "https://central.bac-lac.gc.ca/.item/?id=e000822368&app=CabCon&op=img",
+                                "type": "Image",
+                                "format": "image/jpeg",
+                                "height": 720,
+                                "width": 1136
+                            },
+                            "target": "http://bac-lac.gc.ca/Canvas"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "id": "http://bac-lac.gc.ca/canvas",
+            "type": "canvas",
+            "label": {
+                "en": [
+                    "p. 7"
+                ],
+                "fr": [
+                    "p. 7"
+                ]
+            },
+            "metadata": [
+                {
+                    "label": {
+                        "en": [
+                            "Meeting date"
+                        ],
+                        "fr": [
+                            "Date de la réunion"
+                        ]
+                    },
+                    "value": {
+                        "en": [
+                            "1946-04-17"
+                        ],
+                        "fr": [
+                            "1946-04-17"
+                        ]
+                    }
+                },
+                {
+                    "label": {
+                        "en": [
+                            "Ecopy number"
+                        ],
+                        "fr": [
+                            "Numéro ecopy"
+                        ]
+                    },
+                    "value": {
+                        "en": [
+                            "e000822369"
+                        ],
+                        "fr": [
+                            "e000822369"
+                        ]
+                    }
+                }
+            ],
+            "thumbnail": [
+                {
+                    "id": "http://central.bac-lac.gc.ca/.item?id=e000822369&op=thumb&height=150&app=CabCon",
+                    "type": "image",
+                    "format": "image/jpeg",
+                    "width": 93,
+                    "height": 150
+                }
+            ],
+            "height": 720,
+            "width": 1150,
+            "items": [
+                {
+                    "items": [
+                        {
+                            "id": "http://bac-lac.gc.ca/canvas/annotationpage/Annotation",
+                            "type": "Annotation",
+                            "motivation": "painting",
+                            "body": {
+                                "id": "https://central.bac-lac.gc.ca/.item/?id=e000822369&app=CabCon&op=img",
+                                "type": "Image",
+                                "format": "image/jpeg",
+                                "height": 720,
+                                "width": 1150
+                            },
+                            "target": "http://bac-lac.gc.ca/Canvas"
+                        }
+                    ]
+                }
+            ]
+        }
+    ]
+}

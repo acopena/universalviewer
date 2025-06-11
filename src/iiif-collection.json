@@ -12,16 +12,58 @@
 
       "manifests": [
         {
+          "@id": "https://digitalmanifest.bac-lac.gc.ca/DigitalManifest/1/5672185",
+          "@type": "sc:Manifest",
+          "label": "Photographs with long title"
+        },       
+        {
+          "@id": "src/test-files/cabconSearchTest.json",
+          "@type": "sc:Manifest",
+          "label": "Cabinet Conclusions - Test"
+        },      
+        {
+          "@id": "src/test-files/manifest.json",
+          "@type": "sc:Manifest",
+          "label": "Wunder der Vererbung - with search within"
+        },      
+        {
+          "@id": "https://wellcomelibrary.org/iiif/b18035978/manifest",
+          "@type": "sc:Manifest",
+          "label": "The Biocrats - with search within"
+        },
+        {
+          "@id": "https://wellcomelibrary.org/iiif/collection/b19974760",
+          "@type": "sc:Collection",
+          "label": "Chemist & Druggist (collection) - Search within"
+        },
+        {
+          "@id": "https://wellcomelibrary.org/iiif/collection/b18031511",
+          "@type": "sc:Collection",
+          "label": "Biological Basis of Medicine (collection) - Search within"
+        },
+        {
+          "@id": "https://wellcomelibrary.org/iiif/b21274344/manifest",
+          "@type": "sc:Manifest",
+          "label": "Abnormalities and curiosities of medicine - Search within"
+        },
+
+        {
+          "@id": "src/test-files/536622.json",
+          "@type": "sc:Manifest",
+          "label": "536622 Items"
+        },  
+        {
           "@id": "src/test-files/ebook.json",
           "@type": "sc:Manifest",
           "label": "okaura book of Tea epub"
-        },        
-       
+        },
         {
-          "@id": "https://wellcomelibrary.org/iiif/b17502792/manifest",
+          "@id": "src/test-files/serial.json",
           "@type": "sc:Manifest",
-          "label": "PDF only"
-        },       
+          "label": "Serial - Intertial"
+        },                
+       
+       
         {
           "@id": "src/test-files/m3u8.json",
           "@type": "sc:Manifest",
@@ -31,37 +73,13 @@
           "@id": "https://wellcomelibrary.org/iiif/b19684538/manifest",
           "@type": "sc:Manifest",
           "label": "Pseudo-Albert the Great (folio)"
-        },    
-        {
-          "@id": "src/test-files/536622.json",
-          "@type": "sc:Manifest",
-          "label": "536622 Items"
-        },  
-        {
-          "@id": "src/test-files/manifest.json",
-          "@type": "sc:Manifest",
-          "label": "LAC local Manifest PDF"
-        },      
-       {
-          "@id": "src/test-files/beethoven.json",
-          "@type": "sc:Manifest",
-          "label": "Beethoevn"
-        },
-        {
-          "@id": "https://stdigitalmanifestspr.blob.core.windows.net/manifest/5/3352/manifest.json",
-          "@type": "sc:Manifest",
-          "label": "Minister of Inland Revenue"
-        },
+        },           
         {
           "@id": "https://wellcomelibrary.org/iiif/b23984958/manifest",
           "@type": "sc:Manifest",
           "label": "Greenfly Eye"
         },
-        {
-          "@id": "https://wellcomelibrary.org/iiif/b18035978/manifest",
-          "@type": "sc:Manifest",
-          "label": "The Biocrats"
-        },
+      
         {
           "@id": "https://wellcomelibrary.org/iiif/b19684915/manifest",
           "@type": "sc:Manifest",
@@ -76,7 +94,7 @@
           "@id": "https://wellcomelibrary.org/iiif/b16659090/manifest",
           "@type": "sc:Manifest",
           "label": "The story of the Wellcome Foundation Ltd (video)",
-          "visible": true
+          "visible": false
         },
         {
           "@id": "https://wellcomelibrary.org/iiif/b20605055/manifest",
@@ -93,7 +111,8 @@
         {
           "@id": "https://wellcomelibrary.org/iiif/b17307922/manifest",
           "@type": "sc:Manifest",
-          "label": "Florence Nightingale (audio)"
+          "label": "Florence Nightingale (audio)",
+          "visible": false  
         },
         {
           "@id": "https://wellcomelibrary.org/iiif/b17502792/manifest",
@@ -142,21 +161,8 @@
           "@type": "sc:Manifest",
           "label": "Pseudo-Albert the Great (folio)"
         },
-        {
-          "@id": "https://wellcomelibrary.org/iiif/collection/b19974760",
-          "@type": "sc:Collection",
-          "label": "Chemist & Druggist (collection)"
-        },
-        {
-          "@id": "https://wellcomelibrary.org/iiif/collection/b18031511",
-          "@type": "sc:Collection",
-          "label": "Biological Basis of Medicine (collection)"
-        },
-        {
-          "@id": "https://wellcomelibrary.org/iiif/b21274344/manifest",
-          "@type": "sc:Manifest",
-          "label": "Abnormalities and curiosities of medicine"
-        },
+        
+      
         {
           "@id": "https://wellcomelibrary.org/iiif/b13266330/manifest",
           "@type": "sc:Manifest",
