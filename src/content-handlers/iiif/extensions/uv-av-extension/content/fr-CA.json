@@ -9,7 +9,9 @@
     "fallbackDegradedLabel": "Connexion",
     "fallbackDegradedMessage": "Connectez-vous pour visualisez ce contenu en résolution maximale.",
     "forbiddenResourceMessage": "Vos droits d'accès ne vous permettent pas de visualiser cette image",
-    "termsOfUse": "Conditions d'utilisation"
+    "termsOfUse": "Conditions d'utilisation",
+    "mediaViewer": "Media Viewer",
+    "skipToDownload": "Skip to downloads and alternative formats"
   },
   "modules": {
     "authDialogue": {
@@ -93,6 +95,11 @@
         "refresh": "Rafraîchir"
       }
     },
+    "headerPanel": {
+      "content": {
+        "settings": "Settings"
+      }
+    },
     "helpDialogue": {
       "content": {
         "text": "texte d'exemple",
@@ -134,6 +141,21 @@
         "canvasHeader": "A propos de l'image",
         "copyToClipboard": "Copier dans le presse-papiers",
         "copiedToClipboard": "Copié dans le presse-papiers"
+      }
+    },
+    "avCenterPanel": {
+      "content": {
+        "attribution": "Attribution",
+        "currentTime": "Current Time",
+        "delimiter": " - ",
+        "duration": "Duration",
+        "mute": "Mute",
+        "next": "Next",
+        "pause": "Pause!",
+        "play": "Play!",
+        "previous": "Previous!",
+        "forward": "Reculer",
+        "backward": "Avancer"
       }
     },
     "multiSelectDialogue": {

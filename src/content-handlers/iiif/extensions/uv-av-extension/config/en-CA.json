@@ -206,7 +206,9 @@
         "next": "Next",
         "pause": "Pause",
         "play": "Play",
-        "previous": "Previous"
+        "previous": "Previous",
+        "forward": "Forward",
+        "backward": "Backward"
       }
     },
     "settingsDialogue": {

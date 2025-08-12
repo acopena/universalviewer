@@ -310,7 +310,16 @@ export class ContentLeftPanel extends LeftPanel {
         this._redirectUrl("application/pdf", jsonId);
       }
       else if (typeName == "uv-mediaelement-extension") {
-        this._redirectUrl("video/mp4", jsonId);
+        let cFormat = this.getCurrentFormat(jsonId);
+        //this._redirectUrl("video/mp4", jsonId);
+        let newFormat = '';
+        if (cFormat) {
+          newFormat = cFormat.body.format;
+        }
+        else {
+          newFormat = jsonId.format;
+        }
+        this._redirectUrl(newFormat, jsonId);
       }
     }
     else {
@@ -322,14 +331,19 @@ export class ContentLeftPanel extends LeftPanel {
   private _redirectUrl(fortmatName: string, jsonId?: any): void {
     let iFormat;
     let newFormat = '';
+    console.log('fortmatName : ' + fortmatName);
+    
 
     iFormat = this.getCurrentFormat(jsonId);
+    
     if (iFormat) {
       newFormat = iFormat.body.format;
     }
     else {
       newFormat = jsonId.format;
     }
+    console.log('iFormat : ' + newFormat );
+    
     if (jsonId) {
       if (newFormat) {
         if (newFormat != fortmatName) {          

@@ -1050,7 +1050,6 @@ export class BaseExtension implements IExtension {
     data.collectionIndex = <number>this.helper.getCollectionIndex(manifest);
     data.manifestIndex = <number>manifest.index;
     data.canvasIndex = 0;
-
     this.reload(data);
   }
 
@@ -1064,7 +1063,7 @@ export class BaseExtension implements IExtension {
     data.collectionIndex = collection.index;
     data.manifestIndex = 0;
     data.canvasIndex = 0;
-
+   
     this.reload(data);
   }
 

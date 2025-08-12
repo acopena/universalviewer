@@ -27,6 +27,8 @@ export class MediaElementCenterPanel extends CenterPanel {
   mediaWidth: number;
   player: any;
   title: string | null;
+  content: any;
+  currentMedia : any;
 
   constructor($element: JQuery) {
     super($element);
@@ -36,9 +38,8 @@ export class MediaElementCenterPanel extends CenterPanel {
     this.setConfig("mediaelementCenterPanel");
 
     super.create();
-
     const that = this;
-
+   
     this.extensionHost.subscribe(Events.TOGGLE_FULLSCREEN, () => {
       this.resize();
     });
@@ -105,7 +106,7 @@ export class MediaElementCenterPanel extends CenterPanel {
         this.extension.helper.getCurrentCanvas()
       );
 
-      
+
       if (formats && formats.length) {
         formats.forEach((format: AnnotationBody) => {
           const type: MediaType | null = format.getFormat();
@@ -141,17 +142,17 @@ export class MediaElementCenterPanel extends CenterPanel {
         //This will get the actual url playlist from Central
         await this.getVideoUrlFromCentral(source.src).then((data) => {
           if (data == undefined) {
-            source.src = this.getM3U8url(source.src); 
+            source.src = this.getM3U8url(source.src);
           }
           else {
             source.src = data;
           }
-        })        
-        .catch( (error) => {
-          console.log('errror encountered');
-          console.log(error);
-           source.src = this.getM3U8url(source.src);
         })
+          .catch((error) => {
+            console.log('errror encountered');
+            console.log(error);
+            source.src = this.getM3U8url(source.src);
+          })
         //***** End  */
 
         this.$media.append(
@@ -229,30 +230,33 @@ export class MediaElementCenterPanel extends CenterPanel {
               Math.floor(mediaElement.forward)
             );
           });
+
+         
         },
       });
     } else {
       // audio
-
-      console.log('********* Audio part *********')
       this.$media = uvj$(
         '<audio controls="controls" preload="none" style="width:100%;height:100%;" width="100%" height="100%"></audio>'
       );
 
+
       for (const source of sources) {
-         //Added by Albert Opena
+        //Added by Albert Opena
         //This will get the actual url playlist from Central
         await this.getVideoUrlFromCentral(source.src).then((data) => {
+
           if (data == undefined) {
-            source.src = this.getM3U8url(source.src);           
+            source.src = this.getM3U8url(source.src);
           }
-          else {           
+          else {
             source.src = data;
-          }          
-        })   
-        .catch( (error) => {        
-           source.src = this.getM3U8url(source.src);
+          }
+
         })
+          .catch((error) => {
+            source.src = this.getM3U8url(source.src);
+          })
         //***** End  */
         this.$media.append(
           uvj$(
@@ -326,21 +330,27 @@ export class MediaElementCenterPanel extends CenterPanel {
               Math.floor(mediaElement.currentTime)
             );
           });
+          mediaElement.addEventListener("videoForward", () => {
+            that.extensionHost.publish(
+              MediaElementExtensionEvents.MEDIA_FORWARD,
+              Math.floor(mediaElement.currentTime)
+            );
+          });
+         
         },
       });
     }
 
     this.extensionHost.publish(Events.EXTERNAL_RESOURCE_OPENED);
     this.extensionHost.publish(Events.LOAD);
+    
   }
 
-
-
   getM3U8url(bodyId: string) {
-    let m3u8Url = bodyId;    
-    console.log(bodyId);
+    let m3u8Url = bodyId;
+
     let urlBody = new URL(bodyId.toLocaleLowerCase());
-    const idx: string | null = urlBody.searchParams.get('id');    
+    const idx: string | null = urlBody.searchParams.get('id');
     if (idx && idx.length >= 30) {
       m3u8Url = "https://d6k0n7qq3l4nj.cloudfront.net/" + idx + "/playlist.m3u8";
     }

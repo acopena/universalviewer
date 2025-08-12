@@ -1,0 +1,187 @@
+{
+    "@context": "https://iiif.io/api/presentation/3/context.json",
+    "id": "https://digitalmanifest.bac-lac.gc.ca/DigitalManifest/1009/5440",
+    "type": "Manifest",
+    "label": {
+      "en": [
+        ""
+      ],
+      "fr": [
+        ""
+      ]
+    },
+    "metadata": [
+      {
+        "label": {
+          "en": [
+            "Creator"
+          ],
+          "fr": [
+            "Auteur"
+          ]
+        },
+        "value": {
+          "en": [
+            "Canadian Broadcasting Corporation"
+          ],
+          "fr": [
+            "Canadian Broadcasting Corporation"
+          ]
+        }
+      },
+      {
+        "label": {
+          "en": [
+            "Description"
+          ],
+          "fr": [
+            "Description"
+          ]
+        },
+        "value": {
+          "en": [
+            ""
+          ],
+          "fr": [
+            ""
+          ]
+        }
+      },
+      {
+        "label": {
+          "en": [
+            "Language"
+          ],
+          "fr": [
+            "Langue de publication"
+          ]
+        },
+        "value": {
+          "en": [
+            "English"
+          ],
+          "fr": [
+            "English"
+          ]
+        }
+      },
+      {
+        "label": {
+          "en": [
+            "Restriction On Access"
+          ],
+          "fr": [
+            "Restriction d'accès"
+          ]
+        },
+        "value": {
+          "en": [
+            "Open"
+          ],
+          "fr": [
+            "Libre"
+          ]
+        }
+      },
+      {
+        "label": {
+          "en": [
+            "Terms of Use Copyright"
+          ],
+          "fr": [
+            "Conditions d’utilisation droit d’auteur"
+          ]
+        },
+        "value": {
+          "en": [
+            ""
+          ],
+          "fr": [
+            ""
+          ]
+        }
+      },
+      {
+        "label": {
+          "en": [
+            "Terms of Use Restrictions"
+          ],
+          "fr": [
+            "Conditions d'utilisation restrictions"
+          ]
+        },
+        "value": {
+          "en": [
+            "To be Determined / À déterminer"
+          ],
+          "fr": [
+            "To be Determined / À déterminer"
+          ]
+        }
+      },
+      {
+        "label": {
+          "en": [
+            "Item number"
+          ],
+          "fr": [
+            "No d'identification"
+          ]
+        },
+        "value": {
+          "en": [
+            "5440"
+          ],
+          "fr": [
+            "5440"
+          ]
+        }
+      }
+    ],
+    "items": [
+      {
+        "id": "https://bac-lac.gc.ca/canvas",
+        "type": "Canvas",
+        "label": {
+          "en": [
+            "5440"
+          ],
+          "fr": [
+            "5440"
+          ]
+        },
+        "height": 0,
+        "width": 0,
+        "duration": "29:00",
+        "thumbnail": [
+          {
+            "id": "https://d6k0n7qq3l4nj.cloudfront.net/thumbnails/video.jpg",
+            "type": "image",
+            "format": "image/jpeg",
+            "height": 150,
+            "width": 150
+          }
+        ],
+        "items": [
+          {
+            "id": "https://bac-lac.gc.ca/canvas/page",
+            "type": "AnnotationPage",
+            "items": [
+              {
+                "id": "https://bac-lac.gc.ca/canvas/page/Annotation",
+                "type": "Annotation",
+                "motivation": "painting",
+                "body": {
+                    "id": "https://fixtures.iiif.io/audio/indiana/mahler-symphony-3/CD1/medium/128Kbps.mp4",
+                    "type": "mpeg",
+                    "format": "audio/mp4",
+                    "duration": 1985.024
+                  },
+                "target": "https://bac-lac.gc.ca/Canvas"
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  }

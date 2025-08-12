@@ -33,10 +33,11 @@ export class UniversalViewer extends BaseContentHandler<IUVData> {
   private _contentType: ContentType = ContentType.UNKNOWN;
   private _assignedContentHandler: IContentHandler<IUVData>;
   private _externalEventListeners: EventListener[] = [];
-
+  
   constructor(public options: IUVOptions) {
     super(options);  
     this._assignContentHandler(this.options.data);
+  
   }
 
   public on(name: string, cb: Function, ctx?: any): void {

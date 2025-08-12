@@ -29,7 +29,7 @@ import { TFragment } from "../../modules/uv-shared-module/TFragment";
 import "./theme/theme.less";
 import defaultConfig from "./config/en-CA.json";
 import { Events } from "../../../../Events";
-
+import { renderIcon } from "../../../iiif/modules/uv-mediaelementcenterpanel-module/icon-library";
 export default class Extension extends BaseExtension
   implements IMediaElementExtension {
   $downloadDialogue: JQuery;
@@ -49,12 +49,13 @@ export default class Extension extends BaseExtension
   defaultConfig: any = defaultConfig;
   locales = {
     "en-CA": defaultConfig,
-    "fr-CA": () => import("./config/fr-CA.json")   
+    "fr-CA": () => import("./config/fr-CA.json")
   };
 
   create(): void {
     super.create();
 
+    console.log("Extension.mediaElement...............")
     // listen for mediaelement enter/exit fullscreen events.
     $(window).bind("enterfullscreen", () => {
       this.extensionHost.publish(Events.TOGGLE_FULLSCREEN);
@@ -145,7 +146,7 @@ export default class Extension extends BaseExtension
 
     if (this.isLeftPanelEnabled()) {
       this.leftPanel = new ContentLeftPanel(this.shell.$leftPanel);
-    }else {
+    } else {
       this.shell.$leftPanel.hide();
     }
 
@@ -155,7 +156,7 @@ export default class Extension extends BaseExtension
       this.rightPanel = new MoreInfoRightPanel(this.shell.$rightPanel);
     }
 
-    
+
     if (this.isFooterPanelEnabled()) {
       this.footerPanel = new FooterPanel(this.shell.$footerPanel);
     } else {
@@ -201,18 +202,128 @@ export default class Extension extends BaseExtension
 
   render(): void {
     super.render();
-
+    console.log(this.locales);
+    console.log(this);
     this.checkForTarget();
-       //added by Albert Opena
+    //added by Albert Opena
     //Hide options mimiseButton footer 
     let footerOption = document.getElementsByClassName('options minimiseButtons');
-    for (let i = 0; i < footerOption.length; i++) {      
-      footerOption[i].setAttribute('style','display:none');
+    for (let i = 0; i < footerOption.length; i++) {
+      footerOption[i].setAttribute('style', 'display:none');
     }
     // ****** end Here
-
- 
+    this.ForwardRewindEvent();
   }
+
+
+  ForwardRewindEvent() {
+    let ctr = 0;
+    const intervalId = setInterval(() => {
+      ctr++;
+      if (ctr >= 50) {
+        clearInterval(intervalId);
+      }
+      let videoCtrl = document.getElementsByClassName('mejs__inner');
+      if (videoCtrl.length > 0) {
+        console.log(videoCtrl[0]);
+        this.addRewindForwardBtn(videoCtrl);
+        clearInterval(intervalId);
+      }
+    }, 500);
+  }
+  addRewindForwardBtn(videoCtrl: any) {
+    let ctrl1 = document.getElementsByClassName('mejs__controls');
+    ctrl1[0].setAttribute('style', 'height:80px')
+
+    const ctrl2 = document.getElementById('mejs_Controls2')
+    let videoWidth = "100%";
+    if (ctrl2 == null) {
+      const videoPlayer = document.getElementById('content');
+      if (videoPlayer != null) {
+        videoWidth = videoPlayer.style.width;
+      }
+      let playBtn = document.getElementsByClassName('mejs__button mejs__playpause-button mejs__play')[0];
+      if (playBtn != null) {
+        let btnPlay = playBtn.getElementsByTagName('button');
+        if (btnPlay != null) {
+          btnPlay[0].setAttribute('style', 'margin-top:0px;margin-bottom:0px');
+        }
+      }
+
+      let control2 = document.createElement('div');
+      control2.setAttribute('id', 'mejs_Controls2')
+      control2.setAttribute('class', 'mejs__controls');
+      control2.setAttribute('style', 'bottom:8px;width:' + videoWidth + 'px');
+
+      let rw = document.createElement('div');
+      rw.setAttribute('id', 'video_control2');
+      if (document.fullscreenElement != null) {
+        rw.setAttribute('style', 'width:100%; display:flex;margin-left:47%;');
+      } else {
+        rw.setAttribute('style', 'width:100%; display:flex;margin-left:41%;');
+      }
+
+      //Forward button
+      const currentLanguage = this.getLocale().toLowerCase();
+      console.log(currentLanguage);
+      let ForwardTitle = 'Forward';
+      let BackwardTitle = 'Backward';
+      if (currentLanguage == 'en-fr'){
+        ForwardTitle = 'Avancer';
+        BackwardTitle = 'Reculer';
+      }
+
+      let forwardBtn = document.createElement('button');
+      forwardBtn.setAttribute('id', 'videoForward');
+      forwardBtn.setAttribute('class', 'iconplayer');      
+      forwardBtn.setAttribute('style', 'margin-top:0px; border:none;background:none;');
+      forwardBtn.setAttribute('title', ForwardTitle);
+      forwardBtn.setAttribute('aria-label', ForwardTitle);
+      
+      let frwIcon = document.createElement('span');
+      frwIcon.innerHTML = `${renderIcon("fas", "forward")} ` + " <br/>15 sec";
+      forwardBtn.appendChild(frwIcon);
+
+      //Backward button
+      let backwardBtn = document.createElement('button');
+      backwardBtn.setAttribute('id', 'videoBackward');
+      backwardBtn.setAttribute('class', 'iconplayer');
+      backwardBtn.setAttribute('style', 'margin-top:0px; border:none;background:none;');
+      backwardBtn.setAttribute('title', BackwardTitle);
+      forwardBtn.setAttribute('aria-label', BackwardTitle);
+      let backIcon = document.createElement('span');
+      backIcon.innerHTML = `${renderIcon("fas", "backward")} ` + " <br/>15 sec";
+      backwardBtn.appendChild(backIcon);
+
+      rw.appendChild(backwardBtn);
+      rw.appendChild(playBtn);
+      rw.appendChild(forwardBtn);
+
+      control2.appendChild(rw);
+      videoCtrl[0].appendChild(control2);
+      setTimeout(() => {
+        var videoForward = document.getElementById('videoForward');
+        videoForward?.addEventListener('click', this.mediaSkip.bind(this, 'forward'));
+
+        var videoBackward = document.getElementById('videoBackward');
+        videoBackward?.addEventListener('click', this.mediaSkip.bind(this,'backward'));
+      }, 200);
+    }
+  }
+  mediaSkip(skipDirection: string) {
+    console.log(skipDirection);
+    let videoPlayer = document.getElementsByTagName('audio')[0];
+    if (!videoPlayer) {
+      videoPlayer = document.getElementsByTagName('video')[0];
+    }
+    if (skipDirection == "forward") {
+      videoPlayer.currentTime = videoPlayer.currentTime + 15;
+    }
+    else {
+      videoPlayer.currentTime = videoPlayer.currentTime - 15;
+    }
+  }
+
 
   checkForTarget(): void {
     if (this.data.target) {
@@ -239,9 +350,9 @@ export default class Extension extends BaseExtension
     // (this.helper.isMultiCanvas() ||
     //   this.helper.isMultiSequence() ||
     //   this.helper.hasResources());
-    return ( Bools.getBool(this.data.config.options.leftPanelEnabled, true) )
-    
-    
+    return (Bools.getBool(this.data.config.options.leftPanelEnabled, true))
+
+
   }
 
   bookmark(): void {
@@ -266,7 +377,7 @@ export default class Extension extends BaseExtension
   }
 
   getEmbedScript(template: string, width: number, height: number): string {
-    const appUri: string = this.getAppUri();     
+    const appUri: string = this.getAppUri();
     let iframeSrc: string = '';
     if (appUri.indexOf('?') > -1) {
       iframeSrc = `${appUri}#&manifest=${this.helper.manifestUri}&c=${this.helper.collectionIndex}&m=${this.helper.manifestIndex}&cv=${this.helper.canvasIndex}`;
@@ -274,7 +385,7 @@ export default class Extension extends BaseExtension
     else {
       iframeSrc = `${appUri}#?manifest=${this.helper.manifestUri}&c=${this.helper.collectionIndex}&m=${this.helper.manifestIndex}&cv=${this.helper.canvasIndex}`;
     }
-    
+
     const script: string = Strings.format(
       template,
       iframeSrc,

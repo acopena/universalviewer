@@ -12,6 +12,17 @@
 
       "manifests": [
         {
+          "@id": "src/test-files/180222.json",
+          "@type": "sc:Manifest",
+          "label": "PDF/A test"
+        },      
+        {
+          "@id": "https://localhost:7126/api/Preservica/GetAssetManifest/208a5315-0232-46b6-8070-e32244587b91",
+          "@type": "sc:Manifest",
+          "label": "Preservica - Intertitial Page"
+        },      
+       
+        {
           "@id": "https://digitalmanifest.bac-lac.gc.ca/DigitalManifest/1/5672185",
           "@type": "sc:Manifest",
           "label": "Photographs with long title"
@@ -69,6 +80,7 @@
           "@type": "sc:Manifest",
           "label": "LAC local m3u8"
         },       
+       
         {
           "@id": "https://wellcomelibrary.org/iiif/b19684538/manifest",
           "@type": "sc:Manifest",

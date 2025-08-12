@@ -144,8 +144,10 @@
         "mute": "Mute",
         "next": "Next",
         "pause": "Pause",
-        "play": "Play",
-        "previous": "Previous"
+        "play": "Play!",
+        "previous": "Previous",
+        "forward": "Forward",
+        "backward": "Backward"
       }
     },
     "restrictedDialogue": {

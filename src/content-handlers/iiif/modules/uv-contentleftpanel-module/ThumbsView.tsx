@@ -10,14 +10,14 @@ const ThumbImage = ({
   onClick,
   paged,
   selected,
-  thumb, 
+  thumb,
   viewingDirection,
 }: {
   first: boolean;
   onClick: (thumb: Thumb) => void;
   paged: boolean;
   selected: boolean;
-  thumb: Thumb; 
+  thumb: Thumb;
   viewingDirection: ViewingDirection;
 }) => {
   const [ref, inView] = useInView({
@@ -25,29 +25,33 @@ const ThumbImage = ({
     rootMargin: "0px 0px 0px 0px",
     triggerOnce: true,
   });
-  let eCopy= thumb.label;  
-  if (thumb.uri.indexOf('id') > -1){    
-    let eCopyList = thumb.uri.split('&');    
-    let  x = eCopyList.filter(s=>s.indexOf('id') > -1);
-    if (x){    
-      let eCopyX = x[0].split('=');      
+  let eCopy = thumb.label;
+  if (thumb.uri.indexOf('id') > -1) {
+    let eCopyList = thumb.uri.split('&');
+    let x = eCopyList.filter(s => s.indexOf('id') > -1);
+
+    if (x) {
+      let eCopyX = x[0].split('=');
       eCopy = eCopyX[1];
     }
-  } 
-  
+  }
+
   //Overwrite thumbnails (Albert Opena)
-  let thumbData = thumb.data;
+  let thumbData = thumb.data;  
   if (thumbData) {
-    const tjson = thumbData.__jsonld.thumbnail[0];
-    if (tjson) {
-      thumb.uri = tjson.id;
+    if (thumbData.__jsonld.thumbnail) {
+      const tjson = thumbData.__jsonld.thumbnail[0];
+
+      if (tjson) {
+        thumb.uri = tjson.id;
+      }
     }
   }
   // End
 
-  
+
   return (
-    
+
     <div
       onClick={() => onClick(thumb)}
       className={cx("thumb", {
@@ -62,11 +66,11 @@ const ThumbImage = ({
       })}
       tabIndex={0}
     >
-      
+
       <div
         ref={ref}
         className="wrap"
-        id = {eCopy}
+        id={eCopy}
         style={{
           height: thumb.height + 8 + "px",
         }}
@@ -90,18 +94,18 @@ const Thumbnails = ({
   onClick,
   paged,
   selected,
-  thumbs, 
+  thumbs,
   viewingDirection,
 }: {
   onClick: (thumb: Thumb) => void;
   paged: boolean;
   selected: number[];
-  thumbs: Thumb[]; 
+  thumbs: Thumb[];
   viewingDirection: ViewingDirection;
 }) => {
   const ref = useRef<HTMLDivElement | null>(null);
 
-  
+
 
   useEffect(() => {
     const thumb = ref.current?.querySelector(`#thumb-${selected[0]}`);
@@ -149,7 +153,7 @@ const Thumbnails = ({
             onClick={onClick}
             paged={paged}
             selected={selected.includes(index)}
-            thumb={thumb}         
+            thumb={thumb}
             viewingDirection={viewingDirection}
           />
           {showSeparator(paged, thumb.viewingHint, index) && (

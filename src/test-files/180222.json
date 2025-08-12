@@ -1,0 +1,366 @@
+{
+    "@context": "http://iiif.io/api/presentation/3/context.json",
+    "id": "https://digitalmanifest.bac-lac.gc.ca/DigitalManifest/1016/180222",
+    "type": "Manifest",
+    "label": {
+        "en": [
+            "MUIR, GEORGE"
+        ],
+        "fr": [
+            "MUIR, GEORGE"
+        ]
+    },
+    "metadata": [
+        {
+            "label": {
+                "en": [
+                    "Found In"
+                ],
+                "fr": [
+                    "Trouvé dans"
+                ]
+            },
+            "value": {
+                "en": [
+                    "Genealogy / Military / Personal Records - First World War"
+                ],
+                "fr": [
+                    "Génealogie / Militaire / Fichiers personnels  de la Première Guerre mondiale"
+                ]
+            }
+        },
+        {
+            "label": {
+                "en": [
+                    "Reference"
+                ],
+                "fr": [
+                    "Référence"
+                ]
+            },
+            "value": {
+                "en": [
+                    "RG 150, Accession 1992-93/166, Box 6460 - 38"
+                ],
+                "fr": [
+                    "RG 150, versement 1992-93/166, boîte 6460 - 38"
+                ]
+            }
+        },
+        {
+            "label": {
+                "en": [
+                    "Item number"
+                ],
+                "fr": [
+                    "No d'identification"
+                ]
+            },
+            "value": {
+                "en": [
+                    "180222"
+                ],
+                "fr": [
+                    "180222"
+                ]
+            }
+        }
+    ],
+    "items": [
+        {
+            "id": "http://bac-lac.gc.ca/canvas",
+            "type": "canvas",
+            "label": {
+                "en": [
+                    "509569a"
+                ],
+                "fr": [
+                    "509569a"
+                ]
+            },
+            "metadata": [
+                {
+                    "label": {
+                        "en": [
+                            "Name"
+                        ],
+                        "fr": [
+                            "Nom"
+                        ]
+                    },
+                    "value": {
+                        "en": [
+                            "MUIR, GEORGE"
+                        ],
+                        "fr": [
+                            "MUIR, GEORGE"
+                        ]
+                    }
+                },
+                {
+                    "label": {
+                        "en": [
+                            "Regimental number"
+                        ],
+                        "fr": [
+                            "Numéro de matricule"
+                        ]
+                    },
+                    "value": {
+                        "en": [
+                            "527766"
+                        ],
+                        "fr": [
+                            "527766"
+                        ]
+                    }
+                },
+                {
+                    "label": {
+                        "en": [
+                            "Ecopy number"
+                        ],
+                        "fr": [
+                            "Numéro ecopy"
+                        ]
+                    },
+                    "value": {
+                        "en": [
+                            "509569a"
+                        ],
+                        "fr": [
+                            "509569a"
+                        ]
+                    }
+                }
+            ],
+            "thumbnail": [
+                {
+                    "id": "http://central.bac-lac.gc.ca/.item?id=509569a&op=thumb&height=150&app=PfFww",
+                    "type": "image",
+                    "format": "image/jpeg",
+                    "height": 150,
+                    "width": 150
+                }
+            ],
+            "height": 1000,
+            "width": 1656,
+            "items": [
+                {
+                    "items": [
+                        {
+                            "id": "http://bac-lac.gc.ca/canvas/annotationpage/Annotation",
+                            "type": "Annotation",
+                            "motivation": "painting",
+                            "body": {
+                                "id": "https://central.bac-lac.gc.ca/.item/?id=509569a&app=PfFww&op=img",
+                                "type": "Image",
+                                "format": "image/jpeg",
+                                "height": 1000,
+                                "width": 1656
+                            },
+                            "target": "http://bac-lac.gc.ca/Canvas"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "id": "http://bac-lac.gc.ca/canvas",
+            "type": "canvas",
+            "label": {
+                "en": [
+                    "509569b"
+                ],
+                "fr": [
+                    "509569b"
+                ]
+            },
+            "metadata": [
+                {
+                    "label": {
+                        "en": [
+                            "Name"
+                        ],
+                        "fr": [
+                            "Nom"
+                        ]
+                    },
+                    "value": {
+                        "en": [
+                            "MUIR, GEORGE"
+                        ],
+                        "fr": [
+                            "MUIR, GEORGE"
+                        ]
+                    }
+                },
+                {
+                    "label": {
+                        "en": [
+                            "Regimental number"
+                        ],
+                        "fr": [
+                            "Numéro de matricule"
+                        ]
+                    },
+                    "value": {
+                        "en": [
+                            "527766"
+                        ],
+                        "fr": [
+                            "527766"
+                        ]
+                    }
+                },
+                {
+                    "label": {
+                        "en": [
+                            "Ecopy number"
+                        ],
+                        "fr": [
+                            "Numéro ecopy"
+                        ]
+                    },
+                    "value": {
+                        "en": [
+                            "509569b"
+                        ],
+                        "fr": [
+                            "509569b"
+                        ]
+                    }
+                }
+            ],
+            "thumbnail": [
+                {
+                    "id": "http://central.bac-lac.gc.ca/.item?id=509569b&op=thumb&height=150&app=PfFww",
+                    "type": "image",
+                    "format": "image/jpeg",
+                    "height": 150,
+                    "width": 150
+                }
+            ],
+            "height": 1000,
+            "width": 1656,
+            "items": [
+                {
+                    "items": [
+                        {
+                            "id": "http://bac-lac.gc.ca/canvas/annotationpage/Annotation",
+                            "type": "Annotation",
+                            "motivation": "painting",
+                            "body": {
+                                "id": "https://central.bac-lac.gc.ca/.item/?id=509569b&app=PfFww&op=img",
+                                "type": "Image",
+                                "format": "image/jpeg",
+                                "height": 1000,
+                                "width": 1656
+                            },
+                            "target": "http://bac-lac.gc.ca/Canvas"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "id": "http://bac-lac.gc.ca/canvas",
+            "type": "canvas",
+            "label": {
+                "en": [
+                    "B6460-S038"
+                ],
+                "fr": [
+                    "B6460-S038"
+                ]
+            },
+            "metadata": [
+                {
+                    "label": {
+                        "en": [
+                            "Name"
+                        ],
+                        "fr": [
+                            "Nom"
+                        ]
+                    },
+                    "value": {
+                        "en": [
+                            "MUIR, GEORGE"
+                        ],
+                        "fr": [
+                            "MUIR, GEORGE"
+                        ]
+                    }
+                },
+                {
+                    "label": {
+                        "en": [
+                            "Regimental number"
+                        ],
+                        "fr": [
+                            "Numéro de matricule"
+                        ]
+                    },
+                    "value": {
+                        "en": [
+                            "527766"
+                        ],
+                        "fr": [
+                            "527766"
+                        ]
+                    }
+                },
+                {
+                    "label": {
+                        "en": [
+                            "Ecopy number"
+                        ],
+                        "fr": [
+                            "Numéro ecopy"
+                        ]
+                    },
+                    "value": {
+                        "en": [
+                            "B6460-S038"
+                        ],
+                        "fr": [
+                            "B6460-S038"
+                        ]
+                    }
+                }
+            ],
+            "thumbnail": [
+                {
+                    "id": "http://central.bac-lac.gc.ca/.item?id=B6460-S038&op=thumb&height=150&app=PfFww",
+                    "type": "image",
+                    "format": "image/jpeg",
+                    "height": 150,
+                    "width": 150
+                }
+            ],
+            "height": 0,
+            "width": 0,
+            "items": [
+                {
+                    "items": [
+                        {
+                            "id": "http://bac-lac.gc.ca/canvas/annotationpage/Annotation",
+                            "type": "Annotation",
+                            "motivation": "painting",
+                            "body": {
+                                "id": "http://localhost:44337/images/example_065.pdf",
+                                "type": "document",
+                                "format": "application/pdf",
+                                "height": 0,
+                                "width": 0
+                            },
+                            "target": "http://bac-lac.gc.ca/Canvas"
+                        }
+                    ]
+                }
+            ]
+        }
+    ]
+}
+

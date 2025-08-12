@@ -203,7 +203,6 @@ export default class IIIFContentHandler extends BaseContentHandler<IIIFData>
     if (initial) {
       this.extra.initial = true;
     }
-
     // if this is the first set
     if (!this.extension) {
       if (!data.iiifManifestId) {
@@ -276,7 +275,7 @@ export default class IIIFContentHandler extends BaseContentHandler<IIIFData>
 
   private async _reload(data: IUVData): Promise<void> {
     this._pubsub.dispose(); // remove any existing event listeners
-
+    
     data.target = ""; // clear target
 
     this.subscribe(Events.RELOAD, (data?: IUVData) => {
@@ -353,6 +352,7 @@ export default class IIIFContentHandler extends BaseContentHandler<IIIFData>
     else {
       canvas = helper.getCurrentCanvas();
     }
+    
     //canvas =  canvas;//  helper.getCurrentCanvas();
     if (!canvas) {
       that._error(`Canvas ${data.canvasIndex} not found.`);
@@ -423,6 +423,7 @@ export default class IIIFContentHandler extends BaseContentHandler<IIIFData>
 
     // import the config file
     let config = await (extension as any).loadConfig(data.locales[0].name);
+    
     data.config = await that.configure(config);
 
     // UCC functionality
