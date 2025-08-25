@@ -7,9 +7,7 @@
       "@context": "http://iiif.io/api/presentation/2/context.json",
       "@id": "http://universalviewer.io/manifests.json",
       "@type": "sc:Collection",
-      "label": "Wellcome Library",
-      
-
+      "label": "LAC Samples",
       "manifests": [
         {
           "@id": "src/test-files/180222.json",
@@ -31,7 +29,35 @@
           "@id": "src/test-files/cabconSearchTest.json",
           "@type": "sc:Manifest",
           "label": "Cabinet Conclusions - Test"
-        },      
+        },   
+        {
+          "@id": "src/test-files/536622.json",
+          "@type": "sc:Manifest",
+          "label": "536622 Items"
+        },  
+        {
+          "@id": "src/test-files/ebook.json",
+          "@type": "sc:Manifest",
+          "label": "okaura book of Tea epub"
+        },
+        {
+          "@id": "src/test-files/serial.json",
+          "@type": "sc:Manifest",
+          "label": "Serial - Intertial"
+        },                
+        {
+          "@id": "src/test-files/m3u8.json",
+          "@type": "sc:Manifest",
+          "label": "LAC local m3u8"
+        }
+      ]
+    },
+    {
+      "@context": "http://iiif.io/api/presentation/2/context.json",
+      "@id": "http://universalviewer.io/manifests.json",
+      "@type": "sc:Collection",
+      "label": "Wellcome Library",
+      "manifests": [
         {
           "@id": "src/test-files/manifest.json",
           "@type": "sc:Manifest",
@@ -57,29 +83,6 @@
           "@type": "sc:Manifest",
           "label": "Abnormalities and curiosities of medicine - Search within"
         },
-
-        {
-          "@id": "src/test-files/536622.json",
-          "@type": "sc:Manifest",
-          "label": "536622 Items"
-        },  
-        {
-          "@id": "src/test-files/ebook.json",
-          "@type": "sc:Manifest",
-          "label": "okaura book of Tea epub"
-        },
-        {
-          "@id": "src/test-files/serial.json",
-          "@type": "sc:Manifest",
-          "label": "Serial - Intertial"
-        },                
-       
-       
-        {
-          "@id": "src/test-files/m3u8.json",
-          "@type": "sc:Manifest",
-          "label": "LAC local m3u8"
-        },       
        
         {
           "@id": "https://wellcomelibrary.org/iiif/b19684538/manifest",
