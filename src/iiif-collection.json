@@ -10,6 +10,16 @@
       "label": "LAC Samples",
       "manifests": [
         {
+          "@id": "https://digitalmanifest.bac-lac.gc.ca/DigitalManifest/1/204895",
+          "@type": "sc:Manifest",
+          "label": "Album 25, Untitled [graphic material]"
+        },       
+        {
+          "@id": "https://digitalmanifest.bac-lac.gc.ca/DigitalManifest/1/5672185",
+          "@type": "sc:Manifest",
+          "label": "Photographs with long title"
+        },       
+        {
           "@id": "src/test-files/180222.json",
           "@type": "sc:Manifest",
           "label": "PDF/A test"
@@ -20,11 +30,7 @@
           "label": "Preservica - Intertitial Page"
         },      
        
-        {
-          "@id": "https://digitalmanifest.bac-lac.gc.ca/DigitalManifest/1/5672185",
-          "@type": "sc:Manifest",
-          "label": "Photographs with long title"
-        },       
+      
         {
           "@id": "src/test-files/cabconSearchTest.json",
           "@type": "sc:Manifest",

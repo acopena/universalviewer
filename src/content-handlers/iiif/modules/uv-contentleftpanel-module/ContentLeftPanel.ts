@@ -196,7 +196,7 @@ export class ContentLeftPanel extends LeftPanel {
     this.$views.append(this.$galleryView);
 
     this.$detailsView = uvj$(
-      '<div class="detailsView" style="max-width:210px"></div>'
+      '<div class="detailsView" style="max-width:210px;text-align:left"></div>'
     );
     this.$views.append(this.$detailsView);
 
@@ -322,10 +322,6 @@ export class ContentLeftPanel extends LeftPanel {
         this._redirectUrl(newFormat, jsonId);
       }
     }
-    else {
-      let x = 2;
-      console.log(x);
-    }
   }
 
   private _redirectUrl(fortmatName: string, jsonId?: any): void {
@@ -342,7 +338,6 @@ export class ContentLeftPanel extends LeftPanel {
     else {
       newFormat = jsonId.format;
     }
-    console.log('iFormat : ' + newFormat );
     
     if (jsonId) {
       if (newFormat) {
@@ -406,19 +401,6 @@ export class ContentLeftPanel extends LeftPanel {
     const range: Range | null = this.extension.helper.getCurrentRange();
     return range;
   }
-
-  // updateDownloadButton(): void {
-  //   const configEnabled: boolean = Bools.getBool(
-  //     this.options.downloadEnabled,
-  //     true
-  //   );
-
-  //   if (configEnabled) {
-  //     this.$downloadButton.show();
-  //   } else {
-  //     this.$downloadButton.hide();
-  //   }
-  // }
 
 
   render(): void {
@@ -651,16 +633,10 @@ export class ContentLeftPanel extends LeftPanel {
     this.$thumbsButton.removeClass("on");
     this.$detailsTabButton.addClass("on");
     this.$detailsView.show();
-    //this.$treeSelect.hide();
-    //this.$treeViewOptions.hide();
 
     if (this.$thumbsView) this.$thumbsView.hide();
     if (this.galleryView) this.galleryView.hide();
   }
-
-  // selectTopRangeIndex(index: number): void {
-  //   this.$treeSelect.prop("selectedIndex", index);
-  // }
 
   getCurrentCanvasTopRangeIndex(): number {
     let topRangeIndex: number = -1;
