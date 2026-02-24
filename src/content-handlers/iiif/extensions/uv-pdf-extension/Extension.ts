@@ -12,7 +12,7 @@ import { PDFCenterPanel } from "../../modules/uv-pdfcenterpanel-module/PDFCenter
 import { PDFHeaderPanel } from "../../modules/uv-pdfheaderpanel-module/PDFHeaderPanel";
 
 import { ContentLeftPanel } from "../../modules/uv-contentleftpanel-module/ContentLeftPanel";
-//import { PagingHeaderPanel } from "../../modules/uv-pagingheaderpanel-module/PagingHeaderPanel";
+import { PagingHeaderPanel } from "../../modules/uv-pagingheaderpanel-module/PagingHeaderPanel";
 // import { ResourcesLeftPanel } from "../../modules/uv-resourcesleftpanel-module/ResourcesLeftPanel";
 import { SettingsDialogue } from "./SettingsDialogue";
 import { ShareDialogue } from "./ShareDialogue";
@@ -39,7 +39,7 @@ export default class Extension extends BaseExtension implements IPDFExtension {
 
   footerPanel: FooterPanel;
  // headerPanel: PagingHeaderPanel;
- // pagingPanel: PagingHeaderPanel;
+  pagingPanel: PagingHeaderPanel;
   
   headerPanel: PDFHeaderPanel;
   leftPanel: ContentLeftPanel;
@@ -102,12 +102,20 @@ export default class Extension extends BaseExtension implements IPDFExtension {
 
     super.createModules();    
      
-
-    if (this.isHeaderPanelEnabled()) {
+    // console.log('isHeaderPanelEnabled: ' + this.isHeaderPanelEnabled());
+    // if (this.isHeaderPanelEnabled()) {
+    //   this.headerPanel = new PDFHeaderPanel(this.shell.$headerPanel);
+    // } else {
+    //   this.shell.$headerPanel.hide();
+    // }
+    const enableHeader = true;
+    if (enableHeader) {
       this.headerPanel = new PDFHeaderPanel(this.shell.$headerPanel);
     } else {
       this.shell.$headerPanel.hide();
     }
+
+
     if (this.isLeftPanelEnabled()) {
       this.leftPanel = new ContentLeftPanel(this.shell.$leftPanel);
     } else {

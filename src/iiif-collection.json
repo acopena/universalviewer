@@ -10,6 +10,16 @@
       "label": "LAC Samples",
       "manifests": [
         {
+          "@id": "src/test-files/SearchPastATI.json",
+          "@type": "sc:Manifest",
+          "label": "Search Past ATI"
+        },       
+        {
+          "@id": "https://digitalmanifest.bac-lac.gc.ca/DigitalManifest/1/5913667",
+          "@type": "sc:Manifest",
+          "label": "Harper"
+        },       
+        {
           "@id": "https://digitalmanifest.bac-lac.gc.ca/DigitalManifest/1/204895",
           "@type": "sc:Manifest",
           "label": "Album 25, Untitled [graphic material]"
@@ -55,6 +65,11 @@
           "@id": "src/test-files/m3u8.json",
           "@type": "sc:Manifest",
           "label": "LAC local m3u8"
+        },
+        {
+          "@id": "src/test-files/interstitialVideo.json",
+          "@type": "sc:Manifest",
+          "label": "Interstitial Video sign language m3u8"
         }
       ]
     },

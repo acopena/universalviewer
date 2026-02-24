@@ -6,6 +6,7 @@ import { Bools } from "@edsilv/utils";
 import { AnnotationBody, Canvas, IExternalResource } from "manifesto.js";
 import { Events } from "../../../../Events";
 import { loadScripts } from "../../../../Utils";
+import defaultConfig from "../../extensions/uv-pdf-extension/config/en-CA.json";
 
 export class PDFCenterPanel extends CenterPanel {
   // private _$spinner: JQuery;
@@ -31,7 +32,10 @@ export class PDFCenterPanel extends CenterPanel {
   private _renderTask: any;
   private _scale: number = 0.7;
   private _viewport: any;
-
+  locales = {
+    "en-CA": defaultConfig,
+    "fr-CA": () => import("../../extensions/uv-pdf-extension/config/fr-CA.json"),
+  };
   constructor($element: JQuery) {
     super($element);
   }
@@ -40,8 +44,6 @@ export class PDFCenterPanel extends CenterPanel {
     this.setConfig("pdfCenterPanel");
 
     super.create();
-
-
 
     this._$pdfContainer = uvj$('<div class="pdfContainer" id="pdfContainer"></div>');
     this._$canvas = uvj$("<canvas></canvas>");
@@ -264,9 +266,8 @@ export class PDFCenterPanel extends CenterPanel {
     }
 
     this._lastMediaUri = mediaUri;
-  
-
-    if (!Bools.getBool(this.extension.data.config.options.usePdfJs, false)) {
+    const usePdfJs = this.locales["en-CA"].options.usePdfJs
+    if (!Bools.getBool(usePdfJs, false)) {
       window.PDFObject = await import(
         /* webpackChunkName: "pdfobject" */ /* webpackMode: "lazy" */ "pdfobject"
       );
@@ -274,9 +275,9 @@ export class PDFCenterPanel extends CenterPanel {
       window.PDFObject.embed(pdfUri, ".pdfContainer", { id: "PDF" });
 
     } else {
-     // PDFJS = await import(
-     //   /* webpackChunkName: "pdfjs" */ /* webpackMode: "lazy" */ "pdfjs-dist"
-     // );
+    //   PDFJS = await import(
+    //    /* webpackChunkName: "pdfjs" */ /* webpackMode: "lazy" */ "pdfjs-dist"
+    //  );
 
       //PDFJS.disableWorker = true;
 
@@ -322,11 +323,10 @@ export class PDFCenterPanel extends CenterPanel {
   }
 
   private _render(num: number): void {
-
-
-    // if (!Bools.getBool(this.extension.data.config.options.usePdfJs, false)) {
-    //   return;
-    // }
+    const usePdfJs = this.locales["en-CA"].options.usePdfJs
+    if (!Bools.getBool(usePdfJs, false)) {
+      return;
+    }
     this._pageRendering = true;
     this._$zoomOutButton.enable();
     this._$zoomInButton.enable();

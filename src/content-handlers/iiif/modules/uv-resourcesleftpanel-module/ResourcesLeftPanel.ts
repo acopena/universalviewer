@@ -27,9 +27,6 @@ export class ResourcesLeftPanel extends LeftPanel {
 
     super.create();
 
-  
-   console.log(this.config);
-
     this.setTitle(this.content.title);
 
 
@@ -110,6 +107,8 @@ export class ResourcesLeftPanel extends LeftPanel {
     let height: number;
 
     const viewingDirection: ViewingDirection | null = this.extension.helper.getViewingDirection();
+    console.log("viewingDirection:", viewingDirection);
+    console.log(this.extension.helper.getViewingDirection());
 
     if (
       viewingDirection &&

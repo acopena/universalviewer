@@ -1,13 +1,13 @@
 {
   "@context": "https://iiif.io/api/presentation/3/context.json",
-  "id": "https://digitalmanifest.bac-lac.gc.ca/DigitalManifest/1009/5440",
+  "id": "https://digitalmanifest.bac-lac.gc.ca/DigitalManifest/9/43600",
   "type": "Manifest",
   "label": {
     "en": [
-      ""
+      "106A"
     ],
     "fr": [
-      ""
+      "106A"
     ]
   },
   "metadata": [
@@ -22,28 +22,46 @@
       },
       "value": {
         "en": [
-          "Canadian Broadcasting Corporation"
+          "Specialty Film Import Ltd"
         ],
         "fr": [
-          "Canadian Broadcasting Corporation"
+          "Specialty Film Import Ltd"
         ]
       }
     },
     {
       "label": {
         "en": [
-          "Description"
+          "Production Date"
         ],
         "fr": [
-          "Description"
+          "Date de production"
         ]
       },
       "value": {
         "en": [
-          ""
+          "1919"
         ],
         "fr": [
-          ""
+          "1919"
+        ]
+      }
+    },
+    {
+      "label": {
+        "en": [
+          "Publisher"
+        ],
+        "fr": [
+          "Éditeur"
+        ]
+      },
+      "value": {
+        "en": [
+          "Specialty Film Import Ltd"
+        ],
+        "fr": [
+          "Specialty Film Import Ltd"
         ]
       }
     },
@@ -58,10 +76,10 @@
       },
       "value": {
         "en": [
-          "English"
+          "Silent with English intertitles"
         ],
         "fr": [
-          "English"
+          "Silent with English intertitles"
         ]
       }
     },
@@ -94,10 +112,10 @@
       },
       "value": {
         "en": [
-          ""
+          "Copyright expired."
         ],
         "fr": [
-          ""
+          "Copyright expired."
         ]
       }
     },
@@ -112,10 +130,10 @@
       },
       "value": {
         "en": [
-          "To be Determined / À déterminer"
+          "No Restrictions / Pas de restrictionsUse requires credit be given to the Dawson City Museum and Historical Society Collection, National Archives of Canada."
         ],
         "fr": [
-          "To be Determined / À déterminer"
+          "No Restrictions / Pas de restrictionsUse requires credit be given to the Dawson City Museum and Historical Society Collection, National Archives of Canada."
         ]
       }
     },
@@ -130,10 +148,10 @@
       },
       "value": {
         "en": [
-          "5440"
+          "43600"
         ],
         "fr": [
-          "5440"
+          "43600"
         ]
       }
     }
@@ -144,15 +162,15 @@
       "type": "Canvas",
       "label": {
         "en": [
-          "5440"
+          "43600"
         ],
         "fr": [
-          "5440"
+          "43600"
         ]
       },
       "height": 0,
       "width": 0,
-      "duration": "29:00",
+      "duration": "6:04",
       "thumbnail": [
         {
           "id": "https://d6k0n7qq3l4nj.cloudfront.net/thumbnails/video.jpg",
@@ -172,12 +190,12 @@
               "type": "Annotation",
               "motivation": "painting",
               "body": {
-                "@id": "https://central.bac-lac.gc.ca/.item/?id=c69ca732-7b83-4439-a52f-b933fa307db6&app=fvs&op=video&filename=5440.mp4",
+                "@id": "https://central.bac-lac.gc.ca/.item/?id=f901d62f-9f85-4dc3-a341-95960398174a&app=fvs&op=video&filename=43600.MP4",
                 "type": "Video",
                 "format": "video/mp4",
                 "height": 0,
                 "width": 0,
-                "duration": "29:00"
+                "duration": "6:04"
               },
               "target": "https://bac-lac.gc.ca/Canvas"
             }

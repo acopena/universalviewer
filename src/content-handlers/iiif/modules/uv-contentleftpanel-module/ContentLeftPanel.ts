@@ -63,6 +63,7 @@ export class ContentLeftPanel extends LeftPanel {
   treeSortType: TreeSortType = TreeSortType.NONE;
   treeView: TreeView;
   thumbsRoot: Root;
+  previousFormat: string = '';
 
 
   constructor($element: JQuery) {
@@ -302,34 +303,38 @@ export class ContentLeftPanel extends LeftPanel {
       const canvases = this.extension.getCurrentCanvases();
       const typeName = this.extension.type.name;
       const jsonId = canvases[0].__jsonld;
-
-      if (typeName == "uv-openseadragon-extension") {
-        this._redirectUrl("image/jpeg", jsonId);
-      }
-      else if (typeName == "uv-pdf-extension") {
-        this._redirectUrl("application/pdf", jsonId);
-      }
-      else if (typeName == "uv-mediaelement-extension") {
-        let cFormat = this.getCurrentFormat(jsonId);
-        //this._redirectUrl("video/mp4", jsonId);
-        let newFormat = '';
-        if (cFormat) {
-          newFormat = cFormat.body.format;
+      let newFormat = '';
+      
+      if (this.previousFormat == '') {
+         let xFormat = this.getCurrentFormat(jsonId);
+          if (xFormat) {
+          newFormat = xFormat.body.format;
         }
         else {
           newFormat = jsonId.format;
         }
-        this._redirectUrl(newFormat, jsonId);
+        this.previousFormat = newFormat;
       }
+
+      if (typeName == "uv-openseadragon-extension") {
+        this._redirectUrl("image/jpeg", jsonId);
+        this.previousFormat = "image/jpeg";
+      }
+      else if (typeName == "uv-pdf-extension") {
+        this._redirectUrl(this.previousFormat, jsonId);
+        this.previousFormat = "application/pdf";
+      }
+      else if (typeName == "uv-mediaelement-extension") {
+        this._redirectUrl(this.previousFormat, jsonId);
+        this.previousFormat = "video/mp4";
+      }
+      
     }
   }
 
-  private _redirectUrl(fortmatName: string, jsonId?: any): void {
+  private _redirectUrl(formatName: string, jsonId?: any): void {
     let iFormat;
     let newFormat = '';
-    console.log('fortmatName : ' + fortmatName);
-    
-
     iFormat = this.getCurrentFormat(jsonId);
     
     if (iFormat) {
@@ -341,7 +346,7 @@ export class ContentLeftPanel extends LeftPanel {
     
     if (jsonId) {
       if (newFormat) {
-        if (newFormat != fortmatName) {          
+        if (newFormat != formatName) {          
           init('uv', this.extension.data);
         }
       }
@@ -426,13 +431,13 @@ export class ContentLeftPanel extends LeftPanel {
 
   renderThumbs(): void {
     if (!this.thumbsRoot) return;
-
+    
     let width: number;
     let height: number;
 
     const viewingHint: ViewingHint | null = this.getViewingHint();
     const viewingDirection: ViewingDirection | null = this.getViewingDirection();  
-
+    
     if (
       viewingDirection &&
       (viewingDirection === ViewingDirectionEnum.LEFT_TO_RIGHT ||
@@ -483,6 +488,7 @@ export class ContentLeftPanel extends LeftPanel {
     }
 
     const paged = !!this.extension.getSettings().pagingEnabled;
+    const pagedPDF = !!this.extension.getSettings().pagingEnabledPDF;
 
     const selectedIndices: number[] = this.extension.getPagedIndices(
       this.extension.helper.canvasIndex
@@ -495,6 +501,7 @@ export class ContentLeftPanel extends LeftPanel {
         thumbs,
         paged,
         viewingDirection: viewingDirection || ViewingDirection.LEFT_TO_RIGHT,
+        pagingEnabledPDF: pagedPDF,
         selected: selectedIndices,
         onClick: (thumb: Thumb) => {
           this.extensionHost.publish(IIIFEvents.THUMB_SELECTED, thumb);
@@ -517,6 +524,7 @@ export class ContentLeftPanel extends LeftPanel {
   }
 
   getGalleryData() {
+    
     return {
       helper: this.extension.helper,
       chunkedResizingThreshold: this.config.options

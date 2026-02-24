@@ -1,0 +1,1267 @@
+{
+    "context": "http://iiif.io/api/presentation/3/context.json",
+    "id": "https://v41extcapps01-d.dev.bac-lac.gc.ca:9058/A-2025-02129.json",
+    "type": "Manifest",
+    "label": {
+        "en": [
+            "Request number"
+        ],
+        "fr": [
+            "Numéro de la demande"
+        ]
+    },
+    "metadata": [
+        {
+            "label": {
+                "en": [
+                    "Request number"
+                ],
+                "fr": [
+                    "Numéro de la demande"
+                ]
+            },
+            "value": {
+                "en": [
+                    "A-2025-02129"
+                ],
+                "fr": [
+                    "A-2025-02129"
+                ]
+            }
+        }
+    ],
+    "items": [
+        {
+            "id": "http://bac-lac.gc.ca/canvas",
+            "type": "Canvas",
+            "label": {
+                "en": [
+                    "A-2025-02129_01"
+                ],
+                "fr": [
+                    "A-2025-02129_01"
+                ]
+            },
+            "metadata": [
+                {
+                    "label": {
+                        "en": [
+                            "Reference"
+                        ],
+                        "fr": [
+                            "Référence"
+                        ]
+                    },
+                    "value": {
+                        "en": [
+                            "RG10,   Accession/BAN: 1986-87/083,    Box: 74,  File number: 501/29-17,  File part: 1,  File title: Care of Handicapped Indians ,  Date: 1964-1972,  Item ID number: 5221763"
+                        ],
+                        "fr": [
+                            "RG10,   acquisition/BAN : 1986-87/083,    boîte : 74,  numéro de dossier : 501/29-17,  partie de dossier : 1,  titre du dossier : « Care of Handicapped Indians »,  date : 1964-1972,  numéro d'identification : 5221763"
+                        ]
+                    }
+                },
+                {
+                    "label": {
+                        "en": [
+                            "Disposition"
+                        ],
+                        "fr": [
+                            "Disposition"
+                        ]
+                    },
+                    "value": {
+                        "en": [
+                            "Disclosed in Part"
+                        ],
+                        "fr": [
+                            "Communication partielle"
+                        ]
+                    }
+                },
+                {
+                    "label": {
+                        "en": [
+                            "Number of pages"
+                        ],
+                        "fr": [
+                            "Nombre de pages"
+                        ]
+                    },
+                    "value": {
+                        "en": [
+                            "243"
+                        ],
+                        "fr": [
+                            "243"
+                        ]
+                    }
+                },
+                {
+                    "label": {
+                        "en": [
+                            "File name"
+                        ],
+                        "fr": [
+                            "Nom du fichier"
+                        ]
+                    },
+                    "value": {
+                        "en": [
+                            "A-2025-02129_01"
+                        ],
+                        "fr": [
+                            "A-2025-02129_01"
+                        ]
+                    }
+                },
+                {
+                    "label": {
+                        "en": [
+                            "File size"
+                        ],
+                        "fr": [
+                            "Taille du fichier"
+                        ]
+                    },
+                    "value": {
+                        "en": [
+                            "152.66"
+                        ],
+                        "fr": [
+                            "152.66"
+                        ]
+                    }
+                },
+                {
+                    "label": {
+                        "en": [
+                            "File URL link"
+                        ],
+                        "fr": [
+                            " Lien URL du fichier"
+                        ]
+                    },
+                    "value": {
+                        "en": [
+                            "https://v41extcapps01-d.dev.bac-lac.gc.ca:9058/eng/search/details/A-2025-02129?filename=A-2025-02129_01"
+                        ],
+                        "fr": [
+                            "https://v41extcapps01-d.dev.bac-lac.gc.ca:9058/fra/recherche/details/A-2025-02129?filename=A-2025-02129_01"
+                        ]
+                    }
+                }
+            ],
+            "thumbnail": [
+                {
+                    "id": "https://central.bac-lac.gc.ca/.item?id=3246df7b-702a-4a4e-a652-9ef45ec5ced1&op=thumb&height=150&app=atip&filename=A-2025-02129_01.pdf&date=20260207165800",
+                    "type": "image",
+                    "format": "image/jpeg",
+                    "height": 175,
+                    "width": 150
+                }
+            ],
+            "height": 0,
+            "width": 0,
+            "items": [
+                {
+                    "id": "http://bac-lac.gc.ca/Canvas/AnnotationPage",
+                    "type": "AnnotationPage",
+                    "items": [
+                        {
+                            "id": "http://bac-lac.gc.ca/canvas/annotationpage/Annotation",
+                            "type": "Annotation",
+                            "motivation": "painting",
+                            "target": "http://bac-lac.gc.ca/Canvas",
+                            "body": {
+                                "id": "https://sas-das-presv.bac-lac.gc.ca/3246df7b-702a-4a4e-a652-9ef45ec5ced1/A-2025-02129_01.pdf",
+                                "type": "document",
+                                "height": 0,
+                                "width": 0,
+                                "format": "application/pdf"
+                            }
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "id": "http://bac-lac.gc.ca/canvas",
+            "type": "Canvas",
+            "label": {
+                "en": [
+                    "A-2025-02129_02"
+                ],
+                "fr": [
+                    "A-2025-02129_02"
+                ]
+            },
+            "metadata": [
+                {
+                    "label": {
+                        "en": [
+                            "Reference"
+                        ],
+                        "fr": [
+                            "Référence"
+                        ]
+                    },
+                    "value": {
+                        "en": [
+                            "RG10,   Accession/BAN: 1986-87/083,    Box: 74,  File number: 501/29-4,  File part: 5,  File title: Care of Children / Welfare of Children ,  Date: 1973-1974,  Item ID number: 5221758"
+                        ],
+                        "fr": [
+                            "RG10,   acquisition/BAN : 1986-87/083,    boîte : 74,  numéro de dossier : 501/29-4,  partie de dossier : 5,  titre du dossier : « Care of Children / Welfare of Children »,  date : 1973-1974,  numéro d'identification : 5221758"
+                        ]
+                    }
+                },
+                {
+                    "label": {
+                        "en": [
+                            "Disposition"
+                        ],
+                        "fr": [
+                            "Disposition"
+                        ]
+                    },
+                    "value": {
+                        "en": [
+                            "Disclosed in Part"
+                        ],
+                        "fr": [
+                            "Communication partielle"
+                        ]
+                    }
+                },
+                {
+                    "label": {
+                        "en": [
+                            "Number of pages"
+                        ],
+                        "fr": [
+                            "Nombre de pages"
+                        ]
+                    },
+                    "value": {
+                        "en": [
+                            "159"
+                        ],
+                        "fr": [
+                            "159"
+                        ]
+                    }
+                },
+                {
+                    "label": {
+                        "en": [
+                            "File name"
+                        ],
+                        "fr": [
+                            "Nom du fichier"
+                        ]
+                    },
+                    "value": {
+                        "en": [
+                            "A-2025-02129_02"
+                        ],
+                        "fr": [
+                            "A-2025-02129_02"
+                        ]
+                    }
+                },
+                {
+                    "label": {
+                        "en": [
+                            "File size"
+                        ],
+                        "fr": [
+                            "Taille du fichier"
+                        ]
+                    },
+                    "value": {
+                        "en": [
+                            "146.29"
+                        ],
+                        "fr": [
+                            "146.29"
+                        ]
+                    }
+                },
+                {
+                    "label": {
+                        "en": [
+                            "File URL link"
+                        ],
+                        "fr": [
+                            " Lien URL du fichier"
+                        ]
+                    },
+                    "value": {
+                        "en": [
+                            "https://v41extcapps01-d.dev.bac-lac.gc.ca:9058/eng/search/details/A-2025-02129?filename=A-2025-02129_02"
+                        ],
+                        "fr": [
+                            "https://v41extcapps01-d.dev.bac-lac.gc.ca:9058/fra/recherche/details/A-2025-02129?filename=A-2025-02129_02"
+                        ]
+                    }
+                }
+            ],
+            "thumbnail": [
+                {
+                    "id": "https://central.bac-lac.gc.ca/.item?id=ca21d7ed-f874-43b8-8624-014d3aeb01e2&op=thumb&height=150&app=atip&filename=A-2025-02129_02.pdf&date=20260207165800",
+                    "type": "image",
+                    "format": "image/jpeg",
+                    "height": 175,
+                    "width": 150
+                }
+            ],
+            "height": 0,
+            "width": 0,
+            "items": [
+                {
+                    "id": "http://bac-lac.gc.ca/Canvas/AnnotationPage",
+                    "type": "AnnotationPage",
+                    "items": [
+                        {
+                            "id": "http://bac-lac.gc.ca/canvas/annotationpage/Annotation",
+                            "type": "Annotation",
+                            "motivation": "painting",
+                            "target": "http://bac-lac.gc.ca/Canvas",
+                            "body": {
+                                "id": "https://sas-das-presv.bac-lac.gc.ca/ca21d7ed-f874-43b8-8624-014d3aeb01e2/A-2025-02129_02.pdf",
+                                "type": "document",
+                                "height": 0,
+                                "width": 0,
+                                "format": "application/pdf"
+                            }
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "id": "http://bac-lac.gc.ca/canvas",
+            "type": "Canvas",
+            "label": {
+                "en": [
+                    "A-2025-02129_03"
+                ],
+                "fr": [
+                    "A-2025-02129_03"
+                ]
+            },
+            "metadata": [
+                {
+                    "label": {
+                        "en": [
+                            "Reference"
+                        ],
+                        "fr": [
+                            "Référence"
+                        ]
+                    },
+                    "value": {
+                        "en": [
+                            "RG10,   Accession/BAN: 1986-87/083,    Box: 74,  File number: 501/29-4,  File part: 6,  File title: Care of Children / Welfare of Children ,  Date: 1974,  Item ID number: 5221759"
+                        ],
+                        "fr": [
+                            "RG10,   acquisition/BAN : 1986-87/083,    boîte : 74,  numéro de dossier : 501/29-4,  partie de dossier : 6,  titre du dossier : « Care of Children / Welfare of Children »,  date : 1974,  numéro d'identification : 5221759"
+                        ]
+                    }
+                },
+                {
+                    "label": {
+                        "en": [
+                            "Disposition"
+                        ],
+                        "fr": [
+                            "Disposition"
+                        ]
+                    },
+                    "value": {
+                        "en": [
+                            "Disclosed in Part"
+                        ],
+                        "fr": [
+                            "Communication partielle"
+                        ]
+                    }
+                },
+                {
+                    "label": {
+                        "en": [
+                            "Number of pages"
+                        ],
+                        "fr": [
+                            "Nombre de pages"
+                        ]
+                    },
+                    "value": {
+                        "en": [
+                            "352"
+                        ],
+                        "fr": [
+                            "352"
+                        ]
+                    }
+                },
+                {
+                    "label": {
+                        "en": [
+                            "File name"
+                        ],
+                        "fr": [
+                            "Nom du fichier"
+                        ]
+                    },
+                    "value": {
+                        "en": [
+                            "A-2025-02129_03"
+                        ],
+                        "fr": [
+                            "A-2025-02129_03"
+                        ]
+                    }
+                },
+                {
+                    "label": {
+                        "en": [
+                            "File size"
+                        ],
+                        "fr": [
+                            "Taille du fichier"
+                        ]
+                    },
+                    "value": {
+                        "en": [
+                            "285.39"
+                        ],
+                        "fr": [
+                            "285.39"
+                        ]
+                    }
+                },
+                {
+                    "label": {
+                        "en": [
+                            "File URL link"
+                        ],
+                        "fr": [
+                            " Lien URL du fichier"
+                        ]
+                    },
+                    "value": {
+                        "en": [
+                            "https://v41extcapps01-d.dev.bac-lac.gc.ca:9058/eng/search/details/A-2025-02129?filename=A-2025-02129_03"
+                        ],
+                        "fr": [
+                            "https://v41extcapps01-d.dev.bac-lac.gc.ca:9058/fra/recherche/details/A-2025-02129?filename=A-2025-02129_03"
+                        ]
+                    }
+                }
+            ],
+            "thumbnail": [
+                {
+                    "id": "https://central.bac-lac.gc.ca/.item?id=01faf174-7358-42c0-9e70-94eabca28a1b&op=thumb&height=150&app=atip&filename=A-2025-02129_03.pdf&date=20260207165800",
+                    "type": "image",
+                    "format": "image/jpeg",
+                    "height": 175,
+                    "width": 150
+                }
+            ],
+            "height": 0,
+            "width": 0,
+            "items": [
+                {
+                    "id": "http://bac-lac.gc.ca/Canvas/AnnotationPage",
+                    "type": "AnnotationPage",
+                    "items": [
+                        {
+                            "id": "http://bac-lac.gc.ca/canvas/annotationpage/Annotation",
+                            "type": "Annotation",
+                            "motivation": "painting",
+                            "target": "http://bac-lac.gc.ca/Canvas",
+                            "body": {
+                                "id": "https://sas-das-presv.bac-lac.gc.ca/01faf174-7358-42c0-9e70-94eabca28a1b/A-2025-02129_03.pdf",
+                                "type": "document",
+                                "height": 0,
+                                "width": 0,
+                                "format": "application/pdf"
+                            }
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "id": "http://bac-lac.gc.ca/canvas",
+            "type": "Canvas",
+            "label": {
+                "en": [
+                    "A-2025-02129_04"
+                ],
+                "fr": [
+                    "A-2025-02129_04"
+                ]
+            },
+            "metadata": [
+                {
+                    "label": {
+                        "en": [
+                            "Reference"
+                        ],
+                        "fr": [
+                            "Référence"
+                        ]
+                    },
+                    "value": {
+                        "en": [
+                            "RG10,   Accession/BAN: 1986-87/083,    Box: 82,  File number: 571/29-17,  File part: 1,  File title: Care of Handicapped Indians,  Date: 1969-1973,  Item ID number: 5221886"
+                        ],
+                        "fr": [
+                            "RG10,   acquisition/BAN : 1986-87/083,    boîte : 82,  numéro de dossier : 571/29-17,  partie de dossier : 1,  titre du dossier : « Care of Handicapped Indians »,  date : 1969-1973,  numéro d'identification : 5221886"
+                        ]
+                    }
+                },
+                {
+                    "label": {
+                        "en": [
+                            "Disposition"
+                        ],
+                        "fr": [
+                            "Disposition"
+                        ]
+                    },
+                    "value": {
+                        "en": [
+                            "Disclosed in Part"
+                        ],
+                        "fr": [
+                            "Communication partielle"
+                        ]
+                    }
+                },
+                {
+                    "label": {
+                        "en": [
+                            "Number of pages"
+                        ],
+                        "fr": [
+                            "Nombre de pages"
+                        ]
+                    },
+                    "value": {
+                        "en": [
+                            "18"
+                        ],
+                        "fr": [
+                            "18"
+                        ]
+                    }
+                },
+                {
+                    "label": {
+                        "en": [
+                            "File name"
+                        ],
+                        "fr": [
+                            "Nom du fichier"
+                        ]
+                    },
+                    "value": {
+                        "en": [
+                            "A-2025-02129_04"
+                        ],
+                        "fr": [
+                            "A-2025-02129_04"
+                        ]
+                    }
+                },
+                {
+                    "label": {
+                        "en": [
+                            "File size"
+                        ],
+                        "fr": [
+                            "Taille du fichier"
+                        ]
+                    },
+                    "value": {
+                        "en": [
+                            "12.39"
+                        ],
+                        "fr": [
+                            "12.39"
+                        ]
+                    }
+                },
+                {
+                    "label": {
+                        "en": [
+                            "File URL link"
+                        ],
+                        "fr": [
+                            " Lien URL du fichier"
+                        ]
+                    },
+                    "value": {
+                        "en": [
+                            "https://v41extcapps01-d.dev.bac-lac.gc.ca:9058/eng/search/details/A-2025-02129?filename=A-2025-02129_04"
+                        ],
+                        "fr": [
+                            "https://v41extcapps01-d.dev.bac-lac.gc.ca:9058/fra/recherche/details/A-2025-02129?filename=A-2025-02129_04"
+                        ]
+                    }
+                }
+            ],
+            "thumbnail": [
+                {
+                    "id": "https://central.bac-lac.gc.ca/.item?id=e8c351ab-c298-4c67-a315-8a8ff00576e3&op=thumb&height=150&app=atip&filename=A-2025-02129_04.pdf&date=20260207165800",
+                    "type": "image",
+                    "format": "image/jpeg",
+                    "height": 175,
+                    "width": 150
+                }
+            ],
+            "height": 0,
+            "width": 0,
+            "items": [
+                {
+                    "id": "http://bac-lac.gc.ca/Canvas/AnnotationPage",
+                    "type": "AnnotationPage",
+                    "items": [
+                        {
+                            "id": "http://bac-lac.gc.ca/canvas/annotationpage/Annotation",
+                            "type": "Annotation",
+                            "motivation": "painting",
+                            "target": "http://bac-lac.gc.ca/Canvas",
+                            "body": {
+                                "id": "https://sas-das-presv.bac-lac.gc.ca/e8c351ab-c298-4c67-a315-8a8ff00576e3/A-2025-02129_04.pdf",
+                                "type": "document",
+                                "height": 0,
+                                "width": 0,
+                                "format": "application/pdf"
+                            }
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "id": "http://bac-lac.gc.ca/canvas",
+            "type": "Canvas",
+            "label": {
+                "en": [
+                    "A-2025-02129_05"
+                ],
+                "fr": [
+                    "A-2025-02129_05"
+                ]
+            },
+            "metadata": [
+                {
+                    "label": {
+                        "en": [
+                            "Reference"
+                        ],
+                        "fr": [
+                            "Référence"
+                        ]
+                    },
+                    "value": {
+                        "en": [
+                            "RG10,   Accession/BAN: 2000-01167-5,    Box: 3,  File number: 574 - 29-1,  File part: 1,  File title: Welfare of Indians - General ,  Date: 1975-1977,  Item ID number: 5121438"
+                        ],
+                        "fr": [
+                            "RG10,   acquisition/BAN : 2000-01167-5,    boîte : 3,  numéro de dossier : 574 - 29-1,  partie de dossier : 1,  titre du dossier : « Welfare of Indians - General »,  date : 1975-1977,  numéro d'identification : 5121438"
+                        ]
+                    }
+                },
+                {
+                    "label": {
+                        "en": [
+                            "Disposition"
+                        ],
+                        "fr": [
+                            "Disposition"
+                        ]
+                    },
+                    "value": {
+                        "en": [
+                            "Disclosed in Part"
+                        ],
+                        "fr": [
+                            "Communication partielle"
+                        ]
+                    }
+                },
+                {
+                    "label": {
+                        "en": [
+                            "Number of pages"
+                        ],
+                        "fr": [
+                            "Nombre de pages"
+                        ]
+                    },
+                    "value": {
+                        "en": [
+                            "231"
+                        ],
+                        "fr": [
+                            "231"
+                        ]
+                    }
+                },
+                {
+                    "label": {
+                        "en": [
+                            "File name"
+                        ],
+                        "fr": [
+                            "Nom du fichier"
+                        ]
+                    },
+                    "value": {
+                        "en": [
+                            "A-2025-02129_05"
+                        ],
+                        "fr": [
+                            "A-2025-02129_05"
+                        ]
+                    }
+                },
+                {
+                    "label": {
+                        "en": [
+                            "File size"
+                        ],
+                        "fr": [
+                            "Taille du fichier"
+                        ]
+                    },
+                    "value": {
+                        "en": [
+                            "145.87"
+                        ],
+                        "fr": [
+                            "145.87"
+                        ]
+                    }
+                },
+                {
+                    "label": {
+                        "en": [
+                            "File URL link"
+                        ],
+                        "fr": [
+                            " Lien URL du fichier"
+                        ]
+                    },
+                    "value": {
+                        "en": [
+                            "https://v41extcapps01-d.dev.bac-lac.gc.ca:9058/eng/search/details/A-2025-02129?filename=A-2025-02129_05"
+                        ],
+                        "fr": [
+                            "https://v41extcapps01-d.dev.bac-lac.gc.ca:9058/fra/recherche/details/A-2025-02129?filename=A-2025-02129_05"
+                        ]
+                    }
+                }
+            ],
+            "thumbnail": [
+                {
+                    "id": "https://central.bac-lac.gc.ca/.item?id=a84e4746-d259-4f22-817f-8dc4fe2d2f5e&op=thumb&height=150&app=atip&filename=A-2025-02129_05.pdf&date=20260207165800",
+                    "type": "image",
+                    "format": "image/jpeg",
+                    "height": 175,
+                    "width": 150
+                }
+            ],
+            "height": 0,
+            "width": 0,
+            "items": [
+                {
+                    "id": "http://bac-lac.gc.ca/Canvas/AnnotationPage",
+                    "type": "AnnotationPage",
+                    "items": [
+                        {
+                            "id": "http://bac-lac.gc.ca/canvas/annotationpage/Annotation",
+                            "type": "Annotation",
+                            "motivation": "painting",
+                            "target": "http://bac-lac.gc.ca/Canvas",
+                            "body": {
+                                "id": "https://sas-das-presv.bac-lac.gc.ca/a84e4746-d259-4f22-817f-8dc4fe2d2f5e/A-2025-02129_05.pdf",
+                                "type": "document",
+                                "height": 0,
+                                "width": 0,
+                                "format": "application/pdf"
+                            }
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "id": "http://bac-lac.gc.ca/canvas",
+            "type": "Canvas",
+            "label": {
+                "en": [
+                    "A-2025-02129_06"
+                ],
+                "fr": [
+                    "A-2025-02129_06"
+                ]
+            },
+            "metadata": [
+                {
+                    "label": {
+                        "en": [
+                            "Reference"
+                        ],
+                        "fr": [
+                            "Référence"
+                        ]
+                    },
+                    "value": {
+                        "en": [
+                            "RG10,   Accession/BAN: 2000-01167-5,    Box: 3,  File number: 574-29-3,  File part: 1,  File title: Welfare of Indians - Funerals,  Date: 1957-1976,  Item ID number: 5121440"
+                        ],
+                        "fr": [
+                            "RG10,   acquisition/BAN : 2000-01167-5,    boîte : 3,  numéro de dossier : 574-29-3,  partie de dossier : 1,  titre du dossier : « Welfare of Indians - Funerals »,  date : 1957-1976,  numéro d'identification : 5121440"
+                        ]
+                    }
+                },
+                {
+                    "label": {
+                        "en": [
+                            "Disposition"
+                        ],
+                        "fr": [
+                            "Disposition"
+                        ]
+                    },
+                    "value": {
+                        "en": [
+                            "Disclosed in Part"
+                        ],
+                        "fr": [
+                            "Communication partielle"
+                        ]
+                    }
+                },
+                {
+                    "label": {
+                        "en": [
+                            "Number of pages"
+                        ],
+                        "fr": [
+                            "Nombre de pages"
+                        ]
+                    },
+                    "value": {
+                        "en": [
+                            "150"
+                        ],
+                        "fr": [
+                            "150"
+                        ]
+                    }
+                },
+                {
+                    "label": {
+                        "en": [
+                            "File name"
+                        ],
+                        "fr": [
+                            "Nom du fichier"
+                        ]
+                    },
+                    "value": {
+                        "en": [
+                            "A-2025-02129_06"
+                        ],
+                        "fr": [
+                            "A-2025-02129_06"
+                        ]
+                    }
+                },
+                {
+                    "label": {
+                        "en": [
+                            "File size"
+                        ],
+                        "fr": [
+                            "Taille du fichier"
+                        ]
+                    },
+                    "value": {
+                        "en": [
+                            "82.38"
+                        ],
+                        "fr": [
+                            "82.38"
+                        ]
+                    }
+                },
+                {
+                    "label": {
+                        "en": [
+                            "File URL link"
+                        ],
+                        "fr": [
+                            " Lien URL du fichier"
+                        ]
+                    },
+                    "value": {
+                        "en": [
+                            "https://v41extcapps01-d.dev.bac-lac.gc.ca:9058/eng/search/details/A-2025-02129?filename=A-2025-02129_06"
+                        ],
+                        "fr": [
+                            "https://v41extcapps01-d.dev.bac-lac.gc.ca:9058/fra/recherche/details/A-2025-02129?filename=A-2025-02129_06"
+                        ]
+                    }
+                }
+            ],
+            "thumbnail": [
+                {
+                    "id": "https://central.bac-lac.gc.ca/.item?id=4552bcb4-2b23-48c6-87ff-1d079f5b3ff7&op=thumb&height=150&app=atip&filename=A-2025-02129_06.pdf&date=20260207165800",
+                    "type": "image",
+                    "format": "image/jpeg",
+                    "height": 175,
+                    "width": 150
+                }
+            ],
+            "height": 0,
+            "width": 0,
+            "items": [
+                {
+                    "id": "http://bac-lac.gc.ca/Canvas/AnnotationPage",
+                    "type": "AnnotationPage",
+                    "items": [
+                        {
+                            "id": "http://bac-lac.gc.ca/canvas/annotationpage/Annotation",
+                            "type": "Annotation",
+                            "motivation": "painting",
+                            "target": "http://bac-lac.gc.ca/Canvas",
+                            "body": {
+                                "id": "https://central.bac-lac.gc.ca/.item?id=4552bcb4-2b23-48c6-87ff-1d079f5b3ff7&op=pdf&app=atip&filename=A-2025-02129_06.pdf",
+                                "type": "document",
+                                "height": 0,
+                                "width": 0,
+                                "format": "application/pdf"
+                            }
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "id": "http://bac-lac.gc.ca/canvas",
+            "type": "Canvas",
+            "label": {
+                "en": [
+                    "A-2025-02129_07"
+                ],
+                "fr": [
+                    "A-2025-02129_07"
+                ]
+            },
+            "metadata": [
+                {
+                    "label": {
+                        "en": [
+                            "Reference"
+                        ],
+                        "fr": [
+                            "Référence"
+                        ]
+                    },
+                    "value": {
+                        "en": [
+                            "RG10,   Accession/BAN: 2000-01167-5,    Box: 4,  File number: 574-29-17,  File part: 2,  File title: Care of Handicapped or Aged Indians ,  Date: 1965-1976,  Item ID number: 5121446"
+                        ],
+                        "fr": [
+                            "RG10,   acquisition/BAN : 2000-01167-5,    boîte : 4,  numéro de dossier : 574-29-17,  partie de dossier : 2,  titre du dossier : « Care of Handicapped or Aged Indians »,  date : 1965-1976,  numéro d'identification : 5121446"
+                        ]
+                    }
+                },
+                {
+                    "label": {
+                        "en": [
+                            "Disposition"
+                        ],
+                        "fr": [
+                            "Disposition"
+                        ]
+                    },
+                    "value": {
+                        "en": [
+                            "Disclosed in Part"
+                        ],
+                        "fr": [
+                            "Communication partielle"
+                        ]
+                    }
+                },
+                {
+                    "label": {
+                        "en": [
+                            "Number of pages"
+                        ],
+                        "fr": [
+                            "Nombre de pages"
+                        ]
+                    },
+                    "value": {
+                        "en": [
+                            "41"
+                        ],
+                        "fr": [
+                            "41"
+                        ]
+                    }
+                },
+                {
+                    "label": {
+                        "en": [
+                            "File name"
+                        ],
+                        "fr": [
+                            "Nom du fichier"
+                        ]
+                    },
+                    "value": {
+                        "en": [
+                            "A-2025-02129_07"
+                        ],
+                        "fr": [
+                            "A-2025-02129_07"
+                        ]
+                    }
+                },
+                {
+                    "label": {
+                        "en": [
+                            "File size"
+                        ],
+                        "fr": [
+                            "Taille du fichier"
+                        ]
+                    },
+                    "value": {
+                        "en": [
+                            "19.74"
+                        ],
+                        "fr": [
+                            "19.74"
+                        ]
+                    }
+                },
+                {
+                    "label": {
+                        "en": [
+                            "File URL link"
+                        ],
+                        "fr": [
+                            " Lien URL du fichier"
+                        ]
+                    },
+                    "value": {
+                        "en": [
+                            "https://v41extcapps01-d.dev.bac-lac.gc.ca:9058/eng/search/details/A-2025-02129?filename=A-2025-02129_07"
+                        ],
+                        "fr": [
+                            "https://v41extcapps01-d.dev.bac-lac.gc.ca:9058/fra/recherche/details/A-2025-02129?filename=A-2025-02129_07"
+                        ]
+                    }
+                }
+            ],
+            "thumbnail": [
+                {
+                    "id": "https://central.bac-lac.gc.ca/.item?id=e5451478-6282-4eaa-a4b1-e200818fed24&op=thumb&height=150&app=atip&filename=A-2025-02129_07.pdf&date=20260207165800",
+                    "type": "image",
+                    "format": "image/jpeg",
+                    "height": 175,
+                    "width": 150
+                }
+            ],
+            "height": 0,
+            "width": 0,
+            "items": [
+                {
+                    "id": "http://bac-lac.gc.ca/Canvas/AnnotationPage",
+                    "type": "AnnotationPage",
+                    "items": [
+                        {
+                            "id": "http://bac-lac.gc.ca/canvas/annotationpage/Annotation",
+                            "type": "Annotation",
+                            "motivation": "painting",
+                            "target": "http://bac-lac.gc.ca/Canvas",
+                            "body": {
+                                "id": "https://central.bac-lac.gc.ca/.item?id=e5451478-6282-4eaa-a4b1-e200818fed24&op=pdf&app=atip&filename=A-2025-02129_07.pdf",
+                                "type": "document",
+                                "height": 0,
+                                "width": 0,
+                                "format": "application/pdf"
+                            }
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "id": "http://bac-lac.gc.ca/canvas",
+            "type": "Canvas",
+            "label": {
+                "en": [
+                    "A-2025-02129_08"
+                ],
+                "fr": [
+                    "A-2025-02129_08"
+                ]
+            },
+            "metadata": [
+                {
+                    "label": {
+                        "en": [
+                            "Reference"
+                        ],
+                        "fr": [
+                            "Référence"
+                        ]
+                    },
+                    "value": {
+                        "en": [
+                            "RG10,   Accession/BAN: 2000-01167-5,    Box: 3,  File number: 574-29-4,  File part: 2,  File title: Care of Children ,  Date: 1974-1976,  Item ID number: 5121441"
+                        ],
+                        "fr": [
+                            "RG10,   acquisition/BAN : 2000-01167-5,    boîte : 3,  numéro de dossier : 574-29-4,  partie de dossier : 2,  titre du dossier : « Care of Children »,  date : 1974-1976,  numéro d'identification : 5121441"
+                        ]
+                    }
+                },
+                {
+                    "label": {
+                        "en": [
+                            "Disposition"
+                        ],
+                        "fr": [
+                            "Disposition"
+                        ]
+                    },
+                    "value": {
+                        "en": [
+                            "Disclosed in Part"
+                        ],
+                        "fr": [
+                            "Communication partielle"
+                        ]
+                    }
+                },
+                {
+                    "label": {
+                        "en": [
+                            "Number of pages"
+                        ],
+                        "fr": [
+                            "Nombre de pages"
+                        ]
+                    },
+                    "value": {
+                        "en": [
+                            "72"
+                        ],
+                        "fr": [
+                            "72"
+                        ]
+                    }
+                },
+                {
+                    "label": {
+                        "en": [
+                            "File name"
+                        ],
+                        "fr": [
+                            "Nom du fichier"
+                        ]
+                    },
+                    "value": {
+                        "en": [
+                            "A-2025-02129_08"
+                        ],
+                        "fr": [
+                            "A-2025-02129_08"
+                        ]
+                    }
+                },
+                {
+                    "label": {
+                        "en": [
+                            "File size"
+                        ],
+                        "fr": [
+                            "Taille du fichier"
+                        ]
+                    },
+                    "value": {
+                        "en": [
+                            "32.27"
+                        ],
+                        "fr": [
+                            "32.27"
+                        ]
+                    }
+                },
+                {
+                    "label": {
+                        "en": [
+                            "File URL link"
+                        ],
+                        "fr": [
+                            " Lien URL du fichier"
+                        ]
+                    },
+                    "value": {
+                        "en": [
+                            "https://v41extcapps01-d.dev.bac-lac.gc.ca:9058/eng/search/details/A-2025-02129?filename=A-2025-02129_08"
+                        ],
+                        "fr": [
+                            "https://v41extcapps01-d.dev.bac-lac.gc.ca:9058/fra/recherche/details/A-2025-02129?filename=A-2025-02129_08"
+                        ]
+                    }
+                }
+            ],
+            "thumbnail": [
+                {
+                    "id": "https://central.bac-lac.gc.ca/.item?id=3fb57b92-ccc2-4e6f-a712-6992ee1974fe&op=thumb&height=150&app=atip&filename=A-2025-02129_08.pdf&date=20260207165800",
+                    "type": "image",
+                    "format": "image/jpeg",
+                    "height": 175,
+                    "width": 150
+                }
+            ],
+            "height": 0,
+            "width": 0,
+            "items": [
+                {
+                    "id": "http://bac-lac.gc.ca/Canvas/AnnotationPage",
+                    "type": "AnnotationPage",
+                    "items": [
+                        {
+                            "id": "http://bac-lac.gc.ca/canvas/annotationpage/Annotation",
+                            "type": "Annotation",
+                            "motivation": "painting",
+                            "target": "http://bac-lac.gc.ca/Canvas",
+                            "body": {
+                                "id": "https://central.bac-lac.gc.ca/.item?id=3fb57b92-ccc2-4e6f-a712-6992ee1974fe&op=pdf&app=atip&filename=A-2025-02129_08.pdf",
+                                "type": "document",
+                                "height": 0,
+                                "width": 0,
+                                "format": "application/pdf"
+                            }
+                        }
+                    ]
+                }
+            ]
+        }
+    ]
+}

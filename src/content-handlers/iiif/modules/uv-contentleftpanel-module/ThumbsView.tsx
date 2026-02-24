@@ -4,7 +4,6 @@ import { ViewingDirection, ViewingHint } from "@iiif/vocabulary";
 import { useInView } from "react-intersection-observer";
 import cx from "classnames";
 
-
 const ThumbImage = ({
   first,
   onClick,
@@ -12,6 +11,7 @@ const ThumbImage = ({
   selected,
   thumb,
   viewingDirection,
+  pagingEnabledPDF,  
 }: {
   first: boolean;
   onClick: (thumb: Thumb) => void;
@@ -19,6 +19,7 @@ const ThumbImage = ({
   selected: boolean;
   thumb: Thumb;
   viewingDirection: ViewingDirection;
+  pagingEnabledPDF: boolean;
 }) => {
   const [ref, inView] = useInView({
     threshold: 0,
@@ -35,7 +36,7 @@ const ThumbImage = ({
       eCopy = eCopyX[1];
     }
   }
-
+  
   //Overwrite thumbnails (Albert Opena)
   let thumbData = thumb.data;  
   if (thumbData) {
@@ -51,17 +52,16 @@ const ThumbImage = ({
 
 
   return (
-
     <div
       onClick={() => onClick(thumb)}
       className={cx("thumb", {
         first: first,
         placeholder: !thumb.uri,
         twoCol:
-          paged &&
+          paged && !pagingEnabledPDF &&
           (viewingDirection === ViewingDirection.LEFT_TO_RIGHT ||
             viewingDirection === ViewingDirection.RIGHT_TO_LEFT),
-        oneCol: !paged,
+        oneCol: !paged || pagingEnabledPDF,
         selected: selected,
       })}
       tabIndex={0}
@@ -96,16 +96,16 @@ const Thumbnails = ({
   selected,
   thumbs,
   viewingDirection,
+  pagingEnabledPDF
 }: {
   onClick: (thumb: Thumb) => void;
   paged: boolean;
   selected: number[];
   thumbs: Thumb[];
   viewingDirection: ViewingDirection;
+  pagingEnabledPDF: boolean;
 }) => {
   const ref = useRef<HTMLDivElement | null>(null);
-
-
 
   useEffect(() => {
     const thumb = ref.current?.querySelector(`#thumb-${selected[0]}`);
@@ -116,11 +116,13 @@ const Thumbnails = ({
     });
   }, [selected]);
 
+  
   function showSeparator(
     paged: boolean,
     viewingHint: ViewingHint | null,
     index: number
   ) {
+    
     if (viewingHint === ViewingHint.NON_PAGED) {
       return true;
     }
@@ -137,9 +139,9 @@ const Thumbnails = ({
     return t.viewingHint !== ViewingHint.NON_PAGED;
   });
 
-  return (
+  return (   
     <div
-      ref={ref}
+      ref={ref}      
       className={cx("thumbs", {
         "left-to-right": viewingDirection === ViewingDirection.LEFT_TO_RIGHT,
         "right-to-left": viewingDirection === ViewingDirection.RIGHT_TO_LEFT,
@@ -151,10 +153,11 @@ const Thumbnails = ({
           <ThumbImage
             first={index === firstNonPagedIndex}
             onClick={onClick}
-            paged={paged}
+            paged={paged}            
             selected={selected.includes(index)}
             thumb={thumb}
             viewingDirection={viewingDirection}
+            pagingEnabledPDF={pagingEnabledPDF}
           />
           {showSeparator(paged, thumb.viewingHint, index) && (
             <div className="separator"></div>
