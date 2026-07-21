@@ -161,6 +161,8 @@ export class MediaElementCenterPanel extends CenterPanel {
           )
         );
       }
+      // console.log('sources added to mediaelement: ', this.$media);
+      // console.log(this.$container);
 
       this.$container.append(this.$media);
       this.player = new MediaElementPlayer($("video")[0], {
@@ -354,6 +356,7 @@ export class MediaElementCenterPanel extends CenterPanel {
     if (idx && idx.length >= 30) {
       m3u8Url = "https://d6k0n7qq3l4nj.cloudfront.net/" + idx + "/playlist.m3u8";
     }
+    // console.log("m3u8Url: " + m3u8Url);
     return m3u8Url;
   }
 
@@ -367,7 +370,7 @@ export class MediaElementCenterPanel extends CenterPanel {
       return result;
     }
     catch (error) {
-      console.log(error)
+      //console.log(error)
       return result;
     }
 

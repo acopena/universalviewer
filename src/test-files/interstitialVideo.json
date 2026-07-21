@@ -1,37 +1,53 @@
 {
   "@context": "http://iiif.io/api/presentation/3/context.json",
-  "id": "https://iiif.io/api/cookbook/recipe/0003-mvm-video/manifest.json",
+  "id": "https://iiif.io/api/cookbook/recipe/0002-mvm-audio/manifest.json",
   "type": "Manifest",
   "label": {
     "en": [
-      "Summary - part 1 - Title"
+      "9781791137465"
     ]
   },
+  "thumbnail": [
+    {
+      "id": "https://sas-das-presv.bac-lac.gc.ca/thumbnails/audio_v2.jpg",
+      "type": "Image",
+      "format": "image/jpeg",
+      "height": 250,
+      "width": 250
+    }
+  ],
   "items": [
     {
-      "id": "https://iiif.io/api/cookbook/recipe/0003-mvm-video/canvas",
+      "id": "https://iiif.io/api/cookbook/recipe/0002-mvm-audio/canvas",
       "type": "Canvas",
-      "height": 360,
-      "width": 640,
-      "duration": 25.450667,
+      "thumbnail": [
+        {
+          "id": "https://sas-das-presv.bac-lac.gc.ca/thumbnails/audio_v2.jpg",
+          "type": "Image",
+          "format": "image/jpeg",
+          "height": 250,
+          "width": 250
+        }
+      ],
+      "duration": 195.455,
       "items": [
         {
-          "id": "https://iiif.io/api/cookbook/recipe/0003-mvm-video/canvas/page",
+          "id": "https://iiif.io/api/cookbook/recipe/0002-mvm-audio/canvas/page",
           "type": "AnnotationPage",
           "items": [
             {
-              "id": "https://iiif.io/api/cookbook/recipe/0003-mvm-video/canvas/page/annotation",
+              "id": "https://iiif.io/api/cookbook/recipe/0002-mvm-audio/canvas/page/annotation",
               "type": "Annotation",
               "motivation": "painting",
               "body": {
-                "id": "https://sas-das-presv.bac-lac.gc.ca/afb648fe-785a-4837-a852-58852f946306-s/playlist.m3u8",
-                "type": "Video",
-                "format": "video/mp4",
-                "height": 360,
-                "width": 480,
-                "duration": 25.450667
+                "id": "https://sas-das-presv.bac-lac.gc.ca/362c313f-8477-4aeb-86a5-d88154089a65-s/playlist.m3u8",
+                "type": "Sound",
+                "format": "audio/mp4",
+                "duration": 195.455,
+                "height": 0,
+                "width": 0
               },
-              "target": "https://iiif.io/api/cookbook/recipe/0003-mvm-video/canvas"
+              "target": "https://iiif.io/api/cookbook/recipe/0002-mvm-audio/canvas/page"
             }
           ]
         }

@@ -1,0 +1,81 @@
+{
+    "context": "http://iiif.io/api/presentation/3/context.json",
+    "id": "https://data2.archives.ca/obj/m2/f7/19374.mp3",
+    "type": "Manifest",
+    "label": {
+        "en": [
+            "Title"
+        ],
+        "fr": [
+            "Title"
+        ]
+    },
+    "metadata": [
+        {
+            "label": {
+                "en": [
+                    "Title"
+                ],
+                "fr": [
+                    "Title"
+                ]
+            },
+            "value": {
+                "en": [
+                    "&quot;&#xC9;coutez, messieurs&quot; ; Entr&#x27;acte[enregistrement sonore] /Barbier ; Offenbach ; [Hoffmann]."
+                ],
+                "fr": [
+                    "&quot;&#xC9;coutez, messieurs&quot; ; Entr&#x27;acte[enregistrement sonore] /Barbier ; Offenbach ; [Hoffmann]."
+                ]
+            }
+        }
+    ],
+    "items": [
+        {
+            "id": "http://bac-lac.gc.ca/canvas",
+            "type": "Canvas",
+            "label": {
+                "en": [
+                    "https://data2.archives.ca/obj/m2/f7/19374.mp3"
+                ],
+                "fr": [
+                    "https://data2.archives.ca/obj/m2/f7/19374.mp3"
+                ]
+            },
+            "metadata": [],
+            "thumbnail": [
+                {
+                    "id": "https://d6k0n7qq3l4nj.cloudfront.net/thumbnails/audio_v2.jpg",
+                    "type": "image",
+                    "format": "image/jpeg",
+                    "height": 175,
+                    "width": 150
+                }
+            ],
+            "height": 0,
+            "width": 0,
+            "items": [
+                {
+                    "id": "http://bac-lac.gc.ca/Canvas/AnnotationPage",
+                    "type": "AnnotationPage",
+                    "items": [
+                        {
+                            "id": "http://bac-lac.gc.ca/canvas/annotationpage/Annotation",
+                            "type": "Annotation",
+                            "motivation": "painting",
+                            "target": "http://bac-lac.gc.ca/Canvas",
+                            "body": {                                
+                                "id":"https://data2.archives.ca/obj/m2/f7/8889.mp3",                               
+                                "type": "Sound",
+                                "height": 0,
+                                "width": 0,
+                                "format": "audio/mp4",
+                                "duration": 0.0
+                            }
+                        }
+                    ]
+                }
+            ]
+        }
+    ]
+}

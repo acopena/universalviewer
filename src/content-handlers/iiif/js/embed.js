@@ -84,7 +84,7 @@ docReady(function() {
     }
     //get the part preceding 'lib/embed.js'
     var baseUri = (/(.*)lib\/embed.js/).exec(scriptUri)[1];
-    console.log(baseUri);
+    
     appUri = baseUri + 'uv.html';
     var a = document.createElement('a');
     a.href = absScriptUri;

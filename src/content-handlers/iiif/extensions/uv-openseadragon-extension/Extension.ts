@@ -978,9 +978,6 @@ export default class OpenSeadragonExtension extends BaseExtension {
       this.extensionHost.publish(IIIFEvents.CANVAS_INDEX_CHANGE_FAILED);
       return;
     }
-
-    console.log(label);
-    console.log(this.helper.getCanvasIndexByLabel(label));
     const index: number = this.helper.getCanvasIndexByLabel(label);
 
     if (index != -1) {

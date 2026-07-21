@@ -94,7 +94,7 @@ export default class Extension extends BaseExtension implements IPDFExtension {
   isHeaderPanelEnabled(): boolean {    
     return (
       super.isHeaderPanelEnabled() &&
-      Bools.getBool(this.data.config.options.usePdfJs, true)
+      Bools.getBool(this.locales["en-CA"].options.usePdfJs, true)
     );
   }
 
@@ -108,8 +108,12 @@ export default class Extension extends BaseExtension implements IPDFExtension {
     // } else {
     //   this.shell.$headerPanel.hide();
     // }
-    const enableHeader = true;
-    if (enableHeader) {
+    //const enableHeader = true;
+    const enablePdfJs = Bools.getBool(this.locales["en-CA"].options.usePdfJs, true);
+
+    //console.log('enablePdfJs:' + enablePdfJs);
+
+    if (enablePdfJs) {
       this.headerPanel = new PDFHeaderPanel(this.shell.$headerPanel);
     } else {
       this.shell.$headerPanel.hide();

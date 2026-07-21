@@ -74,9 +74,7 @@ export class PDFHeaderPanel extends HeaderPanel {
     this.$centerOptions.append(this.$search);
 
     this.$searchText = uvj$(
-      '<input class="searchText" maxlength="50" type="text" tabindex="0" aria-label="' +
-        this.content.pageSearchLabel +
-        '"/>'
+      '<input class="searchText" maxlength="50" type="text" tabindex="0" aria-label="' +   this.content.pageSearchLabel + '"/>'
     );
     this.$search.append(this.$searchText);
 

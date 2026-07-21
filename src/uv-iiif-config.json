@@ -10,7 +10,7 @@
     "pagingEnabled": false,
     "rightPanelEnabled": false,
     "clickToZoomEnabled": false,
-    "usePdfJs":true,
+    "usePdfJs":false,
     "canvasIndex":0,
     "isUcc": false,
     "ecopy":"",

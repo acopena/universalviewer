@@ -8,7 +8,28 @@
       "@id": "http://universalviewer.io/manifests.json",
       "@type": "sc:Collection",
       "label": "LAC Samples",
-      "manifests": [
+      "manifests": [       
+        {
+          "@id": "src/test-files/interstitialVideo.json",
+          "@type": "sc:Manifest",
+          "label": "Interstitial Audio - DAMS"
+        },
+        {
+          "@id": "src/test-files/interstitialAudio.json",
+          "@type": "sc:Manifest",
+          "label": "Interstitial Audio-Central"
+        },
+        {
+          "@id": "src/test-files/VirtualGramophone.json",
+          "@type": "sc:Manifest",
+          "label": "Virtual Gramophone Audio"
+        },
+        {
+          "@id": "https://digitalmanifest.bac-lac.gc.ca/DigitalManifest/1/204895",
+          "@type": "sc:Manifest",
+          "label": "Album 25, Untitled [graphic material]"
+        },    
+      
         {
           "@id": "src/test-files/SearchPastATI.json",
           "@type": "sc:Manifest",
@@ -19,11 +40,7 @@
           "@type": "sc:Manifest",
           "label": "Harper"
         },       
-        {
-          "@id": "https://digitalmanifest.bac-lac.gc.ca/DigitalManifest/1/204895",
-          "@type": "sc:Manifest",
-          "label": "Album 25, Untitled [graphic material]"
-        },       
+        
         {
           "@id": "https://digitalmanifest.bac-lac.gc.ca/DigitalManifest/1/5672185",
           "@type": "sc:Manifest",
@@ -34,6 +51,11 @@
           "@type": "sc:Manifest",
           "label": "PDF/A test"
         },      
+               {
+          "@id": "https://digitalmanifest.bac-lac.gc.ca/DigitalManifest/9/417400",
+          "@type": "sc:Manifest",
+          "label": "LAC Audio"
+        },  
         {
           "@id": "https://localhost:7126/api/Preservica/GetAssetManifest/208a5315-0232-46b6-8070-e32244587b91",
           "@type": "sc:Manifest",
@@ -65,12 +87,8 @@
           "@id": "src/test-files/m3u8.json",
           "@type": "sc:Manifest",
           "label": "LAC local m3u8"
-        },
-        {
-          "@id": "src/test-files/interstitialVideo.json",
-          "@type": "sc:Manifest",
-          "label": "Interstitial Video sign language m3u8"
         }
+      
       ]
     },
     {

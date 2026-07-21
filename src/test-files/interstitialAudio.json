@@ -1,0 +1,57 @@
+{
+    "@context": "http://iiif.io/api/presentation/3/context.json",
+    "id": "https://iiif.io/api/cookbook/recipe/0002-mvm-audio/manifest.json",
+    "type": "Manifest",
+    "label": {
+      "en": [
+        "9781791137465"
+      ]
+    },
+    "thumbnail": [
+      {
+        "id": "https://sas-das-presv.bac-lac.gc.ca/thumbnails/audio_v2.jpg",
+        "type": "Image",
+        "format": "image/jpeg",
+        "height": 250,
+        "width": 250
+      }
+    ],
+    "items": [
+      {
+        "id": "https://iiif.io/api/cookbook/recipe/0002-mvm-audio/canvas",
+        "type": "Canvas",
+        "thumbnail": [
+          {
+            "id": "https://sas-das-presv.bac-lac.gc.ca/thumbnails/audio_v2.jpg",
+            "type": "Image",
+            "format": "image/jpeg",
+            "height": 250,
+            "width": 250
+          }
+        ],
+        "duration": 195.455,
+        "items": [
+          {
+            "id": "https://iiif.io/api/cookbook/recipe/0002-mvm-audio/canvas/page",
+            "type": "AnnotationPage",
+            "items": [
+              {
+                "id": "https://iiif.io/api/cookbook/recipe/0002-mvm-audio/canvas/page/annotation",
+                "type": "Annotation",
+                "motivation": "painting",
+                "body": {
+                  "id":"https://central.bac-lac.gc.ca/.item?id=362c313f-8477-4aeb-86a5-d88154089a65&op=video&app=serial&filename=9781791137465.mp3",
+                  "type": "Sound",
+                  "format": "audio/mp4",
+                  "duration": 195.455,
+                  "height": 0,
+                  "width": 0
+                },
+                "target": "https://iiif.io/api/cookbook/recipe/0002-mvm-audio/canvas/page"
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  }

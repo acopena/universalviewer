@@ -54,8 +54,6 @@ export default class Extension extends BaseExtension
 
   create(): void {
     super.create();
-
-    console.log("Extension.mediaElement...............")
     // listen for mediaelement enter/exit fullscreen events.
     $(window).bind("enterfullscreen", () => {
       this.extensionHost.publish(Events.TOGGLE_FULLSCREEN);
@@ -74,6 +72,7 @@ export default class Extension extends BaseExtension
 
     this.extensionHost.subscribe(IIIFEvents.THUMB_SELECTED, (thumb: Thumb) => {
       this.extensionHost.publish(IIIFEvents.CANVAS_INDEX_CHANGE, thumb.index);
+      this.ForwardRewindEvent();
     });
 
     this.extensionHost.subscribe(IIIFEvents.LEFTPANEL_EXPAND_FULL_START, () => {
@@ -201,9 +200,7 @@ export default class Extension extends BaseExtension
   }
 
   render(): void {
-    super.render();
-    console.log(this.locales);
-    console.log(this);
+    super.render();  
     this.checkForTarget();
     //added by Albert Opena
     //Hide options mimiseButton footer 
@@ -225,7 +222,6 @@ export default class Extension extends BaseExtension
       }
       let videoCtrl = document.getElementsByClassName('mejs__inner');
       if (videoCtrl.length > 0) {
-        console.log(videoCtrl[0]);
         this.addRewindForwardBtn(videoCtrl);
         clearInterval(intervalId);
       }
@@ -265,7 +261,6 @@ export default class Extension extends BaseExtension
 
       //Forward button
       const currentLanguage = this.getLocale().toLowerCase();
-      console.log(currentLanguage);
       let ForwardTitle = 'Forward';
       let BackwardTitle = 'Backward';
       if (currentLanguage == 'en-fr'){
@@ -311,7 +306,6 @@ export default class Extension extends BaseExtension
     }
   }
   mediaSkip(skipDirection: string) {
-    console.log(skipDirection);
     let videoPlayer = document.getElementsByTagName('audio')[0];
     if (!videoPlayer) {
       videoPlayer = document.getElementsByTagName('video')[0];

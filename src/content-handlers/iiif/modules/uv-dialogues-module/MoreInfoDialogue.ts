@@ -58,11 +58,8 @@ export class MoreInfoDialogue extends Dialogue {
   }
 
   open(triggerButton?: HTMLElement): void {
-    super.open(triggerButton);
-    
+    super.open(triggerButton);    
     this.metadataComponent.set(this._getData());
-    console.log(this.metadataComponent)
-
   }
 
   private _getData() {

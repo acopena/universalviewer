@@ -267,6 +267,7 @@ export class PDFCenterPanel extends CenterPanel {
 
     this._lastMediaUri = mediaUri;
     const usePdfJs = this.locales["en-CA"].options.usePdfJs
+    //console.log(usePdfJs);
     if (!Bools.getBool(usePdfJs, false)) {
       window.PDFObject = await import(
         /* webpackChunkName: "pdfobject" */ /* webpackMode: "lazy" */ "pdfobject"
@@ -285,11 +286,15 @@ export class PDFCenterPanel extends CenterPanel {
       //https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.js
 
       if (!this._pdfjsLib) {
-        //await loadScripts(["//mozilla.github.io/pdf.js/build/pdf.js"]);
-        //await loadScripts(["https://cdn.jsdelivr.net/npm/pdfjs-dist@3.11.174/build/pdf.min.js"]);
+        //new version as of 2026-02-27
+        //https://app.unpkg.com/pdfjs-dist@5.4.624/files/build/pdf.mjs
         await loadScripts(["//cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.min.js"]);
+        ////cdnjs.cloudflare.com/ajax/libs/pdf.js/5.4.54/pdf.min.js
+        //await loadScripts(["//cdnjs.cloudflare.com/ajax/libs/pdf.js/5.4.54/pdf.min.js"]);
         this._pdfjsLib = window["pdfjs-dist/build/pdf"];
-        //this._pdfjsLib.GlobalWorkerOptions.workerSrc = "https://cdn.jsdelivr.net/npm/pdfjs-dist@3.11.174/build/pdf.worker.min.js";
+        ////cdnjs.cloudflare.com/ajax/libs/pdf.js/5.4.54/pdf.worker.min.js
+        //this._pdfjsLib.GlobalWorkerOptions.workerSrc = "//cdnjs.cloudflare.com/ajax/libs/pdf.js/5.4.54/pdf.worker.min.js";
+        
         this._pdfjsLib.GlobalWorkerOptions.workerSrc = "//cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.worker.min.js";
       } else {
         this._$progress[0].setAttribute("value", "0");

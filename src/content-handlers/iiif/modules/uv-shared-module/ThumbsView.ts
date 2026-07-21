@@ -68,7 +68,7 @@ export class ThumbsView extends BaseView {
     });
 
     const extraHeight: number = this.options.thumbsExtraHeight;
-    console.log(this.options);
+    //console.log(this.options);
 
     $.views.helpers({
       separator: function() {

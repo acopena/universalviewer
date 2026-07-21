@@ -234,12 +234,12 @@ export default class IIIFContentHandler extends BaseContentHandler<IIIFData>
     this.extra.initial = false;
   }
 
-  // public get<T>(key: string): T | undefined {
-  //   if (this.extension) {
-  //     return this.extension.data[key];
-  //   }
-  //   return undefined;
-  // }
+  public get<T>(key: string): T | undefined {
+    if (this.extension) {
+      return this.extension.data[key];
+    }
+    return undefined;
+  }
 
   public publish(event: string, args?: any, extra?: any): void {
     this._pubsub.publish(event, args, { ...this.extra, ...extra });

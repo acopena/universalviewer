@@ -819,8 +819,6 @@ export class BaseExtension implements IExtension {
   }
 
   getLocale(): string {
-    console.log('--- >this.helper.options.locale');
-    console.log(this.helper.options.locale);
     return this.helper.options.locale as string;
   }
 
@@ -909,7 +907,7 @@ export class BaseExtension implements IExtension {
       } else {
         r = canvas.externalResource;
       }
-
+     
       // reload resources if passed
       if (resources) {
         const found: IExternalResource | undefined = resources.find(
@@ -1223,7 +1221,6 @@ class BrowserDetect {
     for (var i = 0; i < data.length; i++) {
       var dataString = data[i].string;
       this.versionSearchString = data[i].subString;
-
       if (dataString.indexOf(data[i].subString) != -1) {
         return data[i].identity;
       }
