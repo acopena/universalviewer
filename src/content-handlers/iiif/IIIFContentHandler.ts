@@ -123,6 +123,7 @@ export default class IIIFContentHandler extends BaseContentHandler<IIIFData>
   protected _init(): boolean {
     this._extensionRegistry = {};
     this._extensionRegistry[ExternalResourceType.CANVAS] = Extension.OSD;
+    this._extensionRegistry[ExternalResourceType.TEXT] = Extension.TEXT
     this._extensionRegistry[ExternalResourceType.DOCUMENT] = Extension.PDF;
     this._extensionRegistry[ExternalResourceType.IMAGE] = Extension.OSD;
     this._extensionRegistry[ExternalResourceType.MOVING_IMAGE] = Extension.MEDIAELEMENT;

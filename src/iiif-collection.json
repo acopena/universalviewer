@@ -13,6 +13,16 @@
           "@id": "src/test-files/interstitialVideo.json",
           "@type": "sc:Manifest",
           "label": "Interstitial Audio - DAMS"
+        },        
+        {
+          "@id": "https://digitalmanifest.bac-lac.gc.ca/DigitalManifest/1/1517291",
+          "@type": "sc:Manifest",
+          "label": "Quarantine and Immigration"
+        },
+        {
+          "@id": "src/test-files/textfile.json",
+          "@type": "sc:Manifest",
+          "label": "text file"
         },
         {
           "@id": "src/test-files/interstitialAudio.json",

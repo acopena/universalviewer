@@ -174,11 +174,9 @@
               "motivation": "painting",
               "target": "http://bac-lac.gc.ca/Canvas",
               "body": {
-                "id": "https://central.bac-lac.gc.ca/.item?id=74c3235c-def3-41e3-b1b2-e42ab0d4dc6a&op=pdf&app=atip&filename=A-2025-04473_01.pdf",
-                "type": "document",
-                "height": 0,
-                "width": 0,
-                "format": "application/pdf"
+                "id": "https://data2.archives.ca/obj/001066/f5/leonard_cohen02.txt",
+                "type": "text",
+                "format": "text/plain"
               }
             }
           ]
