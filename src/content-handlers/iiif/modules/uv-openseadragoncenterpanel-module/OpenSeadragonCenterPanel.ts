@@ -28,26 +28,30 @@ import { Events } from "../../../../Events";
 export class OpenSeadragonCenterPanel extends CenterPanel {
   controlsVisible: boolean = false;
   currentAnnotationRect: AnnotationRect;
-  currentBounds: XYWHFragment | null;
+  currentBounds: XYWHFragment | null = null;
   handler: any;
-  initialBounds: XYWHFragment | null;
+  initialBounds: XYWHFragment | null = null;
   initialRotation: any;
   isCreated: boolean = false;
   isLoaded: boolean = false;
   isFirstLoad: boolean = true;
-  items: any[];
+  items: any[] = [];
+  loadSessionId: number = 0;
+  activeLoadSessionId: number = 0;
+  loadFailSafeTimer: any = null;
+  pendingImageLoads: number = 0;
   navigatedFromSearch: boolean = false;
   nextButtonEnabled: boolean = false;
   // pages: IExternalResource[];
   prevButtonEnabled: boolean = false;
-  previousAnnotationRect: AnnotationRect;
+  previousAnnotationRect!: AnnotationRect;
   userData: any;
   viewer: any;
-  viewerId: string;
+  viewerId!: string;
   isUcc: boolean = false;
 
-  $canvas: JQuery;
-  $goHomeButton: JQuery;
+  $canvas!: JQuery;
+  $goHomeButton!: JQuery;
   $navigator: JQuery;
   $nextButton: JQuery;
   $prevButton: JQuery;
@@ -73,8 +77,8 @@ export class OpenSeadragonCenterPanel extends CenterPanel {
     this.viewerId = "osd" + new Date().getTime();
     this.$viewer = uvj$('<div id="' + this.viewerId + '" class="viewer"></div>');
     this.$content.prepend(this.$viewer);
-    this.isUcc =  this.extension.data.config?.options.isUcc;
-   
+    this.isUcc = this.extension.data.config?.options.isUcc;
+
     this.extensionHost.subscribe(IIIFEvents.ANNOTATIONS, (args: any) => {
       this.overlayAnnotations();
       this.zoomToInitialAnnotation();
@@ -83,23 +87,23 @@ export class OpenSeadragonCenterPanel extends CenterPanel {
     this.extensionHost.subscribe(
       IIIFEvents.SETTINGS_CHANGE,
       (args: ISettings) => {
-      
+
         this.viewer.gestureSettingsMouse.clickToZoom = args.clickToZoomEnabled;
-        
+
       }
     );
 
     this.extensionHost.subscribe(
-      IIIFEvents.OPEN_EXTERNAL_RESOURCE,      
+      IIIFEvents.OPEN_EXTERNAL_RESOURCE,
       (resources: IExternalResource[]) => {
         this.whenResized(async () => {
           if (!this.isCreated) {
             // uv may have reloaded
-            this.createUI();  
+            this.createUI();
           }
-          
-          this.isLoaded = false; 
-          await this.openMedia(resources);       
+
+          this.isLoaded = false;
+          await this.openMedia(resources);
 
           this.isLoaded = true;
           this.extensionHost.publish(Events.EXTERNAL_RESOURCE_OPENED);
@@ -181,6 +185,101 @@ export class OpenSeadragonCenterPanel extends CenterPanel {
       return this.isCreated;
     }, cb);
   }
+  beginLoadSession(): number {
+    this.loadSessionId++;
+    this.activeLoadSessionId = this.loadSessionId;
+
+    if (this.loadFailSafeTimer) {
+      clearTimeout(this.loadFailSafeTimer);
+      this.loadFailSafeTimer = null;
+    }
+
+    this.pendingImageLoads = 0;
+
+    return this.activeLoadSessionId;
+  }
+  isCurrentLoadSession(loadSessionId: number): boolean {
+    return loadSessionId === this.activeLoadSessionId;
+  }
+
+  endLoadSession(loadSessionId: number): void {
+    if (!this.isCurrentLoadSession(loadSessionId)) {
+      return;
+    }
+
+    if (this.loadFailSafeTimer) {
+      clearTimeout(this.loadFailSafeTimer);
+      this.loadFailSafeTimer = null;
+    }
+
+    this.pendingImageLoads = 0;
+    this.$spinner.hide();
+  }
+
+  reportLoadFailure(reason: string, details?: any): void {
+    this.extensionHost.publish(Events.LOAD_FAILED, {
+      reason,
+      details,
+    });
+
+    if (typeof console !== "undefined" && console.warn) {
+      console.warn("OpenSeadragon load failure:", reason, details || "");
+    }
+  }
+
+  async wait(ms: number): Promise<void> {
+    return new Promise<void>((resolve) => {
+      setTimeout(resolve, ms);
+    });
+  }
+
+  async fetchJsonWithRetry(
+    url: string,
+    maxAttempts: number = 3,
+    timeoutMs: number = 10000
+  ): Promise<any> {
+    let attempt: number = 0;
+
+    while (attempt < maxAttempts) {
+      attempt++;
+
+      try {
+        const canAbort: boolean = typeof AbortController !== "undefined";
+        const controller: AbortController | null = canAbort
+          ? new AbortController()
+          : null;
+        const timeoutId: any = setTimeout(() => {
+          if (controller) {
+            controller.abort();
+          }
+        }, timeoutMs);
+
+        const response: Response = await fetch(
+          url,
+          controller ? { signal: controller.signal } : undefined
+        );
+
+        clearTimeout(timeoutId);
+
+        if (!response.ok) {
+          throw new Error(`Unable to load resource (${response.status})`);
+        }
+
+        return await response.json();
+      } catch (error) {
+        if (attempt >= maxAttempts) {
+          throw error;
+        }
+
+        let delayMs: number = Math.min(300 * Math.pow(2, attempt - 1), 2000);
+        delayMs += Math.floor(Math.random() * 200);
+        await this.wait(delayMs);
+      }
+    }
+
+    return null;
+  }
+
 
   whenLoaded(cb: () => void): void {
     Async.waitFor(() => {
@@ -189,7 +288,6 @@ export class OpenSeadragonCenterPanel extends CenterPanel {
   }
 
   zoomIn(): void {
-    console.log('zoom click');
     this.viewer.viewport.zoomTo(this.viewer.viewport.getZoom(true) * 2);
   }
 
@@ -249,6 +347,8 @@ export class OpenSeadragonCenterPanel extends CenterPanel {
         this.config.options.immediateRender,
         false
       ),
+      maxImageCacheCount: this.config.options.maxImageCacheCount || 200,
+      imageLoaderLimit: this.config.options.imageLoaderLimit || 8,
       blendTime: this.config.options.blendTime || 0,
       autoHideControls: Bools.getBool(
         this.config.options.autoHideControls,
@@ -378,7 +478,7 @@ export class OpenSeadragonCenterPanel extends CenterPanel {
       ".viewportNavButton"
     );
 
-    this.$canvas = $(this.viewer.canvas);
+    this.$canvas = uvj$(this.viewer.canvas);
 
     // disable right click on canvas
     this.$canvas.on("contextmenu", () => {
@@ -424,13 +524,21 @@ export class OpenSeadragonCenterPanel extends CenterPanel {
     );
 
     this.viewer.addHandler("tile-drawn", () => {
-      this.$spinner.hide();
+      //this.$spinner.hide();
+      if (this.pendingImageLoads === 0) {
+        this.$spinner.hide();
+      }
     });
 
     //this.viewer.addHandler("open-failed", () => {
     //});
+    this.viewer.addHandler("open-failed", (event: any) => {
+      this.pendingImageLoads = 0;
+      this.$spinner.hide();
+      this.reportLoadFailure("openseadragon-open-failed", event);
+    });
 
-    this.viewer.addHandler("resize", (viewer: any) => {      
+    this.viewer.addHandler("resize", (viewer: any) => {
       this.extensionHost.publish(
         OpenSeadragonExtensionEvents.OPENSEADRAGON_RESIZE,
         viewer
@@ -438,21 +546,21 @@ export class OpenSeadragonCenterPanel extends CenterPanel {
       this.viewerResize(viewer);
     });
 
-    this.viewer.addHandler("animation-start", (viewer: any) => {      
+    this.viewer.addHandler("animation-start", (viewer: any) => {
       this.extensionHost.publish(
         OpenSeadragonExtensionEvents.OPENSEADRAGON_ANIMATION_START,
         viewer
       );
     });
 
-    this.viewer.addHandler("animation", (viewer: any) => {      
+    this.viewer.addHandler("animation", (viewer: any) => {
       this.extensionHost.publish(
         OpenSeadragonExtensionEvents.OPENSEADRAGON_ANIMATION,
         viewer
       );
     });
 
-    this.viewer.addHandler("animation-finish", (viewer: any) => {      
+    this.viewer.addHandler("animation-finish", (viewer: any) => {
       this.currentBounds = this.getViewportBounds();
 
       this.updateVisibleAnnotationRects();
@@ -563,157 +671,480 @@ export class OpenSeadragonCenterPanel extends CenterPanel {
     });
 
     this.$nextButton.on("focus", () => {
-      if (this.controlsVisible) return;      
+      if (this.controlsVisible) return;
       this.controlsVisible = true;
       this.viewer.setControlsEnabled(true);
     });
-  } 
+  }
 
   async getGirderTileSource(): Promise<any> {
-    return new Promise<any>((resolve) => {
-      let canvas: Canvas = this.extension.helper.getCurrentCanvas();
-      const annotations: Annotation[] = canvas.getContent();
+    let canvas: Canvas = this.extension.helper.getCurrentCanvas();
+    const annotations: Annotation[] = canvas.getContent();
+    if (!annotations.length) {
+      return null;
+    }
+    const annotation: Annotation = annotations[0];
+    const body: AnnotationBody[] = annotation.getBody();
+    if (!body.length) {
+      return null;
+    }
 
-      if (annotations.length) {
-        const annotation: Annotation = annotations[0];
-        const body: AnnotationBody[] = annotation.getBody();
+    const services: Service[] = body[0].getServices();
 
-        if (body.length) {
-          const services: Service[] = body[0].getServices();
-          
+    if (!services.length) {
+      return null;
+    }
 
-          if (services.length) {
-            let id: string = services[0].id;
-            let tileDescriptor = id;
-            if (!tileDescriptor.endsWith("/")) {
-              tileDescriptor += "/";
-            }
-            tileDescriptor += "tiles";
+    let id: string = services[0].id;
+    let tileDescriptor = id;
+    if (!tileDescriptor.endsWith("/")) {
+      tileDescriptor += "/";
+    }
+    tileDescriptor += "tiles";
 
-            if (id.endsWith("/")) {
-              id = id.substr(0, id.length - 1);
-            }
-            fetch(tileDescriptor)
-              .then((response) => response.json())
-              .then((info) => {
-                const tileSource = {
-                  height: info.sizeY,
-                  width: info.sizeX,
-                  tileWidth: info.tileWidth,
-                  tileHeight: info.tileHeight,
-                  minLevel: 0,
-                  maxLevel: info.levels - 1,
-                  units: "mm",
-                  spacing: [info.mm_x, info.mm_y],
-                  getTileUrl: function (level, x, y, query) {
-                    var url =
-                      tileDescriptor + "/zxy/" + level + "/" + x + "/" + y;
-                    if (query) {
-                      url += "?" + $.param(query);
-                    }
-                    return url;
-                  },
-                };
+    if (id.endsWith("/")) {
+      id = id.substr(0, id.length - 1);
+    }
 
-                if (!info.mm_x) {
-                  tileSource.units = "pixels";
-                  tileSource.spacing = [1, 1];
-                }
+    try {
+      const info: any = await this.fetchJsonWithRetry(tileDescriptor);
 
-                resolve(tileSource);
-              });
-          }
-        }
+      if (!info) {
+        return null;
       }
-    });
+
+      const tileSource = {
+        height: info.sizeY,
+        width: info.sizeX,
+        tileWidth: info.tileWidth,
+        tileHeight: info.tileHeight,
+        minLevel: 0,
+        maxLevel: info.levels - 1,
+        units: "mm",
+        spacing: [info.mm_x, info.mm_y],
+        getTileUrl: function (level, x, y, query) {
+          var url = tileDescriptor + "/zxy/" + level + "/" + x + "/" + y;
+          if (query) {
+            url += "?" + uvj$.param(query);
+          }
+          //-        }
+          return url;
+        },
+      };
+
+      if (!info.mm_x) {
+        tileSource.units = "pixels";
+        tileSource.spacing = [1, 1];
+      }
+      return tileSource;
+    }
+    catch (error) {
+      this.reportLoadFailure("girder-tile-descriptor-load-failed", {
+        tileDescriptor,
+        error,
+      });
+      return null;
+    }
   }
 
-  getManifestItemBody(item) {
-    const itemLevel1 = item[0].items;
-    return itemLevel1[0].body;    
-  }
+  // getManifestItemBody(item) {
+  //   const itemLevel1 = item[0].items;
+  //   return itemLevel1[0].body;
+  // }
   async openMedia(resources?: IExternalResource[]): Promise<void> {
     // uv may have been unloaded
     if (!this.viewer) {
       return;
     }
 
+    const loadSessionId: number = this.beginLoadSession();
+
     this.$spinner.show();
     this.items = [];
-      
+
     let images: IExternalResourceData[] = await this.extension.getExternalResources(
       resources
-    );    
-    
-    
-    let mediaItem  = this.extension.helper.manifest?.items[0].items[0] as Canvas;  
-    
-    //Albert Opena added
-    // Update this.extension.format
-    if (mediaItem != undefined) {
-      let mediaData  = mediaItem['__jsonld'];      
-      if (mediaData.images) {
-        const resourceData = mediaData.images[0].resource;        
-        this.extension.format = resourceData. format;
-      }
-      else {
-        const itemBody = mediaData.items[0].items[0].body;
-        this.extension.format = itemBody.format;
-      }
+    );
+
+    if (!this.isCurrentLoadSession(loadSessionId)) {
+      return;
     }
-    // ****** end
 
-    
-    let isGirder: boolean = this.extension.format === MediaType.GIRDER;    
-  
 
+    // let mediaItem = this.extension.helper.manifest?.items[0].items[0] as Canvas;
+
+    // //Albert Opena added
+    // // Update this.extension.format
+    // if (mediaItem != undefined) {
+    //   let mediaData = mediaItem['__jsonld'];
+    //   if (mediaData.images) {
+    //     const resourceData = mediaData.images[0].resource;
+    //     this.extension.format = resourceData.format;
+    //   }
+    //   else {
+    //     const itemBody = mediaData.items[0].items[0].body;
+    //     this.extension.format = itemBody.format;
+    //   }
+    // }
+    // // ****** end
+
+
+    // let isGirder: boolean = this.extension.format === MediaType.GIRDER;
+
+    const isGirder: boolean = this.extension.format === MediaType.GIRDER;
     try {
       this.viewer.close();
+      if (
+        !images.length ||
+        images.every((img: any) => {
+          const id: string = img && img.id ? String(img.id) : "";
+          return !id || /[?&]op=thumb(&|$)/i.test(id);
+        })
+      ) {
+        const canvasImages: IExternalResourceData[] = this.getImageResourcesFromCanvases();
+
+        if (canvasImages.length) {
+          images = canvasImages;
+        }
+      }
+
       images = this.getPagePositions(images);
+      const currentCanvasIndices: number[] = this.extension.getPagedIndices();
+
+      if (!images.length) {
+        this.openPagesHandler();
+        this.endLoadSession(loadSessionId);
+        return;
+      }
+
+      let hasOpenedPages: boolean = false;
+      this.pendingImageLoads = images.length;
+
+      const completeLoad = (item?: any): void => {
+        if (!this.isCurrentLoadSession(loadSessionId)) {
+          return;
+        }
+
+        if (item) {
+          this.items.push(item);
+        }
+
+        this.pendingImageLoads = Math.max(this.pendingImageLoads - 1, 0);
+
+        if (!this.pendingImageLoads && !hasOpenedPages) {
+          hasOpenedPages = true;
+          this.openPagesHandler();
+          this.resize();
+          this.goHome();
+          this.endLoadSession(loadSessionId);
+        }
+      };
+
+      const configuredTimeout: number = Number(this.config.options.openMediaTimeout);
+      const failSafeTimeout: number = Number.isFinite(configuredTimeout)
+        ? Math.max(1000, Math.min(configuredTimeout, 120000))
+        : 20000;
+
+      this.loadFailSafeTimer = setTimeout(() => {
+        if (!this.isCurrentLoadSession(loadSessionId) || hasOpenedPages) {
+          return;
+        }
+
+        this.reportLoadFailure("openseadragon-load-timeout", {
+          timeoutMs: failSafeTimeout,
+          pendingImageLoads: this.pendingImageLoads,
+        });
+
+        hasOpenedPages = true;
+        this.openPagesHandler();
+        this.endLoadSession(loadSessionId);
+      }, failSafeTimeout);
+
 
       for (let i = 0; i < images.length; i++) {
+        if (!this.isCurrentLoadSession(loadSessionId)) {
+          return;
+        }
         const data: any = images[i];
+        const width: number = Number(data.width);
         let tileSource: any;
 
         if (data.hasServiceDescriptor) {
           // use the info.json descriptor
           tileSource = data;
-         
+
         } else if (isGirder) {
           // load girder image
-       
           tileSource = await this.getGirderTileSource();
+
+          if (!this.isCurrentLoadSession(loadSessionId)) {
+            return;
+          }
+
+          if (!tileSource) {
+            completeLoad();
+            continue;
+          }
+
+
         } else {
           // load image
-      
+
+          const fallbackCanvasIndex: number | null =
+            typeof currentCanvasIndices[i] === "number"
+              ? currentCanvasIndices[i]
+              : null;
+          const imageUri: string = this.getCanvasImageUri(
+            data,
+            fallbackCanvasIndex
+          );
+
+          if (!imageUri) {
+            this.reportLoadFailure("empty-image-uri", {
+              index: i,
+              fallbackCanvasIndex,
+            });
+            completeLoad();
+            continue;
+          }
+
+          // load image without tiling
+
           tileSource = {
             type: "image",
-            url: data.id,
+            url: imageUri,
             buildPyramid: false,
           };
         }
- 
-        this.viewer.addTiledImage({
+
+
+        // this.viewer.addTiledImage({
+
+        const addTiledImageOptions: any = {
           tileSource: tileSource,
-          x: data.x,
-          y: data.y,
-          width: data.width,
+
+          x: Number(data.x) || 0,
+          y: Number(data.y) || 0,
           success: (item: any) => {
-            this.items.push(item);
-            if (this.items.length === images.length) {
-              this.openPagesHandler();
-            }
-            this.resize();
-            this.goHome();
+            completeLoad(item);
           },
-        });
+
+          error: () => {
+            this.reportLoadFailure("openseadragon-add-tiled-image-error", {
+              index: i,
+              tileSource,
+            });
+            completeLoad();
+          },
+        };
+
+        if (Number.isFinite(width) && width > 0) {
+          addTiledImageOptions.width = width;
+        }
+
+        this.viewer.addTiledImage(addTiledImageOptions);
       }
-    } catch( err: any) {
-      console.log('error encounter in openMedia');
-      console.log(err);
-      // do nothing
+    } catch (error) {
+      if (!this.isCurrentLoadSession(loadSessionId)) {
+        return;
+      }
+
+      this.reportLoadFailure("openseadragon-open-media-exception", error);
+
+      this.openPagesHandler();
+      this.endLoadSession(loadSessionId);
     }
   }
+
+
+  //       this.viewer.addTiledImage({
+  //         tileSource: tileSource,
+  //         x: data.x,
+  //         y: data.y,
+  //         width: data.width,
+  //         success: (item: any) => {
+  //           this.items.push(item);
+  //           if (this.items.length === images.length) {
+  //             this.openPagesHandler();
+  //           }
+  //           this.resize();
+  //           this.goHome();
+  //         },
+  //       });
+  //     }
+  //   } catch (err: any) {
+  //     console.log('error encounter in openMedia');
+  //     console.log(err);
+  //     // do nothing
+  //   }
+  // }
+
+  getCanvasImageUri(data: any, fallbackCanvasIndex: number | null = null): string {
+    let imageUri: string = data && data.id ? String(data.id) : "";
+    const dataIndex: number = Number(data && data.index);
+    const resolvedCanvasIndex: number = Number.isFinite(dataIndex)
+      ? dataIndex
+      : <number>fallbackCanvasIndex;
+
+    if (
+      imageUri &&
+      /[?&]op=thumb(&|$)/i.test(imageUri) &&
+      data &&
+      typeof resolvedCanvasIndex === "number" &&
+      Number.isFinite(resolvedCanvasIndex)
+    ) {
+      const canvas: Canvas = this.extension.helper.getCanvasByIndex(
+        resolvedCanvasIndex
+      );
+
+      if (canvas) {
+        const annotations: Annotation[] = canvas.getContent();
+
+        if (annotations.length) {
+          const body: AnnotationBody[] = annotations[0].getBody();
+
+          if (body.length) {
+            const firstBody: any = body[0] as any;
+            const bodyId: string =
+              firstBody.id ||
+              (firstBody.getProperty && firstBody.getProperty("id")) ||
+              (firstBody.getProperty && firstBody.getProperty("@id"));
+
+            if (bodyId) {
+              imageUri = String(bodyId);
+            }
+          }
+        }
+
+        if (/[?&]op=thumb(&|$)/i.test(imageUri)) {
+          const items: any[] = (canvas as any).getProperty
+            ? (canvas as any).getProperty("items")
+            : null;
+
+          if (items && items.length) {
+            const annotationPage: any = items[0];
+            const annotations2: any[] = annotationPage?.items;
+            const annotation: any = annotations2 && annotations2.length
+              ? annotations2[0]
+              : null;
+            const body: any = annotation?.body;
+            const bodyItem: any = Array.isArray(body) ? body[0] : body;
+            const bodyId: string = bodyItem?.id || bodyItem?.["@id"];
+
+            if (bodyId) {
+              imageUri = String(bodyId);
+            }
+          }
+        }
+      }
+    }
+
+    if (/[?&]op=thumb(&|$)/i.test(imageUri)) {
+      imageUri = imageUri.replace(/([?&]op=)thumb([&#]|$)/i, "$1img$2");
+    }
+
+    return imageUri;
+  }
+
+  getImageResourcesFromCanvases(): IExternalResourceData[] {
+    const canvases: Canvas[] = this.extension.getCurrentCanvases();
+    const resources: IExternalResourceData[] = [];
+
+    for (let i = 0; i < canvases.length; i++) {
+      const canvas: Canvas = canvases[i];
+      const imageUri: string | null = this.getCanvasBodyImageUri(canvas);
+
+      if (!imageUri) {
+        continue;
+      }
+
+      resources.push(<IExternalImageResourceData>{
+        id: imageUri,
+        width: canvas.getWidth(),
+        height: canvas.getHeight(),
+        index: canvas.index,
+        hasServiceDescriptor: false,
+      });
+    }
+
+    return resources;
+  }
+
+  getCanvasBodyImageUri(canvas: Canvas): string | null {
+    const annotations: Annotation[] = canvas.getContent();
+
+    if (annotations.length) {
+      const body: AnnotationBody[] = annotations[0].getBody();
+
+      if (body.length) {
+        const firstBody: any = body[0] as any;
+        const bodyId: string =
+          firstBody.id ||
+          (firstBody.getProperty && firstBody.getProperty("id")) ||
+          (firstBody.getProperty && firstBody.getProperty("@id"));
+
+        if (bodyId) {
+          return String(bodyId);
+        }
+      }
+      //-    } catch( err: any) {
+      //-      console.log('error encounter in openMedia');
+      //-      console.log(err);
+    }
+
+    const items: any[] = (canvas as any).getProperty
+      ? (canvas as any).getProperty("items")
+      : null;
+
+    if (items && items.length) {
+      const annotationPage: any = items[0];
+      const annotations2: any[] = annotationPage?.items;
+      const annotation: any = annotations2 && annotations2.length
+        ? annotations2[0]
+        : null;
+      const body: any = annotation?.body;
+      const bodyItem: any = Array.isArray(body) ? body[0] : body;
+      const bodyId: string = bodyItem?.id || bodyItem?.["@id"];
+
+      if (bodyId) {
+        return String(bodyId);
+      }
+    }
+
+    try {
+      const width: number = canvas.getWidth() || 0;
+      const canonicalImageUri: string = canvas.getCanonicalImageUri(width);
+
+      if (canonicalImageUri) {
+        return canonicalImageUri;
+      }
+    } catch {
+      // do nothing
+    }
+
+    try {
+      const thumbs: any[] = (canvas as any).getProperty
+        ? (canvas as any).getProperty("thumbnail")
+        : null;
+
+      if (thumbs && thumbs.length) {
+        const thumb: any = thumbs[0];
+        const thumbId: string = thumb?.id || thumb?.["@id"];
+
+        if (thumbId) {
+          return String(thumbId).replace(
+            /([?&]op=)thumb([&#]|$)/i,
+            "$1img$2"
+          );
+        }
+      }
+    } catch {
+      // do nothing
+    }
+
+    return null;
+  }
+
 
   getPagePositions(
     resources: IExternalResourceData[]
@@ -827,7 +1258,7 @@ export class OpenSeadragonCenterPanel extends CenterPanel {
         }
       }
     }
-    
+
 
     this.setNavigatorVisible();
 
@@ -897,6 +1328,10 @@ export class OpenSeadragonCenterPanel extends CenterPanel {
   }
 
   updateBounds(): void {
+    if (!this.items || !this.items.length) {
+      return;
+    }
+
     const settings: ISettings = this.extension.getSettings();
 
     // if this is the first load and there are initial bounds, fit to those.
@@ -925,6 +1360,10 @@ export class OpenSeadragonCenterPanel extends CenterPanel {
   }
 
   goHome(): void {
+    if (!this.items || !this.items.length) {
+      return;
+    }
+
     this.viewer.viewport.goHome(true);
   }
 
@@ -1050,7 +1489,7 @@ export class OpenSeadragonCenterPanel extends CenterPanel {
           break;
         }
       }
-    }    
+    }
     return annotationsForCurrentImages;
   }
 
